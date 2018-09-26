@@ -1,10 +1,11 @@
+from core.models.base_model import BaseModel
 from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
 sex = (("Male", "MALE"), ("Female", "FEMALE"))
 marital = (("Married", "MARRIED"), ("Single", "SINGLE"))
-class AuthUserDemographic(models.Model):
+class AuthUserDemographic(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     first_name = models.CharField(max_length=255,null=True)
     unique_id = models.CharField(max_length=255,null=True)
