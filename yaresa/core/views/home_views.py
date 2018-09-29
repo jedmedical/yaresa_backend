@@ -25,7 +25,8 @@ def signin(request):
 
                 login(request, user)
                 messages.success(request, 'Login successful')
-                return redirect('core:view_user')
+                return redirect('core:dashboard')
+            return redirect('core:dashboard')
 
             messages.error(request, 'Wrong username or password')
 
@@ -37,8 +38,5 @@ def signin(request):
     return render(request,'signin.html',context)
 
 
-
-def dashboard(request):
-    return redirect('core:view_user')
 
 
