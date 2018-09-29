@@ -1,35 +1,19 @@
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>JED Medical | Admin Login</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="css/test.css" rel="stylesheet">
-</head>
+{% extends 'base.html' %}
 
-    <body style="background-image: linear-gradient(to bottom right,#ff3300,#ff6600);">
-	
-	 <div class="container-fluid">
-	    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-    <a class="navbar-brand" href="#">
-	 <img src="images/yaresalogo.png" class="logo-style" alt="YARESA">
-	</a>
-        </nav>
-	</div>
+        {% block title %}Home{% endblock %}
+
+        {% block content %}
+            {% load static %}
+            </header>
+
   
 	<div class="container" >
 	<div class="row" style="margin-top:150px;">
        <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-xs-12">
 	   
-	     <form action="#" method="post" role="form"> 
+	     <form action="{% url 'core:signin' %}" method="post" role="form">
+             {% csrf_token %}
     <section class="form-elegant">
 
     <!--Form without header-->
@@ -39,21 +23,20 @@
 
             <!--Header-->
             <div class="text-center">
-                <h3 class="dark-grey-text mb-5"><strong class="orange-text">Admin LogIn</strong></h3>
+                <h3 class="dark-grey-text mb-5"><strong class="orange-text"> LogIn</strong></h3>
             </div>
 
             <!--Body-->
             <div class="md-form orange-text">
 			    <i class="fa fa-user prefix"></i>
-                <input type="text" id="loginuser" class="form-control" name="username" required>
-                <label for="loginuser orange-text">Your Username</label>
+                {{ login_form.username }}
+                <label for="id_username">Your Username</label>
             </div>
               <br>
             <div class="md-form pb-3 orange-text">
 			     <i class="fa fa-lock prefix"></i>
-                <input type="password" id="loginpass" class="form-control" name="password" required>
-                <label for="log
-				inpass orange-text">Your Password</label>
+                {{ login_form.password }}
+                <label for="id_password orange-text">Your Password</label>
                  <p class="justify-content-end d-flex"><a href="#" class="orange-text font-small ml-1">Forgot Password?</a></p>
             </div>
 
@@ -66,33 +49,15 @@
 
         <!--Footer-->
         <div class="modal-footer mx-5 pt-3 mb-1">
-            <p class="font-small grey-text d-flex justify-content-end">Not An Admin? <a href="SarpMedicSignUp.html" class="orange-text ml-1">Add Admin</a></p>
+{#            <p class="font-small grey-text d-flex justify-content-end">Not An Admin? <a href="SarpMedicSignUp.html" class="orange-text ml-1">Add Admin</a></p>#}
         </div>
 
     </div>
-            
+           </section>
 			  
 	      </form>
 	   </div>  
  	 </div><!--row ends-->
 </div>
-	
-	
 
-	
-	<!-- SCRIPTS -->
-     <script> 
-     </script>
-    <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- custom JavaScript -->
-    <script type="text/javascript" src="js/test.js"></script>
-
-    </body>
-</html>
+    {% endblock %}
