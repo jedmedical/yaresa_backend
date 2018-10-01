@@ -1,72 +1,196 @@
-.intro-2 {
-    background: url(note5.jpg)no-repeat center center;
-    background-size: cover;
+*{
+box-sizing:border-box!important;	
 }
-.btn .fa {
-    margin-left: 3px;
-}
-.top-nav-collapse {
-    background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
-}
-.navbar:not(.top-nav-collapse) {
-   background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
-}
-@media (max-width: 768px) {
-    .navbar:not(.top-nav-collapse) {
-       background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
+/*Another test */
+	
+ html,
+        body,
+        header,
+        .intro-2 {
+          height: 100%;
+        }
+
+        @media (max-width: 768px) {
+          html,
+          body,
+          header,
+          .intro-2 {
+            height: 100%;       
+			}
+        }
+		@media (max-width:330px){
+		   .logo-style{
+			     height:50px!important;
+				width:30px!important;
+					margin-right:70px!important;
+	                margin-left:15px!important;
+			}
+		}
+		@media (max-width:216px){
+		   .logo-style{
+			     height:50px!important;
+				width:30px!important;
+					margin-right:40px!important;
+	                margin-left:5px!important;
+			}
+		}
+        @media (min-width: 768px) and (max-width:1200px) {
+            html,
+            body,
+            header,
+            .intro-2 {
+              height: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar:not(.top-nav-collapse) {
+                background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
+            }
+            .navbar {
+              box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+            }
+        }
+		@media (max-width:768px;) {
+       .margins {
+        margin-left: 2rem;
+		margin-bottom: 1rem;
     }
 }
-h6 {
-    line-height: 1.7;
+   @media (max-width:600px){
+    .phoneapp-style{
+		top:-25px!important;
+		padding-left:20px!important;
+	   margin-top:-50px!important;
+	   max-width:90%!important;
+       max-height:100%!important;
+	}
+	.navbar {
+              box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+            }
+   }
+@media (m1n-width:600px) and (max-width:768px) {
+    .phoneapp-style{
+		padding-left:250px!important;
+	   max-width:90%!important;
+       max-height:100%!important;
+	}
+	.navbar {
+              box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+            }
+   }
+ @media (max-height:480px) {
+    .sloganstyle{
+		height:100@!important;
+		width:90%!important;
+		margin-bottom:10px!important;
+	}
+	.navbar {
+              box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+            }
+	.phoneapp-style{
+		height:30%!important;
+		width:auto;
+	}
+	.compstyle{
+	letter-spacing:1px!important;
+	font-size:1rem!important;
+	font-weight:200!important;
 }
-@media (max-width: 450px) {
-    .margins {
-        margin-right: 1rem;
-        margin-left: 1rem;
-    }
+    .myh4style{
+	font-size:1.5rem!important;
+	letter-spacing:1px!important;
+	font-weight:400 !important;
 }
-@media (max-width: 740px) {
-    .full-height,
-    .full-height body,
-    .full-height header,
-    .full-height header .view {
-        height: 100%;
-    }
+	.btnstyle{
+		height:40px!important;
+		padding-bottom:10px!important;
+     font-weight:300;
+	color:#ff3300!important;
+	background-color:#fff;
+}
+	.margins{
+	  margin-bottom:10px!important;	
+	}
+	.phoneapp-style{
+		padding-left:20px!important;
+	   max-width:90%!important;
+       max-height:70%!important;
+	}
+   }  
+		.logo-style{
+	box-sizing:border-box;
+	height:70px;
+	width:50px;
+	margin-right:150px;
+	margin-left:30px;
+}
+.navbar{
+   box-shadow:none!important;
+   border:none!important;
+}
+
+@media (min-width:768px) and (max-width:992px){
+	 .navbar:not(.top-nav-collapse) {
+                background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
+            }
+	  .navbar {
+              box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+            }
+} 
+.handstyle{
+
 }
 .logo-style{
 	box-sizing:border-box;
-	height:100px;
-	margin-right:500px;
+	height:70px;
+	width:50px;
+	margin-right:150px;
+	margin-left:30px;
 }
-.handstyle{
-	height:400px;
-	width:400px;
-	border-radius:50%;
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+.navbar{
+   box-shadow:none!important;
+   border:none!important;
 }
-.nav-item{
-    padding: 10px 10px 10px 5px;
+.top-nav-collapse {
+    background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
 }
 .nav-link{
     color: #fff!important;
     text-transform: uppercase;
     font-size: 16px;
     line-height: 30px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'Roboto', Arial, Tahoma, sans-serif;
 
 }
 .nav-link:hover{
     color: #333!important;
 }
-
-.navbar-toggler-icon {
-    background: #444;
-    border: 1px solid white;
-    width:35px;
-    height:35px;
-	border-radius:10px;
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+.modalbtn{
+	background-color:#ff6600!important;
+	color:#fff!important;
+}
+.sloganstyle{
+	margin-top:20px!important;
+}
+.btnstyle{
+     
+	font-weight:500;
+	color:#ff3300!important;
+	background-color:#fff;
+}
+.compstyle{
+	letter-spacing:2px;
+	font-size:1.5rem;
+	font-weight:300;
+}
+.myh4style{
+	font-size:2.5rem;
+	letter-spacing:2px;
+	font-weight:700 !important;
+}
+.rowstyle{
+	margin-top:130px;
 }
 .no-account-style{
 	color:gray;
@@ -81,8 +205,53 @@ h6 {
 input .inputstyle{
 	border-bottom: 1px solid #ff3300!important;
 }
-input:focus{
+
+.contentcolor{
 	color:#ff6600;
-	outline: none!important;
-	border-color:#ff3300!important;
+}
+.contentframe{
+	height:200px!important;
+	width:inherit;
+}
+.text-color{
+	color:gray;
+}
+.text-uppercase{
+	text-transform:uppercase;
+}
+.pic-row{
+	margin-top:50px;
+	margin-bottom:40px;
+}
+.pic-card{
+	background: linear-gradient(to right, #ffeeee, #ddefbb); 
+}
+#imgId{
+  width: 150px;
+  height:150px;
+  border-radius:50%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  }  
+
+.maritalstyle{
+	margin-right:20px!important;
+	color:gray;
+}
+.emerstyle{
+	color:gray;
+}
+
+.my-chip-style{
+		background: linear-gradient(to right,  #d53369, #cbad6d);
+}
+#others .chip{
+	background-color: #4285f4;
+	color:#fff;
+}
+#currentmed .chip{
+	background-color: #4285f4;
+	color:#fff;
+}
+.chips .input{
+	width:200px!important;	
 }
