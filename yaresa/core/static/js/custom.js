@@ -7,6 +7,12 @@
 });
 
 $('#currentmed').material_chip({
-    placeholder:'Add Medication.',
-    secondaryPlaceholder:'Add Medication.',
+    placeholder:'Add Medication-Dosage-Time.',
+    secondaryPlaceholder:'Add Medication - Dosage - Time .',
 });
+
+$('#surgeries').material_chip({
+    placeholder:'Add Surgery - Date',
+    secondaryPlaceholder:'Add (Surgery - Date).',
+});
+
