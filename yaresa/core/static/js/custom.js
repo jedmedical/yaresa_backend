@@ -16,3 +16,12 @@ $('#surgeries').material_chip({
     secondaryPlaceholder:'Add (Surgery - Date).',
 });
 
+var data= $('#others').material_chip('data');
+alert(data[0].tag);
+
+var data= $('#currentmed').material_chip('data');
+alert(data[0].tag);
+
+var data= $('#surgeries').material_chip('data');
+alert(data[0].tag);
+
