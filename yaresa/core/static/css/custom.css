@@ -107,6 +107,12 @@ box-sizing:border-box!important;
 	color:#ff3300!important;
 	background-color:#fff;
 }
+@media (max-height:680px){
+	 .intro-style{
+		 height:100%!important;
+	 }
+
+}
 	.margins{
 	  margin-bottom:10px!important;
 	}
@@ -135,6 +141,18 @@ box-sizing:border-box!important;
 	  .navbar {
               box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
             }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+} 
+@media (max-width:768px){
+	.contentframe{
+		margin-bottom:15px!important;
+		max-width:90%!important;
+	}
+=======
+>>>>>>> master
+>>>>>>> yaresa_sam
 }
 .handstyle{
 
@@ -209,8 +227,8 @@ input .inputstyle{
 	color:#ff6600;
 }
 .contentframe{
-	height:200px!important;
-	width:inherit;
+	height:406px!important;
+	width:100%;
 }
 .text-color{
 	color:gray;
@@ -251,6 +269,23 @@ input .inputstyle{
 	background-color: #4285f4;
 	color:#fff;
 }
+#surgeries .chip{
+	background-color: #4285f4;
+	color:#fff;
+}
 .chips .input{
 	width:200px!important;
+<<<<<<< HEAD
+=======
+}
+.card-color{
+	background-color:#ff3300;
+}
+.contentimg{
+	margin-left:41%;
+}
+
+.whiteBG{
+	background-color:#fff;
+>>>>>>> yaresa_sam
 }

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>JED Medical | Admin Login</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+
+    <body style="background-color:#ff3300;">
+	
+	 <div class="container-fluid">
+	    <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
+    <a class="navbar-brand" href="#">
+	 <img src="images/yaresalogo.png" class="logo-style" alt="YARESA">
+	</a>
+        </nav>
+	</div>
+  
+	
+	  <div class="container">
+	<div class="row mt-5 pb-5">
+		<div class="col-xs-10 col-sm-12 card">
+			   <form class="" method="post" action="" role="form">
+				<p class="h3 text-center py-2 text-uppercase grey-text">Medical Information</p>
+				<label class="h5 text-color text-uppercase">Biostatistics :</label>
+				   <div class="form-row">
+				    <div class="col-sm-3">
+												<div class="md-form form-group">
+						   							<label class="control-label">Height</label>
+						   							<input type="text" class="form-control" name="height" required>
+												</div>
+			            </div>				
+						<div class="col-sm-3">
+												<div class="md-form form-group">
+						   							<label class="control-label">Weight</label>
+						   						<input type="text" class="form-control" name="weight" required>
+												</div>
+						</div>	
+						<div class="col-sm-3">
+												<div class="md-form form-group">
+						   							<label class="control-label">BMI</label>
+						   						<input type="text" class="form-control" name="bmi" required>
+												</div>
+						</div>		
+						<div class="col-sm-3">
+												<div class="md-form form-group">
+						   							<label class="control-label">Blood Pressure</label>
+						   						<input type="text" class="form-control" name="bloodpressure" required>
+												</div>
+						</div>
+				   </div><br>	
+				   
+				   
+				     
+					 <label class="h5 text-color text-uppercase">medical history <span class="h6">(Chronic Condition)</label><br>
+				     <label class="h6 text-color text-uppercase">Diabetes Mellitus DM :</label>
+				   
+			          <div class="form-row">
+					 
+				       <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="diabetesM" id="DMYes" value="Yes" required>
+						   <label class="form-check-label" for="DMYes">Yes</label>
+				         </div>
+				       </div>
+					   
+					   <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="diabetesM" id="DMNo" value="No" required>
+						   <label class="form-check-label" for="DMNo">No</label>
+				         </div>
+				       </div>
+					   
+					  </div>
+					  
+					  <label class="h6 text-color text-uppercase">systemic hypertension :</label>
+				   
+			          <div class="form-row">
+					 
+				       <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="syshypertension" id="SHYes" value="Yes" required>
+						   <label class="form-check-label" for="SHYes">Yes</label>
+				         </div>
+				       </div>
+					   
+					   <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="syshypertension" id="SHNo" value="No" required>
+						   <label class="form-check-label" for="SHNo">No</label>
+				         </div>
+				       </div>
+					   
+					  </div>
+             		
+				      <label class="h6 text-color text-uppercase">epilepsy :</label>
+				   
+			         <div class="form-row">
+					 
+				       <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="epilepsy" id="EPYes" value="Yes" required>
+						   <label class="form-check-label" for="EPYes">Yes</label>
+				         </div>
+				       </div>
+					  
+					  <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="epilepsy" id="EPNo" value="No" required>
+						   <label class="form-check-label" for="EPNo">No</label>
+				         </div>
+				       </div>
+					 </div>
+					 
+					  <label class="h6 text-color text-uppercase">uterine fibroids :</label>
+				   
+			         <div class="form-row">
+					 
+				       <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="uterineFibroids" id="UFYes" value="Yes" required>
+						   <label class="form-check-label" for="UFYes">Yes</label>
+				         </div>
+				       </div>
+					  
+					  <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="uterineFibroids" id="UFNo" value="No" required>
+						   <label class="form-check-label" for="UFNo">No</label>
+				         </div>
+				       </div>
+					 </div>
+					 
+					  <label class="h6 text-color text-uppercase">peptic ulcer disease :</label>
+				   
+			         <div class="form-row">
+					 
+				       <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="pepticulcer" id="PUDYes" value="Yes" required>
+						   <label class="form-check-label" for="PUDYes">Yes</label>
+				         </div>
+				       </div>
+					  
+					  <div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="pepticulcer" id="PUDNo" value="No" required>
+						   <label class="form-check-label" for="PUDNo">No</label>
+				         </div>
+				       </div>
+					 </div>
+					 
+					 <label class="h6 text-color text-uppercase">others conditions:</label>
+				   
+			         <div class="form-row">
+					    <div class="col-sm-12 col-xs-6">
+					      <div class="chips chips-placeholder" id="others"></div>
+
+					 </div>
+					 
+					 </div><br>
+					 
+					 <label class="h5 text-color text-uppercase">current medication :</label>
+				   
+			         <div class="form-row">
+					    <div class="col-sm-12 col-xs-6">
+					      <div class="chips chips-placeholder" id="currentmed"></div>
+						</div>
+					</div><br>
+					 
+					 
+					 <label class="h5 grey-text text-uppercase">Surgeries :</label>
+				      <div class="form-row">
+					      <div class="col-sm-12 col-xs-6">
+					      <div class="chips chips-placeholder" id="surgeries">
+					  </div>
+					  </div>
+					  </div><br>
+					  
+					  <h1 class="text-center red-text mb-3">OR</h1>
+					  
+					  <label class="h6 text-color text-uppercase">others conditions :</label>
+			  <div class="form-row">				     
+				 <div class="col-sm-6 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Add other conditions" aria-label="Add other conditions" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+			  </div>
+					  
+					  
+					 <label class="h5 text-color text-uppercase">current medication :</label>
+			  <div class="form-row">				     
+				 <div class="col-sm-6 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Add current medications" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+				  
+				  <div class="col-sm-3 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Dosage" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+				  
+				  <div class="col-sm-3 py-2">
+				     <div class="md-form input-group">
+					 <input  class="form-control mt-3" placeholder="Refill Date" type="text" onfocus="this.type='date'; this.setAttribute('onfocus','');this.blur();this.focus();">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+				  
+			 </div>
+					    
+					  
+			 <label class="h5 text-color text-uppercase">current medication :</label>
+			  <div class="form-row">				     
+				 <div class="col-sm-12 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Add current medications" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <input type="text" class="form-control mt-3" placeholder="Dosage" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <input  class="form-control mt-3" placeholder="Refill Date" type="text" onfocus="this.type='date'; this.setAttribute('onfocus','');this.blur();this.focus();" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+			  </div>		
+
+
+			<label class="h5 text-color text-uppercase">surgeries :</label>
+			  <div class="form-row">				     
+				 <div class="col-sm-12 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Name of Surgery" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <input  class="form-control mt-3" placeholder="Date of Surgery" type="text" onfocus="this.type='date'; this.setAttribute('onfocus','');this.blur();this.focus();" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+			  </div>
+
+            <label class="h5 text-color text-uppercase text-center">allergies :</label>
+			  <div class="form-row">				     
+				 <div class="col-sm-12 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Drug Allergies" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <input type="text" class="form-control mt-3" placeholder="Food Allergies" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <input type="text" class="form-control mt-3" placeholder="Other Allergies" aria-label="Add current medications" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+			  </div> 			  
+					  
+					  <h1 class="text-center red-text mb-3">OR</h1>
+					  
+				<label class="h5 text-color text-uppercase">Allergies :</label>
+			  <div class="form-row">				     
+				 <div class="col-sm-6 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Drug Allergies" aria-label="Drug Allergies" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+				  
+				  <div class="col-sm-3 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Food Allergies" aria-label="Food Allergies" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+				  
+				  <div class="col-sm-3 py-2">
+				     <div class="md-form input-group">
+					 <input type="text" class="form-control mt-3" placeholder="Other Allergies" aria-label="Other Allergies" aria-describedby="basic-addon2">
+					 <div class="input-group-append">
+					 <button class="btn btn-primary waves-effect ml-0 mt-1" type="button">ADD</button>
+					</div>
+					</div>
+				  </div>
+				  
+			 </div>
+					    
+					  	  
+					  
+					 
+				   <label class="h5 text-color text-uppercase">social history</label><br>
+				   <label class="h6 text-color text-uppercase">alcohol :</label>
+				   
+			       <div class="form-row">
+				   
+				    <div class="col-sm-2 col-xs-6">
+					  <div class="form-check">
+					    <input class="form-check-input white" type="radio" name="alcohol" id="ALYes" value="Yes" required>
+						 <label class="form-check-label" for="ALYes">Yes</label>
+				      </div>
+					</div>
+					
+					<div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="alcohol" id="ALNo" value="No" required>
+						   <label class="form-check-label" for="ALNo">No</label>
+				         </div>
+				       </div>					
+					
+					 </div>
+					 
+					 <label class="h6 text-color text-uppercase">smoking :</label>
+				   
+			       <div class="form-row">
+				   
+				    <div class="col-sm-2 col-xs-6">
+					  <div class="form-check">
+					    <input class="form-check-input white" type="radio" name="smoking" id="SMYes" value="Yes" required>
+						 <label class="form-check-label" for="SMYes">Yes</label>
+				      </div>
+					</div>
+					
+					<div class="col-sm-2 col-xs-6">
+						 <div class="form-check">
+						   <input class="form-check-input white" type="radio" name="smoking" id="SMNo" value="No" required>
+						   <label class="form-check-label" for="SMNo">No</label>
+				         </div>
+				    </div>					
+					
+					 </div><br>
+					 <hr>
+            <div class="row">
+			    <div class="col-sm-6 offset-sm-4">
+			      <button type="submit" class="col-sm-4 btn aqua-gradient btn-rounded form-control" id="medinfosubbtn">SAVE</button> 
+		          <button type="reset" class="col-sm-4 btn peach-gradient btn-rounded form-control" id="medinforesbtn">RESET</button><br>
+			    </div>
+			</div>	
+					 
+	     </form>
+	    </div>
+	  </div>
+   </div>
+ 
+	
+	
+	
+	
+
+	
+	<!-- SCRIPTS -->
+     <script> 
+	  
+	 
+     </script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- custom JavaScript -->
+    <script type="text/javascript" src="js/custom.js"></script>
+
+    </body>
+</html>
