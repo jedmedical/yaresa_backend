@@ -1,11 +1,201 @@
-{% include 'dashboardbase.html' %}
+{% extends 'dashboardbase.html' %}
 
-{% block content %}
+        {% block title %}New user{% endblock %}
+
+        {% block content %}
+            {% load static %}
 
 
     <div class="container-fluid">
 
 
+
+	<div class="container">
+
+ 	<div class="row my-5">
+		<div class="col-xs-12 col-sm-12 card" style="">
+			  <div class="container">
+			    <form name="demoform" method="post" role="form" enctype="multipart/form-data">{% csrf_token %}
+
+
+			       <div class="row pic-row">
+          <div class="card pic-card col-md-4 col-sm-6 col-xs-8 offset-sm-4">
+
+			  <p class="h4 text-center grey-text text-uppercase pt-2">Client's Picture</p><br>
+			   <div class="row d-flex justify-content-center">
+			  <div class="file-field">
+        <div class="mb-4" align="center">
+       <img id="imgId" src="{% static 'images/placeholder-avatar.jpg' %} " class="avatar-pic">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="btn btn-mdb-color btn-rounded float-left">
+                <span>Add photo</span>
+                <input name="picture" id="id_picture" type="file" onchange="document.getElementById('imgId').src = window.URL.createObjectURL(this.files[0])" required>
+            </div>
+        </div>
+    </div>
+         </div>
+
+           </div>
+        </div><br><br>
+
+
+
+				<p class="h3 text-center grey-text text-uppercase">Demographic</p><br>
+				   <div class="form-row">
+				        <div class="col-sm-2">
+												<div class="md-form form-group">
+						   							<label class="control-label"></label>
+						   							{{ new_user_form.title }}
+												</div>
+			            </div>
+		                <div class="col-sm-3">
+												<div class="md-form form-group">
+						   							<label for = "id_first_name" class="control-label">First Name</label>
+                                                    {{ new_user_form.first_name }}
+
+												</div>
+			            </div>
+						<div class="col-sm-3">
+												<div class="md-form form-group">
+						   							<label for = "id_surname"  class="control-label">Last Name</label>
+						   						{{ new_user_form.surname }}
+												</div>
+						</div>
+						<div class="col-sm-4">
+												<div class="md-form form-group">
+						   							<label for = "id_other_name"  class="control-label">Other Name</label>
+						   						{{ new_user_form.other_name }}
+												</div>
+						</div>
+				   </div>
+			       <div class="form-row">
+				   <div class="col-sm-4 py-2">
+
+                       <div class="md-form form-group">
+						<label for = "id_date_of_birth" class="h5 text-uppercase grey-text">Date of Birth </label>
+						{{ new_user_form.date_of_birth }}
+						</div>
+					 </div>
+	                  <div class="col-sm-4">
+				        <label class="h5 grey-text text-uppercase">Sex :</label>
+
+                            {% for s in new_user_form.sex %}
+                            <div class="form-check">
+
+                                {{ s.tag }}
+                            <label for="{{ s.id_for_label }}"> {{ s.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+						</div>
+						<div class="col-sm-4">
+						<label class="h5 maritalstyle text-uppercase">Marital Status :</label>
+						{% for sc in new_user_form.marital_status %}
+                            <div class="form-check">
+
+                                {{ sc.tag }}
+                            <label for="{{ sc.id_for_label }}"> {{ sc.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+						</div>
+				   </div>
+			<div class="form-row">
+				   <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				    <label for="id_nationality" class="control-label">Nationality</label>
+				    {{ new_user_form.nationality }}
+			        </div>
+				  </div>
+				 <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				     <label for="id_religion" class="control-label">Religion</label>
+				     {{ new_user_form.religion }}
+			         </div>
+				 </div>
+				 <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				     <label for="id_address" class="control-label">Digital Address (GP Code)</label>
+				     {{ new_user_form.address }}
+			         </div>
+				 </div>
+			 </div>
+
+				  <div class="form-row">
+				   <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				    <label for="id_occupation" class="control-label">Occupation</label>
+				    {{ new_user_form.occupation }}
+			        </div>
+				  </div>
+				 <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				     <label for="id_email" class="control-label">Email</label>
+				     {{ new_user_form.email }}
+			         </div>
+				 </div>
+				 <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				     <label class="control-label">Mobile</label>
+				     {{ new_user_form.mobile }}
+			         </div>
+				 </div>
+			 </div>
+
+				  <label class="h5 grey-text text-uppercase">Emergency Contact:</label>
+				  <div class="form-row">
+				   <div class="col-sm-4">
+				     <div class="md-form form-group">
+				     <label for="id_emergency_contact_name"class="control-label">Name</label>
+				     {{ new_user_form.emergency_contact_name }}
+			         </div>
+				 </div>
+				 <div class="col-sm-4">
+				     <div class="md-form form-group">
+				     <label for = "id_emergency_contact_mobile" class="control-label">Mobile</label>
+				    {{ new_user_form.emergency_contact_mobile }}
+			         </div>
+				 </div>
+			 </div>
+
+			 <label class="h5 text-color text-center text-uppercase py-2">lab tests</label><br>
+
+
+			       <div class="row">
+                        <div class="col-md-4">
+                            <label class="h6 text-color text-uppercase">Blood Group :</label>
+                            {{ new_user_form.blood_group }}
+                        </div>
+
+                    <div class="col-md-4">
+                        <label class="h6 text-color text-uppercase">sickling status :</label>
+                        {{ new_user_form.sickling_status }}
+                    </div>
+					  <!--Sickling Status -->
+				    <div class="col-md-4">
+                        <label class="h6 text-color text-uppercase">g6pd :</label>
+                        {{ new_user_form.g6pd }}
+				    </div>
+
+				   <!-- G6PD -->
+</div>
+
+				<hr>
+             <div class="row">
+			   <div class="col-sm-8 offset-sm-4" style="margin-bottom: 20px;">
+			     <button type="submit" class="btn btn-secondary btn-lg waves-effect waves-light" id="button"><i class="fa fa-heart mr-2"></i>Register</button>
+		          <button type="reset" class="btn btn-primary btn-lg waves-effect waves-light" id="button">Reset Form</button><br>
+			    </div>
+
+				</div>
+
+
+			   </form>
+
+
+              </div>
+        </div>
+	</div>
+</div>
 
 
     </div>

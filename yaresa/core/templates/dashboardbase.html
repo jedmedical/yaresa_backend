@@ -62,7 +62,7 @@
                             <ul>
                                 <li><a href="" class="waves-effect">View Users</a>
                                 </li>
-                                <li><a href="" class="waves-effect">Add new User</a>
+                                <li><a href="{% url 'core:new-user' %}" class="waves-effect">Add new User</a>
                                 </li>
 
                             </ul>
@@ -157,7 +157,9 @@
 
     <!--Main layout-->
     <main>
-       {% block content %}{% endblock %}
+       {% block content %}
+
+       {% endblock %}
     </main>
     <!--Main layout-->
 

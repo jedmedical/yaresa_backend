@@ -1,4 +1,4 @@
-from core.views.core_views import dashboard
+from core.views.core_views import dashboard, add_new_user
 from core.views.home_views import index, signin
 from django.conf.urls import url
 
@@ -12,6 +12,6 @@ urlpatterns = [
 
     url(r'^accounts/signin', signin, name="signin"),
     url(r'^dashboard', dashboard, name="dashboard"),
-    url(r'^add-user', dashboard, name="dashboard"),
+    url(r'^add-user', add_new_user, name="new-user"),
 
 ]
