@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Django default" uuid="d89d05c1-1b09-45bb-981a-e63bfe40a4e7">
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" family="SQLITE" exact-version="3.16.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <introspection-schemas>*:</introspection-schemas>
+    </data-source>
+    <data-source name="SQLite -" uuid="01c68de1-8638-4269-8afa-b505b18bb38b">
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" family="SQLITE" exact-version="3.16.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <introspection-schemas>*:</introspection-schemas>
+    </data-source>
+  </component>
+</project>

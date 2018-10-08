@@ -31,7 +31,7 @@ class NewUserForm(forms.Form):
     emergency_contact_name = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     emergency_contact_mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
 
-class newUserMedicalHistoryForm(forms.Form):
+class NewUserMedicalHistoryForm(forms.Form):
     blood_group = forms.ChoiceField( choices= Blood_Group, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     sickling_status = forms.ChoiceField( choices= Sickling_Status, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     g6pd = forms.ChoiceField( choices= G6pd, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
@@ -44,5 +44,5 @@ class newUserMedicalHistoryForm(forms.Form):
     uterine_fibroid = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
     peptic_ulcer_disease = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
 
-    other_condition = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    other_condition = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "chips chips-placeholder"}),)
 

@@ -1,6 +1,6 @@
 import datetime
 from core.core_util import add_zeros
-from core.forms.core_forms import NewUserForm
+from core.forms.core_forms import NewUserForm,NewUserMedicalHistoryForm
 from core.models import AuthUserDemographic
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -39,9 +39,9 @@ def add_new_user(request):
             mobile = new_user_form.cleaned_data['mobile']
             emergency_contact_name = new_user_form.cleaned_data['emergency_contact_name']
             emergency_contact_mobile = new_user_form.cleaned_data['emergency_contact_mobile']
-            blood_group = new_user_form.cleaned_data['blood_group']
-            sickling_status = new_user_form.cleaned_data['sickling_status']
-            g6pd = new_user_form.cleaned_data['g6pd']
+            # blood_group = new_user_form.cleaned_data['blood_group']
+            # sickling_status = new_user_form.cleaned_data['sickling_status']
+            # g6pd = new_user_form.cleaned_data['g6pd']
 
             pin = random.randint(1000,9999)
             unique_id="1"
@@ -91,7 +91,13 @@ def add_new_user(request):
 
 
 def add_medical_info(request,pk):
+    if request.method == "POST":
+        new_medical = NewUserMedicalHistoryForm(request.POST)
 
+        if new_medical.is_valid():
+            picture = new_user_form.cleaned_data['picture']
 
-    return render(request,'medicalinfo.html')
+    new_medical = NewUserMedicalHistoryForm()
+    context = {'new_medical': new_medical}
+    return render(request,'medical-info.html',context)
 

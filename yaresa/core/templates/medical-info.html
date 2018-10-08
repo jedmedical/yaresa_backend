@@ -1,0 +1,200 @@
+{% extends 'dashboardbase.html' %}
+
+        {% block title %}New user{% endblock %}
+
+        {% block content %}
+            {% load static %}
+
+
+    <div class="container-fluid">
+
+
+
+	<div class="container">
+
+ 	<div class="row my-5">
+		<div class="col-xs-12 col-sm-12 card" style="">
+			  <div class="container">
+{#              {% for field in new_user_form %}#}
+{#   <div class="container">#}
+{##}
+{##}
+{#    <div class="card aqua-gradient">#}
+{#       <p class="danger-color" title="">{{ field.errors }}</p>#}
+{##}
+{#    </div>#}
+{#    </div>#}
+{#{% endfor %}#}
+
+			    <form name="demoform" method="post" role="form" >{% csrf_token %}
+
+
+			       <div class="row pic-row">
+
+                   </div>
+			 <br><br>
+<label class="h5 title text-center text-uppercase py-2">lab tests</label><br>
+
+
+			       <div class="row">
+                        <div class="col-md-4">
+                            <label class="h6 text-color text-uppercase">Blood Group :</label>
+                            {{ new_medical.blood_group }}
+                        </div>
+
+                    <div class="col-md-4">
+                        <label class="h6 text-color text-uppercase">sickling status :</label>
+                        {{ new_medical.sickling_status }}
+                    </div>
+					  <!--Sickling Status -->
+				    <div class="col-md-4">
+                        <label class="h6 text-color text-uppercase">g6pd :</label>
+                        {{ new_medical.g6pd }}
+				    </div>
+
+				   <!-- G6PD -->
+                    </div>
+          <br><br>
+ <label class="h5 title text-center text-uppercase py-2">Biostatistics</label><br>
+<br><br>
+			<div class="form-row">
+				   <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				    <label for="id_height" class="control-label">Height</label>
+				    {{ new_medical.height }}
+			        </div>
+				  </div>
+				 <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				     <label for="id_weight" class="control-label">Weight</label>
+				     {{ new_medical.weight }}
+			         </div>
+				 </div>
+				 <div class="col-sm-4 py-2">
+				     <p>BMI : <span></span></p>
+				 </div>
+			 </div>
+
+				  <div class="form-row">
+				   <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				    <label for="id_bp" class="control-label">Blood pressure</label>
+				    {{ new_medical.bp }}
+			        </div>
+				  </div>
+
+			 </div>
+<br><br>
+				  <label class="h5 title text-uppercase">Medical History</label>
+          <br><br>
+				  <div class="form-row">
+				    <div class="col-sm-4">
+
+
+                       <label class="h6 maritalstyle ">Diabetes Mellitus </label>
+						{% for sc in new_medical.diabetes_mellitus %}
+                            <div class="form-check">
+
+                                {{ sc.tag }}
+                            <label for="{{ sc.id_for_label }}"> {{ sc.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+
+			        </div>
+
+                  				    <div class="col-sm-4">
+
+
+                       <label class="h6 maritalstyle ">Systematic Hypertension</label>
+						{% for sc in new_medical.systematic_hypertension %}
+                            <div class="form-check">
+
+                                {{ sc.tag }}
+                            <label for="{{ sc.id_for_label }}"> {{ sc.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+
+			        </div>
+
+
+
+
+
+
+                  				    <div class="col-sm-4">
+
+
+                       <label class="h6 maritalstyle ">Epilepsy</label>
+						{% for sc in new_medical.epilepsy %}
+                            <div class="form-check">
+
+                                {{ sc.tag }}
+                            <label for="{{ sc.id_for_label }}"> {{ sc.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+
+			        </div>
+
+                  				    <div class="col-sm-4">
+
+
+                       <label class="h6 maritalstyle ">Uterine Fibroid</label>
+						{% for sc in new_medical.uterine_fibroid %}
+                            <div class="form-check">
+
+                                {{ sc.tag }}
+                            <label for="{{ sc.id_for_label }}"> {{ sc.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+
+			        </div>
+
+                  		    <div class="col-sm-4">
+
+
+                       <label class="h6 maritalstyle ">Peptic Ulcer Disease</label>
+						{% for sc in new_medical.peptic_ulcer_disease %}
+                            <div class="form-check">
+
+                                {{ sc.tag }}
+                            <label for="{{ sc.id_for_label }}"> {{ sc.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+
+			        </div>
+
+
+
+                  		    <div class="col-sm-4">
+
+
+                       <label class="h6 maritalstyle "></label>
+						{{ new_medical.other_condition }}
+                            </div>
+
+
+			        </div>
+
+				<hr>
+             <div class="row">
+			   <div class="col-sm-8 offset-sm-4" style="margin-bottom: 20px;">
+			     <button type="submit" class="btn btn-secondary btn-lg waves-effect waves-light" id="button"><i class="fa fa-heart mr-2"></i>Register</button>
+		          <button type="reset" class="btn btn-primary btn-lg waves-effect waves-light" id="button">Reset Form</button><br>
+			    </div>
+
+				</div>
+
+                   </div>
+                </form>
+			   </form>
+
+
+              </div>
+        </div>
+	</div>
+</div>
+
+
+    </div>
+
+{% endblock %}
