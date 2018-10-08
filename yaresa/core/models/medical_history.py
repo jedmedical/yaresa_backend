@@ -6,9 +6,13 @@ __author__ = 'andrews'
 
 class Medical_history(BaseModel):
     user = models.OneToOneField(AuthUserDemographic,on_delete=models.CASCADE, null=True)
-    diabetes_mellitus = models.BooleanField(default=False)
-    systematic_hypertension  = models.BooleanField(default=False)
-    epilepsy = models.BooleanField(default=False)
-    others = models.CharField(max_length=300,null=True)
+    # diabetes_mellitus = models.BooleanField(default=False)
+    # systematic_hypertension  = models.BooleanField(default=False)
+    # epilepsy = models.BooleanField(default=False)
+    #
+    condition = models.CharField(max_length=255,null=True)
+    condition_active = models.BooleanField(default=False)
+
+
 
 

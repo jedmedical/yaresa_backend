@@ -228,8 +228,12 @@
             minScrollbarLength: 20
         });
 
-        // Data Picker Initialization
-        $('.datepicker').pickadate();
+
+        $('.datepicker').pickadate({
+// Escape any “rule” characters with an exclamation mark (!).
+            format: 'yyyy-mm-dd',
+            formatSubmit: 'yyyy-mm-dd'
+        })
 
         // Material Select Initialization
         $(document).ready(function () {

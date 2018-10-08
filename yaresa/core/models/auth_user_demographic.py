@@ -8,7 +8,7 @@ marital = (("Married", "MARRIED"), ("Single", "SINGLE"))
 class AuthUserDemographic(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     picture = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
-    title = models.CharField(max_length= 30)
+    title = models.CharField(max_length= 30,null=True)
     first_name = models.CharField(max_length=255,null=True)
     other_name = models.CharField(max_length=255,null=True)
     unique_id = models.CharField(max_length=255,null=True)
