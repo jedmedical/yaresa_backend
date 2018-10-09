@@ -9,6 +9,7 @@ Blood_Group = (("A+","A+"),("B+","B+"),("AB+","AB+"),("O+","O+"),("A-","A-"),("B
 Sickling_Status = (("AA","AA"),("AS","AS"),("SS","SS"),("SC","SC"))
 G6pd = (("Normal","Normal"),("Partial Defect","Partial Defect"),("Partial Defect","Partial Defect"),("Full Defect","Full Defect"))
 true_or_false = (("Yes","Yes"),("No","No"))
+allergytype = (("Drug Allergy","Drug Allergy"),("Food Allergy","Food Allergy"),("Others","Others"))
 
 class NewUserForm(forms.Form):
     picture = forms.ImageField()
@@ -37,12 +38,26 @@ class NewUserMedicalHistoryForm(forms.Form):
     g6pd = forms.ChoiceField( choices= G6pd, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     height = forms.CharField(max_length=255,widget=forms.NumberInput(attrs={'class': "form-control"}),)
     weight = forms.CharField(max_length=255,widget=forms.NumberInput(attrs={'class': "form-control"}),)
-    bp  = forms.CharField(max_length=255,widget=forms.NumberInput(attrs={'class': "form-control"}),)
+    bp = forms.CharField(max_length=255,widget=forms.NumberInput(attrs={'class': "form-control"}),)
     diabetes_mellitus = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
     systematic_hypertension = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
     epilepsy = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
     uterine_fibroid = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
     peptic_ulcer_disease = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
 
-    other_condition = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "chips chips-placeholder"}),)
+    other_condition = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    medicine = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    dosage = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    refill_date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
+                                  input_formats=["%Y-%m-%d"])
+    allergy_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    allergy_type = forms.ChoiceField( choices= allergytype, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
+    alcohol = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(
+        attrs={'class': "form-check-input", }), required=False)
+    smoking = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(
+        attrs={'class': "form-check-input", }), required=False)
+    surgery_date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
+                                  input_formats=["%Y-%m-%d"])
+    surgery_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+
 

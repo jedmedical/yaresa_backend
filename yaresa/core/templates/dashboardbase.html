@@ -190,9 +190,180 @@
         <!--Toast -->
         <script type="text/javascript" src="{% static 'js/iziToast.min.js' %}"></script>
 
+<script>
+$(document).ready(function() {
+var max_fields = 20; //maximum input boxes allowed
+var wrapper = $("#extracon"); //Fields wrapper
+var add_button = $("#add-condition"); //Add button ID
+
+var x = 1; //initlal text box count
+$(add_button).click(function(e){ //on add input button click
+e.preventDefault();
+if(x < max_fields){ //max input box allowed
+x++; //text box increment
+$(wrapper).append(' <div class="col-md-4"><div class="md-form form-group"><label for="id_other_condition" class="control-label">Other Condition</label>{{ new_medical.other_condition }}</div></div>');
+//add input box
+}
+});
+
+$(wrapper).on("click",".remove_field", function(e){ //user click on remove field
+e.preventDefault(); $(this).parent('div').remove(); x--;
+})
+});
+
+var medmax_fields = 20; //maximum input boxes allowed
+var medwrapper = $("#extramed"); //Fields wrapper
+var medadd_button = $("#add-med"); //Add button ID
+
+var medx = 1; //initlal text box count
+$(medadd_button).click(function(e){ //on add input button click
+e.preventDefault();
+if(medx < medmax_fields){ //max input box allowed
+medx++; //text box increment
+$(medwrapper).append('    <div class="row">\n' +
+    '                                <div class="col-md-4">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_medicine" class="control-label">Medicine Name</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.medicine }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+    '                                    \n' +
+    '                                        <div class="col-md-4">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_dosage" class="control-label">Dosage</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.dosage }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+    '                                    \n' +
+    '                                        <div class="col-md-4">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_refill_date" class="control-label">Refill Date</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.refill_date }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+    '                                    \n' +
+    '                                </div>\n' +
+    '                            ');
+//add input box
+}
+});
+
+$(medwrapper).on("click",".remove_field", function(e){ //user click on remove field
+e.preventDefault(); $(this).parent('div').remove(); medx--;
+})
 
 
 
+
+
+
+
+
+
+
+var surmax_fields = 20; //maximum input boxes allowed
+var surwrapper = $("#extrasur"); //Fields wrapper
+var suradd_button = $("#add-sur"); //Add button ID
+
+var surx = 1; //initlal text box count
+$(suradd_button).click(function(e){ //on add input button click
+e.preventDefault();
+if(surx < surmax_fields){ //max input box allowed
+surx++; //text box increment
+$(surwrapper).append('<div class="row">\n' +
+    '                                <div class="col-md-6">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_medicine" class="control-label">Medicine Name</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.surgery_name }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+    '\n' +
+    '                                  \n' +
+    '\n' +
+    '                                        <div class="col-md-4">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_refill_date" class="control-label"> Date</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.surgery_date }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+    '\n' +
+    '                                </div>\n' +
+    '    ');
+//add input box
+}
+});
+
+$(surwrapper).on("click",".remove_field", function(e){ //user click on remove field
+e.preventDefault(); $(this).parent('div').remove(); surx--;
+})
+
+
+
+
+
+var alemax_fields = 20; //maximum input boxes allowed
+var alewrapper = $("#extraale"); //Fields wrapper
+var aleadd_button = $("#add-ale"); //Add button ID
+
+var alex = 1; //initlal text box count
+$(aleadd_button).click(function(e){ //on add input button click
+e.preventDefault();
+if(alex < alemax_fields){ //max input box allowed
+alex++; //text box increment
+
+$(alewrapper).append(' <div class="row">\n' +
+    '                                <div class="col-md-6">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_allergy_name" class="control-label">Allergy Name</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.allergy_name }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+    '\n' +
+    '\n' +
+    '\n' +
+    '                                        <div class="col-md-4">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_allergy_type" class="control-label"> </label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t      ' +' '+
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+    '\n' +
+    '                                </div>\n' +
+    '\n');
+//add input box
+}
+});
+
+$(alewrapper).on("click",".remove_field", function(e){ //user click on remove field
+e.preventDefault(); $(this).parent('div').remove(); alex--;
+})
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
  {% if messages %}
         {% for message in messages %}
             {% if message.tags == 'error' %}
@@ -218,6 +389,11 @@
  {% endif %}
     <!--Initializations-->
     <script>
+
+        $('.chips-placeholder').materialChip({
+    placeholder: 'Enter a tag',
+    secondaryPlaceholder: '+Tag',
+});
         // SideNav Initialization
         $(".button-collapse").sideNav();
 
@@ -248,60 +424,11 @@
 
     <!-- Charts -->
     <script>
-        // Small chart
-        $(function () {
-            $('.min-chart#chart-sales').easyPieChart({
-                barColor: "#4285F4",
-                onStep: function (from, to, percent) {
-                    $(this.el).find('.percent').text(Math.round(percent));
-                }
-            });
-        });
 
 
-
-        //bar
-        var ctxB = document.getElementById("barChart").getContext('2d');
-        var myBarChart = new Chart(ctxB, {
-            type: 'bar',
-            data: {
-                labels: ["January", "Febuary", "March", "April", "May"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [13, 19, 8, 11, 5],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.3)',
-                        'rgba(41, 182, 246, 0.3)',
-                        'rgba(255, 187, 51, 0.3)',
-                        'rgba(66, 133, 244, 0.3)',
-                        'rgba(153, 102, 255, 0.3)',
-
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(41, 182, 246, 1)',
-                        'rgba(255, 187, 51, 1)',
-                        'rgba(66, 133, 244, 1)',
-                        'rgba(153, 102, 255, 1)',
-
-                    ],
-                    borderWidth: 2
-                }]
-            },
-            optionss: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
     </script>
 
 </body>
 
 
-<!-- Mirrored from mdbootstrap.com/previews/templates/admin-dashboard/html/dashboards/v-6.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Sep 2018 08:57:52 GMT -->
 </html>

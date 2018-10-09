@@ -91,13 +91,45 @@ def add_new_user(request):
 
 
 def add_medical_info(request,pk):
+    user = AuthUserDemographic.objects.get(id=pk)
     if request.method == "POST":
         new_medical = NewUserMedicalHistoryForm(request.POST)
 
         if new_medical.is_valid():
-            picture = new_user_form.cleaned_data['picture']
+            blood_group = new_medical.cleaned_data['blood_group']
+            sickling_status = new_medical.cleaned_data['sickling_status']
+            g6pd = new_medical.cleaned_data['g6pd']
+
+
+            height = new_medical.cleaned_data['height']
+            weight = new_medical.cleaned_data['weight']
+            bp = new_medical.cleaned_data['bp']
+            diabetes_mellitus = new_medical.cleaned_data['diabetes_mellitus']
+            systematic_hypertension = new_medical.cleaned_data['systematic_hypertension']
+            epilepsy = new_medical.cleaned_data['epilepsy']
+            uterine_fibroid = new_medical.cleaned_data['uterine_fibroid']
+            peptic_ulcer_disease = new_medical.cleaned_data['peptic_ulcer_disease']
+
+            other_condition = new_medical.cleaned_data.get('other_condition')
+            print(other_condition)
+            medicine = new_medical.cleaned_data['medicine']
+            dosage = new_medical.cleaned_data['dosage']
+            refill_date = new_medical.cleaned_data['refill_date']
+
+            allergy_name = new_medical.cleaned_data['allergy_name']
+            allergy_type = new_medical.cleaned_data['allergy_type']
+            alcohol = new_medical.cleaned_data['alcohol']
+            smoking = new_medical.cleaned_data['smoking']
+            surgery_date = new_medical.cleaned_data['surgery_date']
+            surgery_name = new_medical.cleaned_data['surgery_name']
+
+
+        else:
+            messages.error(request,"Something went wrong")
+            context = {'new_medical': new_medical, 'user': user}
+            return render(request, 'medical-info.html', context)
 
     new_medical = NewUserMedicalHistoryForm()
-    context = {'new_medical': new_medical}
+    context = {'new_medical': new_medical,'user':user}
     return render(request,'medical-info.html',context)
 

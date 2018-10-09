@@ -32,6 +32,19 @@
 			       <div class="row pic-row">
 
                    </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="chip pink lighten-4"><b>#</b>
+    {{ user.unique_id }}
+
+</div>              <div class="chip">
+    <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
+</div>
+                    </div>
+                    <div class="col-md-4">
+
+</div>
+                </div>
 			 <br><br>
 <label class="h5 title text-center text-uppercase py-2">lab tests</label><br>
 
@@ -162,30 +175,207 @@
                             {% endfor %}
 
 			        </div>
+                  </div>
 
+<div class="row">
 
+                  		    <div class="col-md-10" >
+                                <div class="row" id="extracon">
+                                <div class="col-md-4">
+                           <div class="md-form form-group">
+                                <label for="id_other_condition" class="control-label">Other Condition</label>
 
-                  		    <div class="col-sm-4">
+						        {{ new_medical.other_condition }}
 
-
-                       <label class="h6 maritalstyle "></label>
-						{{ new_medical.other_condition }}
+                           </div>
+                                </div>
+                                </div>
                             </div>
+    <div class="col-md-2">
+
+        <button id="add-condition" class="btn aqua-gradient btn-rounded">Add Condition</button>
+    </div>
+
+
+
+			        </div>
+<br><br>
+                       <label class="h5 title text-uppercase ">Current Medication</label>
+
+              <div class="row">
+
+                  		    <div class="col-md-10" id="extramed">
+                                <div class="row">
+                                <div class="col-md-4">
+                           <div class="md-form form-group">
+                                <label for="id_medicine" class="control-label">Medicine Name</label>
+
+						        {{ new_medical.medicine }}
+
+                           </div>
+                                </div>
+
+                                        <div class="col-md-4">
+                           <div class="md-form form-group">
+                                <label for="id_dosage" class="control-label">Dosage</label>
+
+						        {{ new_medical.dosage }}
+
+                           </div>
+                                </div>
+
+                                        <div class="col-md-4">
+                           <div class="md-form form-group">
+                                <label for="id_refill_date" class="control-label">Refill Date</label>
+
+						        {{ new_medical.refill_date }}
+
+                           </div>
+                                </div>
+
+                                </div>
+                            </div>
+    <div class="col-md-2">
+
+        <button id="add-med" class="btn aqua-gradient btn-rounded">Add Medication</button>
+    </div>
+
 
 
 			        </div>
 
-				<hr>
+                <br>
+                <br>
+
+                       <label class="h5 title text-uppercase ">Surgeries</label>
+
+              <div class="row">
+
+                  		    <div class="col-md-10" id="extrasur">
+                                <div class="row">
+                                <div class="col-md-6">
+                           <div class="md-form form-group">
+                                <label for="id_medicine" class="control-label">Medicine Name</label>
+
+						        {{ new_medical.surgery_name }}
+
+                           </div>
+                                </div>
+
+
+
+                                        <div class="col-md-4">
+                           <div class="md-form form-group">
+                                <label for="id_refill_date" class="control-label"> Date</label>
+
+						        {{ new_medical.surgery_date }}
+
+                           </div>
+                                </div>
+
+                                </div>
+                            </div>
+    <div class="col-md-2">
+
+        <button id="add-sur" class="btn aqua-gradient btn-rounded">Add surgery</button>
+    </div>
+
+
+
+			        </div>
+
+
+
+
+
+                       <label class="h5 title text-uppercase ">Allergies</label>
+
+              <div class="row">
+
+                  		    <div class="col-md-10" id="extraale">
+                                <div class="row">
+                                <div class="col-md-6">
+                           <div class="md-form form-group">
+                                <label for="id_allergy_name" class="control-label">Allergy Name</label>
+
+						        {{ new_medical.allergy_name }}
+
+                           </div>
+                                </div>
+
+
+
+                                        <div class="col-md-4">
+                           <div class="md-form form-group">
+                                <label for="id_allergy_type" class="control-label"> </label>
+
+						        {{ new_medical.allergy_type }}
+
+                           </div>
+                                </div>
+
+                                </div>
+
+
+
+                            </div>
+    <div class="col-md-2">
+
+        <button id="add-ale" class="btn aqua-gradient btn-rounded">Add allergy</button>
+    </div>
+
+
+
+			        </div>
+
+<br><br>
+				  <label class="h5 title text-uppercase">Social History</label>
+          <br><br>
+				  <div class="form-row">
+				    <div class="col-sm-4">
+
+
+                       <label class="h6 maritalstyle ">Alcohol </label>
+						{% for sc in new_medical.alcohol %}
+                            <div class="form-check">
+
+                                {{ sc.tag }}
+                            <label for="{{ sc.id_for_label }}"> {{ sc.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+
+			        </div>
+
+                  				    <div class="col-sm-4">
+
+
+                       <label class="h6 maritalstyle ">Smoking</label>
+						{% for sc in new_medical.smoking %}
+                            <div class="form-check">
+
+                                {{ sc.tag }}
+                            <label for="{{ sc.id_for_label }}"> {{ sc.choice_label }}</label>
+                            </div>
+                            {% endfor %}
+
+			        </div>
+
+
+
+                  </div>
+
+
+
+                    <hr>
              <div class="row">
 			   <div class="col-sm-8 offset-sm-4" style="margin-bottom: 20px;">
-			     <button type="submit" class="btn btn-secondary btn-lg waves-effect waves-light" id="button"><i class="fa fa-heart mr-2"></i>Register</button>
+			     <button type="submit" class="btn btn-secondary btn-lg waves-effect waves-light" id="button"><i class="fa fa-heart mr-2"></i>Add Record</button>
 		          <button type="reset" class="btn btn-primary btn-lg waves-effect waves-light" id="button">Reset Form</button><br>
 			    </div>
 
 				</div>
 
-                   </div>
-                </form>
+
 			   </form>
 
 
