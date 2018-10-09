@@ -1,23 +1,41 @@
 *{
-box-sizing:border-box!important;
+box-sizing:border-box!important;	
 }
 /*Another test */
-
-        html,
+	
+ html,
         body,
-
+        header,
         .intro-2 {
           height: 100%;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 740px) {
           html,
           body,
-         .intro-2 {
-            height: 100%;
-			}
+          header,
+          .intro-2 {
+            height: 900px;
+          }
         }
-		@media (max-width:330px){
+
+        @media (min-width: 800px) and (max-width: 850px) {
+            html,
+            body,
+            header,
+            .intro-2 {
+              height: 980px;
+            }
+        }
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #5991fb!important;
+            }
+            .navbar {
+              box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+            }
+        }
+@media (max-width:330px){
 		   .logo-style{
 			     height:50px!important;
 				width:30px!important;
@@ -33,15 +51,7 @@ box-sizing:border-box!important;
 	                margin-left:5px!important;
 			}
 		}
-        @media (min-width: 768px) and (max-width:1200px) {
-            html,
-            body,
-
-            .intro-2 {
-              height: 100%;
-            }
-        }
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
             .navbar:not(.top-nav-collapse) {
                 background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
             }
@@ -49,85 +59,42 @@ box-sizing:border-box!important;
               box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
             }
         }
-		@media (max-width:768px) {
+		@media (max-width:768px;) {
        .margins {
         margin-left: 2rem;
 		margin-bottom: 1rem;
     }
 }
-   @media (max-width:600px){
-    .phoneapp-style{
-		top:-25px!important;
-		padding-left:20px!important;
-	   margin-top:-50px!important;
-	   max-width:90%!important;
-       max-height:100%!important;
-	}
-	.navbar {
+@media (min-width:768px) and (max-width:992px){
+	 .navbar:not(.top-nav-collapse) {
+                background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
+            }
+	  .navbar {
               box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
             }
-   }
-@media (m1n-width:600px) and (max-width:768px) {
-    .phoneapp-style{
-		padding-left:250px!important;
-	   max-width:90%!important;
-       max-height:100%!important;
-	}
-	.navbar {
-              box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
-            }
-   }
- @media (max-height:480px) {
-    .sloganstyle{
-		height:100 !important;
-		width:90%!important;
-		margin-bottom:10px!important;
-	}
-	.navbar {
-              box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
-            }
-	.phoneapp-style{
-		height:30%!important;
-		width:auto;
-	}
-	.compstyle{
-	letter-spacing:1px!important;
-	font-size:1rem!important;
-	font-weight:200!important;
-}
-    .myh4style{
-	font-size:1.5rem!important;
-	letter-spacing:1px!important;
-	font-weight:400 !important;
-}
-	.btnstyle{
-		height:40px!important;
-		padding-bottom:10px!important;
-     font-weight:300;
-	color:#ff3300!important;
-	background-color:#fff;
-}
-@media (max-height:680px){
-	 .intro-style{
-		 height:100%!important;
-	 }
-
-}
-	.margins{
-	  margin-bottom:10px!important;
-	}
-	.phoneapp-style{
-		padding-left:20px!important;
-	   max-width:90%!important;
-       max-height:70%!important;
-	}
-   }
+} 	
+@media (max-width:330px){
+		   .logo-style{
+			     height:50px!important;
+				width:30px!important;
+					margin-right:70px!important;
+	                margin-left:15px!important;
+			}
+		}
+		@media (max-width:216px){
+		   .logo-style{
+			     height:50px!important;
+				width:30px!important;
+					margin-right:40px!important;
+	                margin-left:5px!important;
+			}
+		}	
 		.logo-style{
 	box-sizing:border-box;
 	height:70px;
 	width:50px;
-	margin-right:150px;
-	margin-left:30px;
+	margin-right:50px!important;
+	margin-left:25px!important;
 }
 .navbar{
    box-shadow:none!important;
@@ -141,22 +108,8 @@ box-sizing:border-box!important;
 	  .navbar {
               box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
             }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 } 
-@media (max-width:768px){
-	.contentframe{
-		margin-bottom:15px!important;
-		max-width:90%!important;
-	}
-=======
->>>>>>> master
->>>>>>> yaresa_sam
-}
-.handstyle{
 
-}
 .logo-style{
 	box-sizing:border-box;
 	height:70px;
@@ -164,15 +117,12 @@ box-sizing:border-box!important;
 	margin-right:150px;
 	margin-left:30px;
 }
-.navbar{
-   box-shadow:none!important;
-   border:none!important;
-}
+
 .top-nav-collapse {
     background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
 }
 .nav-link{
-    color: #fff!important;
+    color: #fff;
     text-transform: uppercase;
     font-size: 16px;
     line-height: 30px;
@@ -183,31 +133,19 @@ box-sizing:border-box!important;
 .nav-link:hover{
     color: #333!important;
 }
+.nav-link:active{
+    color: #333!important;
+}
 .modalbtn{
 	background-color:#ff6600!important;
 	color:#fff!important;
 }
-.sloganstyle{
-	margin-top:20px!important;
-}
-.btnstyle{
 
+.btnstyle{
+     
 	font-weight:500;
 	color:#ff3300!important;
 	background-color:#fff;
-}
-.compstyle{
-	letter-spacing:2px;
-	font-size:1.5rem;
-	font-weight:300;
-}
-.myh4style{
-	font-size:2.5rem;
-	letter-spacing:2px;
-	font-weight:700 !important;
-}
-.rowstyle{
-	margin-top:130px;
 }
 .no-account-style{
 	color:gray;
@@ -217,7 +155,7 @@ box-sizing:border-box!important;
 	background: linear-gradient(to bottom right,  #ff3300, #ff6600);
 }
 .mycard-color{
-	background: linear-gradient(to right, #fff, #fff);
+	background: linear-gradient(to right, #fff, #fff); 
 }
 input .inputstyle{
 	border-bottom: 1px solid #ff3300!important;
@@ -226,29 +164,25 @@ input .inputstyle{
 .contentcolor{
 	color:#ff6600;
 }
-.contentframe{
-	height:406px!important;
-	width:100%;
-}
+
 .text-color{
 	color:gray;
 }
 .text-uppercase{
 	text-transform:uppercase;
 }
-.pic-row{
-	margin-top:50px;
-	margin-bottom:40px;
+.pic-col{
+	margin-top:-100px!important;
 }
 .pic-card{
-	background: linear-gradient(to right, #ffeeee, #ddefbb);
+	background: linear-gradient(to right, #ffeeee, #ddefbb); 
 }
 #imgId{
   width: 150px;
   height:150px;
   border-radius:50%;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-  }
+  }  
 
 .maritalstyle{
 	margin-right:20px!important;
@@ -274,9 +208,7 @@ input .inputstyle{
 	color:#fff;
 }
 .chips .input{
-	width:200px!important;
-<<<<<<< HEAD
-=======
+	width:200px!important;	
 }
 .card-color{
 	background-color:#ff3300;
@@ -287,5 +219,24 @@ input .inputstyle{
 
 .whiteBG{
 	background-color:#fff;
->>>>>>> yaresa_sam
+}
+.lablestyle{
+	margin-top:-10px!important;
+}
+.textarea-style{
+	resize:vertical!important;
+}
+.section-hr{
+	margin: 70px!important;
+}
+
+#mdpill-style ul .nav-link{
+	border:none!important;
+	color:#666!important;
+	box-shadow:none!important;
+}
+.md-pills .nav-link.active {
+    color: #fff!important;
+	background-color:#ff3300;
+
 }
