@@ -20,6 +20,8 @@
 
         <link href="{% static 'css/custom.css' %}" rel="stylesheet">
 
+       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>
+
     <!-- Your custom styles (optional) -->
     <style>
 
@@ -60,7 +62,7 @@
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-photo"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="" class="waves-effect">View Users</a>
+                                <li><a href="{% url 'core:user-list' %}" class="waves-effect">View Users</a>
                                 </li>
                                 <li><a href="{% url 'core:new-user' %}" class="waves-effect">Add new User</a>
                                 </li>
@@ -152,7 +154,6 @@
         </div>
         <!-- Fixed button -->
 
-    </header>
     <!--Main Navigation-->
 
     <!--Main layout-->
@@ -181,6 +182,11 @@
 
         <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
         <!-- Bootstrap tooltips -->
+
+
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
         <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
         <!-- Bootstrap core JavaScript -->
         <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
@@ -192,6 +198,9 @@
 
 <script>
 $(document).ready(function() {
+
+     $('#factorytable').DataTable()
+
 var max_fields = 20; //maximum input boxes allowed
 var wrapper = $("#extracon"); //Fields wrapper
 var add_button = $("#add-condition"); //Add button ID

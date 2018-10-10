@@ -5,13 +5,14 @@
 
         {% block content %}
             {% load static %}
-            </header>
 
-  
-	<div class="container" >
+
+  <section class="view intro-2" style="background:#b21f2d; background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <div class="mask">
+                <div class="container" >
 	<div class="row" style="margin-top:150px;">
        <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-xs-12">
-	   
+
 	     <form action="{% url 'core:signin' %}" method="post" role="form">
              {% csrf_token %}
     <section class="form-elegant">
@@ -29,14 +30,16 @@
             <!--Body-->
             <div class="md-form orange-text">
 			    <i class="fa fa-user prefix"></i>
+                 <label for="id_username">Your Username</label>
                 {{ login_form.username }}
-                <label for="id_username">Your Username</label>
+
             </div>
               <br>
             <div class="md-form pb-3 orange-text">
 			     <i class="fa fa-lock prefix"></i>
+                <label for="id_password ">Your Password</label>
                 {{ login_form.password }}
-                <label for="id_password orange-text">Your Password</label>
+
                  <p class="justify-content-end d-flex"><a href="#" class="orange-text font-small ml-1">Forgot Password?</a></p>
             </div>
 
@@ -54,10 +57,14 @@
 
     </div>
            </section>
-			  
+
 	      </form>
-	   </div>  
+	   </div>
  	 </div><!--row ends-->
 </div>
 
+                     </div>
+
+	</section>
+</header>
     {% endblock %}
