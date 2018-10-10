@@ -11,7 +11,7 @@ class Medical_history(BaseModel):
     # epilepsy = models.BooleanField(default=False)
     #
     condition = models.CharField(max_length=255,null=True)
-    condition_active = models.BooleanField(default=False)
+    condition_active = models.BooleanField(default=True)
 
 
 
