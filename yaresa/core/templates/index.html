@@ -7,63 +7,1020 @@
 
 
 
-    <!-- Your custom styles (optional) -->
 
-            <!--Intro Section-->
-            <section class="view intro-2 hm-gradient" style="background-image: url('{% static "images/Gradient BG.png" %}');">
-                <div class="full-bg-img">
-                    <div class="container flex-center " >
-                        <div class="row flex-center pt-5 mt-3" >
-                            <div class="col-md-6 text-center text-md-left margins">
-                                <div class="white-text" >
-                                    <h1 class="h1-responsive wow fadeInLeft" data-wow-delay="0.3s">Make purchases with our app </h1>
-                                        <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
-                                        <h6 class="wow fadeInLeft" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae iste.</h6>
-                                        <br>
-                                        <a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Learn more</a>
-                                        <a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Download
-                                            <i class="fa fa-android left right" aria-hidden="true"></i>
-                                            <i class="fa fa-apple left" aria-hidden="true"></i>
-                                            <i class="fa fa-windows" aria-hidden="true"></i>
-                                        </a>
-                                </div>
-                            </div>
 
-                            <div class="col-md-6 wow fadeInRight d-flex justify-content-center" data-wow-delay="0.3s">
-                                <img src="{% static 'images/04.jpg' %}" alt="" class="img-responsive handstyle">
+
+
+		<!--Intro Section-->
+        <section class="view intro-2" id="home" style="background-image: url('{% static "images/GradientBG.png" %}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <div class="mask">
+                <div class="container h-100 mt-4 pt-5 d-flex justify-content-center align-items-center">
+                    <div class="row flex-center pt-5 mt-4">
+                        <div class="col-md-12 col-lg-6 text-center text-md-left margins">
+                            <div class="white-text">
+                                <h4 class="h4-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">The Complete <br><span class="h1 h1-responsive text-uppercase">Healthcare Hub</span> </h4>
+                                <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                                <h6 class="wow fadeInLeft" data-wow-delay="0.3s">Seeking health care in Ghana is the most difficult and challenging
+										tasks for most Ghanaians. JED seeks to curb this situation especially for the people who can afford
+										health care but do not have the luxury of time to wait at facilities.
+                                </h6>
+                                <br>
+                                <a href="" class="btn btn-rounded font-weight-bold ml-lg-0 wow fadeInLeft text-uppercase btnstyle" data-wow-delay="0.3s">Download
+								   <i class="fa fa-android left right" aria-hidden="true"></i>
+                                   <i class="fa fa-apple left" aria-hidden="true"></i>
+								</a>
+                                <a class="btn btn-rounded font-weight-bold wow fadeInLeft btnstyle" data-wow-delay="0.3s">Learn more
+                                    </a>
                             </div>
+                        </div>
+
+                        <div class="col-md-12 col-lg-6  wow fadeInRight" data-wow-delay="0.3s">
+                            <img src="{% static 'images/newphone.png' %}" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </header>
-        <!--Main Navigation-->
 
-        <!--Main Layout-->
-        <main>
 
-            <div class="container">
 
-                <!--Grid row-->
-                <div class="row py-5">
 
-                    <!--Grid column-->
-                    <div class="col-md-12 text-center">
+		<!--Modal Info-->
+        <div class="modal fade modal-ext" id="modal-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title font-weight-bolder w-100 py-3 text-uppercase" id="myModalLabel">JED Medical Services</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body text-center">
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <!--Title-->
+                        <h5 class="title mb-3 font-weight-bold">Opening Hours:</h5>
+
+                        <!--Opening hours table-->
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Monday - Friday:</td>
+                                    <td>9 AM - 9 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday:</td>
+                                    <td>9 AM - 6 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday:</td>
+                                    <td>11 AM - 6 PM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!--Title-->
+                        <h5 class="title mb-4 font-weight-bold">Addresses:</h5>
+
+                        <!--First row-->
+                        <div class="row">
+
+                            <!--First column-->
+                            <div class="col-md-6">
+
+                                <p>GA-000-0000<br> Dzorwulu, Accra</p>
+
+                            </div>
+                            <!--/First column-->
+
+                            <!--Second column-->
+                            <div class="col-md-5">
+
+                                <p>AK-000-0000<br> Asokwa, Kumasi</p>
+
+                            </div>
+                            <!--/Second column-->
+
+                        </div>
+                        <!--/First row-->
+
+						<!--Title-->
+                        <h5 class="title mb-4 font-weight-bold">Telephone:</h5>
+
+                        <!--First row-->
+                        <div class="row">
+
+                            <!--First column-->
+                            <div class="col-md-6 offset-md-3">
+
+                                <p>Dr.Sarpong<br> +233233140485</p>
+
+                            </div>
+                            <!--/First column-->
+
+
+
+                        </div>
+                        <!--/First row-->
 
                     </div>
-                    <!--Grid column-->
+                    <!--Footer-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-rounded waves-effect modalbtn" data-dismiss="modal" style="">Close</button>
+                    </div>
+                </div>
+                <!--/Content-->
+            </div>
+        </div>
+        <!--/Modal Info-->
+
+	</header>
+
+	 <!--Main Layout-->
+        <main>
+
+		 <!-- Features -->
+		<div class="container whiteBG" style="margin-top: 30px">
+            <div class="container">
+            <!--Section: Features v.1-->
+            <section id="features" class="section feature-box mb-5 pb-3">
+
+                <!--Section heading-->
+                <h1 class="text-center mb-5 pt-5 font-weight-bold wow fadeIn contentcolor" data-wow-delay="0.2s"><p>Access your personal health records <br> with just few taps</p> </h1>
+                <!--Section sescription-->
+                <p class="wow fadeInLeft dark-grey-text" data-wow-delay="0.3s">JED exists to take absolute responsibilities of the healthcare of individuals who
+										due to their busy schedules or occupation find it difficult to spend time at health facilities. Our clients don’t have
+										to worry at all since JED does a complete management of their health. Periodic medical screenings or check-ups will be
+										done for them at their convenience. For clients who are on chronic medications and scheduled for appointments at
+										various facilities, JED will set up reminders and notifications to pre-empt them when to follow up on their appointments
+										as well as when to go for their refill of medications.<br>JED believes that just
+										as individuals have personal lawyers, mechanics, pastors, housekeepers etc. individuals need an organisation that also
+										manages every aspect of their health which will be available to them 24/7.</p>
+
+				<p class="wow fadeInRight dark-grey-text" data-wow-delay="0.3s">
+				The Yaresa mobile application is here to help you book medical appointments with our first class
+				medical professionals and have access to your secured medical information and records anywhere in the world.Carry your medical history with you anywhere you
+				go. Having your medical history always available means in case of an emergency anywhere you are in the world,a large part of your problem
+				have been solved just by looking through your medical history. If a medical officer knows your medical history, your condition is already under control.
+		             </p>
+
+                <!--First row-->
+                <div class="row features-big my-4 text-center">
+                    <!--First column-->
+                    <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="card hoverable">
+                            <i class="fa fa-user contentcolor mt-3 fa-3x my-4"></i>
+                            <h5 class="font-weight-bold mb-4">Personal Health Details</h5>
+                            <p class="grey-text font-small mx-3">Have access to your personal health details such as blood type, blood sugar level history,
+							sickle cell status, G6PD deficiency status etc. with just some few taps. Get all these information always available for you
+							everywhere you go.
+							</p>
+                        </div>
+                    </div>
+                    <!--/First column-->
+
+                    <!--Second column-->
+                    <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="card hoverable">
+                            <i class="fa fa-stethoscope contentcolor mt-3 fa-3x my-4"></i>
+                            <h5 class="font-weight-bold mb-4">Doctor Visits</h5>
+                            <p class="grey-text font-small mx-3">Make consultation appointments or bookings with the yaresa mobile application
+							by choosing your own date and time as to when you want to see a specialist or doctor.</p>
+                        </div>
+                    </div>
+                    <!--/Second column-->
+
+                    <!--Third column-->
+                    <div class="col-md-4 mb-1 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="card hoverable">
+                            <i class="fa fa-medkit contentcolor mt-3 fa-3x my-4"></i>
+                            <h5 class="font-weight-bold mb-4">Medication</h5>
+                            <p class="grey-text font-small mx-3">Get the type of medication or drugs to take sent to you on the yaresa mobile application.
+							Which means with the application, doctors or specialists can make drug prescription for you even at the comfort of your home.</p>
+                        </div>
+                    </div>
+                    <!--/Third column-->
+                </div>
+                <!--/First row-->
+
+			<!-- Second Row -->
+			<div class="row features-big my-4 text-center">
+                    <!--First column-->
+                    <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="card hoverable">
+                            <i class="fa fa-map-marker mt-3 fa-3x my-4 contentcolor"></i>
+                            <h5 class="font-weight-bold mb-4">Directions</h5>
+                            <p class="grey-text font-small mx-3">Do not know where to find the hospital or laboratory to take your tests? Get the directions to any of our
+							registered hospitals or laboratories using the yaresa mobile application maps. Never get stranded. Use the app to find any hospital or lab.</p>
+                        </div>
+                    </div>
+                    <!--/First column-->
+
+                    <!--Second column-->
+                    <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="card hoverable">
+                            <i class="fa fa-heartbeat contentcolor mt-3 fa-3x my-4"></i>
+                            <h5 class="font-weight-bold mb-4">Diagnosis</h5>
+                            <p class="grey-text font-small mx-3">Easy access to both your past and present diagnostic results is key to getting quick and
+							effective medical care. Get your diagnostic records with just a few taps. Avoid having to always start from scratch because you
+							cannot find your diagnosis records and imaging scans.</p>
+                        </div>
+                    </div>
+                    <!--/Second column-->
+
+                    <!--Third column-->
+                    <div class="col-md-4 mb-1 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="card hoverable">
+                            <i class="fa fa-envelope contentcolor mt-3 fa-3x my-4"></i>
+                            <h5 class="font-weight-bold mb-4">Notifications</h5>
+                            <p class="grey-text font-small mx-3">Get notified by the yaresa app on the time and date to see our specialists, the time
+							to get your	laboratory tests, time to get your medication refills. The app also notifies you when it is time to take your drugs
+							so you that you get the maximum benefit from your medications. </p>
+                        </div>
+                    </div>
+                    <!--/Third column-->
+                </div>
+			 <!-- Second Row -->
+
+            </section>
+                </div>
+            <!--/Section: Features v.1-->
+        </div>
+		<!-- /Features -->
+
+
+		<div id="" class="container-fluid mb-2 pb-2">
+
+            <!--Grid row-->
+            <div class="row my-5">
+
+                <!--Grid column-->
+                <div class="col-md-12">
+
+                    <!--Tiles blog-->
+                    <div class="tiles-blog tiles-blog-2">
+                        <!--First row-->
+                        <div class="row">
+                            <!--First column-->
+                            <div class="col-xl-3 col-md-6 no-margins px-0 bounceIn wow" data-wow-delay="0.4s">
+                                <!--Single blog post-->
+                                <div class="tiles-blog-post waves-effect waves-light">
+                                    <!--Blog post link-->
+                                    <a href="#!">
+                                        <!--Image-->
+                                        <div class="view overlay">
+
+                                            <img src="{% static 'images/doclight.jpg' %}" class="img-fluid" alt="">
+
+                                            <div class="mask flex-center rgba-blue-strong">
+                                                <h4 class="white-text font-weight-bold">Doctors At Your Disposal</h4>
+                                            </div>
+                                        </div>
+                                        <!--/Image-->
+                                    </a>
+                                    <!--Blog post link-->
+
+                                </div>
+                                <!--/Single blog post-->
+                            </div>
+                            <!--/First column-->
+
+                            <!--Second column-->
+                            <div class="col-xl-3 col-md-6 no-margins px-0 bounceIn wow" data-wow-delay="0.4s">
+                                <!--Single blog post-->
+                                <div class="tiles-blog-post waves-effect waves-light">
+                                    <!--Blog post link-->
+                                    <a href="#!">
+                                        <!--Image-->
+                                        <div class="view overlay">
+
+                                            <img src="{% static 'images/mri.jpg' %}" class="img-fluid" alt="">
+
+                                            <div class="mask flex-center rgba-blue-strong">
+                                                <h4 class="white-text font-weight-bold">Every Diagnosis You Need</h4>
+                                            </div>
+                                        </div>
+                                        <!--/Image-->
+                                    </a>
+                                    <!--Blog post link-->
+
+                                </div>
+                                <!--/Single blog post-->
+                            </div>
+                            <!--/Second column-->
+
+                            <!--Third column-->
+                            <div class="col-xl-3 col-md-6 no-margins px-0 bounceIn wow" data-wow-delay="0.4s">
+                                <!--Single blog post-->
+                                <div class="tiles-blog-post waves-effect waves-light">
+                                    <!--Blog post link-->
+                                    <a href="#!">
+                                        <!--Image-->
+                                        <div class="view overlay">
+
+                                            <img src="{% static 'images/iphonesteto.jpg' %}" class="img-fluid" alt="">
+
+                                            <div class="mask flex-center rgba-blue-strong">
+                                                <h4 class="white-text font-weight-bold">Easy To Use App</h4>
+                                            </div>
+                                        </div>
+                                        <!--/Image-->
+                                    </a>
+                                    <!--Blog post link-->
+
+                                </div>
+                                <!--/Single blog post-->
+                            </div>
+                            <!--/Third column-->
+
+                            <!--Fourth column-->
+                            <div class="col-xl-3 col-md-6 no-margins px-0 bounceIn wow" data-wow-delay="0.4s">
+                                <!--Single blog post-->
+                                <div class="tiles-blog-post waves-effect waves-light">
+                                    <!--Blog post link-->
+                                    <a href="#!">
+                                        <!--Image-->
+                                        <div class="view overlay">
+
+                                            <img src="{% static 'images/ghdoc.jpg' %}" class="img-fluid" alt="">
+
+                                            <div class="mask flex-center rgba-blue-strong">
+                                                <h4 class="white-text text-center font-weight-bold">Carefull And Detailed Analysis</h4>
+                                            </div>
+                                        </div>
+                                        <!--/Image-->
+                                    </a>
+                                    <!--Blog post link-->
+                                </div>
+                                <!--/Single blog post-->
+                            </div>
+                            <!--/Fourth column-->
+                        </div>
+                        <!--/First row-->
+
+                    </div>
+
+                </div>
+                <!--/Grid column-->
+
+            </div>
+            <!--/Grid row-->
+
+        </div>
+
+		<hr class="section-hr">
+
+		<!-- Services -->
+		<div class="container">
+
+            <!--Services section v.3-->
+            <section id="services" class="section mt-4 mb-2">
+
+                <!--Section heading-->
+                <h1 class="text-center mb-5 mt-5 pt-4 font-weight-bold wow fadeIn text-uppercase contentcolor" data-wow-delay="0.2s">Check our services</h1>
+                <!--Section description-->
+                <p class="text-center grey-text w-responsive mx-auto mb-5 wow fadeIn" data-wow-delay="0.2s">We serve you with quality medical services you
+				can always trust. At your own convinience, get your health life on track with our services.</p>
+
+                <!--First row-->
+                <div class="row wow fadeIn" data-wow-delay="0.4s">
+
+                    <!--First column-->
+                    <div class="col-md-12">
+
+                        <div class="mb-2">
+
+                            <!-- Nav tabs -->
+                            <ul class="nav md-pills contentcolor" id="mdpill-style" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#panel31" role="tab"><i class="fa fa-user fa-2x"></i><br>Personal Health Management</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#panel32" role="tab"><i class="fa fa-hospital-o fa-2x"></i><br>Medical Certification</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#panel33" role="tab"><i class="fa fa-ambulance fa-2x"></i><br>General Services</a>
+                                </li>
+								 <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#panel34" role="tab"><i class="fa fa-folder-open fa-2x"></i><br>Packages</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <!--Tab panels-->
+                        <div class="tab-content">
+
+                            <!--Panel 1-->
+                            <div class="tab-pane fade show in active" id="panel31" role="tabpanel">
+                                <br>
+
+                                <!--First row-->
+                                <div class="row d-flex justify-content-center">
+
+                                    <!--First column-->
+                                    <div class="col-lg-3 col-md-6 pb-5">
+
+                                        <!--Featured image-->
+                                        <div class="view overlay z-depth-1 z-depth-2">
+                                            <img src="{% static 'images/Group1.png' %}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <!--/First column-->
+
+                                    <!--Second column-->
+                                    <div class="col-lg-6 col-md-12 text-left">
+
+                                        <!--Title-->
+                                        <h4 class="mb-3">Personal Health Management</h4>
+
+                                        <!--Description-->
+                                        <p class="grey-text" align="justify">We at JED believe that your health is the key to a better and peaceful life.
+										We take charge of managing your health by providing you with medical specialists, laboratory tests and diagnosis,
+                                       medications or drugs and more. We also run an online laboratory and diagnosis service meaning you can access your laboratory
+									test results anytime and anywhere you are. We provide you with the best and stress-free hospital placements only to be attended by
+									 our specialist doctors.</p>
+
+                                    </div>
+                                    <!--/Second column-->
+                                </div>
+                                <!--/First row-->
+
+                            </div>
+                            <!--/.Panel 1-->
+
+                            <!--Panel 2-->
+                            <div class="tab-pane fade" id="panel32" role="tabpanel">
+                                <br>
+
+                                <!--First row-->
+                                <div class="row d-flex justify-content-center">
+
+                                    <!--First column-->
+                                    <div class="col-lg-3 col-md-6 pb-5">
+
+                                        <!--Featured image-->
+                                        <div class="view overlay z-depth-1 z-depth-2">
+                                            <img src="{% static 'images/Group2.png' %}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <!--/First column-->
+
+                                    <!--Second column-->
+                                    <div class="col-lg-6 col-md-12 text-left">
+
+                                        <!--Title-->
+                                        <h4 class="mb-3">Medical Certification and Consultation</h4>
+
+                                        <!--Description-->
+                                        <p class="grey-text" align="justify">We provide medical examination and certification for people who are travelling and
+										need a medical certificate to get a visa, for people whose job applications require a medical certificate etc.
+										.We also give pre-wedding counselling and screening to couples who plan on getting married. All these certificates are
+										given after conducting all the neccessary laboratory tests and diagnosis. By booking an appointment using the Yaresa
+										app, we provide you with medical consultation, health education and counselling. </p>
+
+                                    </div>
+                                    <!--/Second column-->
+                                </div>
+                                <!--/First row-->
+
+                            </div>
+                            <!--/.Panel 2-->
+
+                            <!--Panel 3-->
+                            <div class="tab-pane fade" id="panel33" role="tabpanel">
+                                <br>
+
+                                <!--First row-->
+                                <div class="row d-flex justify-content-center">
+
+                                    <!--First column-->
+                                    <div class="col-lg-3 col-md-6 pb-5">
+
+                                        <!--Featured image-->
+                                        <div class="view overlay z-depth-1 z-depth-2">
+                                            <img src="{% static 'images/Group3.png' %}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <!--/First column-->
+
+                                    <!--Second column-->
+                                    <div class="col-lg-6 col-md-12 text-left">
+
+                                        <!--Title-->
+                                        <h4 class="mb-3">General Services</h4>
+
+                                        <!--Description-->
+                                        <p class="grey-text" align="justify">Our general services include ambulance and emergency services. Contact us via the
+										yaresa app for emergency cases.	We provide homecare for members who cannot go to the hospital. Blood and urine samples
+										required for tests can be taken even at your own house. We also provide medical equipments and supplies. We have a locum
+										placement agency that provide top medical professionals as stand in medical officers.
+										</p>
+
+                                    </div>
+                                    <!--/Second column-->
+                                </div>
+                                <!--/First row-->
+
+                            </div>
+                            <!--/.Panel 3-->
+
+							<!--Panel 4-->
+                            <div class="tab-pane fade" id="panel34" role="tabpanel">
+                                <br>
+
+                                <!--First row-->
+                                <div class="row d-flex justify-content-center">
+
+                                    <!--First column-->
+                                    <div class="col-lg-3 col-md-6 pb-5">
+
+                                        <!--Featured image-->
+                                        <div class="view overlay z-depth-1 z-depth-2">
+                                            <img src="{% static 'images/Group4.png' %}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <!--/First column-->
+
+                                    <!--Second column-->
+                                    <div class="col-lg-6 col-md-12 text-left">
+
+                                        <!--Title-->
+                                        <h4 class="mb-3">Special Packages</h4>
+
+                                        <!--Description-->
+                                        <p class="grey-text" align="justify">We offer special packages for schools, cooperations. Our Ahemfo Health is a
+										a special package which includes the following processes.Sign up today and  we will contact you in a minute.</p>
+
+                                    </div>
+                                    <!--/Second column-->
+                                </div>
+                                <!--/First row-->
+
+                            </div>
+                            <!--/.Panel 4-->
+
+                        </div>
+                        <!--/Tab panels-->
+
+                    </div>
+                    <!--/First column-->
+
+                </div>
+                <!--/First row-->
+
+            </section>
+        </div>
+		<!-- /Services -->
+
+		<hr class="section-hr">
+
+		<!-- About -->
+	  <div class="container mb-5 smooth-scroll" id="about">
+	    <section id="about" class="section info-section mb-5 mt-5 pt-4">
+
+				 <!-- Secion heading -->
+                <h1 class="text-center font-weight-bold mb-3 contentcolor text-uppercase wow fadeIn" data-wow-delay="0.3s">About Us</h1>
+
+                <!--First row-->
+                <div class="row pt-5">
+
+                    <!--First column-->
+                    <div class="col-md-7 mb-2 smooth-scroll wow fadeIn" data-wow-delay="0.4s">
+
+                        <!--Heading-->
+                        <h2 class="mb-3 font-weight-bold">We Provide High Quality Services</h2>
+                        <!--Description-->
+                        <h4 class="mb-5 dark-grey-text">Visit Us At Dzorwulu In Accra And Asokwa In Kumasi.</h4>
+                        <!--Content-->
+                        <p class="grey-text" align="justify">Through the Yaresa mobile applicaton, JED Medical Services is creating the biggest comprehensive
+						preventive medical and diagnostic centre in Ghana.
+                        </p>
+
+                        <p class="grey-text" align="justify">
+						<ul class="dark-grey-text">
+						<li>Have a medical or surgical condition and don’t know what to do?</li>
+						<li>Have a medical problem and you are shy to share?</li>
+						<li>Looking for a specialist but don’t know how and where to go?</li>
+						<li>Looking for a hospital that provides special services?</li>
+						<li>Looking for a particular place to have a special treatment or procedure done?</li>
+						</ul>
+                        </p>
+                        <br>
+
+
+                    </div>
+                    <!--/First column-->
+
+                    <!--Second column-->
+                    <div class="col-lg-4 ml-lg-auto col-md-5 mb-5 wow fadeIn" data-wow-delay="0.3s">
+
+                        <!--Image-->
+                        <img src="{% static 'images/med-bed.png' %}" class="img-fluid z-depth-1">
+
+                    </div>
+                    <!--/Second column-->
+
+                </div>
+                <!--/First row-->
+
+            </section>
+
+		</div>
+         <!-- /About -->
+
+		  <hr class="section-hr">
+
+		<!-- Offer -->
+			 <div class="container">
+
+            <!--Section: Details-->
+            <section id="offer" class="section mt-3 mb-5">
+
+                <!--Secion heading-->
+                <h1 class="h1-responsive text-center text-uppercase font-weight-bold pt-5 mt-4 mb-5 spacing wow fadeIn contentcolor" data-wow-delay="0.2s">What we offer</h1>
+
+            <!--Grid row-->
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-xl-6">
+
+                        <!-- Content -->
+                        <div class="">
+                            <div class="row d-flex justify-content-center ">
+                                <div class="col-md-12 col-xl-12">
+
+                                    <!--Accordion wrapper-->
+                                    <div class="accordion md-accordion accordion-5" id="accordionEx5" role="tablist" aria-multiselectable="true">
+
+                                        <!-- Accordion card -->
+                                        <div class="card mb-4">
+
+                                            <!-- Card header -->
+                                            <div class="card-header modalbtn lighten-2 p-0 z-depth-1" role="tab" id="heading30">
+                                                <a data-toggle="collapse" href="#collapse30" aria-expanded="true" aria-controls="collapse30">
+                                                <i class="fa fa-phone fa-lg p-4 mr-4 float-left white-text" aria-hidden="true"></i>
+                                                <h5 class="text-uppercase white-text mb-0 py-3 mt-1">
+                                                    24/7 Phone Services
+                                                </h5>
+                                            </a>
+                                            </div>
+
+                                            <!-- Card body -->
+                                            <div id="collapse30" class="collapse show" role="tabpanel" aria-labelledby="heading30" data-parent="#accordionEx5">
+                                                <div class="card-body rgba-stylish-slight black-text z-depth-1">
+                                                    <p class="p-md-4 mb-0">JED Call Centre is available for you 24 hours a day and 7 days a week. Our call centre have
+											        medical officers who are well trained personnel and understand the health dynamics and sector. They have good command of
+													the English language and have ability to speak French or other foreign or local language.
+													</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Accordion card -->
+
+                                        <!-- Accordion card -->
+                                        <div class="card mb-4">
+
+                                            <!-- Card header -->
+                                            <div class="card-header modalbtn lighten-2 p-0 z-depth-1" role="tab" id="heading31">
+                                                <a data-toggle="collapse" href="#collapse31" aria-expanded="true" aria-controls="collapse31">
+                                                <i class="fa fa-mobile fa-lg p-4 mr-4 float-left white-text" aria-hidden="true"></i>
+                                                <h5 class="text-uppercase white-text mb-0 py-3 mt-1">
+                                                    YARESA Mobile App Technical Support
+                                                </h5>
+                                            </a>
+                                            </div>
+
+                                            <!-- Card body -->
+                                            <div id="collapse31" class="collapse" role="tabpanel" aria-labelledby="heading31" data-parent="#accordionEx5">
+                                                <div class="card-body rgba-stylish-slight black-text z-depth-1">
+                                                    <p class="p-md-4 mb-0">We offer technical support and training on how to use the YARESA mobile application. The YARESA Mobie Application
+													is the bridge between the clients/members and JED Medical Services. Therefore we have made available all tools neccessary
+													to help our members efficiently and effectively use the YARESA Mobile Application at their convenience.
+													</p>
+													<p class="h5 my-2 text-center text-uppercase">Contact Us For Help With The YARESA App</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Accordion card -->
+
+                                        <!-- Accordion card -->
+                                        <div class="card mb-5">
+
+                                            <!-- Card header -->
+                                            <div class="card-header modalbtn lighten-2 p-0 z-depth-1" role="tab" id="heading32">
+                                                <a data-toggle="collapse" href="#collapse32" aria-expanded="true" aria-controls="collapse32">
+                                                <i class="fa fa-car fa-lg p-4 mr-4 float-left white-text" aria-hidden="true"></i>
+                                                <h5 class="text-uppercase white-text mb-0 py-3 mt-1">
+												JED Transport
+                                                </h5>
+                                            </a>
+                                            </div>
+
+                                            <!-- Card body -->
+                                            <div id="collapse32" class="collapse" role="tabpanel" aria-labelledby="heading32" data-parent="#accordionEx5">
+                                                <div class="card-body rgba-stylish-slight black-text z-depth-1">
+                                                    <p class="p-md-4 mb-0">JED medical services have observed the problems associated with the need for emergency ambulance
+													in the country. The availability of emergency ambulance for our members is a top priority for us. Members who wish to be
+													taken to diagnosis centres and other health facilities where they have appointments can be taken there courtesy JED Transports.
+													</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Accordion card -->
+                                    </div>
+                                    <!--/.Accordion wrapper-->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Content -->
+
+                    </div>
+                    <!-- /Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-xl-6 smooth-scroll">
+
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img src="{% static 'images/blackdocs.jpg' %}" class="card-img-top" alt="card">
+                                <a href="#">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body text-center mb-3">
+                                <!--Title-->
+                                <h4 class="card-title mt-1 pb-1"><strong></strong>Quality Healthcare At Your Convinience</h4>
+                                <!--Text-->
+                                <p class="card-text dark-grey-text">Have the most quality and stress-free healthcare for you and your family. Get your health managed by top class
+								professionals at your own convinience. Even at the comfort of your home. </p>
+                                <a href="#contact" class="btn modalbtn btn-rounded">contact us now</a>
+                            </div>
+
+                        </div>
+                        <!--/.Card-->
+
+                    </div>
+                    <!-- /Grid column -->
 
                 </div>
                 <!--Grid row-->
 
-            </div>
+            </section>
+            <!--/Section: Details-->
+
+        </div>
+		 <!-- /Offer -->
+
+		 <hr class="section-hr">
+
+		<!-- Contact -->
+		<div class="container card smooth-scroll">
+
+            <!-- Section: Contact v.2 -->
+            <section id="contact" class="section mb-5">
+
+                <!-- Section heading -->
+                <h1 class="h1-responsive text-center text-uppercase contentcolor font-weight-bold mb-5 mt-4 pt-5 wow fadeIn" data-wow-delay="0.2s">contact us</h1>
+
+                <!-- Grid row -->
+                <div class="row wow fadeIn" data-wow-delay="0.4s">
+
+                    <!-- Grid column -->
+                    <div class="col-md-8 col-lg-9">
+                        <form>
+                            <!-- Grid row -->
+                            <div class="row pb-3">
+                                <!-- Grid column -->
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <div class="md-form">
+                                            <input type="text" id="form41" class="form-control">
+                                            <label for="form41" class="lablestyle">Your name</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Grid column -->
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <div class="md-form">
+										    <label for="form52" class="lablestyle">Your email</label>
+                                            <input type="text" id="form52" class="form-control">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Grid row -->
+
+                            <!-- Second row -->
+                            <!-- Grid row -->
+                      <div class="row pb-3">
+
+                        <!-- Grid column -->
+                        <div class="col-md-6">
+                          <div class="md-form">
+                            <input type="text" id="form-contact-phone" class="form-control">
+                            <label for="form-contact-phone" class="lablestyle">Your phone</label>
+                          </div>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-6">
+                          <div class="md-form">
+                            <input type="text" id="form-contact-company" class="form-control">
+                            <label for="form-contact-company" class="lablestyle">Your company</label>
+                          </div>
+                        </div>
+                        <!-- Grid column -->
+
+                      </div>
+                      <!-- Grid row -->
+
+                            <!-- Second row -->
+
+                            <!-- Third row -->
+                            <div class="row py-3">
+                                <!-- Grid column -->
+                                <div class="col-md-12">
+
+                                    <div class="md-form">
+                                        <textarea type="text" id="form76" class="md-textarea textarea-style form-control" rows="5"></textarea>
+                                        <label for="form76" class="lablestyle">Your message</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Third row -->
+
+
+                        <div class="text-center text-md-left mb-5 mt-4">
+                            <a class="btn btn-rounded modalbtn white-text">Send</a>
+                        </div>
+
+					  </form>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3">
+                        <ul class="text-center list-unstyled float-md-right">
+                            <li><i class="fa fa-map-marker fa-2x orange-text"></i>
+                                <p>Asokwa, AK-000-0000, Kumasi</p>
+                            </li>
+							 <li><i class="fa fa-map-marker fa-2x orange-text"></i>
+                                <p>Dzorwulu, GA-000-0000, Accra</p>
+                            </li>
+                            <li><i class="fa fa-phone fa-2x orange-text"></i>
+                                <p>+233233140485</p>
+                            </li>
+
+                            <li><i class="fa fa-envelope fa-2x orange-text"></i>
+                                <p>contact@yaresa.com</p>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+
+            </section>
+            <!-- Section: Contact v.2 -->
+
+       </div>
+       <!-- /Contact -->
+
+
+		 <hr class="section-hr">
+
+		 <div class="container">
+		  <!--Section: Testimonials -->
+             <section class="section team-section pb-5" id="testimonials">
+
+                <!-- Secion heading -->
+                <h1 class="text-center font-weight-bold mt-5 pt-4 mb-3 wow fadeIn contentcolor text-uppercase" data-wow-delay="0.2s">Testimonials</h1>
+
+                <!-- Section description -->
+                <p class="text-center text-uppercase font-weight-bold grey-text mb-5 pb-4 wow fadeIn" data-wow-delay="0.2s">What happy customers say</p>
+
+                <!-- Grid row -->
+                <div class="row text-center">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay="0.4s">
+
+                        <div class="testimonial">
+                            <!-- Avatar -->
+                            <div class="avatar mx-auto mb-4">
+                                <img src="{% static 'images/dani.jpg' %}" class="rounded-circle img-fluid z-depth-1-half bounceInLeft wow" data-wow-delay="0.5s">
+                            </div>
+
+                            <!-- Content -->
+                            <h5 class="dark-grey-text font-weight-bold">
+                                <strong>Daniella Sarpong</strong>
+                            </h5>
+                            <p class="grey-text">
+                                <i class="fa fa-quote-left grey-text"></i> I can now gladly say this is the kind of medical service this country need.Top-notch
+								services with and amazing customer care. They have made my health life easy and simple.</p>
+
+                            <!-- Review -->
+                            <div class="grey-text">
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="testimonial">
+                            <!-- Avatar -->
+                            <div class="avatar mx-auto mb-4">
+                                <img src="{% static 'images/sam.jpg' %}" class="rounded-circle img-fluid z-depth-1-half bounceIn wow" data-wow-delay="0.5s">
+                            </div>
+
+                            <!-- Content -->
+                            <h5 class="dark-grey-text font-weight-bold">
+                                <strong>Kwaku Gyamfi</strong>
+                            </h5>
+                            <p class="grey-text">
+                                <i class="fa fa-quote-left grey-text"></i> The Yaresa Mobile Application has helped me keep track of all my medical records
+								ever since I started my new health journey with JED Medical Services. I don't have to worry about losing my lab tests and
+								diagnosis anymore.</p>
+
+                            <!-- Review -->
+                            <div class="grey-text">
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mb-4 wow fadeIn" data-wow-delay="0.4s">
+                        <div class="testimonial">
+                            <!-- Avatar -->
+                            <div class="avatar mx-auto mb-4">
+                                <img src="{% static 'images/andrews.jpg' %}" class="rounded-circle img-fluid z-depth-1-half bounceInRight wow" data-wow-delay="0.5s">
+                            </div>
+                            <!-- Content -->
+                            <h5 class="dark-grey-text font-weight-bold">
+                                <strong>Mr. Opoku Agyemang</strong>
+                            </h5>
+                            <p class="grey-text">
+                                <i class="fa fa-quote-left grey-text"></i> I travel a lot a business man and sometimes I had to almost start all my medical tests when I went to
+								a hospital during my travels because I did not have my medical records with me. With the Yaresa mobile application from JED Medical Services,
+								I always have them with me everywhere I go. I do not stress over my health anymore because JED Medical service are doing the perfect health managment
+								for me and for my family.</p>
+
+                            <!-- Review -->
+                            <div class="grey-text">
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                                <i class="fa fa-star"> </i>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </section>
+
+
+            <!--/Section: Testimonials -->
+         </div>
+
+
 
         </main>
-        <!--Main Layout-->
-
+		  <!--Main Layout-->
 
 
         {% endblock %}
