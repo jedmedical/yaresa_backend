@@ -161,3 +161,8 @@ def add_medical_info(request,pk):
     context = {'new_medical': new_medical,'user':user}
     return render(request,'medical-info.html',context)
 
+def user_list(request):
+    user = AuthUserDemographic.objects.all()
+
+    context = {'user_list':user}
+    return render(request, 'user_list.html', context)
