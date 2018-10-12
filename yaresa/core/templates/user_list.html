@@ -69,8 +69,8 @@
                                         <span class="sr-only">Toggle Dropdown</span>
                                 </button>
 <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Add Condition</a>
-    <a class="dropdown-item" href="#">Add Allergy</a>
+    <a class="dropdown-item" href="{% url 'core:user-condition' pk=user.id %}">Conditions</a>
+    <a class="dropdown-item" href="{% url 'core:user-allergy' pk=user.id %}">Allergy</a>
     <a class="dropdown-item" href="#">Add lab</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#">Delete Account</a>

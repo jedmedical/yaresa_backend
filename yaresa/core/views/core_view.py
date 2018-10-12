@@ -1,6 +1,6 @@
 import datetime
 from core.core_util import add_zeros
-from core.forms.core_forms import NewUserForm,NewUserMedicalHistoryForm
+from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery
 from django.contrib import messages
@@ -172,3 +172,39 @@ def user_detail(request,pk):
 
     context = {'user': user}
     return render(request, 'user_detail.html', context)
+
+
+def user_condition(request,pk):
+    user = AuthUserDemographic.objects.get(id=pk)
+
+    if request.method == "POST":
+        userconditionform = Addusercondition(request.POST)
+        if userconditionform.is_valid():
+            Medical_history(user=user,condition=userconditionform.cleaned_data['condition']).save()
+            messages.success(request,"Condition Added")
+
+
+    userconditionform = Addusercondition()
+
+    conditions = Medical_history.objects.filter(user=user)
+    context = {'conditions': conditions,'user':user, 'userconditionform':userconditionform}
+    return render(request, 'user-condition.html', context)
+
+
+def user_allergy(request,pk):
+    user = AuthUserDemographic.objects.get(id=pk)
+
+    if request.method == "POST":
+        userallergyform = Adduserallergy(request.POST)
+        if userallergyform.is_valid():
+            Allergy(user=user,name=userallergyform.cleaned_data['allergy_name'],
+                    type=userallergyform.cleaned_data['allergy_type']).save()
+            messages.success(request,"Allergy Added")
+
+
+    userallergyform = Adduserallergy()
+
+    allergies = Allergy.objects.filter(user=user)
+    context = {'allergies': allergies,'user':user, 'userallergyform':userallergyform}
+    return render(request, 'user-allergy.html', context)
+
