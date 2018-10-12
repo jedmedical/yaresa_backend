@@ -166,3 +166,9 @@ def user_list(request):
 
     context = {'user_list':user}
     return render(request, 'user_list.html', context)
+
+def user_detail(request,pk):
+    user = AuthUserDemographic.objects.get(id=pk)
+
+    context = {'user': user}
+    return render(request, 'user_detail.html', context)

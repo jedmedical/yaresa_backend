@@ -62,7 +62,7 @@
                                 <td>{{ user.mobile }}</td>
                                 <td>
                                     <div class="btn-group">
-                                    <a href=""><button type="button" class="btn btn-danger">View</button></a>
+                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-danger">View</button></a>
 
 
                                     <button type="button" class="btn btn-danger dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
