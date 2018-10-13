@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/core/templates/user-allergy.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/templates/user-condition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/forms/core_forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms/core_forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models/auth_user_demographic.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/auth_user_demographic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views/core_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/core_view.py" afterDir="false" />
-    </list>
+    <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="" />
     <ignored path="yaresa.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,14 +53,14 @@
         <counts>
           <entry key="css" value="2" />
           <entry key="html" value="29" />
-          <entry key="py" value="39" />
+          <entry key="py" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="2" />
           <entry key="HTML" value="29" />
-          <entry key="Python" value="39" />
+          <entry key="Python" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -101,30 +92,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/user_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1903">
-              <caret line="127" column="5" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="208" column="56" lean-forward="true" selection-start-line="208" selection-start-column="56" selection-end-line="208" selection-end-column="56" />
+            <state relative-caret-position="282">
+              <caret line="201" column="46" selection-start-line="201" selection-start-column="46" selection-end-line="201" selection-end-column="46" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1539330767130" expanded="true" signature="7387:7392" ph="..." />
-                <marker date="1539330767130" expanded="true" signature="7720:8319" ph="..." />
-                <marker date="1539330767130" expanded="true" signature="8317:8318" ph="..." />
+                <marker date="1539331103363" expanded="true" signature="7387:7392" ph="..." />
+                <marker date="1539331103363" expanded="true" signature="7720:8319" ph="..." />
+                <marker date="1539331103363" expanded="true" signature="8317:8318" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/templates/user-allergy.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
@@ -168,10 +150,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
+            <state relative-caret-position="550">
               <caret line="69" column="127" selection-start-line="69" selection-start-column="127" selection-end-line="69" selection-end-column="127" />
               <folding>
                 <marker date="1539330187703" expanded="true" signature="5274:5279" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/models/medication.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -250,11 +244,11 @@
         <option value="$PROJECT_DIR$/core/templates/user_detail.html" />
         <option value="$PROJECT_DIR$/core/models/auth_user_demographic.py" />
         <option value="$PROJECT_DIR$/core/forms/core_forms.py" />
-        <option value="$PROJECT_DIR$/core/views/core_view.py" />
         <option value="$PROJECT_DIR$/core/templates/user-condition.html" />
         <option value="$PROJECT_DIR$/core/urls.py" />
         <option value="$PROJECT_DIR$/core/templates/user_list.html" />
         <option value="$PROJECT_DIR$/core/templates/user-allergy.html" />
+        <option value="$PROJECT_DIR$/core/views/core_view.py" />
       </list>
     </option>
   </component>
@@ -264,7 +258,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="830" />
@@ -462,8 +456,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="830" extended-state="1" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2081545" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -476,7 +469,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3699187" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -601,16 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="121" column="44" selection-start-line="121" selection-start-column="44" selection-end-line="121" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/medication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -805,35 +788,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="69" column="127" selection-start-line="69" selection-start-column="127" selection-end-line="69" selection-end-column="127" />
-          <folding>
-            <marker date="1539330187703" expanded="true" signature="5274:5279" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/models/allergy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="208" column="56" lean-forward="true" selection-start-line="208" selection-start-column="56" selection-end-line="208" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1539330767130" expanded="true" signature="7387:7392" ph="..." />
-            <marker date="1539330767130" expanded="true" signature="7720:8319" ph="..." />
-            <marker date="1539330767130" expanded="true" signature="8317:8318" ph="..." />
           </folding>
         </state>
       </provider>
@@ -873,6 +833,39 @@
             <element signature="e#269#293#0#HTML" expanded="true" />
             <element signature="e#1161#1185#0#HTML" expanded="true" />
             <element signature="e#1224#1248#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="201" column="46" selection-start-line="201" selection-start-column="46" selection-end-line="201" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1539331103363" expanded="true" signature="7387:7392" ph="..." />
+            <marker date="1539331103363" expanded="true" signature="7720:8319" ph="..." />
+            <marker date="1539331103363" expanded="true" signature="8317:8318" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="69" column="127" selection-start-line="69" selection-start-column="127" selection-end-line="69" selection-end-column="127" />
+          <folding>
+            <marker date="1539330187703" expanded="true" signature="5274:5279" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/medication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
