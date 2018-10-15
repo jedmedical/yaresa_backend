@@ -1,25 +1,29 @@
 import datetime
 from core.core_util import add_zeros
-from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy
+from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy, \
+    Addusermedication
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.shortcuts import render, redirect
+import requests
+
 
 # Create your views here.
 import random
 
 
 def dashboard(request):
+
     return render(request,'dashboard.html')
 
 def add_new_user(request):
-    print ("1")
+
     if request.method == "POST":
         new_user_form = NewUserForm(request.POST, request.FILES)
-        print ("2")
+
         if new_user_form.is_valid():
             picture = new_user_form.cleaned_data['picture']
             title = new_user_form.cleaned_data['title']
@@ -60,14 +64,21 @@ def add_new_user(request):
                                                 marital_status=marital_status,address=address,
                                                 occupation=occupation,emergency_contact_name=emergency_contact_name,
                                                 emergency_contact_mobile=emergency_contact_mobile,
+                                                mobile=mobile
 
                                                 )
+
+
                 user_info.save()
 
                 user_info.unique_id = '{}{}{}{}'.format(now.day,now.month,
                                                         now.year,add_zeros(5,str(user_info.id)))
 
                 user_info.save()
+
+                sendsms(request,mobile,pin)
+
+
 
                 return redirect("add-medi-info/{}".format(user_info.id))
             except IntegrityError as e:
@@ -98,7 +109,7 @@ def add_medical_info(request,pk):
             medi_graph = Med_graphic(user=user,blood_group=blood_group,
                                      sickling_status=sickling_status,
                                      g6pd=g6pd)
-            #medi_graph.save()
+            medi_graph.save()
 
             height = new_medical.cleaned_data['height']
             weight = new_medical.cleaned_data['weight']
@@ -110,23 +121,23 @@ def add_medical_info(request,pk):
 
             diabetes_mellitus = new_medical.cleaned_data['diabetes_mellitus']
             if diabetes_mellitus == 'yes':
-                Medical_history(user=user,condition="Diabetes Mellitus")
+                Medical_history(user=user,condition="Diabetes Mellitus").save()
             systematic_hypertension = new_medical.cleaned_data['systematic_hypertension']
             if systematic_hypertension == 'yes':
-                Medical_history(user=user,condition="Systematic Hypertension")
+                Medical_history(user=user,condition="Systematic Hypertension").save()
             epilepsy = new_medical.cleaned_data['epilepsy']
             if epilepsy == 'yes':
-                Medical_history(user=user,condition="Ellipsis")
+                Medical_history(user=user,condition="Ellipsis").save()
             uterine_fibroid = new_medical.cleaned_data['uterine_fibroid']
             if uterine_fibroid == 'yes':
-                Medical_history(user=user,condition="Uterine Fibroid")
+                Medical_history(user=user,condition="Uterine Fibroid").save()
             peptic_ulcer_disease = new_medical.cleaned_data['peptic_ulcer_disease']
             if peptic_ulcer_disease == 'yes':
-                Medical_history(user=user,condition="Peptic Ulcer Disease")
+                Medical_history(user=user,condition="Peptic Ulcer Disease").save()
 
             other_condition = new_medical.cleaned_data.get('other_condition')
             if other_condition:
-                Medical_history(user=user,condition=other_condition)
+                Medical_history(user=user,condition=other_condition).save()
             print(other_condition)
             medicine = new_medical.cleaned_data['medicine']
             dosage = new_medical.cleaned_data['dosage']
@@ -148,9 +159,12 @@ def add_medical_info(request,pk):
             smoking = new_medical.cleaned_data['smoking']
             if smoking == 'yes':
                 social_history.smoking=True
+            social_history.save()
             surgery_date = new_medical.cleaned_data['surgery_date']
             surgery_name = new_medical.cleaned_data['surgery_name']
             Surgery(user=user,name=surgery_name,date=surgery_date).save()
+            messages.error(request, "Medical Info added")
+            redirect('user-list')
 
         else:
             messages.error(request,"Please fill form completely")
@@ -208,3 +222,38 @@ def user_allergy(request,pk):
     context = {'allergies': allergies,'user':user, 'userallergyform':userallergyform}
     return render(request, 'user-allergy.html', context)
 
+def user_medication(request,pk):
+    user = AuthUserDemographic.objects.get(id=pk)
+
+    if request.method == "POST":
+        usermedicationform = Addusermedication(request.POST)
+        if usermedicationform.is_valid():
+            Medication(user=user,medicine=usermedicationform.cleaned_data['medicine'],
+                    dosage=usermedicationform.cleaned_data['dosage'],refill_date=usermedicationform.cleaned_data['refill_date']).save()
+            messages.success(request,"Medicine Added")
+
+
+    usermedicationform = Addusermedication()
+
+    medications = Medication.objects.filter(user=user)
+    context = {'medications': medications,'user':user, 'usermedicationform':usermedicationform}
+    return render(request, 'user-medication.html', context)
+
+
+
+
+def sendsms(request,contact,pin):
+    url = "http://sms.nasaramobile.com/api/v2/sendsms"
+
+    querystring = {"api_key": "5bc2dfb823e475bc2dfb823e88", "phone_numbers": "0548867947",
+                   "sender_id": "Yaresa", "message": "Thanks for registering for Yaresa services. Download Yaresa app at .Your temporal pin is "}
+
+
+
+    response = requests.get( url="http://sms.nasaramobile.com/api?"
+                                    "api_key=5bc2dfb823e475bc2dfb823e88&&sender_id=Yaresa"
+                                    "&&phone="+contact+"&&message=Thanks for registering for Yaresa services. "
+                                 "Download Yaresa app at .Your temporal pin is "+pin)
+    print(response)
+    print(response.reason)
+    print(response.content)

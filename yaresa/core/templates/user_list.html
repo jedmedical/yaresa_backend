@@ -71,9 +71,9 @@
 <div class="dropdown-menu">
     <a class="dropdown-item" href="{% url 'core:user-condition' pk=user.id %}">Conditions</a>
     <a class="dropdown-item" href="{% url 'core:user-allergy' pk=user.id %}">Allergy</a>
-    <a class="dropdown-item" href="#">Add lab</a>
+    <a class="dropdown-item" href="{% url 'core:user-medication' pk=user.id %}">Medication</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Delete Account</a>
+    <a class="dropdown-item" href="#">Deactivate Account</a>
   </div>
                                 </div>
                                 </td>

@@ -68,3 +68,11 @@ class Addusercondition(forms.Form):
 class Adduserallergy(forms.Form):
     allergy_name = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     allergy_type = forms.ChoiceField( choices= allergytype, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
+
+
+
+class Addusermedication(forms.Form):
+    medicine = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    dosage = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    refill_date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
+                                  input_formats=["%Y-%m-%d"])
