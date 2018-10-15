@@ -23,7 +23,7 @@ from yaresa import settings
 urlpatterns = [
     url(r'^',include('core.urls')),
     url(r'^admin/', admin.site.urls),
-    #url('api/yaresa/', include('api.urls'))
+    url('api/yaresa/', include('api.urls'))
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

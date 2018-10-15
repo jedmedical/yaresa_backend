@@ -23,12 +23,35 @@ def signin(request):
 
 
 
-                    response = json.dumps({'status': 'ok', 'user_id': user_serial.id})
+                    response = json.dumps({'status': 'ok', 'user_id': user_serial.id,'first_time':user_serial.first_login})
 
             else:
                     response = json.dumps({'status': 'error', 'result': "Wrong username or password"})
         else:
             response = json.dumps({'status': 'error', 'result': "Username or password not provided"})
+
+    else:
+        response = json.dumps({'status': 'error', 'result': "something went wrong"})
+
+    return HttpResponse(response, content_type='application/json')
+
+def reset_pin(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id','')
+        password = request.POST.get('password','')
+
+        if user_id and password:
+            demoUser = AuthUserDemographic.objects.get(id=user_id)
+            user = demoUser.user
+            user.set_password(password)
+            user.save()
+            demoUser.first_login = False
+            demoUser.save()
+
+            response = json.dumps({'status': 'ok', })
+
+        else:
+                    response = json.dumps({'status': 'error', 'result': "Invalid data"})
 
     else:
         response = json.dumps({'status': 'error', 'result': "something went wrong"})

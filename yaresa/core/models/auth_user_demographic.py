@@ -24,6 +24,7 @@ class AuthUserDemographic(BaseModel):
     mobile = models.CharField(max_length=255,null=True)
     emergency_contact_name = models.CharField(max_length=255,null=True)
     emergency_contact_mobile = models.CharField(max_length=255,null=True)
+    first_login = models.BooleanField(default=True)
 
 
 

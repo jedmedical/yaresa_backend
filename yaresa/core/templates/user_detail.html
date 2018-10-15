@@ -1,0 +1,141 @@
+{% extends 'dashboardbase.html' %}
+
+        {% block title %}New user{% endblock %}
+
+        {% block content %}
+            {% load static %}
+
+
+    <div class="container-fluid">
+
+    <div class="container">
+
+		<div class="row my-5">
+		 <div class="col-xs-12 col-sm-12 card mb-5" style="">
+
+
+		 <div class="row">
+          <div class=" col-sm-4 offset-sm-4 col-xs-8 offset-xs-2 my-5">
+
+			  <p class="h4 text-center grey-text text-uppercase pt-2">Profile Picture</p><br>
+			   <div class="row d-flex justify-content-center">
+			  <div class="file-field">
+        <div class="mb-4" align="center">
+       <img id="imgId" src="{{ user.picture.url }}" class="avatar-pic">
+        </div>
+          </div>
+         </div>
+
+           </div>
+        </div><br><br>
+
+		<p class="h3 text-center grey-text text-uppercase mb-4">Personal Information</p><br>
+
+	    <div class="row">
+	       <div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">Name</h5>
+		     <h6 class="h6-responsive dark-grey-text">{{ user.title }} {{ user.first_name }} {{ user.other_name }} {{ user.surname }} </h6>
+			</div>
+
+		<div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">Date of birth</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.date_of_birth }}</h6>
+			</div>
+
+{#	       <div class="col-sm-4">#}
+{#		   <h5 class="h5-responsive dark-grey-text text-uppercase">Age</h5>#}
+{#		     <h6 class="h6-responsive dark-grey-text text-capitalize">25 Years Old</h6>#}
+{#			</div>#}
+		</div>
+
+	<hr>
+
+		<div class="row">
+
+		<div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">sex</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.sex }}</h6>
+		</div>
+
+		<div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">marital status</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.marital_status }}</h6>
+		</div>
+
+	    <div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">nationality</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.nationality }}</h6>
+		</div>
+
+
+		</div>
+
+	<hr>
+
+		<div class="row">
+	       <div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">religion</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.religion }}</h6>
+			</div>
+
+	       <div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">digital address</h5>
+		     <h6 class="h6-responsive dark-grey-text text-uppercase">{{ user.address }}</h6>
+			</div>
+
+		<div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">occupation</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.occupation }}</h6>
+		</div>
+
+		</div>
+
+	<hr>
+
+		<div class="row">
+
+		<div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">email</h5>
+		     <h6 class="h6-responsive dark-grey-text">{{ user.email }}</h6>
+		</div>
+
+		<div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">mobile</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.mobile }}</h6>
+		</div>
+
+		</div>
+
+	<hr>
+
+
+		 <p class="h5 grey-text text-uppercase">emergency contact</p><br>
+
+		 <div class="row">
+	       <div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">name</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.emergency_contact_name }}</h6>
+			</div>
+
+	       <div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">mobile</h5>
+		     <h6 class="h6-responsive dark-grey-text">{{ user.emergency_contact_mobile }}</h6>
+			</div>
+		</div>
+
+	<hr>
+
+	 
+
+
+		</div>
+	</div>
+  </div>
+
+
+
+
+
+
+    </div>
+{% endblock %}

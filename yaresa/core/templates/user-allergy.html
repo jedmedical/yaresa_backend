@@ -1,0 +1,121 @@
+{% extends 'dashboardbase.html' %}
+
+        {% block title %}New user{% endblock %}
+
+        {% block content %}
+            {% load static %}
+
+
+    <div class="container-fluid">
+
+
+
+	<div class="container">
+        <div class="card">
+            <div class="container" style="margin-top: 20px">
+                   <form method="post">
+                        {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+             <div class="chip pink lighten-4"><b>#</b>
+    {{ user.unique_id }}
+
+</div>              <div class="chip">
+    <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
+</div>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="md-form form-group">
+						   							<label for="id_allergy_name" class="control-label">Allergy</label>
+						   							{{ userallergyform.allergy_name }}
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+
+                <div class="md-form form-group">
+
+                                 {{ userallergyform.allergy_type }}
+                </div>
+                </div>
+
+                <div class="col-md-2">
+
+                        <button class="btn btn-primary" type="submit">Add Allergy</button>
+                </div>
+
+
+
+                </div>
+                       </form>
+            </div>
+                </div>
+
+
+             <div class="card" style="margin-top: 20px">
+
+             <div class="container" style="margin-top: 20px">
+
+            <div class="row">
+                <div class="col-md-12">
+
+
+
+                     <div class="table-wrapper">
+            <!--Table-->
+            <table id="factorytable" class="table table-hover mb-0">
+
+                <!--Table head-->
+                <thead>
+
+                            <tr>
+
+                                <th class="th-lg">Allergy </th>
+
+                                <th class="th-lg">Type</th>
+                                <th class="th-lg"></th>
+                            </tr>
+
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                     {% for allergy in allergies %}
+
+                        <tr>
+
+                                <td>{{ allergy.name}}</td>
+<td>{{ allergy.type}}</td>
+                                <td>
+                                    <div class="btn-group">
+                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-danger">Remove</button></a>
+
+                   </div>
+                                </td>
+
+                        </tr>
+                     {% endfor %}
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+
+
+
+                </div>
+            </div>
+               <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+             </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
