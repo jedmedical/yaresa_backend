@@ -113,7 +113,7 @@ def add_medical_info(request,pk):
 
             height = new_medical.cleaned_data['height']
             weight = new_medical.cleaned_data['weight']
-            weight = new_medical.cleaned_data['bmi']
+            bmi = new_medical.cleaned_data['bmi']
             bp = new_medical.cleaned_data['bp']
 
             Height(height=height+"cm").save()
