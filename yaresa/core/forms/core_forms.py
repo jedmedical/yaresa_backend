@@ -38,7 +38,7 @@ class NewUserMedicalHistoryForm(forms.Form):
     g6pd = forms.ChoiceField( choices= G6pd, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     height = forms.CharField(max_length=255,widget=forms.NumberInput(attrs={'class': "form-control"}),)
     weight = forms.CharField(max_length=255,widget=forms.NumberInput(attrs={'class': "form-control"}),)
-    bp = forms.CharField(max_length=255,widget=forms.NumberInput(attrs={'class': "form-control"}),)
+    bp = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     diabetes_mellitus = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
     systematic_hypertension = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
     epilepsy = forms.ChoiceField(choices=true_or_false, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)

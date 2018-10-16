@@ -115,9 +115,9 @@ def add_medical_info(request,pk):
             weight = new_medical.cleaned_data['weight']
             bp = new_medical.cleaned_data['bp']
 
-            Height(height=height).save()
-            Weight(weight=weight).save()
-            Blood_Pressure(bp=bp).save()
+            Height(height=height+"cm").save()
+            Weight(weight=weight+"kg").save()
+            Blood_Pressure(bp=bp+"mmHg").save()
 
             diabetes_mellitus = new_medical.cleaned_data['diabetes_mellitus']
             if diabetes_mellitus == 'yes':
