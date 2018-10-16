@@ -15,7 +15,7 @@ class NewUserForm(forms.Form):
     picture = forms.ImageField()
     title = forms.ChoiceField( choices= Title, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     first_name = forms.CharField(max_length=255 ,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    other_name = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    other_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}),)
 
     surname = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     sex = forms.ChoiceField(choices=Sex, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)

@@ -252,7 +252,7 @@ def sendsms(request,contact,pin):
 
     response = requests.get( url="http://sms.nasaramobile.com/api?"
                                     "api_key=5bc2dfb823e475bc2dfb823e88&&sender_id=Yaresa"
-                                    "&&phone="+contact+"&&message=Thanks for registering for Yaresa services. "
+                                    "&&phone="+str(contact)+"&&message=Thanks for registering for Yaresa services. "
                                  "Download Yaresa app at .Your temporal pin is "+pin)
     print(response)
     print(response.reason)
