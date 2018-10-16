@@ -53,7 +53,7 @@
               box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
             }
         }
-		@media (max-width:768px;) {
+		@media (max-width:768px) {
        .margins {
         margin-left: 2rem;
 		margin-bottom: 1rem;
