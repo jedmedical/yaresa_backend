@@ -35,6 +35,7 @@ def signin(request):
 
     return HttpResponse(response, content_type='application/json')
 
+@csrf_exempt
 def reset_pin(request):
     if request.method == 'POST':
         user_id = request.POST.get('user_id','')

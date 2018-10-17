@@ -201,7 +201,7 @@ $(document).ready(function() {
 
      $('#factorytable').DataTable()
 
-var max_fields = 20; //maximum input boxes allowed
+var max_fields = 3; //maximum input boxes allowed
 var wrapper = $("#extracon"); //Fields wrapper
 var add_button = $("#add-condition"); //Add button ID
 
@@ -210,7 +210,16 @@ $(add_button).click(function(e){ //on add input button click
 e.preventDefault();
 if(x < max_fields){ //max input box allowed
 x++; //text box increment
-$(wrapper).append(' <div class="col-md-4"><div class="md-form form-group"><label for="id_other_condition" class="control-label">Other Condition</label>{{ new_medical.other_condition }}</div></div>');
+    if(x ==1){
+      $(wrapper).append(' <div class="col-md-4"><div class="md-form form-group"><label for="id_other_condition_'+x+'" class="control-label">Other Condition</label>{{ new_medical.other_condition_1 }}</div></div>');
+
+    }else if(x==2){
+      $(wrapper).append(' <div class="col-md-4"><div class="md-form form-group"><label for="id_other_condition_'+x+'" class="control-label">Other Condition</label>{{ new_medical.other_condition_2 }}</div></div>');
+
+    }else {
+        $(wrapper).append(' <div class="col-md-4"><div class="md-form form-group"><label for="id_other_condition_'+x+'" class="control-label">Other Condition</label>{{ new_medical.other_condition_3 }}</div></div>');
+
+    }
 //add input box
 }
 });
@@ -220,39 +229,43 @@ e.preventDefault(); $(this).parent('div').remove(); x--;
 })
 });
 
-var medmax_fields = 20; //maximum input boxes allowed
+var medmax_fields = 2; //maximum input boxes allowed
 var medwrapper = $("#extramed"); //Fields wrapper
 var medadd_button = $("#add-med"); //Add button ID
 
 var medx = 1; //initlal text box count
 $(medadd_button).click(function(e){ //on add input button click
 e.preventDefault();
+
 if(medx < medmax_fields){ //max input box allowed
-medx++; //text box increment
-$(medwrapper).append('    <div class="row">\n' +
+//text box increment
+
+    if(medx == 1){
+
+        $(medwrapper).append('    <div class="row">\n' +
     '                                <div class="col-md-4">\n' +
     '                           <div class="md-form form-group">\n' +
-    '                                <label for="id_medicine" class="control-label">Medicine Name</label>\n' +
+    '                                <label for="id_medicine_1" class="control-label">Medicine Name</label>\n' +
     '\n' +
-    '\t\t\t\t\t\t        {{ new_medical.medicine }}\n' +
-    '\n' +
-    '                           </div>\n' +
-    '                                </div>\n' +
-    '                                    \n' +
-    '                                        <div class="col-md-4">\n' +
-    '                           <div class="md-form form-group">\n' +
-    '                                <label for="id_dosage" class="control-label">Dosage</label>\n' +
-    '\n' +
-    '\t\t\t\t\t\t        {{ new_medical.dosage }}\n' +
+    '\t\t\t\t\t\t        {{ new_medical.medicine_1 }}\n' +
     '\n' +
     '                           </div>\n' +
     '                                </div>\n' +
     '                                    \n' +
     '                                        <div class="col-md-4">\n' +
     '                           <div class="md-form form-group">\n' +
-    '                                <label for="id_refill_date" class="control-label">Refill Date</label>\n' +
+    '                                <label for="id_dosage_1" class="control-label">Dosage</label>\n' +
     '\n' +
-    '\t\t\t\t\t\t        {{ new_medical.refill_date }}\n' +
+    '\t\t\t\t\t\t        {{ new_medical.dosage_1 }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+    '                                    \n' +
+    '                                        <div class="col-md-4">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_refill_date_1" class="control-label">Refill Date</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.refill_date_1 }}\n' +
     '\n' +
     '                           </div>\n' +
     '                                </div>\n' +
@@ -260,6 +273,16 @@ $(medwrapper).append('    <div class="row">\n' +
     '                                </div>\n' +
     '                            ');
 //add input box
+
+
+
+    }
+    $('.datepicker').pickadate({
+// Escape any “rule” characters with an exclamation mark (!).
+            format: 'yyyy-mm-dd',
+            formatSubmit: 'yyyy-mm-dd'
+        })
+medx++;
 }
 });
 
@@ -276,7 +299,7 @@ e.preventDefault(); $(this).parent('div').remove(); medx--;
 
 
 
-var surmax_fields = 20; //maximum input boxes allowed
+var surmax_fields = 2; //maximum input boxes allowed
 var surwrapper = $("#extrasur"); //Fields wrapper
 var suradd_button = $("#add-sur"); //Add button ID
 
@@ -284,13 +307,13 @@ var surx = 1; //initlal text box count
 $(suradd_button).click(function(e){ //on add input button click
 e.preventDefault();
 if(surx < surmax_fields){ //max input box allowed
-surx++; //text box increment
+ //text box increment
 $(surwrapper).append('<div class="row">\n' +
     '                                <div class="col-md-6">\n' +
     '                           <div class="md-form form-group">\n' +
-    '                                <label for="id_medicine" class="control-label">Medicine Name</label>\n' +
+    '                                <label for="id_surgery_name_1" class="control-label">Surgery Name</label>\n' +
     '\n' +
-    '\t\t\t\t\t\t        {{ new_medical.surgery_name }}\n' +
+    '\t\t\t\t\t\t        {{ new_medical.surgery_name_1 }}\n' +
     '\n' +
     '                           </div>\n' +
     '                                </div>\n' +
@@ -299,15 +322,21 @@ $(surwrapper).append('<div class="row">\n' +
     '\n' +
     '                                        <div class="col-md-4">\n' +
     '                           <div class="md-form form-group">\n' +
-    '                                <label for="id_refill_date" class="control-label"> Date</label>\n' +
+    '                                <label for="id_surgery_date_1" class="control-label"> Date</label>\n' +
     '\n' +
-    '\t\t\t\t\t\t        {{ new_medical.surgery_date }}\n' +
+    '\t\t\t\t\t\t        {{ new_medical.surgery_date_1 }}\n' +
     '\n' +
     '                           </div>\n' +
     '                                </div>\n' +
     '\n' +
     '                                </div>\n' +
     '    ');
+    $('.datepicker').pickadate({
+// Escape any “rule” characters with an exclamation mark (!).
+            format: 'yyyy-mm-dd',
+            formatSubmit: 'yyyy-mm-dd'
+        })
+surx++;
 //add input box
 }
 });
@@ -320,7 +349,7 @@ e.preventDefault(); $(this).parent('div').remove(); surx--;
 
 
 
-var alemax_fields = 20; //maximum input boxes allowed
+var alemax_fields = 2; //maximum input boxes allowed
 var alewrapper = $("#extraale"); //Fields wrapper
 var aleadd_button = $("#add-ale"); //Add button ID
 
@@ -328,7 +357,7 @@ var alex = 1; //initlal text box count
 $(aleadd_button).click(function(e){ //on add input button click
 e.preventDefault();
 if(alex < alemax_fields){ //max input box allowed
-alex++; //text box increment
+ //text box increment
 
 $(alewrapper).append(' <div class="row">\n' +
     '                                <div class="col-md-6">\n' +
@@ -354,6 +383,7 @@ $(alewrapper).append(' <div class="row">\n' +
     '                                </div>\n' +
     '\n');
 //add input box
+    alex++;
 }
 });
 

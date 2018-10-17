@@ -5,7 +5,7 @@ from django.db import models
 __author__ = 'andrews'
 
 class Medical_history(BaseModel):
-    user = models.OneToOneField(AuthUserDemographic,on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(AuthUserDemographic,on_delete=models.CASCADE, null=True)
     # diabetes_mellitus = models.BooleanField(default=False)
     # systematic_hypertension  = models.BooleanField(default=False)
     # epilepsy = models.BooleanField(default=False)

@@ -103,68 +103,95 @@ def add_medical_info(request,pk):
         new_medical = NewUserMedicalHistoryForm(request.POST)
 
         if new_medical.is_valid():
-            blood_group = new_medical.cleaned_data['blood_group']
-            sickling_status = new_medical.cleaned_data['sickling_status']
-            g6pd = new_medical.cleaned_data['g6pd']
-            medi_graph = Med_graphic(user=user,blood_group=blood_group,
-                                     sickling_status=sickling_status,
-                                     g6pd=g6pd)
-            medi_graph.save()
+            try:
 
-            height = new_medical.cleaned_data['height']
-            weight = new_medical.cleaned_data['weight']
-            bp = new_medical.cleaned_data['bp']
+                    blood_group = new_medical.cleaned_data['blood_group']
+                    sickling_status = new_medical.cleaned_data['sickling_status']
+                    g6pd = new_medical.cleaned_data['g6pd']
+                    medi_graph = Med_graphic(user=user,blood_group=blood_group,
+                                             sickling_status=sickling_status,
+                                             g6pd_status=g6pd)
+                    medi_graph.save()
 
-            Height(height=height+"cm").save()
-            Weight(weight=weight+"kg").save()
-            Blood_Pressure(bp=weight/(height*0.01)^2+"mmHg").save()
+                    height = new_medical.cleaned_data['height']
+                    weight = new_medical.cleaned_data['weight']
+                    bp = new_medical.cleaned_data['bp']
 
-            diabetes_mellitus = new_medical.cleaned_data['diabetes_mellitus']
-            if diabetes_mellitus == 'yes':
-                Medical_history(user=user,condition="Diabetes Mellitus").save()
-            systematic_hypertension = new_medical.cleaned_data['systematic_hypertension']
-            if systematic_hypertension == 'yes':
-                Medical_history(user=user,condition="Systematic Hypertension").save()
-            epilepsy = new_medical.cleaned_data['epilepsy']
-            if epilepsy == 'yes':
-                Medical_history(user=user,condition="Ellipsis").save()
-            uterine_fibroid = new_medical.cleaned_data['uterine_fibroid']
-            if uterine_fibroid == 'yes':
-                Medical_history(user=user,condition="Uterine Fibroid").save()
-            peptic_ulcer_disease = new_medical.cleaned_data['peptic_ulcer_disease']
-            if peptic_ulcer_disease == 'yes':
-                Medical_history(user=user,condition="Peptic Ulcer Disease").save()
+                    Height(user=user,height=height).save()
+                    Weight(user=user,weight=weight).save()
+                    Blood_Pressure(user=user,bp=bp).save()
 
-            other_condition = new_medical.cleaned_data.get('other_condition')
-            if other_condition:
-                Medical_history(user=user,condition=other_condition).save()
-            print(other_condition)
-            medicine = new_medical.cleaned_data['medicine']
-            dosage = new_medical.cleaned_data['dosage']
-            refill_date = new_medical.cleaned_data['refill_date']
-            if medicine:
-                Medication(user=user,medicine=medicine,dosage=dosage,refill_date=refill_date).save()
+                    diabetes_mellitus = new_medical.cleaned_data['diabetes_mellitus']
+                    if diabetes_mellitus == 'yes':
+                        Medical_history(user=user,condition="Diabetes Mellitus").save()
+                    systematic_hypertension = new_medical.cleaned_data['systematic_hypertension']
+                    if systematic_hypertension == 'yes':
+                        Medical_history(user=user,condition="Systematic Hypertension").save()
+                    epilepsy = new_medical.cleaned_data['epilepsy']
+                    if epilepsy == 'yes':
+                        Medical_history(user=user,condition="Ellipsis").save()
+                    uterine_fibroid = new_medical.cleaned_data['uterine_fibroid']
+                    if uterine_fibroid == 'yes':
+                        Medical_history(user=user,condition="Uterine Fibroid").save()
+                    peptic_ulcer_disease = new_medical.cleaned_data['peptic_ulcer_disease']
+                    if peptic_ulcer_disease == 'yes':
+                        Medical_history(user=user,condition="Peptic Ulcer Disease").save()
 
-            allergy_name = new_medical.cleaned_data['allergy_name']
-            allergy_type = new_medical.cleaned_data['allergy_type']
+                    other_condition = new_medical.cleaned_data.get('other_condition')
+                    if other_condition:
+                        Medical_history(user=user,condition=other_condition).save()
+                    print(other_condition)
+                    if new_medical.cleaned_data.get('other_condition_1'):
+                        Medical_history(user=user, condition=new_medical.cleaned_data.get('other_condition_1')).save()
+                    if new_medical.cleaned_data.get('other_condition_2'):
+                        Medical_history(user=user, condition=new_medical.cleaned_data.get('other_condition_2')).save()
+                    if new_medical.cleaned_data.get('other_condition_3'):
+                            Medical_history(user=user, condition=new_medical.cleaned_data.get('other_condition_3')).save()
 
-            if allergy_name:
-                Allergy(user=user,name=allergy_name,type=allergy_type).save()
+                    medicine = new_medical.cleaned_data['medicine']
+                    dosage = new_medical.cleaned_data['dosage']
+                    refill_date = new_medical.cleaned_data['refill_date']
+                    if medicine and refill_date:
+                        Medication(user=user,medicine=medicine,dosage=dosage,refill_date=refill_date).save()
 
-            alcohol = new_medical.cleaned_data['alcohol']
-            social_history = Social_history(user=user)
-            if alcohol == 'yes':
-                social_history.alcohol=True
 
-            smoking = new_medical.cleaned_data['smoking']
-            if smoking == 'yes':
-                social_history.smoking=True
-            social_history.save()
-            surgery_date = new_medical.cleaned_data['surgery_date']
-            surgery_name = new_medical.cleaned_data['surgery_name']
-            Surgery(user=user,name=surgery_name,date=surgery_date).save()
-            messages.error(request, "Medical Info added")
-            redirect('user-list')
+                    medicine1 = new_medical.cleaned_data.get('medicine_1')
+                    dosage1 = new_medical.cleaned_data.get('dosage_1')
+                    refill_date1 = new_medical.cleaned_data.get('refill_date_1')
+                    if medicine1 and refill_date1:
+                        Medication(user=user,medicine=medicine1,dosage=dosage1,refill_date=refill_date1).save()
+
+                    allergy_name = new_medical.cleaned_data['allergy_name']
+                    allergy_type = new_medical.cleaned_data['allergy_type']
+
+                    if allergy_name and allergy_type:
+                        Allergy(user=user,name=allergy_name,type=allergy_type).save()
+
+                    alcohol = new_medical.cleaned_data['alcohol']
+                    social_history = Social_history(user=user)
+                    if alcohol == 'yes':
+                        social_history.alcohol=True
+
+                    smoking = new_medical.cleaned_data['smoking']
+                    if smoking == 'yes':
+                        social_history.smoking=True
+                    social_history.save()
+                    surgery_date = new_medical.cleaned_data['surgery_date']
+                    surgery_name = new_medical.cleaned_data['surgery_name']
+                    if surgery_name and surgery_date:
+                        Surgery(user=user,name=surgery_name,date=surgery_date).save()
+
+                    surgery_date1 = new_medical.cleaned_data.get('surgery_date_1')
+                    surgery_name1 = new_medical.cleaned_data.get('surgery_name_1')
+                    if surgery_name1 and surgery_date1:
+                        Surgery(user=user, name=surgery_name1, date=surgery_date1).save()
+
+
+                    messages.success(request, "Medical Info added")
+            except:
+                messages.error(request, "Something went wrong")
+
+            return redirect('core:user-list')
 
         else:
             messages.error(request,"Please fill form completely")
