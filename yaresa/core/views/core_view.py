@@ -266,6 +266,18 @@ def user_medication(request,pk):
     context = {'medications': medications,'user':user, 'usermedicationform':usermedicationform}
     return render(request, 'user-medication.html', context)
 
+def user_account_reset(request,pk):
+    user = AuthUserDemographic.objects.get(id=pk)
+    user.first_login=True
+    patient = user.user
+    pin = random.randint(1000, 9999)
+    patient.set_password(pin)
+    sendsms(request,patient.username,pin)
+    user.save()
+    messages.success(request,"Medicine Added")
+
+    return
+
 
 
 

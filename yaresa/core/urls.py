@@ -1,5 +1,5 @@
 from core.views.core_view import dashboard, add_new_user, add_medical_info, user_list, user_detail, user_condition, \
-    user_allergy, user_medication
+    user_allergy, user_medication, user_account_reset
 from core.views.home_views import index, signin
 from django.conf.urls import url
 
@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^dashboard', dashboard, name="dashboard"),
     url(r'^user-list', user_list, name="user-list"),
     url(r'^add-user', add_new_user, name="new-user"),
+    url(r'^user-account-reset/(?P<pk>\d+)', user_account_reset, name="user-account-medication"),
     url(r'^add-medi-info/(?P<pk>\d+)', add_medical_info, name="add-medi-info"),
     url(r'^user-detail/(?P<pk>\d+)', user_detail, name="user-detail"),
     url(r'^user-condition/(?P<pk>\d+)', user_condition, name="user-condition"),
