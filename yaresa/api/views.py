@@ -70,19 +70,22 @@ def get_summary(request):
         if user_id :
             demoUser = AuthUserDemographic.objects.get(id=user_id)
 
-            bp = Blood_Pressure.objects.filter(user=demoUser).order_by('-id')[0]
-            if not bp:
+            bp = Blood_Pressure.objects.filter(user=demoUser)
+            if bp:
+                bp = bp.order_by('-id')[0]
+            else:
                 bp = "Unknown"
 
-            height = Height.objects.filter(user=demoUser).order_by('-id')[0]
+            height = Height.objects.filter(user=demoUser)
             if height:
+                height = height.order_by('-id')[0]
 
-
-                weight = Weight.objects.filter(user=demoUser).order_by('-id')[0]
+                weight = Weight.objects.filter(user=demoUser)
                 if weight:
-                    print( weight.weight)
+                    weight= weight.order_by('-id')[0]
+                    print(weight.weight)
                     print(height.height)
-                    bmi =  eval(weight.weight)/eval(height.height)
+                    bmi = eval(weight.weight)/eval(height.height)
                 else:
                     bmi = "unknown"
             else:
