@@ -1,5 +1,5 @@
 import json
-from core.models import AuthUserDemographic
+from core.models import AuthUserDemographic, Blood_Pressure, Height, Weight
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -23,7 +23,9 @@ def signin(request):
 
 
 
-                    response = json.dumps({'status': 'ok', 'user_id': user_serial.id,'first_time':user_serial.first_login})
+                    response = json.dumps({'status': 'ok', 'user_id': user_serial.id,
+                                           'first_time':user_serial.first_login, "name":user_serial.first_name,
+                                           'accnum':user_serial.unique_id})
 
             else:
                     response = json.dumps({'status': 'error', 'result': "Wrong username or password"})
@@ -50,6 +52,50 @@ def reset_pin(request):
             demoUser.save()
 
             response = json.dumps({'status': 'ok', })
+
+        else:
+                    response = json.dumps({'status': 'error', 'result': "Invalid data"})
+
+    else:
+        response = json.dumps({'status': 'error', 'result': "something went wrong"})
+
+    return HttpResponse(response, content_type='application/json')
+
+@csrf_exempt
+def get_summary(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id','')
+
+
+        if user_id :
+            demoUser = AuthUserDemographic.objects.get(id=user_id)
+
+            bp = Blood_Pressure.objects.filter(user=demoUser).order_by('-id')[0]
+            if not bp:
+                bp = "Unknown"
+
+            height = Height.objects.filter(user=demoUser).order_by('-id')[0]
+            if height:
+
+
+                weight = Weight.objects.filter(user=demoUser).order_by('-id')[0]
+                if weight:
+                    print( weight.weight)
+                    print(height.height)
+                    bmi =  eval(weight.weight)/eval(height.height)
+                else:
+                    bmi = "unknown"
+            else:
+                bmi = "unknown"
+
+
+
+
+
+
+            demoUser.save()
+
+            response = json.dumps({'status': 'ok',"profile_pic":demoUser.picture.path,"bp":str(bp.bp),"bmi":str(bmi), })
 
         else:
                     response = json.dumps({'status': 'error', 'result': "Invalid data"})
