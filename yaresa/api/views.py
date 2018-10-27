@@ -73,6 +73,7 @@ def get_summary(request):
             bp = Blood_Pressure.objects.filter(user=demoUser)
             if bp:
                 bp = bp.order_by('-id')[0]
+                bp = bp.bp
             else:
                 bp = "Unknown"
 
@@ -98,7 +99,7 @@ def get_summary(request):
 
             demoUser.save()
 
-            response = json.dumps({'status': 'ok',"profile_pic":demoUser.picture.path,"bp":str(bp.bp),"bmi":str(bmi), })
+            response = json.dumps({'status': 'ok',"profile_pic":demoUser.picture.path,"bp":str(bp),"bmi":str(bmi), })
 
         else:
                     response = json.dumps({'status': 'error', 'result': "Invalid data"})
