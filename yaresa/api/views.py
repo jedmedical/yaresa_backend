@@ -108,3 +108,26 @@ def get_summary(request):
         response = json.dumps({'status': 'error', 'result': "something went wrong"})
 
     return HttpResponse(response, content_type='application/json')
+
+
+@csrf_exempt
+def get_profile(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id','')
+
+
+        if user_id :
+            demoUser = AuthUserDemographic.objects.get(id=user_id)
+
+            response = json.dumps({'status': 'ok',"profile_pic":demoUser.picture.path,"name":"{} {}".format(demoUser.first_name,demoUser.surname),
+                                   "address":demoUser.address,"sex":demoUser.sex,"mstat":demoUser.marital_status,"email":demoUser.email,
+                                   "mobile":demoUser.mobile,"occu":demoUser.occupation, "nationality":demoUser.nationality,"dob":str(demoUser.date_of_birth),
+                                   "religion":demoUser.religion,"acc":demoUser.unique_id})
+
+        else:
+                    response = json.dumps({'status': 'error', 'result': "Invalid data"})
+
+    else:
+        response = json.dumps({'status': 'error', 'result': "something went wrong"})
+
+    return HttpResponse(response, content_type='application/json')
