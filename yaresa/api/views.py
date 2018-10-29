@@ -1,5 +1,5 @@
 import json
-from core.models import AuthUserDemographic, Blood_Pressure, Height, Weight
+from core.models import AuthUserDemographic, Blood_Pressure, Height, Weight, Med_graphic, Social_history
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -123,6 +123,69 @@ def get_profile(request):
                                    "address":demoUser.address,"sex":demoUser.sex,"mstat":demoUser.marital_status,"email":demoUser.email,
                                    "mobile":demoUser.mobile,"occu":demoUser.occupation, "nationality":demoUser.nationality,"dob":str(demoUser.date_of_birth),
                                    "religion":demoUser.religion,"acc":demoUser.unique_id})
+
+        else:
+                    response = json.dumps({'status': 'error', 'result': "Invalid data"})
+
+    else:
+        response = json.dumps({'status': 'error', 'result': "something went wrong"})
+
+    return HttpResponse(response, content_type='application/json')
+
+@csrf_exempt
+def get_medigraph(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id','')
+
+
+        if user_id :
+            demoUser = AuthUserDemographic.objects.get(id=user_id)
+            medigraph = Med_graphic.objects.filter(user=demoUser)
+            if medigraph:
+                medigraph = medigraph[0]
+
+                response = json.dumps({'status': 'ok',"bg":medigraph.blood_group,"ss":medigraph.sickling_status,
+                                       "gs":medigraph.g6pd_status})
+            else:
+                response = json.dumps({'status': 'error', 'result': "No record found"})
+
+
+
+        else:
+                    response = json.dumps({'status': 'error', 'result': "Invalid data"})
+
+    else:
+        response = json.dumps({'status': 'error', 'result': "something went wrong"})
+
+    return HttpResponse(response, content_type='application/json')
+
+
+@csrf_exempt
+def get_socialhistory(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id','')
+
+
+        if user_id :
+            demoUser = AuthUserDemographic.objects.get(id=user_id)
+            social = Social_history.objects.filter(user=demoUser)
+            if social:
+                social = social[0]
+                smoke = "No"
+                alcohol = "No"
+                if social.smoking:
+                    smoke = "Yes"
+
+                if social.alcohol:
+                    alcohol = "Yes"
+
+
+                response = json.dumps({'status': 'ok',"smoke":smoke,"alcohol":alcohol
+                                       })
+            else:
+                response = json.dumps({'status': 'error', 'result': "No record found"})
+
+
 
         else:
                     response = json.dumps({'status': 'error', 'result': "Invalid data"})
