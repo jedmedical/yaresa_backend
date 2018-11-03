@@ -1,7 +1,8 @@
 import json
-from core.models import AuthUserDemographic, Blood_Pressure, Height, Weight, Med_graphic, Social_history
+from core.models import AuthUserDemographic, Blood_Pressure, Height, Weight, Med_graphic, Social_history, Allergy, \
+    Medical_history, Medication, Surgery
 from django.contrib.auth import authenticate
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -95,9 +96,6 @@ def get_summary(request):
 
 
 
-
-
-            demoUser.save()
 
             response = json.dumps({'status': 'ok',"profile_pic":demoUser.picture.path,"bp":str(bp),"bmi":str(bmi), })
 
@@ -194,3 +192,192 @@ def get_socialhistory(request):
         response = json.dumps({'status': 'error', 'result': "something went wrong"})
 
     return HttpResponse(response, content_type='application/json')
+
+
+@csrf_exempt
+def get_allergy_list(request):
+    if request.method == 'POST':
+        try:
+            userid = request.POST['user_id']
+        except:
+            response = json.dumps({'status': 'error',"result": "user id missing"})
+        else:
+            response = {}
+
+            user = AuthUserDemographic.objects.get(id= userid)
+            if user:
+                # Get Deposit sum:
+                allergy = Allergy.objects.filter(user=user)
+
+
+
+                data = list(allergy.values())
+                return JsonResponse({"status":"ok","allegy":data}, safe=False)  # or JsonResponse({'data': data})
+
+
+
+            else:
+                        response = json.dumps({'status': 'error',"result": "user does not exist"})
+
+
+
+        return HttpResponse(response, content_type='application/json')
+
+
+@csrf_exempt
+def get_medical_history_list(request):
+    if request.method == 'POST':
+        try:
+            userid = request.POST['user_id']
+        except:
+            response = json.dumps({'status': 'error',"result": "user id missing"})
+        else:
+            response = {}
+
+            user = AuthUserDemographic.objects.get(id= userid)
+            if user:
+                # Get Deposit sum:
+                medhist = Medical_history.objects.filter(user=user)
+
+
+
+                data = list(medhist.values())
+                return JsonResponse({"status":"ok","medical_history":data}, safe=False)  # or JsonResponse({'data': data})
+
+
+
+            else:
+                        response = json.dumps({'status': 'error',"result": "user does not exist"})
+
+
+
+        return HttpResponse(response, content_type='application/json')
+
+@csrf_exempt
+def get_medication_list(request):
+    if request.method == 'POST':
+        try:
+            userid = request.POST['user_id']
+        except:
+            response = json.dumps({'status': 'error',"result": "user id missing"})
+        else:
+            response = {}
+
+            user = AuthUserDemographic.objects.get(id= userid)
+            if user:
+                # Get Deposit sum:
+                med = Medication.objects.filter(user=user)
+
+
+
+                data = list(med.values())
+                return JsonResponse({"status":"ok","medication":data}, safe=False)  # or JsonResponse({'data': data})
+
+
+
+            else:
+                        response = json.dumps({'status': 'error',"result": "user does not exist"})
+
+
+
+        return HttpResponse(response, content_type='application/json')
+
+
+@csrf_exempt
+def get_surgery_list(request):
+    if request.method == 'POST':
+        try:
+            userid = request.POST['user_id']
+        except:
+            response = json.dumps({'status': 'error',"result": "user id missing"})
+        else:
+            response = {}
+
+            user = AuthUserDemographic.objects.get(id= userid)
+            if user:
+                # Get Deposit sum:
+                surg = Surgery.objects.filter(user=user)
+
+
+
+                data = list(surg.values())
+                return JsonResponse({"status":"ok","surgery":data}, safe=False)  # or JsonResponse({'data': data})
+
+
+
+            else:
+                        response = json.dumps({'status': 'error',"result": "user does not exist"})
+
+
+
+        return HttpResponse(response, content_type='application/json')
+
+
+@csrf_exempt
+def get_bmi(request):
+    if request.method == 'POST':
+        try:
+            userid = request.POST['user_id']
+        except:
+            response = json.dumps({'status': 'error',"result": "user id missing"})
+        else:
+            response = {}
+
+            user = AuthUserDemographic.objects.get(id= userid)
+
+            height = Height.objects.filter(user=user)
+            if height:
+                height = height.order_by('-id')[0]
+
+                weight = Weight.objects.filter(user=user)
+                if weight:
+                    weight = weight.order_by('-id')[0]
+
+                    print(weight.weight)
+                    print(height.height)
+                    height = height.height
+                    weight = weight.weight
+                    bmi = eval(weight.weight) / eval(height.height)
+                else:
+                    bmi = "unknown"
+                    weight = "unknown"
+            else:
+                height = "unknown"
+                bmi = "unknown"
+
+            response = json.dumps(
+                {'status': 'ok', "height": str(height), "weight": str(weight), "bmi": str(bmi), })
+
+            return JsonResponse({"status":"ok","bmi_data":response}, safe=False)  # or JsonResponse({'data': data})
+
+
+    return HttpResponse(response, content_type='application/json')
+
+@csrf_exempt
+def get_bp_list(request):
+    if request.method == 'POST':
+        try:
+            userid = request.POST['user_id']
+        except:
+            response = json.dumps({'status': 'error',"result": "user id missing"})
+        else:
+            response = {}
+
+            user = AuthUserDemographic.objects.get(id= userid)
+            if user:
+                # Get Deposit sum:
+                bp = Blood_Pressure.objects.filter(user=user)
+
+
+
+                data = list(bp.values())
+                return JsonResponse({"status":"ok","bp":data}, safe=False)  # or JsonResponse({'data': data})
+
+
+
+            else:
+                        response = json.dumps({'status': 'error',"result": "user does not exist"})
+
+
+
+        return HttpResponse(response, content_type='application/json')
