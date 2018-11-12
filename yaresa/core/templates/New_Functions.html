@@ -1,0 +1,21 @@
+
+ <!-- Height EventListener-->
+<input type="text" class="form-control" id="height" name="height" oninput="your_bmi()"  required>
+ 
+ <!-- Weight EventListener-->
+<input type="text" class="form-control" id="weight" name="weight" oninput="your_bmi()"  required>
+
+ <!-- BMI with placeholder 00.00 -->
+<input type="text" class="form-control" id="bmi" name="bmi" placeholder="00.00"  required>
+
+
+ <!-- New Blood Pressure Inputs 
+  Only Diastolic has the onchange eventlistener.
+ -->
+<div class="col-sm-3">
+	<div class="md-form input-group">
+		<label class="control-label">Blood Pressure</label>
+		<input type="text" class="form-control bpressure" id="systolic-bp" name="systolicbpress" placeholder="Systolic" required>
+		<input type="text" class="form-control bpressure" id="diastolic-bp" name="diastolicbpress" placeholder="Diastolic" onchange="your_bp()" required>
+	</div>
+</div>

@@ -461,11 +461,98 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
         })
     </script>
 
-    <!-- Charts -->
-    <script>
-
-
-    </script>
+        <script> 
+	  /* BMI */
+	  function your_bmi(){
+	     var height = document.getElementById("height").value;
+	     var weight = document.getElementById("weight").value;
+	     document.getElementById("bmi").value = (weight/Math.pow(height*0.01 , 2)).toFixed(2);
+		 document.getElementById("bmi").style.fontWeight = "700";
+		 
+		 var bmi = document.getElementById("bmi").value;
+		 if (bmi > 10.00 && bmi < 18.50){
+		    document.getElementById("bmi").style.color = "#ffbf00";
+		   document.getElementById("bmi").value = bmi + "  -  "  + '(Underweight)' ;
+		   
+		  }else if (bmi >= 18.50 && bmi < 25){
+		  document.getElementById("bmi").style.color = "#50c878";
+		   document.getElementById("bmi").value = bmi + "  -  "  + '(Normal Weight)' ;
+		  
+		 }else  if (bmi >= 25 && bmi < 30){
+		  document.getElementById("bmi").style.color = "#ff7417";
+		   document.getElementById("bmi").value = bmi + "  -  "  + '(Overweight)' ;
+		   
+		 }else  if (bmi >= 30 && bmi < 35){
+		  document.getElementById("bmi").style.color = "#d30000";
+		   document.getElementById("bmi").value = bmi + "  -  "  + '(Class I Obese)' ;
+		   
+		 }else  if (bmi >= 35 && bmi < 40){
+		  document.getElementById("bmi").style.color = "#d30000";
+		   document.getElementById("bmi").value = bmi + "  -  "  + '(Class II Obese)' ;
+		  
+		  }else  if (bmi >= 40){
+		  document.getElementById("bmi").style.color = "#d30000";
+		   document.getElementById("bmi").value = bmi + "  -  "  + '(Class III Obese)' ;
+		   
+		   } 
+		}; 	
+	 </script>
+	 
+	 <script> 
+	    /* Blood Pressure */
+	  function your_bp(){
+	     
+	     var sysbp = document.getElementById("systolic-bp").value;
+		 var diabp = document.getElementById("diastolic-bp").value;
+		 var bothbp = sysbp + "/" + diabp + "mmHg";
+		 document.getElementById("systolic-bp").style.fontWeight = "700";
+		 document.getElementById("diastolic-bp").style.fontWeight = "700";
+		 var lowbp = "(Low BP)";
+		 var normalbp = "(Normal BP)";
+		 var elevatedbp = "(Elevated BP)";
+		 var highbp1 = '(High BP I)';
+		 var highbp2 = "(High BP II)";
+		 var abnormalbp = "(Abnormal BP)";
+           
+		 if ((sysbp >= 20 && sysbp < 90) && (diabp < 60)){
+		     document.getElementById("systolic-bp").style.color = "#5c2c06";
+		     document.getElementById("diastolic-bp").style.color = "#5c2c06";
+		     document.getElementById("systolic-bp").value = (bothbp + "   ");
+			 document.getElementById("diastolic-bp").value = lowbp;
+			
+		 }else if ((sysbp >= 90 && sysbp < 120) && (diabp >= 60 && diabp < 80)){
+		    document.getElementById("systolic-bp").style.color = "#50c878";
+		    document.getElementById("diastolic-bp").style.color = "#50c878";
+		    document.getElementById("systolic-bp").value = (bothbp + "   ");
+		    document.getElementById("diastolic-bp").value = normalbp;
+		 
+		 }else if ((sysbp >= 120 && sysbp <= 129) && (diabp >= 60 && diabp < 80)){
+		    document.getElementById("systolic-bp").style.color = "#ffd300";
+		    document.getElementById("diastolic-bp").style.color = "#ffd300";
+		    document.getElementById("systolic-bp").value = (bothbp + "   ");
+		    document.getElementById("diastolic-bp").value = elevatedbp;
+		
+		}else if ((sysbp >= 130 && sysbp <= 139) || (diabp >= 80 && diabp <= 89)){
+		    document.getElementById("systolic-bp").style.color = "#ff7417";
+		    document.getElementById("diastolic-bp").style.color = "#ff7417";
+		    document.getElementById("systolic-bp").value = (bothbp + "   ");
+		    document.getElementById("diastolic-bp").value = highbp1;
+		 
+		 }else if ((sysbp >= 140 && sysbp <= 180) && (diabp >= 90 && diabp <= 120)){
+		    document.getElementById("systolic-bp").style.color = "#d30000";
+		    document.getElementById("diastolic-bp").style.color = "#d30000";
+		    document.getElementById("systolic-bp").value = (bothbp + "   ");
+		    document.getElementById("diastolic-bp").value = highbp2;
+		 
+		 }else if (sysbp > 180 || diabp > 120){
+		    document.getElementById("systolic-bp").style.color = "#c21807";
+		    document.getElementById("diastolic-bp").style.color = "#c21807";
+		    document.getElementById("systolic-bp").value = (bothbp + "   ");
+		    document.getElementById("diastolic-bp").value = abnormalbp;
+		 
+		 }
+	  };
+	 </script>
 
 </body>
 
