@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
+from yaresa import settings
+
 sex = (("Male", "MALE"), ("Female", "FEMALE"))
 marital = (("Married", "MARRIED"), ("Single", "SINGLE"))
 class AuthUserDemographic(BaseModel):
@@ -25,6 +27,10 @@ class AuthUserDemographic(BaseModel):
     emergency_contact_name = models.CharField(max_length=255,null=True)
     emergency_contact_mobile = models.CharField(max_length=255,null=True)
     first_login = models.BooleanField(default=True)
+
+    @property
+    def get_absolute_image_url(self):
+        return "{0}{1}".format(settings.MEDIA_URL, self.picture.url)
 
 
 

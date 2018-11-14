@@ -1,4 +1,5 @@
 import json
+
 from core.models import AuthUserDemographic, Blood_Pressure, Height, Weight, Med_graphic, Social_history, Allergy, \
     Medical_history, Medication, Surgery
 from django.contrib.auth import authenticate
@@ -89,15 +90,15 @@ def get_summary(request):
                     print(height.height)
                     bmi = eval(weight.weight)/eval(height.height)
                 else:
-                    bmi = "unknown"
+                    bmi = "Unknown"
             else:
-                bmi = "unknown"
+                bmi = "Unknown"
 
 
 
+            print (request.META['HTTP_HOST'])
 
-
-            response = json.dumps({'status': 'ok',"profile_pic":demoUser.picture.path,"bp":str(bp),"bmi":str(bmi), })
+            response = json.dumps({'status': 'ok',"profile_pic":request.META['HTTP_HOST']+demoUser.picture.url,"bp":str(bp),"bmi":str(bmi), })
 
         else:
                     response = json.dumps({'status': 'error', 'result': "Invalid data"})
