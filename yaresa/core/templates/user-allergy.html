@@ -16,17 +16,20 @@
                    <form method="post">
                         {% csrf_token %}
             <div class="row">
-                <div class="col-md-6">
-             <div class="chip pink lighten-4"><b>#</b>
+                <div class="col-md-4 offset-md-4">
+   <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
-
-</div>              <div class="chip">
+   </div>              
+<div class="chip">
+	<a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
     <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
+	</a>
 </div>
 
                 </div>
-
-                <div class="col-md-2">
+			</div>
+			 <div class="row">	
+                <div class="col-md-3 offset-md-2">
 
                     <div class="md-form form-group">
 						   							<label for="id_allergy_name" class="control-label">Allergy</label>
@@ -34,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
 
                 <div class="md-form form-group">
 
@@ -42,14 +45,10 @@
                 </div>
                 </div>
 
-                <div class="col-md-2">
-
-                        <button class="btn btn-primary" type="submit">Add Allergy</button>
+                <div class="col-md-3">
+					<button class="btn btn-rounded modalbtn" type="submit">Add Allergy</button>
                 </div>
-
-
-
-                </div>
+             </div>
                        </form>
             </div>
                 </div>
@@ -92,7 +91,7 @@
 <td>{{ allergy.type}}</td>
                                 <td>
                                     <div class="btn-group">
-                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-danger">Remove</button></a>
+                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
 
                    </div>
                                 </td>

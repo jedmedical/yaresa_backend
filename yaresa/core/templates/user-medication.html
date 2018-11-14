@@ -16,24 +16,27 @@
                    <form method="post">
                         {% csrf_token %}
             <div class="row">
-                <div class="col-md-4">
-             <div class="chip pink lighten-4"><b>#</b>
+                <div class="col-md-4 offset-md-4">
+   <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
-
-</div>              <div class="chip">
+   </div>       
+  <div class="chip">
+    <a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
     <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
-</div>
+	</a>
+  </div>
 
                 </div>
-
-                <div class="col-md-2">
+			</div>
+              <div class="row">   
+                <div class="col-md-3">
 
                     <div class="md-form form-group">
 						   							<label for="id_medicine" class="control-label">Medicine</label>
 						   							{{ usermedicationform.medicine }}
                     </div>
                 </div>
-                                <div class="col-md-2">
+                    <div class="col-md-3">
 
                     <div class="md-form form-group">
 						   							<label for="id_dosage" class="control-label">Dosage</label>
@@ -41,7 +44,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
 
                 <div class="md-form form-group">
                 <label for="id_refill_date" class="control-label">Refill date</label>
@@ -49,9 +52,9 @@
                 </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
 
-                        <button class="btn btn-primary" type="submit">Add Medication</button>
+                        <button class="btn btn-rounded modalbtn" type="submit">Add Medication</button>
                 </div>
 
 
@@ -101,11 +104,12 @@
                                 <td>
                                     {{ medicine.refill_date }}
                                 </td>
-                                    <div class="btn-group">
-{#                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-danger">Remove</button></a>#}
-
-                   </div>
+								<td>
+                                <div class="btn-group">
+                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
+                                </div>
                                 </td>
+
 
                         </tr>
                      {% endfor %}

@@ -34,12 +34,12 @@
     <header>
 
         <!-- Sidebar navigation -->
-        <div id="slide-out" class="side-nav sn-bg-4 fixed">
+        <div id="slide-out" class="side-nav sidenav-bg fixed" style="background-color:#ff3300;">
             <ul class="custom-scrollbar">
             <!-- Logo -->
             <li class="logo-sn waves-effect">
                 <div class="text-center">
-                    <a href="#" class="pl-0"><img src="{% static 'images/yaresalogo.svg' %}" class=""style="height: 50px;width: auto"></a>
+                    <a href="#" class="pl-0"><img src="{% static 'images/yaresalogo.svg' %}" class=""style="height: 70px;width: auto"></a>
                 </div>
             </li>
             <!--/. Logo -->
@@ -48,7 +48,7 @@
             <li>
                 <form class="search-form" role="search">
                     <div class="form-group md-form mt-0 pt-1 waves-light">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control white-text" placeholder="Search">
                     </div>
                 </form>
             </li>
@@ -56,15 +56,15 @@
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-tachometer"></i> Dashboards</a>
+                    <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r white-text active"><i class="fa fa-tachometer white-text"></i> Dashboards</a>
 
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-user"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>User<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="{% url 'core:user-list' %}" class="waves-effect">View Users</a>
+                                <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Users</a>
                                 </li>
-                                <li><a href="{% url 'core:new-user' %}" class="waves-effect">Add new User</a>
+                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add new User</a>
                                 </li>
 
                             </ul>
@@ -75,7 +75,7 @@
             </li>
             <!--/. Side navigation links -->
             </ul>
-            <div class="sidenav-bg mask-strong"></div>
+            
         </div>
         <!--/. Sidebar navigation -->
 
@@ -83,7 +83,7 @@
         <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav">
             <!-- SideNav slide-out button -->
             <div class="float-left">
-                <a href="#" data-activates="slide-out" class="button-collapse black-text"><i class="fa fa-bars"></i></a>
+                <a href="#" data-activates="slide-out" class="button-collapse white-text"><i class="fa fa-bars"></i></a>
             </div>
             <!-- Breadcrumb-->
             <div class="breadcrumb-dn mr-auto">
@@ -165,7 +165,7 @@
     <!--Main layout-->
 
     <!--Footer-->
-    <footer class="page-footer pt-0 mt-5 mdb-color lighten-4">
+    <footer class="page-footer pt-0 mt-5 mb-0 mdb-color lighten-4">
 
         <!--Copyright-->
         <div class="footer-copyright py-3 text-center">

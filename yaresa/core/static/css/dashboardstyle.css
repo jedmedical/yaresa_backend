@@ -257,3 +257,25 @@ right: -85px;}}
 	width:37px;
 	height:37px;
 }
+.modalbtn{
+	background-color:#ff6600!important;
+	color:#fff!important;
+}
+.sidenav-bg{
+	background-color:#ff3300!important;
+}
+.side-nav.collapsible li .collapsible-header.active {
+    z-index: 2;
+    color: #333!important;
+}
+.side-nav .collapsible-header:hover{
+	  color:#333!important;
+  }
+  .side-nav .collapsible-header ul li a:hover{
+	  color:#333!important;
+  }
+  .avatar-pic{
+	  height:150px;
+	  width:150px;
+	  border-radius:50%;
+  }
