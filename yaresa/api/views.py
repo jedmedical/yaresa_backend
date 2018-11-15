@@ -26,7 +26,8 @@ def signin(request):
 
 
                     response = json.dumps({'status': 'ok', 'user_id': user_serial.id,
-                                           'first_time':user_serial.first_login, "name":user_serial.first_name,
+                                           'first_time':user_serial.first_login, "name":"{} {}".format(user_serial.first_name,
+                                                                                                       user_serial.surname),
                                            'accnum':user_serial.unique_id})
 
             else:
@@ -89,6 +90,7 @@ def get_summary(request):
                     print(weight.weight)
                     print(height.height)
                     bmi = eval(weight.weight)/eval(height.height)
+                    bmi = "{0:0.1f}".format(bmi)
                 else:
                     bmi = "Unknown"
             else:
@@ -118,7 +120,7 @@ def get_profile(request):
         if user_id :
             demoUser = AuthUserDemographic.objects.get(id=user_id)
 
-            response = json.dumps({'status': 'ok',"profile_pic":demoUser.picture.path,"name":"{} {}".format(demoUser.first_name,demoUser.surname),
+            response = json.dumps({'status': 'ok',"profile_pic":"http://"+request.META['HTTP_HOST']+demoUser.picture.url,"name":"{} {}".format(demoUser.first_name,demoUser.surname),
                                    "address":demoUser.address,"sex":demoUser.sex,"mstat":demoUser.marital_status,"email":demoUser.email,
                                    "mobile":demoUser.mobile,"occu":demoUser.occupation, "nationality":demoUser.nationality,"dob":str(demoUser.date_of_birth),
                                    "religion":demoUser.religion,"acc":demoUser.unique_id})
@@ -334,11 +336,11 @@ def get_bmi(request):
                 if weight:
                     weight = weight.order_by('-id')[0]
 
-                    print(weight.weight)
-                    print(height.height)
                     height = height.height
                     weight = weight.weight
-                    bmi = eval(weight.weight) / eval(height.height)
+
+                    bmi = eval(weight) / eval(height)
+                    bmi = "{0:0.1f}".format(bmi)
                 else:
                     bmi = "unknown"
                     weight = "unknown"
@@ -349,7 +351,6 @@ def get_bmi(request):
             response = json.dumps(
                 {'status': 'ok', "height": str(height), "weight": str(weight), "bmi": str(bmi), })
 
-            return JsonResponse({"status":"ok","bmi_data":response}, safe=False)  # or JsonResponse({'data': data})
 
 
     return HttpResponse(response, content_type='application/json')
