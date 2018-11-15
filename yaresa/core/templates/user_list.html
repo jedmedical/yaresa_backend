@@ -12,7 +12,7 @@
 <div class="card card-cascade narrower">
 
     <!--Card image-->
-    <div class="view gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+    <div class="view gradient-card-header peach-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
         <div>
              <a href="{% url 'core:new-user' %}"><button type="button"  data-toggle="tooltip" data-placement="top" title="Add new user" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -62,13 +62,14 @@
                                 <td>{{ user.mobile }}</td>
                                 <td>
                                     <div class="btn-group">
-                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-danger">View</button></a>
+                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-rounded modalbtn">View</button></a>
 
 
-                                    <button type="button" class="btn btn-danger dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn modalbtn dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="sr-only">Toggle Dropdown</span>
                                 </button>
 <div class="dropdown-menu">
+	
     <a class="dropdown-item" href="{% url 'core:user-condition' pk=user.id %}">Conditions</a>
     <a class="dropdown-item" href="{% url 'core:user-allergy' pk=user.id %}">Allergy</a>
     <a class="dropdown-item" href="{% url 'core:user-medication' pk=user.id %}">Medication</a>

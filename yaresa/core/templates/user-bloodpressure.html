@@ -1,6 +1,6 @@
 {% extends 'dashboardbase.html' %}
 
-        {% block title %}New user{% endblock %}
+        {% block title %}New BP{% endblock %}
 
         {% block content %}
             {% load static %}
@@ -11,9 +11,11 @@
 
 
 	<div class="container">
-        <div class="card">
+         <div class="card">
             <div class="container" style="margin-top: 20px">
-            <div class="row">
+                   <form method="post">
+                        {% csrf_token %}
+			<div class="row">
                 <div class="col-md-4 offset-md-4">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
@@ -23,30 +25,45 @@
 	 <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
 	 </a>
  </div>
-
                 </div>
 			</div>
-			  <div class="row">	
-                <div class="col-md-4 offset-md-3">
-                    <form method="post">
-                        {% csrf_token %}
-<div class="md-form form-group">
-						   							<label for="id_condition" class="control-label">Condition</label>
-						   							{{ userconditionform.condition }}
-												</div>
+            <div class="row">
+                 <div class="col-md-3">
 
-				</div>
-				
-				<div class="col-md-4">
-                        <button class="btn btn-rounded modalbtn" type="submit">Add Condition</button>
-				</div>		
-                        </form>
-               
-              </div>
+                    <div class="md-form form-group">
+						   							<label for="id_height" class="control-label">Systolic</label>
+						   							{{  }}
+                    </div>
                 </div>
-        </div>
+                <div class="col-md-3">
 
-             <div class="card" style="margin-top: 20px">
+                    <div class="md-form form-group">
+						   							<label for="id_weight" class="control-label">Diastolic</label>
+						   							{{  }}
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="md-form form-group">
+						   							<label for="id_bmi" class="control-label">Blood Pressure</label>
+						   							{{  }}
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+
+                        <button class="btn btn-rounded modalbtn" type="submit">Add Blood Pressure</button>
+                </div>
+
+
+
+                </div>
+                       </form>
+            </div>
+                </div>
+
+      <div class="card" style="margin-top: 20px">
 
              <div class="container" style="margin-top: 20px">
 
@@ -64,9 +81,10 @@
 
                             <tr>
 
-                                <th class="th-lg">Condition </th>
-
-                                <th class="th-lg"></th>
+                                <th class="th-lg">Systolic</th>
+								<th class="th-lg">Diastolic</th>
+                                <th class="th-lg">Blood Pressure</th>
+                                 <th class="th-lg"></th>
                             </tr>
 
                 </thead>
@@ -74,13 +92,14 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for condition in conditions %}
+                     {% for %}
 
                         <tr>
 
-                                <td>{{ condition.condition}}</td>
-
-                                <td>
+                                <td>{{  }}</td>
+                                 <td>{{ }}</td>
+                                <td>{{  }}</td>
+                                 <td>
                                 <div class="btn-group">
                                     <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
                                 </div>
@@ -107,4 +126,4 @@
         </div>
     </div>
     </div>
-{% endblock %}
+{% endblock %}				
