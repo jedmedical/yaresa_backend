@@ -4,6 +4,7 @@
 
         {% block content %}
             {% load static %}
+            {% load qr_code %}
 
 
     <div class="container-fluid">
@@ -27,6 +28,11 @@
          </div>
 
            </div>
+
+             <div class="col-md-3">
+
+              {% qr_from_text "{{ user.unique_id }}" size="t" image_format="png" error_correction="L" %}
+             </div>
         </div><br><br>
 
 		<p class="h3 text-center grey-text text-uppercase mb-4">Personal Information</p><br>
@@ -42,10 +48,10 @@
 		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.date_of_birth }}</h6>
 			</div>
 
-{#	       <div class="col-sm-4">#}
-{#		   <h5 class="h5-responsive dark-grey-text text-uppercase">Age</h5>#}
-{#		     <h6 class="h6-responsive dark-grey-text text-capitalize">25 Years Old</h6>#}
-{#			</div>#}
+	       <div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">User Account Number</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ user.unique_id }}</h6>
+			</div>
 		</div>
 
 	<hr>

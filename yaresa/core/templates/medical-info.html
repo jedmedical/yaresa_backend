@@ -75,27 +75,44 @@
 			<div class="form-row">
 				   <div class="col-sm-4 py-2">
 				     <div class="md-form form-group">
-				    <label for="id_height" class="control-label">Height</label>
+				    <label for="id_height" class="control-label">Height (CM)</label>
 				    {{ new_medical.height }}
 			        </div>
 				  </div>
 				 <div class="col-sm-4 py-2">
 				     <div class="md-form form-group">
-				     <label for="id_weight" class="control-label">Weight</label>
+				     <label for="id_weight" class="control-label">Weight (KG) </label>
 				     {{ new_medical.weight }}
 			         </div>
 				 </div>
 				 <div class="col-sm-4 py-2">
-				     <p>BMI : <span></span></p>
+				     <p>BMI : <span><input type="text" class="form-control" id="bmi" name="bmi" placeholder="00.00" disabled>
+</span></p>
 				 </div>
 			 </div>
 
 				  <div class="form-row">
 				   <div class="col-sm-4 py-2">
 				     <div class="md-form form-group">
-				    <label for="id_bp" class="control-label">Blood pressure</label>
-				    {{ new_medical.bp }}
+				    <label for="id_systolic" class="control-label">Blood pressure (Systolic) </label>
+				    {{ new_medical.systolic }}
 			        </div>
+				  </div>
+
+                      				   <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				    <label for="id_diastolic" class="control-label">Blood pressure (Diastolic)</label>
+				    {{ new_medical.diastolic }}
+			        </div>
+				  </div>
+
+
+                      				   <div class="col-sm-4 py-2">
+<p>BP : <span>
+
+				    <input type="text" class="form-control" id="ybp" name="ybp" placeholder="" disabled>
+</span></p>
+
 				  </div>
 
 			 </div>

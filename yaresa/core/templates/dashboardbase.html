@@ -1,4 +1,5 @@
 {% load static %}
+{% load qr_code %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -140,18 +141,18 @@
         <!-- /.Navbar -->
 </header>
         <!-- Fixed button -->
-        <div class="fixed-action-btn clearfix d-none d-xl-block" style="bottom: 45px; right: 24px;">
-            <a class="btn-floating btn-lg red">
-                <i class="fa fa-pencil"></i>
-            </a>
-
-            <ul class="list-unstyled">
-                <li><a class="btn-floating red"><i class="fa fa-star"></i></a></li>
-                <li><a class="btn-floating warning-color"><i class="fa fa-user"></i></a></li>
-                <li><a class="btn-floating green"><i class="fa fa-envelope"></i></a></li>
-                <li><a class="btn-floating blue"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-        </div>
+{#        <div class="fixed-action-btn clearfix d-none d-xl-block" style="bottom: 45px; right: 24px;">#}
+{#            <a class="btn-floating btn-lg red">#}
+{#                <i class="fa fa-pencil"></i>#}
+{#            </a>#}
+{##}
+{#            <ul class="list-unstyled">#}
+{#                <li><a class="btn-floating red"><i class="fa fa-star"></i></a></li>#}
+{#                <li><a class="btn-floating warning-color"><i class="fa fa-user"></i></a></li>#}
+{#                <li><a class="btn-floating green"><i class="fa fa-envelope"></i></a></li>#}
+{#                <li><a class="btn-floating blue"><i class="fa fa-shopping-cart"></i></a></li>#}
+{#            </ul>#}
+{#        </div>#}
         <!-- Fixed button -->
 
     <!--Main Navigation-->
@@ -464,8 +465,8 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
         <script> 
 	  /* BMI */
 	  function your_bmi(){
-	     var height = document.getElementById("height").value;
-	     var weight = document.getElementById("weight").value;
+	     var height = document.getElementById("id_height").value;
+	     var weight = document.getElementById("id_weight").value;
 	     document.getElementById("bmi").value = (weight/Math.pow(height*0.01 , 2)).toFixed(2);
 		 document.getElementById("bmi").style.fontWeight = "700";
 		 
@@ -502,11 +503,11 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	    /* Blood Pressure */
 	  function your_bp(){
 	     
-	     var sysbp = document.getElementById("systolic-bp").value;
-		 var diabp = document.getElementById("diastolic-bp").value;
+	     var sysbp = document.getElementById("id_systolic").value;
+		 var diabp = document.getElementById("id_diastolic").value;
 		 var bothbp = sysbp + "/" + diabp + "mmHg";
-		 document.getElementById("systolic-bp").style.fontWeight = "700";
-		 document.getElementById("diastolic-bp").style.fontWeight = "700";
+		 document.getElementById("id_systolic").style.fontWeight = "700";
+		 document.getElementById("id_diastolic").style.fontWeight = "700";
 		 var lowbp = "(Low BP)";
 		 var normalbp = "(Normal BP)";
 		 var elevatedbp = "(Elevated BP)";
@@ -515,40 +516,41 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		 var abnormalbp = "(Abnormal BP)";
            
 		 if ((sysbp >= 20 && sysbp < 90) && (diabp < 60)){
-		     document.getElementById("systolic-bp").style.color = "#5c2c06";
-		     document.getElementById("diastolic-bp").style.color = "#5c2c06";
-		     document.getElementById("systolic-bp").value = (bothbp + "   ");
-			 document.getElementById("diastolic-bp").value = lowbp;
+		     document.getElementById("ybp").style.color = "#5c2c06";
+		     document.getElementById("ybp").style.color = "#5c2c06";
+		     document.getElementById("ybp").value = (bothbp + "   "+lowbp);
+
+			 //document.getElementById("bp").value = lowbp;
 			
 		 }else if ((sysbp >= 90 && sysbp < 120) && (diabp >= 60 && diabp < 80)){
-		    document.getElementById("systolic-bp").style.color = "#50c878";
-		    document.getElementById("diastolic-bp").style.color = "#50c878";
-		    document.getElementById("systolic-bp").value = (bothbp + "   ");
-		    document.getElementById("diastolic-bp").value = normalbp;
+		    document.getElementById("ybp").style.color = "#50c878";
+		    document.getElementById("ybp").style.color = "#50c878";
+		    document.getElementById("ybp").value = (bothbp + "   "+normalbp);
+		    //document.getElementById("id_diastolic").value = ;
 		 
 		 }else if ((sysbp >= 120 && sysbp <= 129) && (diabp >= 60 && diabp < 80)){
-		    document.getElementById("systolic-bp").style.color = "#ffd300";
-		    document.getElementById("diastolic-bp").style.color = "#ffd300";
-		    document.getElementById("systolic-bp").value = (bothbp + "   ");
-		    document.getElementById("diastolic-bp").value = elevatedbp;
+		    document.getElementById("ybp").style.color = "#ffd300";
+		    document.getElementById("ybp").style.color = "#ffd300";
+		    document.getElementById("ybp").value = (bothbp + "   "+elevatedbp);
+		    //document.getElementById("id_diastolic").value = ;
 		
 		}else if ((sysbp >= 130 && sysbp <= 139) || (diabp >= 80 && diabp <= 89)){
-		    document.getElementById("systolic-bp").style.color = "#ff7417";
-		    document.getElementById("diastolic-bp").style.color = "#ff7417";
-		    document.getElementById("systolic-bp").value = (bothbp + "   ");
-		    document.getElementById("diastolic-bp").value = highbp1;
+		    document.getElementById("ybp").style.color = "#ff7417";
+		    document.getElementById("ybp").style.color = "#ff7417";
+		    document.getElementById("ybp").value = (bothbp + "   "+highbp1);
+		   // document.getElementById("id_diastolic").value = highbp1;
 		 
 		 }else if ((sysbp >= 140 && sysbp <= 180) && (diabp >= 90 && diabp <= 120)){
-		    document.getElementById("systolic-bp").style.color = "#d30000";
-		    document.getElementById("diastolic-bp").style.color = "#d30000";
-		    document.getElementById("systolic-bp").value = (bothbp + "   ");
-		    document.getElementById("diastolic-bp").value = highbp2;
+		    document.getElementById("ybp").style.color = "#d30000";
+		    document.getElementById("ybp").style.color = "#d30000";
+		    document.getElementById("ybp").value = (bothbp + "   "+highbp2);
+		    //document.getElementById("id_diastolic").value = highbp2;
 		 
 		 }else if (sysbp > 180 || diabp > 120){
-		    document.getElementById("systolic-bp").style.color = "#c21807";
-		    document.getElementById("diastolic-bp").style.color = "#c21807";
-		    document.getElementById("systolic-bp").value = (bothbp + "   ");
-		    document.getElementById("diastolic-bp").value = abnormalbp;
+		    document.getElementById("ybp").style.color = "#c21807";
+		    document.getElementById("ybp").style.color = "#c21807";
+		    document.getElementById("ybp").value = (bothbp + "   "+abnormalbp);
+		    //document.getElementById("id_diastolic").value = abnormalbp;
 		 
 		 }
 	  };

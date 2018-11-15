@@ -76,7 +76,7 @@ def get_summary(request):
             bp = Blood_Pressure.objects.filter(user=demoUser)
             if bp:
                 bp = bp.order_by('-id')[0]
-                bp = bp.bp
+                bp = "{}/{} mmHg  ".format(bp.systolic,bp.diastolic)
             else:
                 bp = "Unknown"
 
@@ -87,9 +87,9 @@ def get_summary(request):
                 weight = Weight.objects.filter(user=demoUser)
                 if weight:
                     weight= weight.order_by('-id')[0]
-                    print(weight.weight)
-                    print(height.height)
-                    bmi = eval(weight.weight)/eval(height.height)
+                    weight = weight.weight
+                    height = height.height
+                    bmi = eval(weight) / ((eval(height))* 0.01)**2
                     bmi = "{0:0.1f}".format(bmi)
                 else:
                     bmi = "Unknown"
@@ -339,7 +339,7 @@ def get_bmi(request):
                     height = height.height
                     weight = weight.weight
 
-                    bmi = eval(weight) / eval(height)
+                    bmi = eval(weight) / ((eval(height))* 0.01)**2
                     bmi = "{0:0.1f}".format(bmi)
                 else:
                     bmi = "unknown"

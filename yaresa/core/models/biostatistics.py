@@ -16,7 +16,8 @@ class Weight(models.Model):
 
 class Blood_Pressure(models.Model):
     user = models.ForeignKey(AuthUserDemographic, on_delete=models.CASCADE)
-    bp = models.CharField(max_length=255,null=True)
+    systolic = models.CharField(max_length=255,null=True)
+    diastolic = models.CharField(max_length=255,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
