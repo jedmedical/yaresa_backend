@@ -1,4 +1,7 @@
 import datetime
+
+from django.db.models import Count
+
 from core.core_util import add_zeros
 from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy, \
     Addusermedication
@@ -297,3 +300,68 @@ def sendsms(request,contact,pin):
     print(response)
     print(response.reason)
     print(response.content)
+
+
+def blood_group_count(request):
+    fieldname = 'blood_group'
+    blood_group_count = Med_graphic.objects.values(fieldname).order_by(fieldname).annotate(the_count=Count(fieldname))
+
+    Aplus =0
+    bplus =0
+    abplus =0
+    oplus = 0
+    Aneg = 0
+    bneg = 0
+    abneg = 0
+    oneg = 0
+
+    for i in blood_group_count:
+        print (i['blood_group'])
+        if i['blood_group'] == "A+":
+            Aplus = i['the_count']
+        if i['blood_group'] == "B+":
+            bplus = i['the_count']
+        if i['blood_group'] == "AB+":
+            abplus = i['the_count']
+
+        if i['blood_group'] == "O+":
+            oplus = i['the_count']
+        if i['blood_group'] == "A-":
+            Aneg = i['the_count']
+        if i['blood_group'] == "B-":
+            bneg = i['the_count']
+        if i['blood_group'] == "AB-":
+            abneg = i['the_count']
+        if i['blood_group'] == "O-":
+            oneg = i['the_count']
+
+    context = {"aplus":Aplus,"aneg":Aneg,"bplus":bplus,
+               "bneg":bneg,"abplus":abplus,"abneg":abneg,
+               "oplus":oplus,"oneg":oneg}
+    return render(request, 'blood-group-count.html', context)
+
+def sickling_count(request):
+    fieldname = 'sickling_status'
+    sickling_status_count = Med_graphic.objects.values(fieldname).order_by(fieldname).annotate(the_count=Count(fieldname))
+
+    aa =0
+    ass =0
+    ss =0
+    sc = 0
+
+    for i in sickling_status_count:
+        print (i['sickling_status'])
+        if i['sickling_status'] == "AA":
+            aa = i['the_count']
+        if i['sickling_status'] == "AS":
+            ass = i['the_count']
+        if i['sickling_status'] == "SS":
+            ss = i['the_count']
+
+        if i['sickling_status'] == "SC":
+            sc = i['the_count']
+
+    context = {"aa":aa,"ass":ass,"ss":ss,
+               "sc":sc,}
+    return render(request, 'sickling-status-count.html', context)
+

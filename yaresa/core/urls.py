@@ -1,5 +1,5 @@
 from core.views.core_view import dashboard, add_new_user, add_medical_info, user_list, user_detail, user_condition, \
-    user_allergy, user_medication, user_account_reset
+    user_allergy, user_medication, user_account_reset, blood_group_count, sickling_count
 from core.views.home_views import index, signin
 from django.conf.urls import url
 
@@ -21,5 +21,9 @@ urlpatterns = [
     url(r'^user-condition/(?P<pk>\d+)', user_condition, name="user-condition"),
     url(r'^user-allergy/(?P<pk>\d+)', user_allergy, name="user-allergy"),
     url(r'^user-medication/(?P<pk>\d+)', user_medication, name="user-medication"),
+
+    url(r'^blood-group-count', blood_group_count, name="blood-group-count"),
+    url(r'^sickling-status-count', sickling_count, name="sickling-count"),
+
 
 ]
