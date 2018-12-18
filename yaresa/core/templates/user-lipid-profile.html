@@ -1,0 +1,248 @@
+{% extends 'dashboardbase.html' %}
+
+        {% block title %}New BP{% endblock %}
+
+        {% block content %}
+            {% load static %}
+
+
+    <div class="container-fluid">
+
+
+
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+         <div class="card">
+            <div class="container" style="margin-top: 20px">
+                   <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+			<div class="row">
+                <div class="col-md-6 offset-md-4">
+   <div class="chip modalbtn lighten-4"><b>#</b>
+    {{ user.unique_id }}
+   </div>
+  <div class="chip">
+     <a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
+	 <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
+	 </a>
+ </div>
+                </div>
+			</div>
+            <label class="h4 title text-uppercase flex-center mt-5 mb-2">Lipid Profile</label>
+			<br><br>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_total_cholesterol" class="control-label">Total Cholesterol</label>
+
+						        {{ userlipidprofile.total_cholesterol }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_red_blood_range">Total Cholesterol Range : <span>
+                                <input type="text" class="form-control" id="totalcho" name="totalcho" placeholder="00.00 mmol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_hdl_cholesterol" class="control-label">High-Density Lipoprotein</label>
+
+						       {{ userlipidprofile.hdl_cholesterol }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p >High-Density Lipoprotein Range : <span>
+							    <input type="text" class="form-control" id="hdlcho" name="hdlcho" placeholder="00.00 mmol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_ldl_cholesterol" class="control-label">Low-Density Lipoprotein </label>
+
+						        {{ userlipidprofile.ldl_cholesterol }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p>Low-Density Lipoprotein Range: <span>
+                                <input type="text" class="form-control" id="ldlcho" name="ldlcho" placeholder="00.00 mmol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_triglycerides" class="control-label">Triglycerides</label>
+
+						        {{ userlipidprofile.triglycerides }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_white_blood_range">Triglycerides Range : <span>
+							   <input type="text" class="form-control" id="trigly" name="trigly" placeholder="00.00 mmol/L" disabled>
+                            </span>
+							</p>
+						</div>
+
+				</div>
+
+
+                <div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_full_blood_count_date" class="control-label">Current Test Date</label>
+
+						        {{ userlipidprofile.lipid_profile_date }}
+
+                           </div>
+                         </div>
+
+
+						 <div class="col-sm-4 py-2">
+							<div class="md-form form-group">
+                                <label for="id_next_full_blood_count_date" class="control-label">Next Test Date</label>
+
+						        {{ userlipidprofile.next_lipid_test }}
+
+                           </div>
+						</div>
+
+				</div>
+
+	<div class="form-row pic-row mt-4">
+          <div class="card pic-card col-md-4 col-sm-6 col-xs-8 offset-sm-4">
+
+			  <p class="h4 text-center grey-text text-uppercase pt-2">upload test scan</p><br>
+			   <div class="row d-flex justify-content-center">
+			  <div class="file-field">
+        <div class="mb-4" align="center">
+       <img id="imgId" src="{% static 'images/scan-avatar.jpg' %} " style="height:150px;width:150px;border-radius:10px;">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="btn btn-mdb-color btn-rounded float-left">
+                <span>Add Test Scan</span>
+                <input name="lipid_scan" id="id_lipid_scan" type="file" onchange="document.getElementById('imgId').src = window.URL.createObjectURL(this.files[0])">
+            </div>
+        </div>
+		</div>
+         </div>
+
+           </div>
+    </div><br><br>
+
+
+
+
+				<div class="col-md-3 offset-md-5 mb-3">
+
+                        <button class="btn btn-rounded modalbtn" type="submit">Add Lipid Test</button>
+                </div>
+
+
+
+
+
+                       </form>
+            </div>
+                </div></div></div>
+
+		<div class="row">
+			<div class="col-md-12">
+      <div class="card" style="margin-top: 20px">
+
+             <div class="container" style="margin-top: 20px">
+
+            <div class="row">
+                <div class="col-md-12">
+
+
+				 <div class="table-wrapper">
+				 <!-- Trying to get the date for the next test to show on the top of the table.-->
+				 <p class="h5 flex-center orange-text">Next Test Date</p>
+					 {% for lipid in lipidprofile %}
+					<p class="flex-center orange-text h6">{{ lipid.next_lipid_test }}</p>
+							{% endfor %}
+            <!--Table-->
+            <table id="factorytable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
+                    
+                <!--Table head-->
+                <thead>
+
+                            <tr>
+								<th class="th-sm">Total Cholesterol</th>
+								<th class="th-sm">HDL</th>
+								<th class="th-sm">LDL</th>
+                                <th class="th-sm">Triglycerides</th>
+								<th class="th-sm">Test Date</th>
+								<th class="th-sm"></th>
+                            </tr>
+
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                     {% for lipid in lipidprofile %}
+
+                        <tr>
+								<td>{{ lipid.total_cholesterol }} mmol/L</td>
+                                <td>{{ lipid.hdl_cholesterol }} mmol/L</td>
+                                <td>{{ lipid.ldl_cholesterol }} mmol/L</td>
+								<td>{{ lipid.triglycerides }} mmol/L</td>
+								<td>{{ lipid.lipid_profile_date }}</td>
+                                 <td>
+                                <div class="btn-group">
+                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
+                                </div>
+                                </td>
+
+                        </tr>
+                     {% endfor %}
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+
+
+
+
+
+                </div>
+            </div>
+
+             </div>
+        </div></div></div>
+    </div>
+    </div>
+{% endblock %}

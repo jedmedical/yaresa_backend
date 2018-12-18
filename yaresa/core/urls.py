@@ -1,5 +1,6 @@
 from core.views.core_view import dashboard, add_new_user, add_medical_info, user_list, user_detail, user_condition, \
-    user_allergy, user_medication, user_account_reset, blood_group_count, sickling_count
+    user_allergy, user_medication, user_account_reset, blood_group_count, sickling_count, user_bloodpressure, \
+    user_bmi, g6pd_count, user_surgery, user_fastbloodsugar, user_fullbloodcount, user_lipidprofile
 from core.views.home_views import index, signin
 from django.conf.urls import url
 
@@ -21,9 +22,17 @@ urlpatterns = [
     url(r'^user-condition/(?P<pk>\d+)', user_condition, name="user-condition"),
     url(r'^user-allergy/(?P<pk>\d+)', user_allergy, name="user-allergy"),
     url(r'^user-medication/(?P<pk>\d+)', user_medication, name="user-medication"),
+    url(r'^user-bmi/(?P<pk>\d+)', user_bmi, name="user-bmi"),
+    url(r'^user-bloodpressure/(?P<pk>\d+)', user_bloodpressure, name="user-bloodpressure"),
+    url(r'^user-surgery/(?P<pk>\d+)', user_surgery, name="user-surgery"),
+    url(r'^user-fasting-blood-sugar/(?P<pk>\d+)', user_fastbloodsugar, name="user-fastbloodsugar"),
+    url(r'^user-full-blood-count/(?P<pk>\d+)', user_fullbloodcount, name="user-fullbloodcount"),
+    url(r'^user-lipid-profile/(?P<pk>\d+)', user_lipidprofile, name="user-lipidprofile"),
+
 
     url(r'^blood-group-count', blood_group_count, name="blood-group-count"),
     url(r'^sickling-status-count', sickling_count, name="sickling-count"),
+    url(r'^g6pd-count', g6pd_count, name="g6pd-count"),
 
 
 ]

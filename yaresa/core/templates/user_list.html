@@ -70,9 +70,18 @@
                                 </button>
 <div class="dropdown-menu">
 	
+	<a class="dropdown-item" href="{% url 'core:user-allergy' pk=user.id %}">Allergy</a>
+	<a class="dropdown-item" href="{% url 'core:user-bloodpressure' pk=user.id %}">Blood Pressure</a>
+	<a class="dropdown-item" href="{% url 'core:user-bmi' pk=user.id %}">BMI</a>
     <a class="dropdown-item" href="{% url 'core:user-condition' pk=user.id %}">Conditions</a>
-    <a class="dropdown-item" href="{% url 'core:user-allergy' pk=user.id %}">Allergy</a>
+	<a class="dropdown-item" href="{% url 'core:user-fastbloodsugar' pk=user.id %}">Fasting Blood Sugar</a>
+	<a class="dropdown-item" href="{% url 'core:user-fullbloodcount' pk=user.id %}">Full Blood Count</a>
+	<a class="dropdown-item" href="{% url 'core:user-lipidprofile' pk=user.id %}">Lipid Profile</a>
     <a class="dropdown-item" href="{% url 'core:user-medication' pk=user.id %}">Medication</a>
+	<a class="dropdown-item" href="{% url 'core:user-surgery' pk=user.id %}">Surgery</a>
+     
+     
+	 
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{% url 'core:user-account-medication' pk=user.id %}">Reset Account</a>
     <a class="dropdown-item" href="#">Deactivate Account</a>

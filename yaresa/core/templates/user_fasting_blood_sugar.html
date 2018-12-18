@@ -1,6 +1,6 @@
 {% extends 'dashboardbase.html' %}
 
-        {% block title %}New user{% endblock %}
+        {% block title %}New BP{% endblock %}
 
         {% block content %}
             {% load static %}
@@ -11,50 +11,54 @@
 
 
 	<div class="container">
-        <div class="card">
+         <div class="card">
             <div class="container" style="margin-top: 20px">
                    <form method="post">
                         {% csrf_token %}
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
+			<div class="row">
+                <div class="col-md-6 offset-md-4">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
-   </div>       
+   </div>
   <div class="chip">
-    <a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
-    <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
-	</a>
-  </div>
-
+     <a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
+	 <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
+	 </a>
+ </div>
                 </div>
 			</div>
-              <div class="row">   
-                <div class="col-md-3">
+            <div class="row">
+                 <div class="col-md-4">
 
                     <div class="md-form form-group">
-						   							<label for="id_medicine" class="control-label">Medicine</label>
-						   							{{ usermedicationform.medicine }}
+						   							<label for="id_fbs_test_result" class="control-label">Fasting Blood Sugar</label>
+						   							{{ userfastbloodsugar.fbs_test_result }}
                     </div>
                 </div>
-                    <div class="col-md-3">
+                <div class="col-md-4">
 
                     <div class="md-form form-group">
-						   							<label for="id_dosage" class="control-label">Dosage</label>
-						   							{{ usermedicationform.dosage }}
+						   							<label for="id_test_date" class="control-label">Test Date</label>
+						   							{{ userfastbloodsugar.fbs_test_date }}
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4">
+                   <p for="id_saved_result">Fasting Blood Sugar : </span>
 
-                <div class="md-form form-group">
-                <label for="id_refill_date" class="control-label">Refill date</label>
-                                 {{ usermedicationform.refill_date }}
+							{{ userfastbloodsugar.fbs_saved_result }}
+							<span>
+							</p>
+
                 </div>
-                </div>
 
-                <div class="col-md-3">
 
-                        <button class="btn btn-rounded modalbtn" type="submit">Add Medication</button>
+
+
+
+                <div class="col-md-2 offset-md-5">
+
+                        <button class="btn btn-rounded modalbtn" type="submit">Add FBS</button>
                 </div>
 
 
@@ -64,30 +68,33 @@
             </div>
                 </div>
 
-
-             <div class="card" style="margin-top: 20px">
+      <div class="card" style="margin-top: 20px">
 
              <div class="container" style="margin-top: 20px">
 
             <div class="row">
                 <div class="col-md-12">
-
-
-
+							
                      <div class="table-wrapper">
+					 <!-- Trying to get the date for only the next test to show on the top of the table. But it needs fix-->
+				<p class="h5 flex-center orange-text">Next Test Date</p>	 
+						{% for fsb in fastingbs %}
+				<p class="h6 flex-center orange-text">{{ fsb.test_date }}</p>	
+						{% endfor %}
             <!--Table-->
             <table id="factorytable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
+			
+					
 
                 <!--Table head-->
                 <thead>
 
                             <tr>
 
-                                <th class="th-lg">Medicine </th>
+                                <th class="th-lg">Fasting Blood Sugar (mmol/L)</th>
+								<th class="th-lg">Date</th>
 
-                                <th class="th-lg">Dosage</th>
-                                <th class="th-lg">Refill Date</th>
-                                 <th class="th-lg"></th>
+                                <th class="th-lg"></th>
                             </tr>
 
                 </thead>
@@ -95,21 +102,18 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for medicine in medications %}
+                     {% for fsb in fastingbs %}
 
                         <tr>
 
-                                <td>{{ medicine.medicine }}</td>
-<td>{{ medicine.dosage}}</td>
-                                <td>
-                                    {{ medicine.refill_date }}
-                                </td>
-								<td>
+                                <td>{{ fsb.test_result }} mmol/L</td>
+                                 <td>{{ fsb.test_date }}</td>
+
+                                 <td>
                                 <div class="btn-group">
                                     <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
                                 </div>
                                 </td>
-
 
                         </tr>
                      {% endfor %}

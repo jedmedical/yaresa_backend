@@ -35,12 +35,15 @@
                 <br>
                 <br>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 offset-md-4">
                         <div class="chip pink lighten-4"><b>#</b>
     {{ user.unique_id }}
 
-</div>              <div class="chip">
+</div>
+                        <div class="chip">
+        <a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
     <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
+        </a>
 </div>
                     </div>
                     <div class="col-md-4">
@@ -272,9 +275,9 @@
 
                   		    <div class="col-md-10" id="extrasur">
                                 <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                            <div class="md-form form-group">
-                                <label for="id_medicine" class="control-label">Surgery Name</label>
+                                <label for="id_surgery_name" class="control-label">Surgery Name</label>
 
 						        {{ new_medical.surgery_name }}
 
@@ -283,11 +286,29 @@
 
 
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                            <div class="md-form form-group">
-                                <label for="id_refill_date" class="control-label"> Date</label>
+                                <label for="id_surgery_date" class="control-label"> Date</label>
 
 						        {{ new_medical.surgery_date }}
+
+                           </div>
+                                </div>
+								
+								<div class="col-md-3">
+                           <div class="md-form form-group">
+                                <label for="id_sugery_doctor" class="control-label"> Doctor's Name</label>
+
+						        {{ new_medical.surgery_doctor }}
+
+                           </div>
+                                </div>
+								
+								<div class="col-md-3">
+                           <div class="md-form form-group">
+                                <label for="id_surgery_hospital" class="control-label"> Hospital Name</label>
+
+						        {{ new_medical.surgery_hospital }}
 
                            </div>
                                 </div>
@@ -378,21 +399,402 @@
                             {% endfor %}
 
 			        </div>
+		</div>
+		
+		<label class="h4 title text-uppercase mt-5 mb-2">General Test</label>
+          <br><br>
+		  
+	<!-- FASTING BLOOD SUGAR -->	  
+		  
+			<div class="form-row">
+				     <div class="col-md-4 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbs_test_result" class="control-label">Fasting Blood Sugar (mmol/L)</label>
+
+						        {{ new_medical.fbs_test_result }}
+
+                           </div>
+                                </div>
+								
+					  <div class="col-md-3 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbs_test_date" class="control-label"> Test Date</label>
+
+						        {{ new_medical.fbs_test_date }}
+
+                           </div>
+                                </div>	
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbs_saved_result">Fasting Blood Sugar : <span>
+							
+							{{new_medical.fbs_saved_result}} 
+							</span>
+							</p>
+						</div>				
+								
+			</div>
+			
+	<!-- /FASTING BLOOD SUGAR -->		
+			
+	<!-- FULL BLOOD COUNT -->	
+	
+		<label class="h4 flex-center title text-uppercase mt-5 mb-2">Full Blood Count</label>
+			<br><br>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbc_red_blood_cell" class="control-label">Red Blood Cell</label>
+
+						        {{ new_medical.fbc_red_blood_cell }}
+
+                           </div>
+                                </div>
+								
+					  
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_red_blood_range">Red Blood Cell Count : <span>
+							
+							{{ new_medical.fbc_red_blood_range }}
+							</span>
+							</p>
+						</div>				
+								
+				</div>
+				
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbc_hemoglobin" class="control-label">Haemoglobin</label>
+
+						        {{ new_medical.fbc_hemoglobin }}
+
+                           </div>
+                                </div>
+								
+					  
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_hemoglobin_range">Haemoglobin Count : <span>
+							
+							{{ new_medical.fbc_hemoglobin_range }}
+							</span>
+							</p>
+						</div>				
+								
+				</div>
+				
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbc_hematocrit" class="control-label">Haematocrit</label>
+
+						        {{ new_medical.fbc_hematocrit }}
+
+                           </div>
+                                </div>
+								
+					  
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_hematocrit_range">Haematocrit Count : <span>
+							
+							{{ new_medical.fbc_hematocrit_range }}
+							</span>
+							</p>
+						</div>				
+								
+				</div>
+				
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbc_white_blood_cell" class="control-label">White Blood Cell</label>
+
+						        {{ new_medical.fbc_white_blood_cell }}
+
+                           </div>
+                                </div>
+								
+					  
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_white_blood_range">White Blood Cell Count : <span>
+							
+							{{ new_medical.fbc_white_blood_range }}
+							</span>
+							</p>
+						</div>				
+								
+				</div>
+				
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbc_platelet_count" class="control-label">Platelet</label>
+
+						        {{ new_medical.fbc_platelet_count }}
+
+                           </div>
+                                </div>
+								
+					  
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_platelet_count_range">Platelet Count : <span>
+							
+							{{ new_medical.fbc_platelet_count_range }}
+							</span>
+							</p>
+						</div>
+
+							
+				</div>
+				
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbc_neutrophil_count" class="control-label">Neutrophil</label>
+
+						        {{ new_medical.fbc_neutrophil_count }}
+
+                           </div>
+                         </div>
+					  
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_neutrophil_count_range">Neutrophil Count : <span>
+							
+							{{ new_medical.fbc_neutrophil_count_range }}
+							</span>
+							</p>
+						</div>			
+								
+				</div>
+				
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_fbc_lymphocyte_count" class="control-label">Lymphocyte</label>
+
+						        {{ new_medical.fbc_lymphocyte_count }}
+
+                           </div>
+                         </div>
+					  
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_lymphocyte_count_range">Lymphocyte Count : <span>
+							
+							{{ new_medical.fbc_lymphocyte_count_range }}
+							</span>
+							</p>
+						</div>				
+								
+				</div>
+				
+				
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_full_blood_count_date" class="control-label">Current Test Date</label>
+
+						        {{ new_medical.full_blood_count_date }}
+
+                           </div>
+                         </div>
+					  
+
+						 <div class="col-sm-4 py-2">
+							<div class="md-form form-group">
+                                <label for="id_next_full_blood_count_date" class="control-label">Next Test Date</label>
+
+						        {{ new_medical.next_full_blood_count_date }}
+
+                           </div>
+						</div>				
+								
+				</div>
+				
+				<div class="form-row pic-row mt-4">
+          <div class="card pic-card col-md-4 col-sm-6 col-xs-8 offset-sm-4">
+
+			  <p class="h4 text-center grey-text text-uppercase pt-2">upload fbc test scan</p><br>
+			   <div class="row d-flex justify-content-center">
+			  <div class="file-field">
+        <div class="mb-4" align="center">
+       <img id="imgId" src="{% static 'images/scan-avatar.jpg' %} " style="height:150px;width:150px;border-radius:10px;">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="btn btn-mdb-color btn-rounded float-left">
+                <span>Add Test Scan</span>
+                <input name="fbc_image_scan" id="id_fbc_image_scan" type="file" onchange="document.getElementById('imgId').src = window.URL.createObjectURL(this.files[0])">
+            </div>
+        </div>
+		</div>
+         </div>
+
+           </div>
+    </div><br><br>
+	
+	<!-- /FULL BLOOD COUNT -->
+	
+	
+	<!-- LIPID PROFILE -->
+	
+		<label class="h4 title text-uppercase flex-center mt-5 mb-2">Lipid Profile</label>
+			<br><br>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_total_cholesterol" class="control-label">Total Cholesterol</label>
+
+						        {{ new_medical.total_cholesterol }}
+
+                           </div>
+                                </div>
 
 
 
-                  </div>
-
-
-
-                    <hr>
-             <div class="row">
-			   <div class="col-sm-8 offset-sm-4" style="margin-bottom: 20px;">
-			     <button type="submit" class="btn btn-secondary btn-lg waves-effect waves-light" id="button"><i class="fa fa-heart mr-2"></i>Add Record</button>
-		          <button type="reset" class="btn btn-primary btn-lg waves-effect waves-light" id="button">Reset Form</button><br>
-			    </div>
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_red_blood_range">Total Cholesterol Range : <span>
+                                <input type="text" class="form-control" id="totalcho" name="totalcho" placeholder="00.00 mmol/L" disabled>
+							</span>
+							</p>
+						</div>
 
 				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_hdl_cholesterol" class="control-label">High-Density Lipoprotein</label>
+
+						       {{ new_medical.hdl_cholesterol }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p >High-Density Lipoprotein Range : <span>
+							    <input type="text" class="form-control" id="hdlcho" name="hdlcho" placeholder="00.00 mmol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_ldl_cholesterol" class="control-label">Low-Density Lipoprotein </label>
+
+						        {{ new_medical.ldl_cholesterol }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p>Low-Density Lipoprotein Range: <span>
+                                <input type="text" class="form-control" id="ldlcho" name="ldlcho" placeholder="00.00 mmol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_triglycerides" class="control-label">Triglycerides</label>
+
+						        {{ new_medical.triglycerides }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="id_fbc_white_blood_range">Triglycerides Range : <span>
+							   <input type="text" class="form-control" id="trigly" name="trigly" placeholder="00.00 mmol/L" disabled>
+                            </span>
+							</p>
+						</div>
+
+				</div>
+
+
+                <div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_full_blood_count_date" class="control-label">Current Test Date</label>
+
+						        {{ new_medical.lipid_profile_date }}
+
+                           </div>
+                         </div>
+
+
+						 <div class="col-sm-4 py-2">
+							<div class="md-form form-group">
+                                <label for="id_next_full_blood_count_date" class="control-label">Next Test Date</label>
+
+						        {{ new_medical.next_lipid_test }}
+
+                           </div>
+						</div>
+
+				</div>
+
+	<div class="form-row pic-row mt-4">
+          <div class="card pic-card col-md-4 col-sm-6 col-xs-8 offset-sm-4">
+
+			  <p class="h4 text-center grey-text text-uppercase pt-2">upload lipid test scan</p><br>
+			   <div class="row d-flex justify-content-center">
+			  <div class="file-field">
+        <div class="mb-4" align="center">
+       <img id="imgId" src="{% static 'images/scan-avatar.jpg' %} " style="height:150px;width:150px;border-radius:10px;">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="btn btn-mdb-color btn-rounded float-left">
+                <span>Add Test Scan</span>
+                <input name="lipid_scan" id="lipid_scan" type="file" onchange="document.getElementById('imgId').src = window.URL.createObjectURL(this.files[0])">
+            </div>
+        </div>
+		</div>
+         </div>
+
+           </div>
+    </div><br><br>
+
+
+	
+	<!-- /LIPID PROFILE --> 
+				
+				
+			
+			
+			
+			
+			
+			
+                    <hr>
+             <div class="row">
+			   <div class="col-sm-3 offset-sm-3" style="margin-bottom: 20px;">
+			     <button type="submit" class="btn btn-rounded young-passion-gradient btn-lg waves-effect waves-light" id="button"><i class="fa fa-heart mr-2"></i>Add Record</button>
+		       </div>
+				<div class="col-sm-3" style="margin-bottom: 20px;">
+					<button type="reset" class="btn btn-rounded rare-wind-gradient btn-lg waves-effect waves-light" id="button">Reset Form</button><br>
+				</div>
+			 </div>
 
 
 			   </form>

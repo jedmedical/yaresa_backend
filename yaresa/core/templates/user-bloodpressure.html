@@ -16,7 +16,7 @@
                    <form method="post">
                         {% csrf_token %}
 			<div class="row">
-                <div class="col-md-4 offset-md-4">
+                <div class="col-md-6 offset-md-3">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
    </div>            
@@ -31,29 +31,29 @@
                  <div class="col-md-3">
 
                     <div class="md-form form-group">
-						   							<label for="id_height" class="control-label">Systolic</label>
-						   							{{  }}
+						   							<label for="id_systolic" class="control-label">Blood pressure (Systolic)</label>
+						   							{{ userbpressureform.systolic }}
                     </div>
                 </div>
                 <div class="col-md-3">
 
                     <div class="md-form form-group">
-						   							<label for="id_weight" class="control-label">Diastolic</label>
-						   							{{  }}
+						   							<label for="id_diastolic" class="control-label">Blood pressure (Diastolic)</label>
+						   							{{ userbpressureform.diastolic }}
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4">
 
-                    <div class="md-form form-group">
-						   							<label for="id_bmi" class="control-label">Blood Pressure</label>
-						   							{{  }}
-                    </div>
+                   <p>BP : <span>
+
+				    <input type="text" class="form-control" id="ybp" name="ybp" placeholder="" disabled>
+</span></p>
                 </div>
 
                 <div class="col-md-2">
 
-                        <button class="btn btn-rounded modalbtn" type="submit">Add Blood Pressure</button>
+                        <button class="btn btn-rounded modalbtn" type="submit">Add BP</button>
                 </div>
 
 
@@ -74,7 +74,7 @@
 
                      <div class="table-wrapper">
             <!--Table-->
-            <table id="factorytable" class="table table-hover mb-0">
+            <table id="factorytable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
 
                 <!--Table head-->
                 <thead>
@@ -92,13 +92,13 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for %}
+                     {% for bp in bpressure %}
 
                         <tr>
 
-                                <td>{{  }}</td>
-                                 <td>{{ }}</td>
-                                <td>{{  }}</td>
+                                <td>{{ bp.systolic }}</td>
+                                 <td>{{ bp.diastolic }}</td>
+                                <td>{{ bp.systolic }}/{{ bp.diastolic }} mmHg</td>
                                  <td>
                                 <div class="btn-group">
                                     <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>

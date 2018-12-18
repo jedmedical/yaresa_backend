@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/forms/core_forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms/core_forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/medication.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/medication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/surgery.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/surgery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/add_new_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/add_new_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/dashboardbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/dashboardbase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/medical-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/medical-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-allergy.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-allergy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-bloodpressure.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-bloodpressure.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-bmi.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-bmi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-condition.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-condition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-medication.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-medication.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views/core_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/core_view.py" afterDir="false" />
     </list>
     <ignored path="yaresa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,6 +116,35 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-822365052">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.95" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="yaresa" />
@@ -105,21 +153,31 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="78" column="67" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="67" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/templates/dashboardbase.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="79" column="37" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
+            <state relative-caret-position="270">
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/models/auth_user_demographic.py">
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor relative-caret-position="46">
+                <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -127,74 +185,66 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="230">
               <caret line="10" selection-end-line="209" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/blood-group-count.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="67" column="27" selection-end-line="251" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5220">
-              <caret line="365" column="43" selection-start-line="365" selection-start-column="43" selection-end-line="365" selection-end-column="43" />
-              <folding>
-                <marker date="1542356639346" expanded="true" signature="13261:14382" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/sickling-status-count.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor>
+                <folding>
+                  <element signature="e#0#15#0" expanded="true" />
+                </folding>
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="71" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="71" />
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/models/med_graphic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="17" />
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/models/biostatistics.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="13" selection-start-line="18" selection-start-column="4" selection-end-line="19" selection-end-column="13" />
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="67" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="67" />
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor relative-caret-position="-3903">
+                <folding>
+                  <element signature="e#0#24#0" expanded="true" />
+                </folding>
+              </first_editor>
+              <second_editor relative-caret-position="-161" />
             </state>
           </provider>
         </entry>
@@ -278,7 +328,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="822" />
@@ -292,6 +342,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -302,18 +353,7 @@
             <path>
               <item name="yaresa" type="b2602c69:ProjectViewProjectNode" />
               <item name="yaresa" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yaresa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yaresa" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yaresa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yaresa" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yaresa" type="b2602c69:ProjectViewProjectNode" />
@@ -330,19 +370,12 @@
             <path>
               <item name="yaresa" type="b2602c69:ProjectViewProjectNode" />
               <item name="yaresa" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yaresa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yaresa" type="462c0819:PsiDirectoryNode" />
               <item name="yaresa" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -459,10 +492,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22818312" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23600605" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -473,7 +506,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.372442" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3710692" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -485,6 +518,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.24320458" />
       <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Key Promoter X" order="5" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26060605" />
@@ -522,7 +556,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/core_util.py" />
     <entry file="dbDummy://dbtable:/4121656a/d89d05c1-1b09-45bb-981a-e63bfe40a4e7/..auth_user" />
     <entry file="file://$PROJECT_DIR$/core/models/signups.py" />
     <entry file="dbDummy://dbtable:/4121656a/01c68de1-8638-4269-8afa-b505b18bb38b/..core_authuserdemographic" />
@@ -577,16 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/auth_user_demographic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/user_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
@@ -605,9 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -667,79 +687,130 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/blood-group-count.html" />
+    <entry file="file://$PROJECT_DIR$/core/templates/sickling-status-count.html" />
     <entry file="file://$PROJECT_DIR$/api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor">
         <state relative-caret-position="1035">
           <caret line="78" column="67" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/urls.py">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="71" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/med_graphic.py">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/biostatistics.py">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="13" selection-start-line="18" selection-start-column="4" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="5220">
+          <caret line="365" column="43" selection-start-line="365" selection-start-column="43" selection-end-line="365" selection-end-column="43" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor>
+            <folding>
+              <element signature="e#0#15#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="230">
           <caret line="10" selection-end-line="209" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/blood-group-count.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="27" selection-end-line="251" selection-end-column="14" />
+    <entry file="file://$PROJECT_DIR$/core/models/auth_user_demographic.py">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor relative-caret-position="46">
+            <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5220">
-          <caret line="365" column="43" selection-start-line="365" selection-start-column="43" selection-end-line="365" selection-end-column="43" />
-          <folding>
-            <marker date="1542356639346" expanded="true" signature="13261:14382" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/sickling-status-count.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="71" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/med_graphic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/biostatistics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="13" selection-start-line="18" selection-start-column="4" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="67" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="67" />
+    <entry file="file://$PROJECT_DIR$/core/models/contactus.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor>
+            <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/dashboardbase.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="79" column="37" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
+        <state relative-caret-position="270">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="67" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="67" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor relative-caret-position="-3903">
+            <folding>
+              <element signature="e#0#24#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor relative-caret-position="-161" />
         </state>
       </provider>
     </entry>

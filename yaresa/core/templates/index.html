@@ -99,7 +99,7 @@
                             <!--Second column-->
                             <div class="col-md-5">
 
-                                <p>AK-000-0000<br> Asokwa, Kumasi</p>
+                                <p>AK-000-0000<br> Amakom, Kumasi</p>
 
                             </div>
                             <!--/Second column-->
@@ -799,25 +799,27 @@
 
                     <!-- Grid column -->
                     <div class="col-md-8 col-lg-9">
-                        <form>
+                        <form method="post">
+                             {% csrf_token %}
                             <!-- Grid row -->
                             <div class="row pb-3">
                                 <!-- Grid column -->
+
                                 <div class="col-md-6">
                                     <div class="md-form">
                                         <div class="md-form">
-                                            <input type="text" id="form41" class="form-control">
-                                            <label for="form41" class="lablestyle">Your name</label>
+                                            <label for="form41" class="lablestyle">Your Name</label>
+                                             {{ visitorcontactform.yourname }}
                                         </div>
                                     </div>
                                 </div>
-
+                                    
                                 <!-- Grid column -->
                                 <div class="col-md-6">
                                     <div class="md-form">
                                         <div class="md-form">
-										    <label for="form52" class="lablestyle">Your email</label>
-                                            <input type="text" id="form52" class="form-control">
+										    <label for="id_youremail" class="lablestyle">Your Email</label>
+                                             {{ visitorcontactform.youremail }}
 
                                         </div>
                                     </div>
@@ -832,8 +834,8 @@
                         <!-- Grid column -->
                         <div class="col-md-6">
                           <div class="md-form">
-                            <input type="text" id="form-contact-phone" class="form-control">
-                            <label for="form-contact-phone" class="lablestyle">Your phone</label>
+                            {{ visitorcontactform.yournumber }}
+                            <label for="form-contact-phone" class="lablestyle">Your Phone Number</label>
                           </div>
                         </div>
                         <!-- Grid column -->
@@ -841,8 +843,8 @@
                         <!-- Grid column -->
                         <div class="col-md-6">
                           <div class="md-form">
-                            <input type="text" id="form-contact-company" class="form-control">
-                            <label for="form-contact-company" class="lablestyle">Your company</label>
+                             {{ visitorcontactform.subject }}
+                            <label for="form-contact-company" class="lablestyle">Subject</label>
                           </div>
                         </div>
                         <!-- Grid column -->
@@ -858,8 +860,8 @@
                                 <div class="col-md-12">
 
                                     <div class="md-form">
-                                        <textarea type="text" id="form76" class="md-textarea textarea-style form-control" rows="5"></textarea>
-                                        <label for="form76" class="lablestyle">Your message</label>
+                                         {{ visitorcontactform.message }}
+                                        <label for="form76" class="lablestyle">Your Message</label>
                                     </div>
 
                                 </div>
@@ -868,7 +870,7 @@
 
 
                         <div class="text-center text-md-left mb-5 mt-4">
-                            <a class="btn btn-rounded modalbtn white-text">Send</a>
+                            <button type="submit" class="btn btn-rounded modalbtn white-text">Send</button>
                         </div>
 
 					  </form>
@@ -879,7 +881,7 @@
                     <div class="col-md-4 col-lg-3">
                         <ul class="text-center list-unstyled float-md-right">
                             <li><i class="fa fa-map-marker fa-2x orange-text"></i>
-                                <p>Asokwa, AK-000-0000, Kumasi</p>
+                                <p>Amakom, AK-000-0000, Kumasi</p>
                             </li>
 							 <li><i class="fa fa-map-marker fa-2x orange-text"></i>
                                 <p>Dzorwulu, GA-000-0000, Accra</p>
@@ -990,7 +992,7 @@
                                 <strong>Mr. Opoku Agyemang</strong>
                             </h5>
                             <p class="grey-text">
-                                <i class="fa fa-quote-left grey-text"></i> I travel a lot a business man and sometimes I had to almost start all my medical tests when I went to
+                                <i class="fa fa-quote-left grey-text"></i> I travel a lot as a business man and sometimes I had to almost start all my medical tests when I went to
 								a hospital during my travels because I did not have my medical records with me. With the Yaresa mobile application from JED Medical Services,
 								I always have them with me everywhere I go. I do not stress over my health anymore because JED Medical service are doing the perfect health managment
 								for me and for my family.</p>

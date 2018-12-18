@@ -78,13 +78,15 @@
                                 </li>
                                 <li><a href="{% url 'core:sickling-count' %}" class="waves-effect white-text">Sickling Status</a>
                                 </li>
-                                <li><a href="" class="waves-effect white-text">G6PD</a>
+                                <li><a href="{% url 'core:g6pd-count' %}" class="waves-effect white-text">G6PD</a>
                                 </li>
 
 
                             </ul>
                         </div>
                     </li>
+					{#<li><a href="{% url 'core:contactus-messages' %}" class="collapsible-header waves-effect arrow-r white-text active"><i class="fa fa-envelope white-text"></i> Messages</a></li>#}
+
 
 
                 </ul>
@@ -112,7 +114,7 @@
 
                 <!-- Dropdown -->
 {#                <li class="nav-item dropdown notifications-nav">#}
-{#                    <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"#}
+{#                    <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true">#}
 {#                        aria-expanded="false">#}
 {#                        <span class="badge red">3</span> <i class="fa fa-bell"></i>#}
 {#                        <span class="d-none d-md-inline-block">Notifications</span>#}
@@ -326,7 +328,7 @@ e.preventDefault();
 if(surx < surmax_fields){ //max input box allowed
  //text box increment
 $(surwrapper).append('<div class="row">\n' +
-    '                                <div class="col-md-6">\n' +
+    '                                <div class="col-md-3">\n' +
     '                           <div class="md-form form-group">\n' +
     '                                <label for="id_surgery_name_1" class="control-label">Surgery Name</label>\n' +
     '\n' +
@@ -337,11 +339,27 @@ $(surwrapper).append('<div class="row">\n' +
     '\n' +
     '                                  \n' +
     '\n' +
-    '                                        <div class="col-md-4">\n' +
+    '                                        <div class="col-md-3">\n' +
     '                           <div class="md-form form-group">\n' +
     '                                <label for="id_surgery_date_1" class="control-label"> Date</label>\n' +
     '\n' +
     '\t\t\t\t\t\t        {{ new_medical.surgery_date_1 }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+	'										<div class="col-md-3">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_surgery_doctor_1" class="control-label"> Doctors Name</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.surgery_doctor_1 }}\n' +
+    '\n' +
+    '                           </div>\n' +
+    '                                </div>\n' +
+	'									<div class="col-md-3">\n' +
+    '                           <div class="md-form form-group">\n' +
+    '                                <label for="id_surgery_hospital_1" class="control-label"> Hospital Name</label>\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.surgery_hospital_1 }}\n' +
     '\n' +
     '                           </div>\n' +
     '                                </div>\n' +
@@ -496,7 +514,7 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		   document.getElementById("bmi").value = bmi + "  -  "  + '(Normal Weight)' ;
 		  
 		 }else  if (bmi >= 25 && bmi < 30){
-		  document.getElementById("bmi").style.color = "#ff7417";
+		  document.getElementById("bmi").style.color = "#fcd12a";
 		   document.getElementById("bmi").value = bmi + "  -  "  + '(Overweight)' ;
 		   
 		 }else  if (bmi >= 30 && bmi < 35){
@@ -524,16 +542,16 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		 var bothbp = sysbp + "/" + diabp + "mmHg";
 		 document.getElementById("id_systolic").style.fontWeight = "700";
 		 document.getElementById("id_diastolic").style.fontWeight = "700";
-		 var lowbp = "(Low BP)";
-		 var normalbp = "(Normal BP)";
-		 var elevatedbp = "(Elevated BP)";
-		 var highbp1 = '(High BP I)';
-		 var highbp2 = "(High BP II)";
-		 var abnormalbp = "(Abnormal BP)";
+		 var lowbp = "(HYPOTENSION)";
+		 var normalbp = "(NORMAL)";
+		 var elevatedbp = "(PRE-HYPERTENSION)";
+		 var highbp1 = '(HYPERTENSION STAGE 1)';
+		 var highbp2 = "(HYPERTENSION STAGE 2)";
+		 var abnormalbp = "(HYPERTENSIVE CRISIS)";
            
-		 if ((sysbp >= 20 && sysbp < 90) && (diabp < 60)){
-		     document.getElementById("ybp").style.color = "#5c2c06";
-		     document.getElementById("ybp").style.color = "#5c2c06";
+		 if ((sysbp >= 10 && sysbp < 90) && (diabp < 60)){
+		     document.getElementById("ybp").style.color = "#0080fe";
+		     document.getElementById("ybp").style.color = "#0080fe";
 		     document.getElementById("ybp").value = (bothbp + "   "+lowbp);
 
 			 //document.getElementById("bp").value = lowbp;
@@ -544,25 +562,25 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		    document.getElementById("ybp").value = (bothbp + "   "+normalbp);
 		    //document.getElementById("id_diastolic").value = ;
 		 
-		 }else if ((sysbp >= 120 && sysbp <= 129) && (diabp >= 60 && diabp < 80)){
-		    document.getElementById("ybp").style.color = "#ffd300";
-		    document.getElementById("ybp").style.color = "#ffd300";
+		 }else if (((sysbp >= 120 && sysbp < 140) && (diabp < 90)) || ((sysbp < 120) && (diabp >= 80 && diabp < 90 ))){
+		    document.getElementById("ybp").style.color = "#fcd12a";
+		    document.getElementById("ybp").style.color = "#fcd12a";
 		    document.getElementById("ybp").value = (bothbp + "   "+elevatedbp);
 		    //document.getElementById("id_diastolic").value = ;
 		
-		}else if ((sysbp >= 130 && sysbp <= 139) || (diabp >= 80 && diabp <= 89)){
+		}else if (((sysbp >= 140 && sysbp < 160) && (diabp < 100)) || ((sysbp < 140) && (diabp >= 90 && diabp < 100 ))){
 		    document.getElementById("ybp").style.color = "#ff7417";
 		    document.getElementById("ybp").style.color = "#ff7417";
 		    document.getElementById("ybp").value = (bothbp + "   "+highbp1);
 		   // document.getElementById("id_diastolic").value = highbp1;
 		 
-		 }else if ((sysbp >= 140 && sysbp <= 180) && (diabp >= 90 && diabp <= 120)){
+		 }else if (((sysbp >= 160 && sysbp < 180) && (diabp < 110)) || ((sysbp < 160) && (diabp >= 100 && diabp < 110 ))) {
 		    document.getElementById("ybp").style.color = "#d30000";
 		    document.getElementById("ybp").style.color = "#d30000";
 		    document.getElementById("ybp").value = (bothbp + "   "+highbp2);
 		    //document.getElementById("id_diastolic").value = highbp2;
 		 
-		 }else if (sysbp > 180 || diabp > 120){
+		 }else if (sysbp >= 180 || diabp >= 110){
 		    document.getElementById("ybp").style.color = "#c21807";
 		    document.getElementById("ybp").style.color = "#c21807";
 		    document.getElementById("ybp").value = (bothbp + "   "+abnormalbp);
@@ -571,6 +589,408 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		 }
 	  };
 	 </script>
+	 <script>
+	 // Fasting Blood Sugar
+	 
+	 function your_fbs(){
+	 
+	 var fbs = document.getElementById('id_fbs_test_result').value;
+	 var saved_fbs = fbs + 'mmol/L';
+	 var low_fbs = "(LOW BLOOD SUGAR)";
+	 var normal_fbs = "(NORMAL)";
+	 var predia_fbs = "(PRE-DIABETES)";
+	 var high_fbs = "(DIABETES)";
+	 
+	 if (fbs < 3.89){
+	 document.getElementById("fbs").style.color = "#0080fe";
+	 document.getElementById("fbs").value = (saved_fbs + " - "+low_fbs);
+	 
+	 }else if (fbs >= 3.89 && fbs < 5.60){
+	 document.getElementById("fbs").style.color = "#50c878";
+	 document.getElementById("fbs").value = (saved_fbs + " - "+normal_fbs);
+	 
+	 }else if (fbs >= 5.60 && fbs < 7){
+	 document.getElementById("fbs").style.color = "#fcd12a";
+	 document.getElementById("fbs").value = (saved_fbs + " - "+predia_fbs);
+	 
+	 }else if (fbs >= 7){
+	 document.getElementById("fbs").style.color = "#d30000";
+	 document.getElementById("fbs").value = (saved_fbs + " - "+high_fbs);
+	 }
+	 
+	 return document.getElementById("fbs").value;
+	 
+	 
+   }
+	 </script>
+	 <script>
+	 // Full Blood Count
+	 
+	 function your_rbc(){
+	 
+	 var red_bcount = document.getElementById("id_fbc_red_blood_cell").value;
+	 var red_range = red_bcount + " trillion/L";
+	 var low_redcount = "(LOW RBC COUNT)";
+	 var normal_redcount = "(NORMAL RBC COUNT)";
+	 var high_redcount = "(HIGH RBC COUNT)";
+	 var male = "Male";
+	 var female = "Female";
+	 
+	  if (male == "Male"){
+		if (red_bcount < 4.5){
+	  document.getElementById("redbc").style.color = "#0080fe";
+	  document.getElementById("redbc").value = (red_range + " - "+low_redcount);
+	 
+	 }else if (red_bcount >= 4.5 && red_bcount <= 6.5){
+	  document.getElementById("redbc").style.color = "#50c878";
+	  document.getElementById("redbc").value = (red_range + " - "+normal_redcount);
+	 
+	 }else if (red_bcount > 6.5){
+	  document.getElementById("redbc").style.color = "#d30000";
+	  document.getElementById("redbc").value = (red_range + " - "+high_redcount);
+	 }
+   }
+	 
+	
+	
+	
+/*	if (female == "Female"){
+       if (red_bcount < 3.8){
+	 document.getElementById("redbc").style.color = "#0080fe";
+	 document.getElementById("redbc").value = (red_range + " - "+low_redcount);
+	 
+	}else if (red_bcount >= 3.8 && red_bcount <= 5.8){
+	document.getElementById("redbc").style.color = "#50c878";
+	document.getElementById("redbc").value = (red_range +" - "+normal_redcount);
+	
+	}else if (red_bcount > 5.8){
+	 document.getElementById("redbc").style.color = "#d30000";
+	 document.getElementById("redbc").value = (red_range +" - "+high_redcount);
+	} 
+  } */	
+	 
+}
+
+	function your_hemoglobin(){
+	
+		var hemoglobin = document.getElementById("id_fbc_hemoglobin").value;
+		var hemo_range = hemoglobin +" g/L";
+		var low_hemo = "( LOW HAEMOGLOBIN COUNT )";
+		var normal_hemo = "( NORMAL HAEMOGLOBIN COUNT )";
+		var high_hemo = "( HIGH HAEMOGLOBIN COUNT )";
+		var male = "Male";
+		var female = "Female";
+		
+		if (male == "Male"){
+		   if (hemoglobin < 130){
+			document.getElementById("hemoglobin").style.color = "#0080fe";
+			document.getElementById("hemoglobin").value = (hemo_range + " - "+low_hemo);
+			
+			}else if (hemoglobin >= 130 && hemoglobin <= 180){
+			 document.getElementById("hemoglobin").style.color = "#50c878";
+			 document.getElementById("hemoglobin").value = (hemo_range + " - "+normal_hemo);
+			
+			}else if (hemoglobin > 180){
+			 document.getElementById("hemoglobin").style.color = "#d30000";
+			document.getElementById("hemoglobin").value = (hemo_range + " - "+high_hemo);
+			
+			}
+		}	
+			
+				
+		/* if (female == "Female"){
+		
+		 if (hemoglobin < 115){
+			document.getElementById("hemoglobin").style.color = "#0080fe";
+			document.getElementById("hemoglobin").value = (hemo_range + " - "+low_hemo);
+			
+			}else if (hemoglobin >= 115 && hemoglobin <= 165){
+			 document.getElementById("hemoglobin").style.color = "#50c878";
+			 document.getElementById("hemoglobin").value = (hemo_range + " - "+normal_hemo);
+			
+			}else if (hemoglobin > 165){
+			 document.getElementById("hemoglobin").style.color = "#d30000";
+			document.getElementById("hemoglobin").value = (hemo_range + " - "+high_hemo);
+			
+			}
+		  }		
+			*/
+			
+	}
+	
+	
+	 function your_hematocrit(){
+		
+		var hematocrit = document.getElementById("id_fbc_hematocrit").value;
+		var hemat_range = hematocrit +" L/L";
+		var low_hemat = "( LOW HAEMATOCRIT COUNT )";
+		var normal_hemat = "( NORMAL HAEMATOCRIT COUNT )";
+		var high_hemat = "( HIGH HAEMATOCRIT COUNT )";
+		var male = "Male";
+		var female = "Female";
+		
+		
+	if (male == "Male"){
+	  if (hematocrit < 0.40){
+		 document.getElementById("hematocrit").style.color = "#0080fe";
+		 document.getElementById("hematocrit").value = (hemat_range + " - "+low_hemat);
+		
+		}else if (hematocrit >= 0.40 && hematocrit <= 0.52){
+		 document.getElementById("hematocrit").style.color = "#50c878";
+		 document.getElementById("hematocrit").value = (hemat_range + " - "+normal_hemat);
+		
+		}else if (hematocrit > 0.52){
+		 document.getElementById("hematocrit").style.color = "#d30000";
+		 document.getElementById("hematocrit").value = (hemat_range + " - "+high_hemat);
+		
+		}
+	}	
+		
+	
+		
+ /*
+    if (female == "Female"){
+	   if (hematocrit < 0.37){
+		 document.getElementById("hematocrit").style.color = "#0080fe";
+		 document.getElementById("hematocrit").value = (hemat_range + " - "+low_hemat);
+		
+		}else if (hematocrit >= 0.37 && hematocrit <= 0.47){
+		 document.getElementById("hematocrit").style.color = "#50c878";
+		 document.getElementById("hematocrit").value = (hemat_range + " - "+normal_hemat);
+		
+		}else if (hematocrit > 0.47){
+		 document.getElementById("hematocrit").style.color = "#d30000";
+		 document.getElementById("hematocrit").value = (hemat_range + " - "+high_hemat);
+		
+		}
+	}		
+		*/
+	
+	}
+
+		
+	function your_wbc(){
+	
+	 var whitebc = document.getElementById("id_fbc_white_blood_cell").value;
+	 var wbc_range = whitebc +" billion/L";
+	 var low_wbc = "( LOW WBC COUNT )";
+	 var normal_wbc = "( NORMAL WBC COUNT )";
+	 var high_wbc = "( HIGH WBC COUNT )";
+	 
+			// both male and female have the same range of white cell count
+			if (whitebc < 4){
+			document.getElementById("whitebc").style.color = "#0080fe";
+		    document.getElementById("whitebc").value = (wbc_range + " - "+low_wbc);
+			
+			}else if (whitebc >= 4 && whitebc <= 11){
+			document.getElementById("whitebc").style.color = "#50c878";
+		    document.getElementById("whitebc").value = (wbc_range + " - "+normal_wbc);
+			
+			}else if (whitebc > 11){
+			 document.getElementById("whitebc").style.color = "#d30000";
+		    document.getElementById("whitebc").value = (wbc_range + " - "+high_wbc);
+			
+			}
+		
+		}
+
+
+	function your_platelet(){
+	 
+	 var platelet = document.getElementById("id_fbc_platelet_count").value;
+	 var plt_range = platelet +" billion/L";
+	 var low_plt = "( LOW PLATELET COUNT )";
+	 var normal_plt = "( NORMAL PLATELET COUNT )";
+	 var high_plt = "( HIGH PLATELET COUNT )";
+	 
+	 if (platelet < 150){
+	 document.getElementById("platelet").style.color = "#0080fe";
+	 document.getElementById("platelet").value = (plt_range + " - "+low_plt);
+			
+	 }else if (platelet >= 150 && platelet <= 450){
+	 document.getElementById("platelet").style.color = "#50c878";
+	 document.getElementById("platelet").value = (plt_range + " - "+normal_plt);
+			
+	 }else if (platelet > 450){
+	  document.getElementById("platelet").style.color = "#d30000";
+	 document.getElementById("platelet").value = (plt_range + " - "+high_plt);
+			
+	 }
+	
+	}
+
+	
+	function your_neutrophil(){
+	  
+	  var neutrophil = document.getElementById("id_fbc_neutrophil_count").value;
+	  var neutro_count = neutrophil +" billion/L";
+	  var low_ntro = "( LOW NEUTROPHIL COUNT )";
+	  var normal_ntro = "( NORMAL NEUTROPHIL COUNT )";
+	  var high_ntro = "( HIGH NEUTROPHIL COUNT )";
+	  
+	  if (neutrophil < 2.0){
+	  document.getElementById("neutrophil").style.color = "#0080fe";
+	  document.getElementById("neutrophil").value = (neutro_count + " - "+low_ntro);
+			
+	  }else if (neutrophil >= 2.0 && neutrophil <= 7.5){
+	   document.getElementById("neutrophil").style.color = "#50c878";
+	   document.getElementById("neutrophil").value = (neutro_count + " - "+normal_ntro);
+			
+	  }else if (neutrophil > 7.5){
+	   document.getElementById("neutrophil").style.color = "#d30000";
+	   document.getElementById("neutrophil").value = (neutro_count + " - "+high_ntro);
+			
+	  }	
+	
+	}	
+	
+	
+	function your_lymphocyte(){
+	
+		var lymphocyte = document.getElementById("id_fbc_lymphocyte_count").value;
+		var lymph_count = lymphocyte +" billion/L";
+		var low_lymph = "( LOW LYMPHOCYTE COUNT )";
+		var normal_lymph = "( NORMAL LYMPHOCYTE COUNT )";
+		var high_lymph = "( HIGH LYMPHOCYTE COUNT )";
+		
+		if (lymphocyte < 1.5){
+		  document.getElementById("lymphocyte").style.color = "#0080fe";
+	      document.getElementById("lymphocyte").value = (lymph_count + " - "+low_lymph);
+			
+		}else if (lymphocyte >= 1.5 && lymphocyte <= 4.5){
+		  document.getElementById("lymphocyte").style.color = "#50c878";
+	      document.getElementById("lymphocyte").value = (lymph_count + " - "+normal_lymph);
+		
+		}else if (lymphocyte > 4.5){
+		 document.getElementById("lymphocyte").style.color = "#d30000";
+	     document.getElementById("lymphocyte").value = (lymph_count + " - "+high_lymph);
+		
+		}
+	
+	
+	}
+	
+</script>
+<script>
+ 
+	function your_totalcholesterol(){
+	   
+	   var total_chol = document.getElementById("id_total_cholesterol").value;
+	   var total_range = total_chol +" mmol/L";
+	   var desirable = "( DESIRABLE )";
+	   var borderline = "( BORDERLINE HIGH )";
+	   var high = "( HIGH )";
+	   
+	   if (total_chol < 5.2){
+	     document.getElementById("totalcho").style.color = "#50c878";
+	      document.getElementById("totalcho").value = (total_range + " - "+desirable);
+			
+	   }else if (total_chol >= 5.2 && total_chol <= 6.2){
+	     document.getElementById("totalcho").style.color = "#fcd12a";
+	      document.getElementById("totalcho").value = (total_range + " - "+borderline);
+		
+	   }else if (total_chol > 6.2){
+	     document.getElementById("totalcho").style.color = "#d30000";
+	      document.getElementById("totalcho").value = (total_range + " - "+high);
+		
+	   }
+	}
+	
+	
+	function your_hdlcholesterol(){
+	
+		var hdl_chol = document.getElementById("id_hdl_cholesterol").value;
+		var hdl_range = hdl_chol +" mmol/L";
+		var poor = "( UNDESIRABLE; RISK INCREASED )";
+		var better = "( BETTER; BUT NOT OPTIMAL )"
+		var best = "( BEST; RISK LOWERED )"
+		
+		if (hdl_chol < 1.0){
+		  document.getElementById("hdlcho").style.color = "#d30000";
+	      document.getElementById("hdlcho").value = (hdl_range + " - "+poor);
+		
+		}else if (hdl_chol >= 1.0 && hdl_chol <= 1.5){
+		  document.getElementById("hdlcho").style.color = "#fcd12a";
+	      document.getElementById("hdlcho").value = (hdl_range + " - "+better);
+		
+		}else if (hdl_chol >= 1.55){
+		  document.getElementById("hdlcho").style.color = "#50c878";
+	      document.getElementById("hdlcho").value = (hdl_range + " - "+best);
+		
+		}
+	
+	}
+	
+	
+	function your_ldlcholesterol(){
+	
+		var ldl_chol = document.getElementById("id_ldl_cholesterol").value;
+		var ldl_range = ldl_chol +" mmol/L";
+		var most_desirable = "( MOST DESIRABLE )";
+		var good = "( GOOD )";
+		var borderline = "( BORDERLINE HIGH )";
+		var undersirable = "( HIGH UNDESIRABLE )";
+		var high = "( VERY HIGH )";
+		
+		if (ldl_chol < 2.6){
+		  document.getElementById("ldlcho").style.color = "#50c878";
+	      document.getElementById("ldlcho").value = (ldl_range + " - "+most_desirable);
+		
+		}else if (ldl_chol >= 2.6 && ldl_chol <= 3.3){
+		   document.getElementById("ldlcho").style.color = "#1c2951";
+	      document.getElementById("ldlcho").value = (ldl_range + " - "+good);
+		
+		}else if (ldl_chol >= 3.4 && ldl_chol <= 4.1){
+			 document.getElementById("ldlcho").style.color = "#fcd12a";
+	      document.getElementById("ldlcho").value = (ldl_range + " - "+borderline);
+		
+		}else if (ldl_chol >= 4.2 && ldl_chol <= 4.9){
+			 document.getElementById("ldlcho").style.color = "#ff7417";
+	      document.getElementById("ldlcho").value = (ldl_range + " - "+undersirable);
+		
+		}else if (ldl_chol > 4.9){
+		  document.getElementById("ldlcho").style.color = "#d30000";
+	      document.getElementById("ldlcho").value = (ldl_range + " - "+high);
+		
+		}
+	}
+	
+	
+	function your_triglycerides(){
+	   
+	   var trigly = document.getElementById("id_triglycerides").value;
+	   var trigly_range = trigly +" mmol/L";
+	   var desirable = "( DESIRABLE )";
+	   var borderline = "( BORDERLINE HIGH )";
+	   var high = "( HIGH )";
+	   var veryhigh = "( VERY HIGH )";
+	   
+	   if (trigly < 1.7){
+		document.getElementById("trigly").style.color = "#50c878";
+	      document.getElementById("trigly").value = (trigly_range + " - "+desirable);
+		
+	   }else if (trigly >= 1.7 && trigly <= 2.2){
+	     document.getElementById("trigly").style.color = "#ffd300";
+	      document.getElementById("trigly").value = (trigly_range + " - "+borderline);
+		 
+	   }else if (trigly >= 2.3 && trigly <= 5.6){
+	      document.getElementById("trigly").style.color = "#ff7417";
+	      document.getElementById("trigly").value = (trigly_range + " - "+high);
+		
+	   }else if (trigly > 5.6){
+	      document.getElementById("trigly").style.color = "#d30000";
+	      document.getElementById("trigly").value = (trigly_range + " - "+veryhigh);
+		
+	   }
+	   
+	   
+	   
+	   
+	}
+
+
+
+</script>
 
 </body>
 

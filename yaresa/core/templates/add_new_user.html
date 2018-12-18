@@ -81,14 +81,22 @@
 						</div>
 				   </div>
 			       <div class="form-row">
-				   <div class="col-sm-4 py-2">
+				   <div class="col-sm-3 py-2">
 
                        <div class="md-form form-group">
 						<label for = "id_date_of_birth" class="h5 text-uppercase grey-text">Date of Birth </label>
 						{{ new_user_form.date_of_birth }}
 						</div>
 					 </div>
-	                  <div class="col-sm-4">
+
+					  <div class="col-sm-3 py-2">
+
+                       <div class="md-form form-group">
+						<label for = "id_date_of_birth" class="h5 text-uppercase grey-text">Age </label>
+						{{ new_user_form.date_of_birth }}
+						</div>
+					 </div>
+	                  <div class="col-sm-3">
 				        <label class="h5 grey-text text-uppercase">Sex :</label>
 
                             {% for s in new_user_form.sex %}
@@ -99,7 +107,7 @@
                             </div>
                             {% endfor %}
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 						<label class="h5 maritalstyle text-uppercase">Marital Status :</label>
 						{% for sc in new_user_form.marital_status %}
                             <div class="form-check">
@@ -172,12 +180,13 @@
 
 				<hr>
              <div class="row">
-			   <div class="col-sm-8 offset-sm-4" style="margin-bottom: 20px;">
+			   <div class="col-sm-3 offset-sm-3" style="margin-bottom: 20px;">
 			     <button type="submit" class="btn btn-rounded young-passion-gradient btn-lg waves-effect waves-light" id="button"><i class="fa fa-heart mr-2"></i>Register</button>
-		          <button type="reset" class="btn btn-rounded rare-wind-gradient btn-lg waves-effect waves-light" id="button">Reset Form</button><br>
-			    </div>
-
+		       </div>
+				<div class="col-sm-3" style="margin-bottom: 20px;">
+					<button type="reset" class="btn btn-rounded rare-wind-gradient btn-lg waves-effect waves-light" id="button">Reset Form</button><br>
 				</div>
+			 </div>
 
 
 			   </form>

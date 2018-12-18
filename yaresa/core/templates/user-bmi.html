@@ -16,7 +16,7 @@
                    <form method="post">
                         {% csrf_token %}
 			<div class="row">
-                <div class="col-md-4 offset-md-4">
+                <div class="col-md-6 offset-md-3">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
    </div>            
@@ -31,24 +31,21 @@
                  <div class="col-md-3">
 
                     <div class="md-form form-group">
-						   							<label for="id_height" class="control-label">Height</label>
-						   							{{  }}
+						   							<label for="id_height" class="control-label">Height (CM)</label>
+						   							{{ userbmiform.height }}
                     </div>
                 </div>
                 <div class="col-md-3">
 
                     <div class="md-form form-group">
-						   							<label for="id_weight" class="control-label">Weight</label>
-						   							{{  }}
+						   							<label for="id_weight" class="control-label">Weight (KG) </label>
+						   							{{ userbmiform.weight }}
                     </div>
                 </div>
 
                 <div class="col-md-3">
-
-                    <div class="md-form form-group">
-						   							<label for="id_bmi" class="control-label">BMI</label>
-						   							{{  }}
-                    </div>
+ <p>BMI : <span><input type="text" class="form-control" id="bmi" name="bmi" placeholder="00.00" disabled>
+</span></p>
                 </div>
 
                 <div class="col-md-2">
@@ -74,7 +71,7 @@
 
                      <div class="table-wrapper">
             <!--Table-->
-            <table id="factorytable" class="table table-hover mb-0">
+            <table id="factorytable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
 
                 <!--Table head-->
                 <thead>
@@ -93,21 +90,24 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for %}
+
 
                         <tr>
-
-                                <td>{{  }}</td>
-                                 <td>{{ }}</td>
-                                <td>{{  }}</td>
-                                 <td>
+                           {% for height in heights %}
+                                <td>{{ height.height }}</td>
+                            {% endfor %}
+                            {% for weight in weights %}
+                                 <td>{{ weight.weight }}</td>
+                            {% endfor %}
+                                <td>{{ weight.bmi }}</td>
+                                <td>
                                 <div class="btn-group">
                                     <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
                                 </div>
                                 </td>
 
                         </tr>
-                     {% endfor %}
+
                 </tbody>
                 <!--Table body-->
             </table>

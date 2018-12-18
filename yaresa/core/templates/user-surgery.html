@@ -1,6 +1,6 @@
 {% extends 'dashboardbase.html' %}
 
-        {% block title %}New user{% endblock %}
+        {% block title %}New BP{% endblock %}
 
         {% block content %}
             {% load static %}
@@ -11,50 +11,59 @@
 
 
 	<div class="container">
-        <div class="card">
+         <div class="card">
             <div class="container" style="margin-top: 20px">
                    <form method="post">
                         {% csrf_token %}
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
+			<div class="row">
+                <div class="col-md-6 offset-md-4">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
-   </div>       
+   </div>
   <div class="chip">
-    <a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
-    <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
-	</a>
-  </div>
-
+     <a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
+	 <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
+	 </a>
+ </div>
                 </div>
 			</div>
-              <div class="row">   
+            <div class="row">
+                 <div class="col-md-3">
+
+                    <div class="md-form form-group">
+						   							<label for="id_name" class="control-label">Surgery Name</label>
+						   							{{ usersurgeryform.name }}
+                    </div>
+                </div>
                 <div class="col-md-3">
 
                     <div class="md-form form-group">
-						   							<label for="id_medicine" class="control-label">Medicine</label>
-						   							{{ usermedicationform.medicine }}
+						   							<label for="id_date" class="control-label">Date</label>
+						   							{{ usersurgeryform.date }}
                     </div>
                 </div>
-                    <div class="col-md-3">
 
+                <div class="col-md-3">
                     <div class="md-form form-group">
-						   							<label for="id_dosage" class="control-label">Dosage</label>
-						   							{{ usermedicationform.dosage }}
+						   							<label for="id_doctor" class="control-label">Doctor's Name</label>
+						   							{{ usersurgeryform.doctor }}
                     </div>
+
                 </div>
 
                 <div class="col-md-3">
+                    <div class="md-form form-group">
+						   							<label for="id_diastolic" class="control-label">Hospital Name</label>
+						   							{{ usersurgeryform.hospital }}
+                    </div>
 
-                <div class="md-form form-group">
-                <label for="id_refill_date" class="control-label">Refill date</label>
-                                 {{ usermedicationform.refill_date }}
                 </div>
-                </div>
 
-                <div class="col-md-3">
 
-                        <button class="btn btn-rounded modalbtn" type="submit">Add Medication</button>
+
+                <div class="col-md-2 offset-md-5">
+
+                        <button class="btn btn-rounded modalbtn" type="submit">Add Surgery</button>
                 </div>
 
 
@@ -64,8 +73,7 @@
             </div>
                 </div>
 
-
-             <div class="card" style="margin-top: 20px">
+      <div class="card" style="margin-top: 20px">
 
              <div class="container" style="margin-top: 20px">
 
@@ -83,11 +91,11 @@
 
                             <tr>
 
-                                <th class="th-lg">Medicine </th>
-
-                                <th class="th-lg">Dosage</th>
-                                <th class="th-lg">Refill Date</th>
-                                 <th class="th-lg"></th>
+                                <th class="th-lg">Name</th>
+								<th class="th-lg">Date</th>
+                                <th class="th-lg">Doctor</th>
+                                <th class="th-lg">Hospital</th>
+                                <th class="th-lg"></th>
                             </tr>
 
                 </thead>
@@ -95,21 +103,19 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for medicine in medications %}
+                     {% for surgery in surgerydone %}
 
                         <tr>
 
-                                <td>{{ medicine.medicine }}</td>
-<td>{{ medicine.dosage}}</td>
-                                <td>
-                                    {{ medicine.refill_date }}
-                                </td>
-								<td>
+                                <td>{{ surgery.name }}</td>
+                                 <td>{{ surgery.date }}</td>
+                                <td>{{ surgery.doctor }}</td>
+                                <td>{{ surgery.hospital }}</td>
+                                 <td>
                                 <div class="btn-group">
                                     <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
                                 </div>
                                 </td>
-
 
                         </tr>
                      {% endfor %}
