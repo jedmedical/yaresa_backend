@@ -103,78 +103,45 @@ class NewUserMedicalHistoryForm(forms.Form):
     fbs_test_result = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control",'oninput':"your_fbs()"}),)
     fbs_test_date = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
-    next_fbs_test = forms.DateField(required=False, widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                    input_formats=["%Y-%m-%d"])
     fbs_saved_result = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"fbs",'disabled':"true", 'placeholder':"00.00mmol/L"}),)
 
     fbc_red_blood_cell = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control",'oninput':"your_rbc()"}),)
     fbc_red_blood_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"redbc",'disabled':"true", 'placeholder':"00.00 trillion/L"}),)
     fbc_hemoglobin = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control",'oninput':"your_hemoglobin()"}),)
-    fbc_hemoglobin_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"hemoglobin",'disabled':"true", 'placeholder':"00.00 g/dL"}),)
+    fbc_hemoglobin_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"hemoglobin",'disabled':"true", 'placeholder':"00.00 g/L"}),)
     fbc_hematocrit = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control",'oninput':"your_hematocrit()"}),)
-    fbc_hematocrit_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"hematocrit",'disabled':"true", 'placeholder':"00%"}),)
+    fbc_hematocrit_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"hematocrit",'disabled':"true", 'placeholder':"00.00 L/L"}),)
     fbc_white_blood_cell = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control",'oninput':"your_wbc()"}),)
     fbc_white_blood_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"whitebc",'disabled':"true", 'placeholder':"00.00 billion/L"}),)
     fbc_platelet_count = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control",'oninput':"your_platelet()"}),)
     fbc_platelet_count_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"platelet",'disabled':"true", 'placeholder':"00.00 billion/L"}),)
     fbc_neutrophil_count = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control",'oninput':"your_neutrophil()"}),)
-    fbc_neutrophil_count_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"neutrophil",'disabled':"true", 'placeholder':"00%"}),)
+    fbc_neutrophil_count_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"neutrophil",'disabled':"true", 'placeholder':"00.00 billion/L"}),)
     fbc_lymphocyte_count = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control",'oninput':"your_lymphocyte()"}),)
-    fbc_lymphocyte_count_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"lymphocyte",'disabled':"true", 'placeholder':"00%"}),)
+    fbc_lymphocyte_count_range = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'id':"lymphocyte",'disabled':"true", 'placeholder':"00.00 billion/L"}),)
     full_blood_count_date = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
     next_full_blood_count_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
     fbc_image_scan = forms.ImageField()
-    observation = forms.CharField(required=False, max_length=5000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-    conclusion = forms.CharField(required=False, max_length=5000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
+    urine_test = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}), )
     urine_test_date = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
-    next_urine_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                      input_formats=["%Y-%m-%d"])
-    total_cholesterol = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_totalcholesterol()"}), )
-    ldl_cholesterol = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_ldlcholesterol()"}), )
-    hdl_cholesterol = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_hdlcholesterol()"}), )
-    triglycerides = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_triglycerides()"}), )
+    total_cholesterol = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    ldl_cholesterol = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    hdl_cholesterol = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    triglycerides = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}), )
     lipid_profile_date = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
     next_lipid_test = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
     lipid_scan = forms.ImageField()
-    creatinine = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_creatinine()"}), )
-    urea = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_urea()"}), )
-    gfr = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_gfr()"}), )
-    renal_test_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                      input_formats=["%Y-%m-%d"])
-    next_renal_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                      input_formats=["%Y-%m-%d"])
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-    renal_scan = forms.ImageField()
-    alt = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_alt()"}), )
-    ast = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_ast()"}), )
-    alp = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_alp()"}), )
-    albumin = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_albumin()"}), )
-    total_protein = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_totalprotein()"}), )
-    bilirubin = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_bilirubin()"}), )
-    bilirubin_direct = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_bilirubindirect()"}), )
-    ggt = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_ggt()"}), )
-    liver_test_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                      input_formats=["%Y-%m-%d"])
-    next_liver_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                      input_formats=["%Y-%m-%d"])
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-    liver_scan = forms.ImageField()
-    psa_total = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_psatotal()"}), )
-    psa_test_date = forms.DateField(required=False, widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                    input_formats=["%Y-%m-%d"])
-    next_psa_test = forms.DateField(required=False, widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                    input_formats=["%Y-%m-%d"])
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-    psa_scan = forms.ImageField()
-
-
+    renal_function_test = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    renal_function_test_date = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
+                                  input_formats=["%Y-%m-%d"])
+    liver_function_test = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    liver_function_test_date = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
+                                  input_formats=["%Y-%m-%d"])
 
 
 class Addusercondition(forms.Form):
@@ -219,37 +186,31 @@ class Addfastbloodsugar(forms.Form):
     fbs_test_result = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_fbs()"}), )
     fbs_test_date = forms.DateField(required=False, widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                     input_formats=["%Y-%m-%d"])
-    next_fbs_test = forms.DateField(required=False, widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                    input_formats=["%Y-%m-%d"])
     fbs_saved_result = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'id': "fbs", 'disabled': "true", 'placeholder': "00.00mmol/L"}), )
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-
 
 
 class  Addfullbloodcount(forms.Form):
-    red_blood_cell = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_rbc()"}), )
+    fbc_red_blood_cell = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_rbc()"}), )
     fbc_red_blood_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'id': "redbc", 'disabled': "true", 'placeholder': "00.00 trillion/L"}), )
-    hemoglobin = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_hemoglobin()"}), )
-    fbc_hemoglobin_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'id': "hemoglobin", 'disabled': "true", 'placeholder': "00.00 g/dL"}), )
-    hematocrit = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_hematocrit()"}), )
-    fbc_hematocrit_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'id': "hematocrit", 'disabled': "true", 'placeholder': "00%"}), )
-    white_blood_cell = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_wbc()"}), )
+    fbc_hemoglobin = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_hemoglobin()"}), )
+    fbc_hemoglobin_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'id': "hemoglobin", 'disabled': "true", 'placeholder': "00.00 g/L"}), )
+    fbc_hematocrit = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_hematocrit()"}), )
+    fbc_hematocrit_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'id': "hematocrit", 'disabled': "true", 'placeholder': "00.00 L/L"}), )
+    fbc_white_blood_cell = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_wbc()"}), )
     fbc_white_blood_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'id': "whitebc", 'disabled': "true", 'placeholder': "00.00 billion/L"}), )
-    platelet = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_platelet()"}), )
+    fbc_platelet_count = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_platelet()"}), )
     fbc_platelet_count_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'id': "platelet", 'disabled': "true", 'placeholder': "00.00 billion/L"}), )
-    neutrophil = forms.CharField(required=False, max_length=255, widget=forms.TextInput(
+    fbc_neutrophil_count = forms.CharField(required=False, max_length=255, widget=forms.TextInput(
         attrs={'class': "form-control", 'oninput': "your_neutrophil()"}), )
     fbc_neutrophil_count_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(
-        attrs={'class': "form-control", 'id': "neutrophil", 'disabled': "true", 'placeholder': "00%"}), )
-    lymphocyte = forms.CharField(required=False, max_length=255, widget=forms.TextInput(
+        attrs={'class': "form-control", 'id': "neutrophil", 'disabled': "true", 'placeholder': "00.00 billion/L"}), )
+    fbc_lymphocyte_count = forms.CharField(required=False, max_length=255, widget=forms.TextInput(
         attrs={'class': "form-control", 'oninput': "your_lymphocyte()"}), )
     fbc_lymphocyte_count_range = forms.CharField(required=False, max_length=255, widget=forms.TextInput(
-        attrs={'class': "form-control", 'id': "lymphocyte", 'disabled': "true", 'placeholder': "00%"}), )
+        attrs={'class': "form-control", 'id': "lymphocyte", 'disabled': "true", 'placeholder': "00.00 billion/L"}), )
     full_blood_count_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),input_formats=["%Y-%m-%d"])
     next_full_blood_count_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),input_formats=["%Y-%m-%d"])
     fbc_image_scan = forms.ImageField()
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-
 
 
 class Adduserlipidprofile(forms.Form):
@@ -262,54 +223,5 @@ class Adduserlipidprofile(forms.Form):
     next_lipid_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                       input_formats=["%Y-%m-%d"])
     lipid_scan = forms.ImageField()
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-
-
-class Adduserrenaltest(forms.Form):
-    creatinine = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_creatinine()"}), )
-    urea = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_urea()"}), )
-    gfr = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_gfr()"}), )
-    renal_test_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                         input_formats=["%Y-%m-%d"])
-    next_renal_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                         input_formats=["%Y-%m-%d"])
-    renal_scan = forms.ImageField()
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-
-
-class Adduserlivertest(forms.Form):
-    alt = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_alt()"}), )
-    ast = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_ast()"}), )
-    alp = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_alp()"}), )
-    total_protein = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_totalprotein()"}), )
-    bilirubin = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_bilirubin()"}), )
-    bilirubin_direct = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_bilirubindirect()"}), )
-    ggt = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_ggt()"}), )
-    liver_test_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                         input_formats=["%Y-%m-%d"])
-    next_liver_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                         input_formats=["%Y-%m-%d"])
-    liver_scan = forms.ImageField()
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-
-
-class Adduserurinetest(forms.Form):
-    observation = forms.CharField(required=False, max_length=5000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-    conclusion = forms.CharField(required=False, max_length=5000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-    urine_test_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                      input_formats=["%Y-%m-%d"])
-    next_urine_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                      input_formats=["%Y-%m-%d"])
-
-
-class Addprostatetest(forms.Form):
-    psa_total = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_psatotal()"}), )
-    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
-    psa_test_date = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                         input_formats=["%Y-%m-%d"])
-    next_psa_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
-                                         input_formats=["%Y-%m-%d"])
-    psa_scan = forms.ImageField()
-
 
 

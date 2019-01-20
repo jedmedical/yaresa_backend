@@ -5,10 +5,9 @@ from django.db.models import Count
 from core.core_util import add_zeros
 from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy, \
     Addusermedication, Adduserbmi, Addbloodpressure, Addcontactus, Addusersurgery, Addfastbloodsugar, \
-    Addfullbloodcount, Adduserlipidprofile, Adduserrenaltest, Adduserlivertest, Addprostatetest, Adduserurinetest
+    Addfullbloodcount, Adduserlipidprofile
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
-    Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
-    Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test
+    Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.db import IntegrityError
@@ -201,36 +200,32 @@ def add_medical_info(request,pk):
                     fbs_test_result = new_medical.cleaned_data['fbs_test_result']
                     fbs_test_date = new_medical.cleaned_data['fbs_test_date']
                     fbs_saved_result = new_medical.cleaned_data['fbs_saved_result']
-                    next_fbs_test = new_medical.cleaned_data['next_fbs_test']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
 
                     if fbs_test_result and fbs_test_date:
-                        Fasting_blood_sugar(user=user, test_result=fbs_test_result, test_date=fbs_test_date, saved_result=fbs_saved_result,docs_comments=docs_comments,
-                                            next_fbs_test=next_fbs_test).save()
+                        Fasting_blood_sugar(user=user, test_result=fbs_test_result, test_date=fbs_test_date, saved_result=fbs_saved_result).save()
 
-                    red_blood_cell = new_medical.cleaned_data['fbc_red_blood_cell']
+                    fbc_red_blood_cell = new_medical.cleaned_data['fbc_red_blood_cell']
                     fbc_red_blood_range = new_medical.cleaned_data.get('fbc_red_blood_range')
-                    hemoglobin = new_medical.cleaned_data['fbc_hemoglobin']
+                    fbc_hemoglobin = new_medical.cleaned_data['fbc_hemoglobin']
                     fbc_hemoglobin_range = new_medical.cleaned_data['fbc_hemoglobin_range']
-                    hematocrit = new_medical.cleaned_data['fbc_hematocrit']
+                    fbc_hematocrit = new_medical.cleaned_data['fbc_hematocrit']
                     fbc_hematocrit_range = new_medical.cleaned_data['fbc_hematocrit_range']
-                    white_blood_cell = new_medical.cleaned_data['fbc_white_blood_cell']
+                    fbc_white_blood_cell = new_medical.cleaned_data['fbc_white_blood_cell']
                     fbc_white_blood_range = new_medical.cleaned_data['fbc_white_blood_range']
-                    platelet = new_medical.cleaned_data['fbc_platelet_count']
+                    fbc_platelet_count = new_medical.cleaned_data['fbc_platelet_count']
                     fbc_platelet_count_range = new_medical.cleaned_data['fbc_platelet_count_range']
                     full_blood_count_date = new_medical.cleaned_data['full_blood_count_date']
                     next_full_blood_count_date = new_medical.cleaned_data['next_full_blood_count_date']
                     fbc_image_scan = new_medical.cleaned_data['fbc_image_scan']
-                    neutrophil = new_medical.cleaned_data['fbc_neutrophil_count']
-                    lymphocyte = new_medical.cleaned_data['fbc_lymphocyte_count']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
+                    fbc_neutrophil_count = new_medical.cleaned_data['fbc_neutrophil_count']
+                    fbc_lymphocyte_count = new_medical.cleaned_data['fbc_lymphocyte_count']
 
                     if fbc_red_blood_cell and fbc_hemoglobin:
-                        Full_blood_count(user=user, red_blood_cell=red_blood_cell, hemoglobin=hemoglobin,hematocrit=hematocrit,
-                                         white_blood_cell=white_blood_cell,platelet=platelet,full_blood_count_date=full_blood_count_date,
+                        Full_blood_count(user=user, red_blood_cell=fbc_red_blood_cell, hemoglobin=fbc_hemoglobin,hematocrit=fbc_hematocrit,
+                                         white_blood_cell=fbc_white_blood_cell,platelet=fbc_platelet_count,date=full_blood_count_date,
                                          red_blood_range=fbc_red_blood_range,hemoglobin_range=fbc_hemoglobin_range,hematocrit_range=fbc_hematocrit_range,
-                                         white_blood_range=fbc_white_blood_range,platelet_range=fbc_platelet_count_range,next_full_blood_count_date=next_full_blood_count_date,
-                                         fbc_image_scan=fbc_image_scan,neutrophil=neutrophil,lymphocyte=lymphocyte,docs_comments=docs_comments).save()
+                                         white_blood_range=fbc_white_blood_range,platelet_range=fbc_platelet_count_range,next_test_date=next_full_blood_count_date,
+                                         test_scan=fbc_image_scan,neutrophil=fbc_neutrophil_count,lymphocyte=fbc_lymphocyte_count).save()
 
                     total_cholesterol = new_medical.cleaned_data['total_cholesterol']
                     hdl_cholesterol = new_medical.cleaned_data['hdl_cholesterol']
@@ -239,58 +234,10 @@ def add_medical_info(request,pk):
                     lipid_profile_date = new_medical.cleaned_data['lipid_profile_date']
                     next_lipid_test = new_medical.cleaned_data['next_lipid_test']
                     lipid_scan = new_medical.cleaned_data['lipid_scan']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
 
                     if total_cholesterol and triglycerides:
                         Lipid_profile(user=user, total_cholesterol=total_cholesterol, hdl_cholesterol=hdl_cholesterol, ldl_cholesterol=ldl_cholesterol,
-                                      triglycerides=triglycerides,lipid_profile_date=lipid_profile_date,next_lipid_test=next_lipid_test,lipid_scan=lipid_scan,docs_comments=docs_comments).save()
-
-                    creatinine = new_medical.cleaned_data['creatinine']
-                    urea = new_medical.cleaned_data['urea']
-                    gfr = new_medical.cleaned_data['gfr']
-                    renal_test_date = new_medical.cleaned_data['renal_test_date']
-                    next_renal_test = new_medical.cleaned_data['next_renal_test']
-                    renal_scan = new_medical.cleaned_date['renal_scan']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if creatinine and gfr:
-                        Renal_function_test(user=user, creatinine=creatinine, urea=urea, renal_test_date=renal_test_date,
-                                            next_renal_test=next_renal_test, renal_scan=renal_scan,docs_comments=docs_comments).save()
-
-                    alt = new_medical.cleaned_data['alt']
-                    ast = new_medical.cleaned_data['ast']
-                    alp = new_medical.cleaned_data['alp']
-                    total_protein = new_medical.cleaned_data['total_protein']
-                    bilirubin = new_medical.cleaned_data['bilirubin']
-                    bilirubin_direct = new_medical.cleaned_data['bilirubin_direct']
-                    ggt = new_medical.cleaned_data['ggt']
-                    liver_test_date = new_medical.cleaned_data['liver_test_date']
-                    next_liver_test = new_medical.cleaned_data['next_liver_test']
-                    liver_scan = new_medical.cleaned_data['liver_scan']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if alt and ast:
-                        Liver_function_test(user=user,alt=alt,ast=ast,alp=alp,total_protein=total_protein,bilirubin=bilirubin,bilirubin_direct=bilirubin_direct,
-                                            ggt=ggt,liver_test_date=liver_test_date,next_liver_test=next_liver_test,liver_scan=liver_scan,docs_comments=docs_comments).save()
-
-                    psa_total = new_medical.cleaned_data['psa_total']
-                    psa_test_date = new_medical.cleaned_data['psa_test_date']
-                    next_psa_test = new_medical.cleaned_data['next_psa_test']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if psa_total and psa_test_date:
-                        Prostate_specific_antigen(user=user,psa_total=psa_total,psa_test_date=psa_test_date,next_psa_test=next_psa_test,docs_comments=docs_comments,psa_scan=psa_scan).save()
-
-                    observation = new_medical.cleaned_data['observation']
-                    conclusion = new_medical.cleaned_data['conclusion']
-                    urine_test_date = new_medical.cleaned_data['urine_test_date']
-                    next_urine_test = new_medical.cleaned_data['next_urine_test']
-
-                    if observation and conclusion:
-                        Urine_test(user=user,observation=observation,conclusion=conclusion,urine_test_date=urine_test_date,
-                                   next_urine_test=next_urine_test).save()
-
-
+                                      triglycerides=triglycerides,date=lipid_profile_date,next_lipid_test=next_lipid_test,lipid_scan=lipid_scan).save()
 
                     messages.success(request, "Medical Info added")
             except:
@@ -560,8 +507,7 @@ def user_fastbloodsugar(request,pk):
         userfastbloodsugar = Addfastbloodsugar(request.POST)
         if userfastbloodsugar.is_valid():
             Fasting_blood_sugar(user=user, test_result=userfastbloodsugar.cleaned_data['fbs_test_result'],
-                                test_date=userfastbloodsugar.cleaned_data['fbs_test_date'], saved_result=userfastbloodsugar.cleaned_data['fbs_saved_result'],
-                                next_fbs_test=userfastbloodsugar.cleaned_data['next_fbs_test'],docs_comments=userfastbloodsugar.cleaned_data['docs_comments']).save()
+                                test_date=userfastbloodsugar.cleaned_data['fbs_test_date'], saved_result=userfastbloodsugar.cleaned_data['fbs_saved_result']).save()
             messages.success(request, "Fasting Blood Sugar Added")
 
     userfastbloodsugar = Addfastbloodsugar()
@@ -577,12 +523,11 @@ def user_fullbloodcount(request,pk):
     if request.method == "POST":
         userfullbloodcount = Addfullbloodcount(request.POST)
         if userfullbloodcount.is_valid():
-            Full_blood_count(user=user, red_blood_cell=userfullbloodcount.cleaned_data['red_blood_cell'], hemoglobin=userfullbloodcount.cleaned_data['hemoglobin'],
-                             hematocrit=userfullbloodcount.cleaned_data['hematocrit'],white_blood_cell=userfullbloodcount.cleaned_data['white_blood_cell'],
-                             platelet=userfullbloodcount.cleaned_data['platelet'],full_blood_count_date=userfullbloodcount.cleaned_data['full_blood_count_date'],
-                             next_full_blood_count_date=userfullbloodcount.cleaned_data['next_full_blood_count_date'],fbc_image_scan=userfullbloodcount.cleaned_data['fbc_image_scan'],
-                             neutrophil=userfullbloodcount.cleaned_data['neutrophil'],lymphocyte=userfullbloodcount.cleaned_data['lymphocyte'],
-                             docs_comments=userfullbloodcount.cleaned_data['docs_comments']).save()
+            Full_blood_count(user=user, red_blood_cell=userfullbloodcount.cleaned_data['fbc_red_blood_cell'], hemoglobin=userfullbloodcount.cleaned_data['fbc_hemoglobin'],
+                             hematocrit=userfullbloodcount.cleaned_data['fbc_hematocrit'],white_blood_cell=userfullbloodcount.cleaned_data['fbc_white_blood_cell'],
+                             platelet=userfullbloodcount.cleaned_data['fbc_platelet_count'],date=userfullbloodcount.cleaned_data['full_blood_count_date'],
+                             next_test_date=userfullbloodcount.cleaned_data['next_full_blood_count_date'],test_scan=userfullbloodcount.cleaned_data['fbc_image_scan'],
+                             neutrophil=userfullbloodcount.cleaned_data['fbc_neutrophil_count'],lymphocyte=userfullbloodcount.cleaned_data['fbc_lymphocyte_count']).save()
 
             messages.success(request, "Full Blood Count Added")
 
@@ -601,8 +546,8 @@ def user_lipidprofile(request,pk):
         if userlipidprofile.is_valid():
             Lipid_profile(user=user, total_cholesterol=userlipidprofile.cleaned_data['total_cholesterol'],hdl_cholesterol=userlipidprofile.cleaned_data['hdl_cholesterol'],
                           ldl_cholesterol=userlipidprofile.cleaned_data['ldl_cholesterol'],triglycerides=userlipidprofile.cleaned_data['triglycerides'],
-                          lipid_profile_date=userlipidprofile.cleaned_data['lipid_profile_date'],next_lipid_test=userlipidprofile.cleaned_data['next_lipid_test'],
-                          lipid_scan=userlipidprofile.cleaned_data['lipid_scan'],docs_comments=userlipidprofile.cleaned_data['docs_comments']).save()
+                          date=userlipidprofile.cleaned_data['lipid_profile_date'],next_lipid_test=userlipidprofile.cleaned_data['next_lipid_test'],
+                          lipid_scan=userlipidprofile.cleaned_data['lipid_scan']).save()
 
             messages.success(request, "Lipid Profile Added")
 
@@ -612,76 +557,6 @@ def user_lipidprofile(request,pk):
     context = {'lipidprofile':lipidprofile, 'user':user, 'userlipidprofile':userlipidprofile}
     return render(request, 'user-lipid-profile.html', context)
 
-def user_renaltest(request,pk):
-    user = AuthUserDemographic.objects.get(id=pk)
-
-    if request.method == "POST":
-        userrenaltest = Adduserrenaltest(request.POST)
-        if userrenaltest.is_valid():
-            Renal_function_test(user=user, creatinine=userrenaltest.cleaned_data['creatinine'], urea=userrenaltest.cleaned_data['urea'],
-                                gfr=userrenaltest.cleaned_data['gfr'], renal_test_date=userrenaltest.cleaned_data['renal_test_date'],
-                                next_renal_test=userrenaltest.cleaned_data['next_renal_test'], renal_scan=userrenaltest.cleaned_date['renal_scan'],
-                                docs_comments=userrenaltest.cleaned_data['docs_comments']).save()
-            messages.success(request, "Renal Test Added")
-
-    userrenaltest = Adduserrenaltest()
-
-    renalfunction = Renal_function_test.objects.filter(user=user)
-    context = {'renalfunction':renalfunction, 'user':user, 'userrenaltest':userrenaltest}
-    return render(request, 'user-renal-function.html', context)
-
-def user_livertest(request,pk):
-    user = AuthUserDemographic.objects.get(id=pk)
-
-    if request.method == "POST":
-        userlivertest = Adduserlivertest(request.POST)
-        if userlivertest.is_valid():
-            Liver_function_test(user=user,alt=userlivertest.cleaned_data['alt'],ast=userlivertest.cleaned_data['ast'],alp=userlivertest.cleaned_data['alp'],
-                                total_protein=userlivertest.cleaned_data['total_protein'],bilirubin=userlivertest.cleaned_data['bilirubin'],bilirubin_direct=userlivertest.cleaned_data['bilirubin_direct'],
-                                ggt=userlivertest.cleaned_data['ggt'],liver_test_date=userlivertest.cleaned_data['liver_test_date'],
-                                next_liver_test=userlivertest.cleaned_data['next_liver_test'],liver_scan=userlivertest.cleaned_data['liver_scan'],
-                                docs_comments=userlivertest.cleaned_data['docs_comments']).save()
-            messages.success(request, "Liver Test Added")
-
-    userlivertest = Adduserlivertest()
-
-    liverfunction = Liver_function_test.objects.filter(user=user)
-    context = {'liverfunction':liverfunction, 'user':user, 'userlivertest':userlivertest}
-    return render(request, "user-liver-function.html", context)
-
-def user_urinetest(request,pk):
-    user = AuthUserDemographic.objects.get(id=pk)
-
-    if request.method == "POST":
-        userurinetest = Adduserurinetest(request.POST)
-        if userurinetest.is_valid():
-            Urine_test(user=user,observation=userurinetest.cleaned_data['observation'],conclusion=userurinetest.cleaned_data['conclusion'],
-                       urine_test_date=userurinetest.cleaned_data['urine_test_date'],next_urine_test=userurinetest.cleaned_data['next_urine_test']).save()
-            messages.success(request, "Urine Test Added")
-
-    userurinetest = Adduserurinetest()
-
-    urinalysis = Urine_test.objects.filter(user=user)
-    context = {'urinalysis':urinalysis, 'user':user, 'userurinetest':userurinetest}
-    return render(request, "user-urine-test.html", context)
-
-
-def male_prostatetest(request,pk):
-    user = AuthUserDemographic.objects.get(id=pk)
-
-    if request.method == "POST":
-        maleprostatetest = Addprostatetest(request.POST)
-        if maleprostatetest.is_valid():
-            Prostate_specific_antigen(user=user, psa_total=maleprostatetest.cleaned_data['psa_total'], psa_test_date=maleprostatetest.cleaned_data['psa_test_date'],
-                                      next_psa_test=maleprostatetest.cleaned_data['next_psa_test'], docs_comments=maleprostatetest.cleaned_data['docs_comments'],
-                                      psa_scan=maleprostatetest.cleaned_data['psa_scan']).save()
-            messages.success(request, "Prostate Test Added")
-
-    maleprostatetest = Addprostatetest()
-
-    prostatetest = Prostate_specific_antigen.objects.filter(user=user)
-    context = {'prostatetest':prostatetest, 'user':user, 'maleprostatetest':maleprostatetest}
-    return render(request, "male-prostate-test.html", context)
 
 
 
