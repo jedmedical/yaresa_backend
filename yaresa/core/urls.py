@@ -1,6 +1,7 @@
 from core.views.core_view import dashboard, add_new_user, add_medical_info, user_list, user_detail, user_condition, \
     user_allergy, user_medication, user_account_reset, blood_group_count, sickling_count, user_bloodpressure, \
-    user_bmi, g6pd_count, user_surgery, user_fastbloodsugar, user_fullbloodcount, user_lipidprofile
+    user_bmi, g6pd_count, user_surgery, user_fastbloodsugar, user_fullbloodcount, user_lipidprofile, user_renaltest, \
+    user_livertest, male_prostatetest, user_urinetest
 from core.views.home_views import index, signin
 from django.conf.urls import url
 
@@ -28,6 +29,10 @@ urlpatterns = [
     url(r'^user-fasting-blood-sugar/(?P<pk>\d+)', user_fastbloodsugar, name="user-fastbloodsugar"),
     url(r'^user-full-blood-count/(?P<pk>\d+)', user_fullbloodcount, name="user-fullbloodcount"),
     url(r'^user-lipid-profile/(?P<pk>\d+)', user_lipidprofile, name="user-lipidprofile"),
+    url(r'^user-renal-function/(?P<pk>\d+)', user_renaltest, name="user-renalfunction"),
+    url(r'^user-liver-function/(?P<pk>\d+)', user_livertest, name="user-liverfunction"),
+    url(r'^user-urine-test/(?P<pk>\d+)', user_urinetest, name="user-urinetest"),
+    url(r'^user-prostate-test/(?P<pk>\d+)', male_prostatetest, name="male-prostatetest"),
 
 
     url(r'^blood-group-count', blood_group_count, name="blood-group-count"),

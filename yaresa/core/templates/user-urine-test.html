@@ -29,41 +29,46 @@
  </div>
                 </div>
 			</div>
-			
-			<label class="h4 title text-uppercase flex-center mt-5 mb-2">fasting blood sugar</label>
-			<br><br>
-			
-           
-			
-				<div class="form-row">
-				     <div class="col-md-4 offset-md-2 py-2">
-                           <div class="md-form form-group">
-                                <label for="id_fbs_test_result" class="control-label">Fasting Blood Sugar (mmol/L)</label>
 
-						        {{ userfastbloodsugar.fbs_test_result }}
+			<label class="h4 title text-uppercase flex-center mt-5 mb-2">urine test</label>
+			<br><br>
+
+
+
+				<div class="form-row">
+				    <div class="col-md-8 offset-md-2 py-2">
+                           <div class="md-form shadow-textarea form-group">
+							<i class="fa fa-pencil prefix pr-3"></i>
+                                <label for="id_observation" class="control-label pl-3">Urine Test Observation</label>
+
+						        {{ userurinetest.observation }}
 
                            </div>
-                                </div>
-
-
-
-						 <div class="col-sm-4 py-2">
-							<p for="id_saved_result">Fasting Blood Sugar Range: </span>
-
-							{{ userfastbloodsugar.fbs_saved_result }}
-							<span>
-							</p>
-						</div>
-
+                    </div>
 				</div>
 				
 				
+				
+				<div class="form-row">
+				    <div class="col-md-8 offset-md-2 py-2">
+                           <div class="md-form shadow-textarea form-group">
+							<i class="fa fa-pencil prefix pr-3"></i>
+                                <label for="id_conclusion" class="control-label pl-3">Urine Test Conclusion</label>
+
+						        {{ userurinetest.conclusion }}
+
+                           </div>
+                    </div>
+				</div>
+				
+
+
 				<div class="form-row">
 						<div class="col-md-4 offset-md-2 py-2">
                            <div class="md-form form-group">
-                                <label for="id_fbs_test_date" class="control-label">Current Test Date</label>
+                                <label for="id_urine_test_date" class="control-label">Current Test Date</label>
 
-						        {{ userfastbloodsugar.fbs_test_date }}
+						        {{ userurinetest.urine_test_date }}
 
                            </div>
                          </div>
@@ -71,45 +76,31 @@
 
 						 <div class="col-sm-4 py-2">
 							<div class="md-form form-group">
-                                <label for="id_next_fbs_test" class="control-label">Next Test Date</label>
+                                <label for="id_next_urine_test" class="control-label">Next Test Date</label>
 
-						        {{ userfastbloodsugar.next_fbs_test }}
+						        {{ userurinetest.next_urine_test }}
 
                            </div>
 						</div>
 
 				</div>
-				
-				
-			<div class="form-row">
-						<div class="col-md-8 offset-md-2 py-2">
-                           <div class="md-form shadow-textarea form-group">
-							<i class="fa fa-pencil prefix pr-3"></i>
-                                <label for="id_docs_comments" class="control-label pl-3">Doctor's Comments</label>
-
-						        {{ userfastbloodsugar.docs_comments }}
-
-                           </div>
-                        </div>
 
 
-						 
-			</div>
-			
 
 
-                <div class="col-md-2 offset-md-5">
 
-                        <button class="btn btn-rounded modalbtn" type="submit">Add FBS</button>
+                <div class="col-md-3 offset-md-5 mb-4">
+
+                        <button class="btn btn-rounded modalbtn" type="submit">Add Urine Test</button>
                 </div>
 
 
 
-               
+
                        </form>
             </div>
                 </div></div></div>
-				
+
 		<div class="row">
 			<div class="col-md-12">
       <div class="card" style="margin-top: 20px">
@@ -118,25 +109,25 @@
 
             <div class="row">
                 <div class="col-md-12">
-							
+
                      <div class="table-wrapper">
 					 <!-- Trying to get the date for only the next test to show on the top of the table. But it needs fix-->
-				<p class="h5 flex-center orange-text">Next Test Date</p>	 
-					<!--	{% for fsb in fastingbs %}
-				<p class="h6 flex-center orange-text">{{ fsb.next_fbs_test }}</p>	
+				<p class="h5 flex-center orange-text">Next Test Date</p>
+					<!--	{% for urine in urinalysis %}
+				<p class="h6 flex-center orange-text">{{ fsb.next_fbs_test }}</p>
 						{% endfor %} -->
             <!--Table-->
             <table id="factorytable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
-			
-					
+
+
 
                 <!--Table head-->
                 <thead>
 
                             <tr>
 
-                                <th class="th-lg">Fasting Blood Sugar (mmol/L)</th>
-								<th class="th-lg">Doctor's Comments</th>
+                                <th class="th-lg">Urinalysis Observation</th>
+								<th class="th-lg">Urinalysis Conclusion</th>
 								<th class="th-lg">Date</th>
 
                                 <th class="th-lg"></th>
@@ -147,13 +138,13 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for fsb in fastingbs %}
+                     {% for urine in urinalysis %}
 
                         <tr>
 
-                                <td>{{ fsb.test_result }} mmol/L</td>
-								<td>{{ fsb.docs_comments }} </td>
-                                 <td>{{ fsb.test_date }}</td>
+                                <td>{{ urine.observation }} </td>
+								<td>{{ urine.conclusion }} </td>
+                                 <td>{{ urine.urine_test_date }}</td>
 
                                  <td>
                                 <div class="btn-group">
