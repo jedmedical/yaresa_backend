@@ -60,17 +60,41 @@
                     <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r white-text active"><i class="fa fa-tachometer white-text"></i> Dashboards</a>
 
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>User<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Users</a>
+                                <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Patients</a>
                                 </li>
-                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add new User</a>
+                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add patient</a>
                                 </li>
 
                             </ul>
                         </div>
                     </li>
+
+                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>User<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{% url 'core:new-doctor' %}" class="waves-effect white-text">Doctor</a>
+                                </li>
+                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Nurse</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Partners<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Partners</a>
+                                </li>
+                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add partner</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+
                        <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-heartbeat white-text"></i>Medi graph<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                         <div class="collapsible-body">
                             <ul>

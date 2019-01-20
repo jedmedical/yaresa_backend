@@ -26,11 +26,11 @@ class NewUserForm(forms.Form):
     religion = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     marital_status = forms.ChoiceField(choices=Marital_status, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
     address = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    occupation = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    occupation = forms.CharField(max_length=255,required=False, widget=forms.TextInput(attrs={'class': "form-control"}),)
     email = forms.EmailField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    emergency_contact_name = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    emergency_contact_mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    emergency_contact_name = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': "form-control"}),)
+    emergency_contact_mobile = forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={'class': "form-control"}),)
 
 class NewUserMedicalHistoryForm(forms.Form):
     blood_group = forms.ChoiceField( choices= Blood_Group, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
