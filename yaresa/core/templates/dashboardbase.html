@@ -60,41 +60,17 @@
                     <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r white-text active"><i class="fa fa-tachometer white-text"></i> Dashboards</a>
 
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Patients</a>
-                                </li>
-                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add patient</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-
                     <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>User<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="{% url 'core:new-doctor' %}" class="waves-effect white-text">Doctor</a>
+                                <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Users</a>
                                 </li>
-                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Nurse</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Partners<i class="fa fa-angle-down rotate-icon white-text"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Partners</a>
-                                </li>
-                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add partner</a>
+                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add new User</a>
                                 </li>
 
                             </ul>
                         </div>
                     </li>
-
                        <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-heartbeat white-text"></i>Medi graph<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                         <div class="collapsible-body">
                             <ul>
@@ -169,7 +145,8 @@
 {#                </li>#}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect white-text" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span></a>
+                        <i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span>
+						</a>
                    
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Log Out</a>
@@ -243,6 +220,7 @@
 $(document).ready(function() {
 
      $('#factorytable').DataTable()
+	  $('#anothertable').DataTable()
 
 var max_fields = 3; //maximum input boxes allowed
 var wrapper = $("#extracon"); //Fields wrapper
@@ -652,7 +630,7 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	 
 	 function your_rbc(){
 	 
-	 var red_bcount = document.getElementById("id_fbc_red_blood_cell").value;
+	 var red_bcount = document.getElementById("id_red_blood_cell").value;
 	 var red_range = red_bcount + " trillion/L";
 	 var low_redcount = "(LOW RBC COUNT)";
 	 var normal_redcount = "(NORMAL RBC COUNT)";
@@ -679,15 +657,15 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	
 	
 /*	if (female == "Female"){
-       if (red_bcount < 3.8){
+       if (red_bcount < 3.9){
 	 document.getElementById("redbc").style.color = "#0080fe";
 	 document.getElementById("redbc").value = (red_range + " - "+low_redcount);
 	 
-	}else if (red_bcount >= 3.8 && red_bcount <= 5.8){
+	}else if (red_bcount >= 3.9 && red_bcount <= 5.4){
 	document.getElementById("redbc").style.color = "#50c878";
 	document.getElementById("redbc").value = (red_range +" - "+normal_redcount);
 	
-	}else if (red_bcount > 5.8){
+	}else if (red_bcount > 5.4){
 	 document.getElementById("redbc").style.color = "#d30000";
 	 document.getElementById("redbc").value = (red_range +" - "+high_redcount);
 	} 
@@ -697,8 +675,8 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 
 	function your_hemoglobin(){
 	
-		var hemoglobin = document.getElementById("id_fbc_hemoglobin").value;
-		var hemo_range = hemoglobin +" g/L";
+		var hemoglobin = document.getElementById("id_hemoglobin").value;
+		var hemo_range = hemoglobin +" g/dL";
 		var low_hemo = "( LOW HAEMOGLOBIN COUNT )";
 		var normal_hemo = "( NORMAL HAEMOGLOBIN COUNT )";
 		var high_hemo = "( HIGH HAEMOGLOBIN COUNT )";
@@ -706,15 +684,15 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		var female = "Female";
 		
 		if (male == "Male"){
-		   if (hemoglobin < 130){
+		   if (hemoglobin < 12.5){
 			document.getElementById("hemoglobin").style.color = "#0080fe";
 			document.getElementById("hemoglobin").value = (hemo_range + " - "+low_hemo);
 			
-			}else if (hemoglobin >= 130 && hemoglobin <= 180){
+			}else if (hemoglobin >= 12.5 && hemoglobin <= 18.8){
 			 document.getElementById("hemoglobin").style.color = "#50c878";
 			 document.getElementById("hemoglobin").value = (hemo_range + " - "+normal_hemo);
 			
-			}else if (hemoglobin > 180){
+			}else if (hemoglobin > 18.8){
 			 document.getElementById("hemoglobin").style.color = "#d30000";
 			document.getElementById("hemoglobin").value = (hemo_range + " - "+high_hemo);
 			
@@ -724,15 +702,15 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 				
 		/* if (female == "Female"){
 		
-		 if (hemoglobin < 115){
+		 if (hemoglobin < 11.5){
 			document.getElementById("hemoglobin").style.color = "#0080fe";
 			document.getElementById("hemoglobin").value = (hemo_range + " - "+low_hemo);
 			
-			}else if (hemoglobin >= 115 && hemoglobin <= 165){
+			}else if (hemoglobin >= 11.5 && hemoglobin <= 16.5){
 			 document.getElementById("hemoglobin").style.color = "#50c878";
 			 document.getElementById("hemoglobin").value = (hemo_range + " - "+normal_hemo);
 			
-			}else if (hemoglobin > 165){
+			}else if (hemoglobin > 16.5){
 			 document.getElementById("hemoglobin").style.color = "#d30000";
 			document.getElementById("hemoglobin").value = (hemo_range + " - "+high_hemo);
 			
@@ -745,8 +723,8 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	
 	 function your_hematocrit(){
 		
-		var hematocrit = document.getElementById("id_fbc_hematocrit").value;
-		var hemat_range = hematocrit +" L/L";
+		var hematocrit = document.getElementById("id_hematocrit").value;
+		var hemat_range = hematocrit +"%";
 		var low_hemat = "( LOW HAEMATOCRIT COUNT )";
 		var normal_hemat = "( NORMAL HAEMATOCRIT COUNT )";
 		var high_hemat = "( HIGH HAEMATOCRIT COUNT )";
@@ -755,15 +733,15 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		
 		
 	if (male == "Male"){
-	  if (hematocrit < 0.40){
+	  if (hematocrit < 40){
 		 document.getElementById("hematocrit").style.color = "#0080fe";
 		 document.getElementById("hematocrit").value = (hemat_range + " - "+low_hemat);
 		
-		}else if (hematocrit >= 0.40 && hematocrit <= 0.52){
+		}else if (hematocrit >= 40 && hematocrit <= 54){
 		 document.getElementById("hematocrit").style.color = "#50c878";
 		 document.getElementById("hematocrit").value = (hemat_range + " - "+normal_hemat);
 		
-		}else if (hematocrit > 0.52){
+		}else if (hematocrit > 54){
 		 document.getElementById("hematocrit").style.color = "#d30000";
 		 document.getElementById("hematocrit").value = (hemat_range + " - "+high_hemat);
 		
@@ -774,15 +752,15 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		
  /*
     if (female == "Female"){
-	   if (hematocrit < 0.37){
+	   if (hematocrit < 35){
 		 document.getElementById("hematocrit").style.color = "#0080fe";
 		 document.getElementById("hematocrit").value = (hemat_range + " - "+low_hemat);
 		
-		}else if (hematocrit >= 0.37 && hematocrit <= 0.47){
+		}else if (hematocrit >= 35 && hematocrit <= 47){
 		 document.getElementById("hematocrit").style.color = "#50c878";
 		 document.getElementById("hematocrit").value = (hemat_range + " - "+normal_hemat);
 		
-		}else if (hematocrit > 0.47){
+		}else if (hematocrit > 47){
 		 document.getElementById("hematocrit").style.color = "#d30000";
 		 document.getElementById("hematocrit").value = (hemat_range + " - "+high_hemat);
 		
@@ -795,7 +773,7 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		
 	function your_wbc(){
 	
-	 var whitebc = document.getElementById("id_fbc_white_blood_cell").value;
+	 var whitebc = document.getElementById("id_white_blood_cell").value;
 	 var wbc_range = whitebc +" billion/L";
 	 var low_wbc = "( LOW WBC COUNT )";
 	 var normal_wbc = "( NORMAL WBC COUNT )";
@@ -806,11 +784,11 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 			document.getElementById("whitebc").style.color = "#0080fe";
 		    document.getElementById("whitebc").value = (wbc_range + " - "+low_wbc);
 			
-			}else if (whitebc >= 4 && whitebc <= 11){
+			}else if (whitebc >= 4 && whitebc <= 10){
 			document.getElementById("whitebc").style.color = "#50c878";
 		    document.getElementById("whitebc").value = (wbc_range + " - "+normal_wbc);
 			
-			}else if (whitebc > 11){
+			}else if (whitebc > 10){
 			 document.getElementById("whitebc").style.color = "#d30000";
 		    document.getElementById("whitebc").value = (wbc_range + " - "+high_wbc);
 			
@@ -821,21 +799,21 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 
 	function your_platelet(){
 	 
-	 var platelet = document.getElementById("id_fbc_platelet_count").value;
+	 var platelet = document.getElementById("id_platelet").value;
 	 var plt_range = platelet +" billion/L";
 	 var low_plt = "( LOW PLATELET COUNT )";
 	 var normal_plt = "( NORMAL PLATELET COUNT )";
 	 var high_plt = "( HIGH PLATELET COUNT )";
 	 
-	 if (platelet < 150){
+	 if (platelet < 130){
 	 document.getElementById("platelet").style.color = "#0080fe";
 	 document.getElementById("platelet").value = (plt_range + " - "+low_plt);
 			
-	 }else if (platelet >= 150 && platelet <= 450){
+	 }else if (platelet >= 130 && platelet <= 400){
 	 document.getElementById("platelet").style.color = "#50c878";
 	 document.getElementById("platelet").value = (plt_range + " - "+normal_plt);
 			
-	 }else if (platelet > 450){
+	 }else if (platelet > 400){
 	  document.getElementById("platelet").style.color = "#d30000";
 	 document.getElementById("platelet").value = (plt_range + " - "+high_plt);
 			
@@ -846,21 +824,21 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	
 	function your_neutrophil(){
 	  
-	  var neutrophil = document.getElementById("id_fbc_neutrophil_count").value;
-	  var neutro_count = neutrophil +" billion/L";
+	  var neutrophil = document.getElementById("id_neutrophil").value;
+	  var neutro_count = neutrophil +"%";
 	  var low_ntro = "( LOW NEUTROPHIL COUNT )";
 	  var normal_ntro = "( NORMAL NEUTROPHIL COUNT )";
 	  var high_ntro = "( HIGH NEUTROPHIL COUNT )";
 	  
-	  if (neutrophil < 2.0){
+	  if (neutrophil < 40){
 	  document.getElementById("neutrophil").style.color = "#0080fe";
 	  document.getElementById("neutrophil").value = (neutro_count + " - "+low_ntro);
 			
-	  }else if (neutrophil >= 2.0 && neutrophil <= 7.5){
+	  }else if (neutrophil >= 40 && neutrophil <= 70){
 	   document.getElementById("neutrophil").style.color = "#50c878";
 	   document.getElementById("neutrophil").value = (neutro_count + " - "+normal_ntro);
 			
-	  }else if (neutrophil > 7.5){
+	  }else if (neutrophil > 70){
 	   document.getElementById("neutrophil").style.color = "#d30000";
 	   document.getElementById("neutrophil").value = (neutro_count + " - "+high_ntro);
 			
@@ -871,21 +849,21 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	
 	function your_lymphocyte(){
 	
-		var lymphocyte = document.getElementById("id_fbc_lymphocyte_count").value;
-		var lymph_count = lymphocyte +" billion/L";
+		var lymphocyte = document.getElementById("id_lymphocyte").value;
+		var lymph_count = lymphocyte +"%";
 		var low_lymph = "( LOW LYMPHOCYTE COUNT )";
 		var normal_lymph = "( NORMAL LYMPHOCYTE COUNT )";
 		var high_lymph = "( HIGH LYMPHOCYTE COUNT )";
 		
-		if (lymphocyte < 1.5){
+		if (lymphocyte < 20){
 		  document.getElementById("lymphocyte").style.color = "#0080fe";
 	      document.getElementById("lymphocyte").value = (lymph_count + " - "+low_lymph);
 			
-		}else if (lymphocyte >= 1.5 && lymphocyte <= 4.5){
+		}else if (lymphocyte >= 20 && lymphocyte <= 50){
 		  document.getElementById("lymphocyte").style.color = "#50c878";
 	      document.getElementById("lymphocyte").value = (lymph_count + " - "+normal_lymph);
 		
-		}else if (lymphocyte > 4.5){
+		}else if (lymphocyte > 50){
 		 document.getElementById("lymphocyte").style.color = "#d30000";
 	     document.getElementById("lymphocyte").value = (lymph_count + " - "+high_lymph);
 		
@@ -994,7 +972,7 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	      document.getElementById("trigly").value = (trigly_range + " - "+desirable);
 		
 	   }else if (trigly >= 1.7 && trigly <= 2.2){
-	     document.getElementById("trigly").style.color = "#ffd300";
+	     document.getElementById("trigly").style.color = "#fcd12a";
 	      document.getElementById("trigly").value = (trigly_range + " - "+borderline);
 		 
 	   }else if (trigly >= 2.3 && trigly <= 5.6){
@@ -1006,13 +984,362 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	      document.getElementById("trigly").value = (trigly_range + " - "+veryhigh);
 		
 	   }
-	   
-	   
-	   
-	   
 	}
+	
+</script>
+<script>
+  
+  function your_creatinine(){
+  
+	var creatinine = document.getElementById("id_creatinine").value;
+	var creat_range = creatinine +" umol/L";
+	var low_level = "( LOW CREATININE LEVEL )";
+	var normal_level = "( NORMAL CREATININE LEVEL )";
+	var high_level = "( HIGH CREATININE LEVEL )";
+	var male = "Male";
+	var female = "Female";
+	
+	if (male == "Male"){
+		if (creatinine < 60){
+		  document.getElementById("creatinine").style.color = "#0080fe";
+	      document.getElementById("creatinine").value = (creat_range + " - "+low_level);
+			
+		}else if (creatinine >= 60 && creatinine <= 120){
+		  document.getElementById("creatinine").style.color = "#50c878";
+	      document.getElementById("creatinine").value = (creat_range + " - "+normal_level);
+			
+		}else if (creatinine > 120){
+		  document.getElementById("creatinine").style.color = "#d30000";
+	      document.getElementById("creatinine").value = (creat_range + " - "+high_level);
+			
+		}
+	}
+	
+/*	if (female == "Female"){
+		if (creatinine < 63){
+			document.getElementById("creatinine").style.color = "#0080fe";
+	      document.getElementById("creatinine").value = (creat_range + " - "+low_level);
+			
+		}else if (creatinine >= 0.053 && creatinine <= 94){
+			document.getElementById("creatinine").style.color = "#50c878";
+	      document.getElementById("creatinine").value = (creat_range + " - "+normal_level);
+			
+		}else if (creatinine > 94){
+			document.getElementById("creatinine").style.color = "#d30000";
+	      document.getElementById("creatinine").value = (creat_range + " - "+high_level);
+			
+		}
+	}   */ 
+ 
+ }
+ 
+	
+	function your_urea(){
+	
+		var urea = document.getElementById("id_urea").value;
+		var urea_range = urea +" mg/dL";
+		var low = "( LOW UREA LEVEL )";
+		var normal = "( NORMAL UREA LEVEL )"
+		var high = "( HIGH UREA LEVEL )"
+		var male = "Male";
+		var female = "Female";
+		
+			if (male == "Male"){
+				if (urea < 2){
+					document.getElementById("urea").style.color = "#0080fe";
+					document.getElementById("urea").value = (urea_range + " - "+low);
+		
+				}else if (urea >= 2 && urea <= 8.30){
+					document.getElementById("urea").style.color = "#50c878";
+					document.getElementById("urea").value = (urea_range + " - "+normal);
+		
+				}else if (urea > 8.30){
+					document.getElementById("urea").style.color = "#d30000";
+					document.getElementById("urea").value = (urea_range + " - "+high);
+		
+				}
+			}
+		}
+	
+	
+	function your_gfr(){
+	
+		var gfr = document.getElementById("id_gfr").value;
+		var gfr_range = gfr +" mL/min/1.73m2";
+		var normal = "G1 ( NORMAL )";
+		var mild_loss = "G2 ( MILD LOSS )";
+		var mild_mode = "G3a ( MILD TO MODERATE )";
+		var mode_seve = "G3b ( MODERATE TO SEVERE )";
+		var severe = "G4 ( SEVERE )";
+		var kid_fail = "G5 ( KIDNEY FAILURE )";
+				
 
+			if (gfr >= 90){
+				document.getElementById("gfr").style.color = "#50c878";
+				document.getElementById("gfr").value = (gfr_range + " - "+normal);
+		
+			}else if (gfr >= 60 && gfr <= 89){
+				document.getElementById("gfr").style.color = "#50c878";
+				document.getElementById("gfr").value = (gfr_range + " - "+mild_loss);
+		
+			}else if (gfr >= 44 && gfr <= 59){
+				document.getElementById("gfr").style.color = "#fcd12a";
+				document.getElementById("gfr").value = (gfr_range + " - "+mild_mode);
+		
+			}else if (gfr >= 30 && gfr <= 43){
+				document.getElementById("gfr").style.color = "#fc6600";
+				document.getElementById("gfr").value = (gfr_range + " - "+mode_seve);
+		
+			}else if (gfr >= 15 && gfr <= 29){
+				document.getElementById("gfr").style.color = "#ff2800";
+				document.getElementById("gfr").value = (gfr_range + " - "+severe);
+		
+			}else if (gfr <= 14){
+				document.getElementById("gfr").style.color = "#d30000";
+				document.getElementById("gfr").value = (gfr_range + " - "+kid_fail);
+		
+			}
+	}
+</script>
+<script>
+			// LIVER FUNCTION TEST
+	function your_alt(){
+		
+		var alt = document.getElementById("id_alt").value;
+		var alt_range = alt +" U/L";
+		var low = "( LOW ALT LEVEL )";
+		var normal = "( NORMAL ALT LEVEL )";
+		var high = "( HIGH ALT LEVEL )";
+		
+		if (alt < 3){
+			document.getElementById("alt").style.color = "#0080fe";
+			document.getElementById("alt").value = (alt_range + " - "+low);
+		
+		}else if (alt >= 3 && alt <= 40){
+		   document.getElementById("alt").style.color = "#50c878";
+			document.getElementById("alt").value = (alt_range + " - "+normal);
+		
+		}else if (alt > 40){
+			document.getElementById("alt").style.color = "#d30000";
+			document.getElementById("alt").value = (alt_range + " - "+high);
+		
+		}
+	}
+	
+	function your_ast(){
+	
+		var ast = document.getElementById("id_ast").value;
+		var ast_range = ast +" U/L";
+		var low = "( LOW AST LEVEL )";
+		var normal = "( NORMAL AST LEVEL )";
+		var high = "( HIGH AST LEVEL )";
+		
+		if (ast < 5){
+			document.getElementById("ast").style.color = "#0080fe";
+			document.getElementById("ast").value = (ast_range + " - "+low);
+		
+		}else if (ast >= 5 && ast <= 37){
+			document.getElementById("ast").style.color = "#50c878";
+			document.getElementById("ast").value = (ast_range + " - "+normal);
+		
+		}else if (ast > 37){
+		   document.getElementById("ast").style.color = "#d30000";
+			document.getElementById("ast").value = (ast_range + " - "+high);
+		
+		} 
+	}
+	
+	function your_alp(){
+	
+		var alp = document.getElementById("id_alp").value;
+		var alp_range = alp +" U/L";
+		var low = "( LOW ALP LEVEL )";
+		var normal = "( NORMAL ALP LEVEL )";
+		var high = "( HIGH ALP LEVEL )";
+		
+		if (alp < 98){
+			document.getElementById("alp").style.color = "#0080fe";
+			document.getElementById("alp").value = (alp_range + " - "+low);
+		
+		}else if (alp >= 98 && alp <= 279){
+			document.getElementById("alp").style.color = "#50c878";
+			document.getElementById("alp").value = (alp_range + " - "+normal);
+		
+		}else if (alp > 279){
+			document.getElementById("alp").style.color = "#d30000";
+			document.getElementById("alp").value = (alp_range + " - "+high);
+		
+		}
+	}
+	
+	function your_totalprotein(){
+	
+		var totalprotein = document.getElementById("id_total_protein").value;
+		var totalpro_range = totalprotein +" g/L";
+		var low = "( LOW TOTAL PROTEIN LEVEL )";
+		var normal = "( NORMAL TOTAL PROTEIN LEVEL )";
+		var high = "( HIGH TOTAL PROTEIN LEVEL )";
+		
+		if (totalprotein < 60){
+			document.getElementById("totalprotein").style.color = "#0080fe";
+			document.getElementById("totalprotein").value = (totalpro_range + " - "+low);
+		
+		}else if (totalprotein >= 60 && totalprotein <= 80){
+			document.getElementById("totalprotein").style.color = "#50c878";
+			document.getElementById("totalprotein").value = (totalpro_range + " - "+normal);
+		
+		}else if (totalprotein > 80){
+			document.getElementById("totalprotein").style.color = "#d30000";
+			document.getElementById("totalprotein").value = (totalpro_range + " - "+high);
+		
+		}
+	}
+	
+	function your_bilirubin(){
+	
+		var bilirubin = document.getElementById("id_bilirubin").value;
+		var bili_range = bilirubin +" umol/L";
+		var low = "( LOW BILIRUBIN LEVEL )";
+		var normal = "( NORMAL BILIRUBIN LEVEL )";
+		var high = "( HIGH BILIRUBIN LEVEL )";
+		
+		if (bilirubin < 3){
+			document.getElementById("bilirubin").style.color = "#0080fe";
+			document.getElementById("bilirubin").value = (bili_range + " - "+low);
+		
+		}else if (bilirubin >= 3 && bilirubin <= 22){
+			document.getElementById("bilirubin").style.color = "#50c878";
+			document.getElementById("bilirubin").value = (bili_range + " - "+normal);
+		
+		}else if (bilirubin > 22){
+			document.getElementById("bilirubin").style.color = "#d30000";
+			document.getElementById("bilirubin").value = (bili_range + " - "+high);
+		
+		}
+	}
+	
+	
+	
+	function your_bilirubindirect(){
+	
+		var bilirubindirect = document.getElementById("id_bilirubin_direct").value;
+		var bili_range = bilirubindirect +" umol/L";
+		var low = "( LOW BILIRUBIN DIRECT LEVEL )";
+		var normal = "( NORMAL BILIRUBIN DIRECT LEVEL )";
+		var high = "( HIGH BILIRUBIN DIRECT LEVEL )";
+		
+		if (bilirubindirect < 0){
+			document.getElementById("bilirubindirect").style.color = "#0080fe";
+			document.getElementById("bilirubindirect").value = (bili_range + " - "+low);
+		
+		}else if (bilirubindirect >= 0 && bilirubindirect <= 6.80){
+			document.getElementById("bilirubindirect").style.color = "#50c878";
+			document.getElementById("bilirubindirect").value = (bili_range + " - "+normal);
+		
+		}else if (bilirubindirect > 6.80){
+			document.getElementById("bilirubindirect").style.color = "#d30000";
+			document.getElementById("bilirubindirect").value = (bili_range + " - "+high);
+		
+		}
+	}
+	
+	
+	function your_ggt(){
+	
+		var ggt = document.getElementById("id_ggt").value;
+		var ggt_range = ggt +" U/L";
+		var low = "( LOW GGT LEVEL )";
+		var normal = "( NORMAL GGT LEVEL )";
+		var high = "( HIGH GGT LEVEL )";
+		
+		if (ggt < 6){
+			document.getElementById("ggt").style.color = "#0080fe";
+			document.getElementById("ggt").value = (ggt_range + " - "+low);
+		
+		}else if (ggt >= 6 && ggt <= 42){
+			document.getElementById("ggt").style.color = "#50c878";
+			document.getElementById("ggt").value = (ggt_range + " - "+normal);
+		
+		}else if (ggt > 42){
+			document.getElementById("ggt").style.color = "#d30000";
+			document.getElementById("ggt").value = (ggt_range + " - "+high)
+			
+		}
+	}
+	
 
+</script>
+<script>
+   
+   function your_psatotal(){
+		
+		var psa = document.getElementById("id_psa_total").value;
+		var psa_range = psa +" ng/ml";
+		var normal = "( NORMAL PSA LEVEL )";
+		var abnormal = "( ABNORMAL PSA LEVEL )";
+		var age = 39;
+		
+		if (age < 40){
+			if (psa < 1.4){
+				document.getElementById("psatotal").style.color = "#50c878";
+				document.getElementById("psatotal").value = (psa_range + " - "+normal);
+		
+			}else if (psa >= 1.4){
+				document.getElementById("psatotal").style.color = "#d30000";
+				document.getElementById("psatotal").value = (psa_range + " - "+abnormal);
+		
+			}
+		}
+		
+	/*	if (age >= 40 and age <= 49){
+			if (psa < 2.0){
+				document.getElementById("psatotal").style.color = "#50c878";
+				document.getElementById("psatotal").value = (psa_range + " - "+normal);
+		
+			}else if (psa >= 2.0){
+				document.getElementById("psatotal").style.color = "#d30000";
+				document.getElementById("psatotal").value = (psa_range + " - "+abnormal);
+		
+			}
+		}
+		
+		if (age >= 50 and age <= 59){
+			if (psa < 3.1){
+				document.getElementById("psatotal").style.color = "#50c878";
+				document.getElementById("psatotal").value = (psa_range + " - "+normal);
+		
+			}else if (psa >= 3.1){
+				document.getElementById("psatotal").style.color = "#d30000";
+				document.getElementById("psatotal").value = (psa_range + " - "+abnormal);
+		
+			}
+		}
+		
+		if (age >= 60 and age <= 69){
+			if (psa < 4.1){
+				document.getElementById("psatotal").style.color = "#50c878";
+				document.getElementById("psatotal").value = (psa_range + " - "+normal);
+		
+			}else if (psa >= 4.1){
+				document.getElementById("psatotal").style.color = "#d30000";
+				document.getElementById("psatotal").value = (psa_range + " - "+abnormal);
+		
+			}
+		}
+		
+		if (age >= 70){
+			if (psa < 4.4){
+				document.getElementById("psatotal").style.color = "#50c878";
+				document.getElementById("psatotal").value = (psa_range + " - "+normal);
+		
+			}else if (psa >= 4.4){
+				document.getElementById("psatotal").style.color = "#d30000";
+				document.getElementById("psatotal").value = (psa_range + " - "+abnormal);
+		
+			}
+		} */
+		
+   }
 
 </script>
 

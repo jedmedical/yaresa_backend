@@ -13,4 +13,7 @@ from core.models.fasting_blood_sugar import Fasting_blood_sugar
 from core.models.full_blood_count import Full_blood_count
 from core.models.urine_test import Urine_test
 from core.models.lipid_profile import Lipid_profile
+from core.models.renal_function_test import Renal_function_test
+from core.models.liver_function_test import Liver_function_test
+from core.models.prostate_specific_antigen import Prostate_specific_antigen
 

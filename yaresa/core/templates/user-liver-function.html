@@ -29,190 +29,184 @@
  </div>
                 </div>
 			</div>
-            <label class="h4 title text-uppercase flex-center mt-5 mb-2">Full Blood Count</label>
+            <label class="h4 title text-uppercase flex-center mt-5 mb-2">liver function test</label>
 			<br><br>
 
 				<div class="form-row">
 				     <div class="col-md-4 offset-md-2 py-2">
                            <div class="md-form form-group">
-                                <label for="id_red_blood_cell" class="control-label">Red Blood Cell</label>
+                                <label for="id_alt" class="control-label">Alanine Transaminase ALT (U/L)</label>
 
-						        {{ userfullbloodcount.red_blood_cell }}
-
-                           </div>
-                                </div>
-								
-					  
-
-						 <div class="col-sm-4 py-2">
-							<p for="id_fbc_red_blood_range">Red Blood Cell Count : <span>
-							
-							{{ userfullbloodcount.fbc_red_blood_range }}
-							</span>
-							</p>
-						</div>				
-								
-				</div>
-				
-				<div class="form-row">
-				     <div class="col-md-4 offset-md-2 py-2">
-                           <div class="md-form form-group">
-                                <label for="id_hemoglobin" class="control-label">Haemoglobin</label>
-
-						        {{ userfullbloodcount.hemoglobin }}
+						        {{ userlivertest.alt }}
 
                            </div>
-                                </div>
-								
-					  
+                     </div>
 
-						 <div class="col-sm-4 py-2">
-							<p for="id_fbc_hemoglobin_range">Haemoglobin Count : <span>
-							
-							{{ userfullbloodcount.fbc_hemoglobin_range }}
-							</span>
-							</p>
-						</div>				
-								
-				</div>
-				
-				<div class="form-row">
-				     <div class="col-md-4 offset-md-2 py-2">
-                           <div class="md-form form-group">
-                                <label for="id_hematocrit" class="control-label">Haematocrit</label>
 
-						        {{ userfullbloodcount.hematocrit }}
-
-                           </div>
-                                </div>
-								
-					  
-
-						 <div class="col-sm-4 py-2">
-							<p for="id_fbc_hematocrit_range">Haematocrit Count : <span>
-							
-							{{ userfullbloodcount.fbc_hematocrit_range }}
-							</span>
-							</p>
-						</div>				
-								
-				</div>
-				
-				<div class="form-row">
-				     <div class="col-md-4 offset-md-2 py-2">
-                           <div class="md-form form-group">
-                                <label for="id_white_blood_cell" class="control-label">White Blood Cell</label>
-
-						        {{ userfullbloodcount.white_blood_cell }}
-
-                           </div>
-                                </div>
-								
-					  
-
-						 <div class="col-sm-4 py-2">
-							<p for="id_fbc_white_blood_range">White Blood Cell Count : <span>
-							
-							{{ userfullbloodcount.fbc_white_blood_range }}
-							</span>
-							</p>
-						</div>				
-								
-				</div>
-				
-				<div class="form-row">
-				     <div class="col-md-4 offset-md-2 py-2">
-                           <div class="md-form form-group">
-                                <label for="id_platelet" class="control-label">Platelet</label>
-
-						        {{ userfullbloodcount.platelet }}
-
-                           </div>
-                                </div>
-								
-					  
-
-						 <div class="col-sm-4 py-2">
-							<p for="id_fbc_platelet_count_range">Platelet Count : <span>
-							
-							{{ userfullbloodcount.fbc_platelet_count_range }}
-							</span>
-							</p>
-						</div>
-
-							
-				</div>
-				
-				<div class="form-row">
-						<div class="col-md-4 offset-md-2 py-2">
-                           <div class="md-form form-group">
-                                <label for="id_neutrophil" class="control-label">Neutrophil</label>
-
-						        {{ userfullbloodcount.neutrophil }}
-
-                           </div>
-                         </div>
-					  
 
 						<div class="col-sm-4 py-2">
-							<p for="id_fbc_neutrophil_count_range">Neutrophil Count : <span>
-							
-							{{ userfullbloodcount.fbc_neutrophil_count_range }}
+							<p for="">ALT Range : <span>
+                                <input type="text" class="form-control" id="alt" name="alt" placeholder="00 U/L" disabled>
 							</span>
 							</p>
 						</div>
-			
-								
-				</div>
-				
-				<div class="form-row">
-						<div class="col-md-4 offset-md-2 py-2">
-                           <div class="md-form form-group">
-                                <label for="id_lymphocyte" class="control-label">Lymphocyte</label>
 
-						        {{ userfullbloodcount.lymphocyte }}
+				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_ast" class="control-label">Aspartate Transaminase AST (U/L)</label>
+
+						        {{ userlivertest.ast }}
 
                            </div>
-                         </div>
-					  
+                                </div>
+
+
 
 						 <div class="col-sm-4 py-2">
-							<p for="id_fbc_lymphocyte_count_range">Lymphocyte Count : <span>
-							
-							{{ userfullbloodcount.fbc_lymphocyte_count_range }}
+							<p for="">AST Range : <span>
+                                <input type="text" class="form-control" id="ast" name="ast" placeholder="00 U/L" disabled>
 							</span>
 							</p>
-						</div>			
-								
+						</div>
+
 				</div>
-				
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_alp" class="control-label">Alkaline Phosphatase ALP (U/L)</label>
+
+						        {{ userlivertest.alp }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="">ALP Range : <span>
+                                <input type="text" class="form-control" id="alp" name="alp" placeholder="00 U/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
 				
 				<div class="form-row">
 						<div class="col-md-4 offset-md-2 py-2">
                            <div class="md-form form-group">
-                                <label for="id_full_blood_count_date" class="control-label">Current Test Date</label>
+                                <label for="id_ggt" class="control-label">Gamma-GT GGT (U/L)</label>
 
-						        {{ userfullbloodcount.full_blood_count_date }}
+						        {{ userlivertest.ggt }}
 
                            </div>
                          </div>
-					  
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="">GGT Range : <span>
+                                <input type="text" class="form-control" id="ggt" name="ggt" placeholder="00.00 U/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_total_protein" class="control-label">Total Protein (g/L)</label>
+
+						        {{ userlivertest.total_protein }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="">Total Protein Range : <span>
+                                <input type="text" class="form-control" id="totalprotein" name="totalprotein" placeholder="00.00 g/L" disabled>
+							</span>
+							</p>
+						</div>
+
+
+				</div>
+
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_bilirubin" class="control-label">Bilirubin Total (umol/L)</label>
+
+						        {{ userlivertest.bilirubin }}
+
+                           </div>
+                         </div>
+
+
+						<div class="col-sm-4 py-2">
+							<p for="">Bilirubin Range : <span>
+                                <input type="text" class="form-control" id="bilirubin" name="bilirubin" placeholder="00 umol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+
+				</div>
+				
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_bilirubin_direct" class="control-label">Bilirubin Direct (umol/L)</label>
+
+						        {{ userlivertest.bilirubin_direct }}
+
+                           </div>
+                         </div>
+
+
+						<div class="col-sm-4 py-2">
+							<p for="">Bilirubin Direct Range : <span>
+                                <input type="text" class="form-control" id="bilirubindirect" name="bilirubindirect" placeholder="00 umol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+
+				</div>
+
+								
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_liver_test_date" class="control-label">Current Test Date</label>
+
+						        {{ userlivertest.liver_test_date }}
+
+                           </div>
+                         </div>
+
 
 						 <div class="col-sm-4 py-2">
 							<div class="md-form form-group">
-                                <label for="id_next_full_blood_count_date" class="control-label">Next Test Date</label>
+                                <label for="id_next_liver_test" class="control-label">Next Test Date</label>
 
-						        {{ userfullbloodcount.next_full_blood_count_date }}
+						        {{ userlivertest.next_liver_test }}
 
                            </div>
-						</div>				
-								
+						</div>
+
 				</div>
 				
-	<div class="form-row pic-row mt-4">
+				<div class="form-row pic-row mt-4">
           <div class="card pic-card col-md-4 col-sm-6 col-xs-8 offset-sm-4">
 
-			  <p class="h4 text-center grey-text text-uppercase pt-2">upload test scan</p><br>
+			  <p class="h4 text-center grey-text text-uppercase pt-2">upload liver scan</p><br>
 			   <div class="row d-flex justify-content-center">
 			  <div class="file-field">
         <div class="mb-4" align="center">
@@ -220,8 +214,8 @@
         </div>
         <div class="d-flex justify-content-center">
             <div class="btn btn-mdb-color btn-rounded float-left">
-                <span>Add Test Scan</span>
-                <input name="fbc_image_scan" id="id_fbc_image_scan" type="file" onchange="document.getElementById('imgId').src = window.URL.createObjectURL(this.files[0])">
+                <span>Add Liver Scan</span>
+                <input name="liver_scan" id="id_liver_scan" type="file" onchange="document.getElementById('imgId').src = window.URL.createObjectURL(this.files[0])">
             </div>
         </div>
 		</div>
@@ -231,13 +225,13 @@
     </div><br><br>
 	
 	
-			<div class="form-row">
+		<div class="form-row">
 						<div class="col-md-8 offset-md-2 py-2">
                            <div class="md-form shadow-textarea form-group">
 							<i class="fa fa-pencil prefix pr-3"></i>
                                 <label for="id_docs_comments" class="control-label pl-3">Doctor's Comments</label>
 
-						        {{ userfullbloodcount.docs_comments }}
+						        {{ userlivertest.docs_comments }}
 
                            </div>
                         </div>
@@ -245,24 +239,26 @@
 
 						 
 			</div>
-				
-				
-				
-				
-				<div class="col-md-3 offset-md-5 mb-3">
 
-                        <button class="btn btn-rounded modalbtn" type="submit">Add Blood Count</button>
+	
+
+
+
+
+				<div class="col-md-3 offset-md-5 offset-xs-4 mb-3">
+
+                        <button class="btn btn-rounded modalbtn" type="submit">Add Liver Test</button>
                 </div>
-				
-				
-				
-				
-				
+
+
+
+
+
                        </form>
             </div>
                 </div></div></div>
-				
-		<div class="row mt-5">		
+
+		<div class="row mt-5">
 			<div class="col-md-12">
       <div class="card" style="margin-top: 20px">
 
@@ -274,22 +270,22 @@
 
 				 <div class="table-wrapper">
 				 <p class="h5 flex-center orange-text">Next Test Date</p>
-					<!-- {% for fbc in fullcounts %}
-					<p class="flex-center orange-text h6">{{ fbc.next_full_blood_count_date }}</p> 
+				<!--	 {% for liver in liverfunction %}
+					<p class="flex-center orange-text h6">{{ liver.next_liver_test }}</p>
 							{% endfor %} -->
             <!--Table-->
             <table id="factorytable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
-			
-			
+
+
 
                 <!--Table head-->
                 <thead>
 
                             <tr>
-								<th class="th-sm">Red Blood Cell</th>
-								<th class="th-sm">Haemoglobin</th>
-								<th class="th-sm">Haematocrit</th>
-                                <th class="th-sm">White Blood Count</th>
+								<th class="th-sm">ALT</th>
+								<th class="th-sm">AST</th>
+								<th class="th-sm">ALP</th>
+								<th class="th-sm">GGT</th>					
 								<th class="th-sm">Test Date</th>
 								<th class="th-sm"></th>
                             </tr>
@@ -299,14 +295,14 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for fbc in fullcounts %}
+                     {% for liver in liverfunction %}
 
                         <tr>
-								<td>{{ fbc.red_blood_cell }} trillion/L</td>
-                                <td>{{ fbc.hemoglobin }} g/dL</td>
-                                <td>{{ fbc.hematocrit }} %</td>
-								<td>{{ fbc.white_blood_cell }} billion/L</td>
-								<td>{{ fbc.full_blood_count_date }}</td>
+								<td>{{ liver.alt }} U/L</td>
+                                <td>{{ liver.ast }} U/L</td>
+                                <td>{{ liver.alp }} U/L</td>
+								<td>{{ liver.ggt }} U/L</td>
+								<td>{{ liver.liver_test_date }}</td>
                                  <td>
                                 <div class="btn-group">
                                     <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
@@ -317,11 +313,21 @@
                      {% endfor %}
                 </tbody>
                 <!--Table body-->
+				<tfoot>
+					<tr>
+								<th class="th-sm">Ref. Range<br>3.0 - 40.0</th>
+								<th class="th-sm">Ref. Range<br>5.0 - 37.0</th>
+								<th class="th-sm">Ref. Range<br>98 - 279</th>
+								<th class="th-sm">Ref. Range<br>6.0 - 42.0</th>
+	                         	<th class="th-sm"></th>
+								<th class="th-sm"></th>
+                            </tr>
+				</tfoot>
             </table>
             <!--Table-->
         </div>
 
-        
+
 
 
 
@@ -333,7 +339,7 @@
 		
 		
 		
-		<div class="row mt-5">		
+		<div class="row mt-5">
 			<div class="col-md-12">
       <div class="card" style="margin-top: 20px">
 
@@ -345,24 +351,24 @@
 
 				 <div class="table-wrapper">
 				 <p class="h5 flex-center orange-text">Next Test Date</p>
-					<!-- {% for fbc in fullcounts %}
-					<p class="flex-center orange-text h6">{{ fbc.next_full_blood_count_date }}</p> 
+				<!--	 {% for liver in liverfunction %}
+					<p class="flex-center orange-text h6">{{ liver.next_liver_test }}</p>
 							{% endfor %} -->
             <!--Table-->
             <table id="anothertable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
-			
-			
+
+
 
                 <!--Table head-->
                 <thead>
 
                             <tr>
-							
-								<th class="th-sm">Platelet</th>
-								<th class="th-sm">Neutrophil</th>
-                                <th class="th-sm">Lymphocyte</th>
+								
+								<th class="th-sm">Total Protein</th>
+								<th class="th-sm">Bilirubin<br>(Total)</th>
+								<th class="th-sm">Bilirubin<br>(Direct)</th>
 								<th class="th-sm">Doctor's Comments</th>
-								<th class="th-sm">Test Date</th>
+                               	<th class="th-sm">Test Date</th>
 								<th class="th-sm"></th>
                             </tr>
 
@@ -371,14 +377,15 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for fbc in fullcounts %}
+                     {% for liver in liverfunction %}
 
                         <tr>
-								<td>{{ fbc.platelet }} billion/L</td>
-                                <td>{{ fbc.neutrophil }} %</td>
-                                <td>{{ fbc.lymphocyte }} %</td>
-								<td>{{ fbc.docs_comments }} </td>
-								<td>{{ fbc.full_blood_count_date }}</td>
+								
+								<td>{{ liver.total_protein }} g/L</td>
+								<td>{{ liver.bilirubin }} umol/L</td>
+								<td>{{ liver.bilirubin_direct }} umol/L</td>
+								<td>{{ liver.docs_comments }} </td>
+								<td>{{ liver.liver_test_date }}</td>
                                  <td>
                                 <div class="btn-group">
                                     <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
@@ -389,11 +396,21 @@
                      {% endfor %}
                 </tbody>
                 <!--Table body-->
+				<tfoot>
+					<tr>
+								
+								<th class="th-sm">Ref. Range<br>60.00 - 80.00</th>
+								<th class="th-sm">Ref. Range<br>3.00 - 22.00</th>
+                               	<th class="th-sm">Ref. Range<br>0.00 - 6.80</th>
+								<th class="th-sm"></th>
+								<th class="th-sm"></th>
+                            </tr>
+				</tfoot>
             </table>
             <!--Table-->
         </div>
 
-        
+
 
 
 
@@ -402,6 +419,8 @@
                
              </div>
         </div></div></div>
+		
+		
     </div>
     </div>
 {% endblock %}
