@@ -1,6 +1,7 @@
 from core.views.core_view import dashboard, add_new_user, add_medical_info, user_list, user_detail, user_condition, \
     user_allergy, user_medication, user_account_reset, blood_group_count, sickling_count, user_bloodpressure, \
-    user_bmi, g6pd_count, user_surgery, user_fastbloodsugar, user_fullbloodcount, user_lipidprofile, add_doctor
+    user_bmi, g6pd_count, user_surgery, user_fastbloodsugar, user_fullbloodcount, user_lipidprofile, add_doctor, \
+    add_nurse, add_general_supervisor
 from core.views.home_views import index, signin
 from django.conf.urls import url
 
@@ -35,6 +36,8 @@ urlpatterns = [
     url(r'^g6pd-count', g6pd_count, name="g6pd-count"),
 
     url(r'^add-doctor', add_doctor, name="new-doctor"),
+    url(r'^add-nurse', add_nurse, name="new-nurse"),
+    url(r'^add-general-supervisor', add_general_supervisor, name="new-generalsupervisor"),
 
 
 ]

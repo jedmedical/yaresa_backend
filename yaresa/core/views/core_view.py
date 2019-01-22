@@ -582,6 +582,9 @@ def add_doctor(request):
 
             email = new_user_form.cleaned_data['email']
             mobile = new_user_form.cleaned_data['mobile']
+            speciality = new_user_form.cleaned_data['speciality']
+            hospital_name = new_user_form.cleaned_data['hospital_name']
+            mdc_certificate = new_user_form.cleaned_data['mdc_certificate']
             # blood_group = new_user_form.cleaned_data['blood_group']
             # sickling_status = new_user_form.cleaned_data['sickling_status']
             # g6pd = new_user_form.cleaned_data['g6pd']
@@ -591,8 +594,7 @@ def add_doctor(request):
             now = datetime.datetime.now()
 
             try:
-                user = User.objects.create_user(username=email, password=pin,
-                                               )
+                user = User.objects.create_user(username=email, password=pin,)
                 user.is_staff = True
                 user.groups.add(Group.objects.get_or_create(name="Doctor")[0])
 
@@ -601,7 +603,8 @@ def add_doctor(request):
                                                 surname=surname,sex=sex,date_of_birth=date_of_birth,
                                                 nationality=nationality,religion=religion,
                                                 marital_status=marital_status,address=address,
-                                                mobile=mobile
+                                                mobile=mobile,speciality=speciality,hospital_name=hospital_name,
+                                                mdc_certificate=mdc_certificate
 
                                                 )
 
@@ -635,6 +638,154 @@ def add_doctor(request):
     new_user_form = NewUserForm()
     context = {'new_user_form':new_user_form}
     return render(request,'add_doctor.html',context)
+
+
+def add_nurse(request):
+
+    if request.method == "POST":
+        new_user_form = NewUserForm(request.POST, request.FILES)
+
+        if new_user_form.is_valid():
+            picture = new_user_form.cleaned_data['picture']
+            title = new_user_form.cleaned_data['title']
+            first_name = new_user_form.cleaned_data['first_name']
+            other_name = new_user_form.cleaned_data['other_name']
+
+            surname = new_user_form.cleaned_data['surname']
+            sex = new_user_form.cleaned_data['sex']
+
+            date_of_birth = new_user_form.cleaned_data['date_of_birth']
+
+            nationality = new_user_form.cleaned_data['nationality']
+            religion = new_user_form.cleaned_data['religion']
+            marital_status = new_user_form.cleaned_data['marital_status']
+            address = new_user_form.cleaned_data['address']
+
+            email = new_user_form.cleaned_data['email']
+            mobile = new_user_form.cleaned_data['mobile']
+            speciality = new_user_form.cleaned_data['speciality']
+            mdc_certificate = new_user_form.cleaned_data['mdc_certificate']
+
+
+
+
+
+            pin = random.randint(1000, 9999)
+
+            now = datetime.datetime.now()
+
+            try:
+                user = User.objects.create_user(username=email, password=pin, )
+                user.is_staff = True
+                user.groups.add(Group.objects.get_or_create(name="Nurse")[0])
+
+                user_info = AuthUserDemographic(user=user, email=email, picture=picture,
+                                                title=title, first_name=first_name, other_name=other_name,
+                                                surname=surname, sex=sex, date_of_birth=date_of_birth,
+                                                nationality=nationality, religion=religion,
+                                                marital_status=marital_status, address=address,
+                                                mobile=mobile, speciality=speciality,
+                                                mdc_certificate=mdc_certificate
+
+                                                )
+
+                user_info.save()
+
+                user_info.unique_id = '{}{}{}{}{}'.format('N', now.day, now.month,
+                                                          now.year, add_zeros(5, str(user_info.id)))
+
+                user_info.save()
+
+                sendsms(request, mobile, pin)
+
+                messages.success(request, "Nurse added")
+            except IntegrityError as e:
+                # if 'unique constraint' in e.args[0]:
+                messages.error(request, 'User already exist')
+
+        else:
+            print("Andrews")
+
+        context = {'new_user_form': new_user_form}
+        return render(request, 'add_nurse.html', context)
+
+    new_user_form = NewUserForm()
+    context = {'new_user_form': new_user_form}
+    return render(request, 'add_nurse.html', context)
+
+
+def add_general_supervisor(request):
+
+    if request.method == "POST":
+        new_user_form = NewUserForm(request.POST, request.FILES)
+
+        if new_user_form.is_valid():
+            picture = new_user_form.cleaned_data['picture']
+            title = new_user_form.cleaned_data['title']
+            first_name = new_user_form.cleaned_data['first_name']
+            other_name = new_user_form.cleaned_data['other_name']
+
+            surname = new_user_form.cleaned_data['surname']
+            sex = new_user_form.cleaned_data['sex']
+
+            date_of_birth = new_user_form.cleaned_data['date_of_birth']
+
+            nationality = new_user_form.cleaned_data['nationality']
+            religion = new_user_form.cleaned_data['religion']
+            marital_status = new_user_form.cleaned_data['marital_status']
+            address = new_user_form.cleaned_data['address']
+
+            email = new_user_form.cleaned_data['email']
+            mobile = new_user_form.cleaned_data['mobile']
+            role = new_user_form.cleaned_data['role']
+
+
+            pin = random.randint(1000, 9999)
+
+            now = datetime.datetime.now()
+
+            try:
+                user = User.objects.create_user(username=email, password=pin, )
+                user.is_staff = True
+                user.groups.add(Group.objects.get_or_create(name="General Supervisor")[0])
+
+                user_info = AuthUserDemographic(user=user, email=email, picture=picture,
+                                                title=title, first_name=first_name, other_name=other_name,
+                                                surname=surname, sex=sex, date_of_birth=date_of_birth,
+                                                nationality=nationality, religion=religion,
+                                                marital_status=marital_status, address=address,
+                                                mobile=mobile, role=role,
+
+
+                                                )
+
+                user_info.save()
+
+                user_info.unique_id = '{}{}{}{}{}'.format('GS', now.day, now.month,
+                                                          now.year, add_zeros(5, str(user_info.id)))
+
+                user_info.save()
+
+                sendsms(request, mobile, pin)
+
+                messages.success(request, "General Supervisor Added")
+            except IntegrityError as e:
+                # if 'unique constraint' in e.args[0]:
+                messages.error(request, 'User already exist')
+
+        else:
+            print("Andrews")
+
+        context = {'new_user_form': new_user_form}
+        return render(request, 'add_supervisor.html', context)
+
+    new_user_form = NewUserForm()
+    context = {'new_user_form': new_user_form}
+    return render(request, 'add_supervisor.html', context)
+
+
+
+
 
 
 
