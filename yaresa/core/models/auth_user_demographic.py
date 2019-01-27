@@ -27,6 +27,11 @@ class AuthUserDemographic(BaseModel):
     emergency_contact_name = models.CharField(max_length=255,null=True)
     emergency_contact_mobile = models.CharField(max_length=255,null=True)
     first_login = models.BooleanField(default=True)
+    speciality = models.CharField(max_length=255,null=True)
+    hospital_name = models.CharField(max_length=255,null=True)
+    mdc_certificate = models.CharField(max_length=255,null=True)
+    role = models.CharField(max_length=225,null=True)
+
 
     @property
     def get_absolute_image_url(self):

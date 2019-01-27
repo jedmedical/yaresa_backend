@@ -173,8 +173,8 @@ a:not([href]):not([tabindex]) {
     font-size: 0.875rem;
 }
 .preview-thumbnail{
-	height:37px;
-	width:37px;
+	height:30px;
+	width:30px;
 	border-radius:50%;
 }
 .dropdown-item {
@@ -256,6 +256,7 @@ right: -85px;}}
 .my-thumbnail{
 	width:37px;
 	height:37px;
+	border-radius:50%!important;
 }
 .modalbtn{
 	background-color:#ff6600!important;
@@ -279,3 +280,4 @@ right: -85px;}}
 	  width:150px;
 	  border-radius:50%;
   }
+  

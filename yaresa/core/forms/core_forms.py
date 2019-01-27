@@ -25,12 +25,16 @@ class NewUserForm(forms.Form):
     nationality = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     religion = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     marital_status = forms.ChoiceField(choices=Marital_status, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
+    speciality = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    hospital_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    mdc_certificate = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    role = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': "form-control"}), )
     address = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     occupation = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     email = forms.EmailField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    emergency_contact_name = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    emergency_contact_mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    emergency_contact_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    emergency_contact_mobile = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
 
 class NewUserMedicalHistoryForm(forms.Form):
     blood_group = forms.ChoiceField( choices= Blood_Group, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
@@ -310,6 +314,12 @@ class Addprostatetest(forms.Form):
     next_psa_test = forms.DateField(required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                          input_formats=["%Y-%m-%d"])
     psa_scan = forms.ImageField()
+
+class Addorganization(forms.Form):
+    type = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    name = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    address = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    telephone = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
 
 
 

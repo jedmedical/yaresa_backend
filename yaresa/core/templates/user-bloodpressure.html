@@ -11,12 +11,14 @@
 
 
 	<div class="container">
+	 <div class="row">
+		<div class="col-md-12">
          <div class="card">
-            <div class="container" style="margin-top: 20px">
+            <div class="container" style="margin-top: 10px">
                    <form method="post">
                         {% csrf_token %}
 			<div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-6 offset-md-4">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
    </div>            
@@ -27,42 +29,54 @@
  </div>
                 </div>
 			</div>
-            <div class="row">
-                 <div class="col-md-3">
-
-                    <div class="md-form form-group">
-						   							<label for="id_systolic" class="control-label">Blood pressure (Systolic)</label>
+			
+			<label class="h4 title text-uppercase flex-center mt-5 mb-2">blood pressure</label>
+			
+			
+			<div class="form-row">
+				     <div class="col-md-4 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_systolic" class="control-label">Blood pressure (Systolic)</label>
 						   							{{ userbpressureform.systolic }}
-                    </div>
-                </div>
-                <div class="col-md-3">
 
-                    <div class="md-form form-group">
-						   							<label for="id_diastolic" class="control-label">Blood pressure (Diastolic)</label>
+                           </div>
+                                </div>
+								
+					  <div class="col-md-4 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_diastolic" class="control-label">Blood pressure (Diastolic)</label>
 						   							{{ userbpressureform.diastolic }}
-                    </div>
-                </div>
 
-                <div class="col-md-4">
+                           </div>
+                                </div>			
 
-                   <p>BP : <span>
 
-				    <input type="text" class="form-control" id="ybp" name="ybp" placeholder="" disabled>
-</span></p>
-                </div>
 
-                <div class="col-md-2">
+						 <div class="col-sm-4 py-2">
+							 <p>BP : <span>
+								<input type="text" class="form-control" id="ybp" name="ybp" placeholder="" disabled>
+							</span>
+							</p>
+						</div>
+
+			</div>
+			
+			<div class="col-md-3 offset-md-5 mb-3">
 
                         <button class="btn btn-rounded modalbtn" type="submit">Add BP</button>
                 </div>
+				
+				
+            
 
 
 
                 </div>
                        </form>
-            </div>
-                </div>
-
+            </div></div></div>
+               
+		 <div class="row">
+		<div class="col-md-12">
       <div class="card" style="margin-top: 20px">
 
              <div class="container" style="margin-top: 20px">
@@ -123,7 +137,7 @@
                 </div>
             </div>
              </div>
-        </div>
+        </div></div></div>
     </div>
     </div>
 {% endblock %}				
