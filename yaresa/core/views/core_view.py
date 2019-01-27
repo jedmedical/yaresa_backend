@@ -913,7 +913,7 @@ def add_general_supervisor(request):
 def add_organization(request):
 
     if request.method == "POST":
-        new_organization_form = Organization(request.POST, request.FILES)
+        new_organization_form = Addorganization(request.POST, request.FILES)
 
         if new_organization_form.is_valid():
             type = new_organization_form.cleaned_data['type']
@@ -931,11 +931,13 @@ def add_organization(request):
                 # if 'unique constraint' in e.args[0]:
                 messages.error(request, 'Organization already exist')
 
+
+
         else:
             print('Andrews')
 
-        context = {'new_organization_form':new_organization_form}
-        return render(request, 'add_organization.html', context)
+            context = {'new_organization_form':new_organization_form}
+            return render(request, 'add_organization.html', context)
 
     new_organization_form = Addorganization()
     context = {'new_organization_form':new_organization_form}
