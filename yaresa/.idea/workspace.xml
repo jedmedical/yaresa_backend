@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/core/views/core_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/core_view.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/custom_decorator.py" afterDir="false" />
     </list>
     <ignored path="yaresa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +71,7 @@
           <entry key="core_med_graphic" value="1" />
           <entry key="css" value="4" />
           <entry key="html" value="56" />
-          <entry key="py" value="73" />
+          <entry key="py" value="74" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -81,19 +81,19 @@
           <entry key="Database Element" value="1" />
           <entry key="HTML" value="56" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="73" />
+          <entry key="Python" value="74" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="2725" />
-          <entry key="py" value="5057" />
+          <entry key="py" value="5075" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="2725" />
-          <entry key="Python" value="5057" />
+          <entry key="Python" value="5075" />
         </counts>
       </usages-collector>
     </session>
@@ -192,20 +192,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="932" column="16" lean-forward="true" selection-start-line="932" selection-start-column="16" selection-end-line="932" selection-end-column="16" />
+            <state relative-caret-position="185">
+              <caret line="937" lean-forward="true" selection-start-line="937" selection-end-line="937" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/add_doctor.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/custom_decorator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="26" selection-end-column="24" />
+            <state relative-caret-position="180">
+              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -320,7 +320,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/models/medication.py" />
         <option value="$PROJECT_DIR$/core/models/surgery.py" />
         <option value="$PROJECT_DIR$/core/templates/new_base.html" />
         <option value="$PROJECT_DIR$/core/templates/index.html" />
@@ -371,6 +370,7 @@
         <option value="$PROJECT_DIR$/core/forms/core_forms.py" />
         <option value="$PROJECT_DIR$/core/models/organizations.py" />
         <option value="$PROJECT_DIR$/core/views/core_view.py" />
+        <option value="$PROJECT_DIR$/core/custom_decorator.py" />
       </list>
     </option>
   </component>
@@ -452,16 +452,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/core/models" />
-      <recent name="$PROJECT_DIR$/core/views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core" />
       <recent name="$PROJECT_DIR$/core/static/css" />
       <recent name="$PROJECT_DIR$/core/static/js" />
       <recent name="$PROJECT_DIR$/core/static/images" />
       <recent name="$PROJECT_DIR$/core/models" />
-      <recent name="$PROJECT_DIR$/core/forms" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/models" />
+      <recent name="$PROJECT_DIR$/core/views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -619,16 +619,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/templates/medicalinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-259" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/new_base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15313" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/add_new_user.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -870,8 +860,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="932" column="16" lean-forward="true" selection-start-line="932" selection-start-column="16" selection-end-line="932" selection-end-column="16" />
+        <state relative-caret-position="185">
+          <caret line="937" lean-forward="true" selection-start-line="937" selection-end-line="937" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/add_doctor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="26" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/custom_decorator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
         </state>
       </provider>
     </entry>
