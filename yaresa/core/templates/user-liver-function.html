@@ -1,0 +1,426 @@
+{% extends 'dashboardbase.html' %}
+
+        {% block title %}New BP{% endblock %}
+
+        {% block content %}
+            {% load static %}
+
+
+    <div class="container-fluid">
+
+
+
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+         <div class="card">
+            <div class="container" style="margin-top: 20px">
+                   <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+			<div class="row">
+                <div class="col-md-6 offset-md-4">
+   <div class="chip modalbtn lighten-4"><b>#</b>
+    {{ user.unique_id }}
+   </div>
+  <div class="chip">
+     <a href="{% url 'core:user-detail' pk=user.id %}" class="gray-text">
+	 <img src="{{ user.picture.url }}" alt="Contact Person"> {{ user.first_name }} {{ user.surname }}
+	 </a>
+ </div>
+                </div>
+			</div>
+            <label class="h4 title text-uppercase flex-center mt-5 mb-2">liver function test</label>
+			<br><br>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_alt" class="control-label">Alanine Transaminase ALT (U/L)</label>
+
+						        {{ userlivertest.alt }}
+
+                           </div>
+                     </div>
+
+
+
+						<div class="col-sm-4 py-2">
+							<p for="">ALT Range : <span>
+                                <input type="text" class="form-control" id="alt" name="alt" placeholder="00 U/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_ast" class="control-label">Aspartate Transaminase AST (U/L)</label>
+
+						        {{ userlivertest.ast }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="">AST Range : <span>
+                                <input type="text" class="form-control" id="ast" name="ast" placeholder="00 U/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_alp" class="control-label">Alkaline Phosphatase ALP (U/L)</label>
+
+						        {{ userlivertest.alp }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="">ALP Range : <span>
+                                <input type="text" class="form-control" id="alp" name="alp" placeholder="00 U/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+				
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_ggt" class="control-label">Gamma-GT GGT (U/L)</label>
+
+						        {{ userlivertest.ggt }}
+
+                           </div>
+                         </div>
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="">GGT Range : <span>
+                                <input type="text" class="form-control" id="ggt" name="ggt" placeholder="00.00 U/L" disabled>
+							</span>
+							</p>
+						</div>
+
+				</div>
+
+
+				<div class="form-row">
+				     <div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_total_protein" class="control-label">Total Protein (g/L)</label>
+
+						        {{ userlivertest.total_protein }}
+
+                           </div>
+                                </div>
+
+
+
+						 <div class="col-sm-4 py-2">
+							<p for="">Total Protein Range : <span>
+                                <input type="text" class="form-control" id="totalprotein" name="totalprotein" placeholder="00.00 g/L" disabled>
+							</span>
+							</p>
+						</div>
+
+
+				</div>
+
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_bilirubin" class="control-label">Bilirubin Total (umol/L)</label>
+
+						        {{ userlivertest.bilirubin }}
+
+                           </div>
+                         </div>
+
+
+						<div class="col-sm-4 py-2">
+							<p for="">Bilirubin Range : <span>
+                                <input type="text" class="form-control" id="bilirubin" name="bilirubin" placeholder="00 umol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+
+				</div>
+				
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_bilirubin_direct" class="control-label">Bilirubin Direct (umol/L)</label>
+
+						        {{ userlivertest.bilirubin_direct }}
+
+                           </div>
+                         </div>
+
+
+						<div class="col-sm-4 py-2">
+							<p for="">Bilirubin Direct Range : <span>
+                                <input type="text" class="form-control" id="bilirubindirect" name="bilirubindirect" placeholder="00 umol/L" disabled>
+							</span>
+							</p>
+						</div>
+
+
+				</div>
+
+								
+				<div class="form-row">
+						<div class="col-md-4 offset-md-2 py-2">
+                           <div class="md-form form-group">
+                                <label for="id_liver_test_date" class="control-label">Current Test Date</label>
+
+						        {{ userlivertest.liver_test_date }}
+
+                           </div>
+                         </div>
+
+
+						 <div class="col-sm-4 py-2">
+							<div class="md-form form-group">
+                                <label for="id_next_liver_test" class="control-label">Next Test Date</label>
+
+						        {{ userlivertest.next_liver_test }}
+
+                           </div>
+						</div>
+
+				</div>
+				
+				<div class="form-row pic-row mt-4">
+          <div class="card pic-card col-md-4 col-sm-6 col-xs-8 offset-sm-4">
+
+			  <p class="h4 text-center grey-text text-uppercase pt-2">upload liver scan</p><br>
+			   <div class="row d-flex justify-content-center">
+			  <div class="file-field">
+        <div class="mb-4" align="center">
+       <img id="imgId" src="{% static 'images/scan-avatar.jpg' %} " style="height:150px;width:150px;border-radius:10px;">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="btn btn-mdb-color btn-rounded float-left">
+                <span>Add Liver Scan</span>
+                <input name="liver_scan" id="id_liver_scan" type="file" onchange="document.getElementById('imgId').src = window.URL.createObjectURL(this.files[0])">
+            </div>
+        </div>
+		</div>
+         </div>
+
+           </div>
+    </div><br><br>
+	
+	
+		<div class="form-row">
+						<div class="col-md-8 offset-md-2 py-2">
+                           <div class="md-form shadow-textarea form-group">
+							<i class="fa fa-pencil prefix pr-3"></i>
+                                <label for="id_docs_comments" class="control-label pl-3">Doctor's Comments</label>
+
+						        {{ userlivertest.docs_comments }}
+
+                           </div>
+                        </div>
+
+
+						 
+			</div>
+
+	
+
+
+
+
+				<div class="col-md-3 offset-md-5 offset-xs-4 mb-3">
+
+                        <button class="btn btn-rounded modalbtn" type="submit">Add Liver Test</button>
+                </div>
+
+
+
+
+
+                       </form>
+            </div>
+                </div></div></div>
+
+		<div class="row mt-5">
+			<div class="col-md-12">
+      <div class="card" style="margin-top: 20px">
+
+             <div class="container" style="margin-top: 20px">
+
+            <div class="row">
+                <div class="col-md-12">
+
+
+				 <div class="table-wrapper">
+				 <p class="h5 flex-center orange-text">Next Test Date</p>
+				<!--	 {% for liver in liverfunction %}
+					<p class="flex-center orange-text h6">{{ liver.next_liver_test }}</p>
+							{% endfor %} -->
+            <!--Table-->
+            <table id="factorytable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
+
+
+
+                <!--Table head-->
+                <thead>
+
+                            <tr>
+								<th class="th-sm">ALT</th>
+								<th class="th-sm">AST</th>
+								<th class="th-sm">ALP</th>
+								<th class="th-sm">GGT</th>					
+								<th class="th-sm">Test Date</th>
+								<th class="th-sm"></th>
+                            </tr>
+
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                     {% for liver in liverfunction %}
+
+                        <tr>
+								<td>{{ liver.alt }} U/L</td>
+                                <td>{{ liver.ast }} U/L</td>
+                                <td>{{ liver.alp }} U/L</td>
+								<td>{{ liver.ggt }} U/L</td>
+								<td>{{ liver.liver_test_date }}</td>
+                                 <td>
+                                <div class="btn-group">
+                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
+                                </div>
+                                </td>
+
+                        </tr>
+                     {% endfor %}
+                </tbody>
+                <!--Table body-->
+				<tfoot>
+					<tr>
+								<th class="th-sm">Ref. Range<br>3.0 - 40.0</th>
+								<th class="th-sm">Ref. Range<br>5.0 - 37.0</th>
+								<th class="th-sm">Ref. Range<br>98 - 279</th>
+								<th class="th-sm">Ref. Range<br>6.0 - 42.0</th>
+	                         	<th class="th-sm"></th>
+								<th class="th-sm"></th>
+                            </tr>
+				</tfoot>
+            </table>
+            <!--Table-->
+        </div>
+
+
+
+
+
+                </div>
+            </div>
+               
+             </div>
+        </div></div></div>
+		
+		
+		
+		<div class="row mt-5">
+			<div class="col-md-12">
+      <div class="card" style="margin-top: 20px">
+
+             <div class="container" style="margin-top: 20px">
+
+            <div class="row">
+                <div class="col-md-12">
+
+
+				 <div class="table-wrapper">
+				 <p class="h5 flex-center orange-text">Next Test Date</p>
+				<!--	 {% for liver in liverfunction %}
+					<p class="flex-center orange-text h6">{{ liver.next_liver_test }}</p>
+							{% endfor %} -->
+            <!--Table-->
+            <table id="anothertable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
+
+
+
+                <!--Table head-->
+                <thead>
+
+                            <tr>
+								
+								<th class="th-sm">Total Protein</th>
+								<th class="th-sm">Bilirubin<br>(Total)</th>
+								<th class="th-sm">Bilirubin<br>(Direct)</th>
+								<th class="th-sm">Doctor's Comments</th>
+                               	<th class="th-sm">Test Date</th>
+								<th class="th-sm"></th>
+                            </tr>
+
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                     {% for liver in liverfunction %}
+
+                        <tr>
+								
+								<td>{{ liver.total_protein }} g/L</td>
+								<td>{{ liver.bilirubin }} umol/L</td>
+								<td>{{ liver.bilirubin_direct }} umol/L</td>
+								<td>{{ liver.docs_comments }} </td>
+								<td>{{ liver.liver_test_date }}</td>
+                                 <td>
+                                <div class="btn-group">
+                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
+                                </div>
+                                </td>
+
+                        </tr>
+                     {% endfor %}
+                </tbody>
+                <!--Table body-->
+				<tfoot>
+					<tr>
+								
+								<th class="th-sm">Ref. Range<br>60.00 - 80.00</th>
+								<th class="th-sm">Ref. Range<br>3.00 - 22.00</th>
+                               	<th class="th-sm">Ref. Range<br>0.00 - 6.80</th>
+								<th class="th-sm"></th>
+								<th class="th-sm"></th>
+                            </tr>
+				</tfoot>
+            </table>
+            <!--Table-->
+        </div>
+
+
+
+
+
+                </div>
+            </div>
+               
+             </div>
+        </div></div></div>
+		
+		
+    </div>
+    </div>
+{% endblock %}
