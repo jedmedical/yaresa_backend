@@ -62,7 +62,7 @@
                     <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r white-text active"><i class="fa fa-tachometer white-text"></i> Dashboards</a>
 
                     </li>
-                    {% if request.user|has_group:"Doctor" or  request.user|is_superman %}
+{#                    {% if request.user|has_group:"Doctor" or  request.user|is_superman %}#}
                         <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                             <div class="collapsible-body">
                                 <ul>
@@ -74,7 +74,7 @@
                                 </ul>
                             </div>
                         </li>
-                    {% endif %}
+{#                    {% endif %}#}
 
                     <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>User<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                         <div class="collapsible-body">
