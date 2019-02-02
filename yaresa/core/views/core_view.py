@@ -9,7 +9,7 @@ from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Adduse
     Addorganization
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
-    Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization
+    Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization, Partners
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
@@ -942,6 +942,78 @@ def add_organization(request):
     new_organization_form = Addorganization()
     context = {'new_organization_form':new_organization_form}
     return render(request, 'add_organization.html', context)
+
+
+def add_partners(request):
+
+    if request.method == "POST":
+        new_user_form = NewUserForm(request.POST, request.FILES)
+
+        if new_user_form.is_valid():
+            picture = new_user_form.cleaned_data['picture']
+            title = new_user_form.cleaned_data['title']
+            first_name = new_user_form.cleaned_data['first_name']
+            other_name = new_user_form.cleaned_data['other_name']
+
+            surname = new_user_form.cleaned_data['surname']
+            sex = new_user_form.cleaned_data['sex']
+
+            date_of_birth = new_user_form.cleaned_data['date_of_birth']
+
+            nationality = new_user_form.cleaned_data['nationality']
+            religion = new_user_form.cleaned_data['religion']
+            marital_status = new_user_form.cleaned_data['marital_status']
+            address = new_user_form.cleaned_data['address']
+
+            email = new_user_form.cleaned_data['email']
+            mobile = new_user_form.cleaned_data['mobile']
+            role = new_user_form.cleaned_data['role']
+            certificate = new_user_form.cleaned_data['certificate']
+
+
+
+            pin = random.randint(1000, 9999)
+
+            now = datetime.datetime.now()
+
+            try:
+                user = User.objects.create_user(username=email, password=pin, )
+                user.is_staff = True
+                user.groups.add(Group.objects.get_or_create(name="Partners")[0])
+
+                user_info = Partners(user=user, email=email, picture=picture,
+                                                title=title, first_name=first_name, other_name=other_name,
+                                                surname=surname, sex=sex, date_of_birth=date_of_birth,
+                                                nationality=nationality, religion=religion,
+                                                marital_status=marital_status, address=address,
+                                                mobile=mobile, role=role, certificate=certificate
+
+
+                                                )
+
+                user_info.save()
+
+                user_info.unique_id = '{}{}{}{}{}'.format('PN', now.day, now.month,
+                                                          now.year, add_zeros(5, str(user_info.id)))
+
+                user_info.save()
+
+                sendsms(request, mobile, pin)
+
+                messages.success(request, "Partner Added")
+            except IntegrityError as e:
+                # if 'unique constraint' in e.args[0]:
+                messages.error(request, 'Partner already exist')
+
+        else:
+            print("Andrews")
+
+        context = {'new_user_form': new_user_form}
+        return render(request, 'add_partner.html', context)
+
+    new_user_form = NewUserForm()
+    context = {'new_user_form': new_user_form}
+    return render(request, 'add_partner.html', context)
 
 
 
