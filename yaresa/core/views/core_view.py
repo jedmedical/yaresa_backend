@@ -63,6 +63,8 @@ def add_new_user(request):
                 user = User.objects.create_user(username=mobile, password=pin,
                                                )
 
+                user.user.groups.add(Group.objects.get_or_create(name="Patient")[0])
+
                 user_info = AuthUserDemographic(user=user,email=email,picture=picture,
                                                 title=title,first_name=first_name,other_name=other_name,
                                                 surname=surname,sex=sex,date_of_birth=date_of_birth,
