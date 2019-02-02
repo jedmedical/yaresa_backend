@@ -26,7 +26,7 @@ def signin(request):
                 login(request, user)
                 messages.success(request, 'Login successful')
                 return redirect('core:dashboard')
-            return redirect('core:dashboard')
+            #return redirect('core:dashboard')
 
             messages.error(request, 'Wrong username or password')
 

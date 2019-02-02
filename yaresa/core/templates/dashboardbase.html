@@ -1,5 +1,7 @@
 {% load static %}
 {% load qr_code %}
+{% load has_group %}
+{% load is_superman %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,17 +62,19 @@
                     <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r white-text active"><i class="fa fa-tachometer white-text"></i> Dashboards</a>
 
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Patients</a>
-                                </li>
-                                <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add patient</a>
-                                </li>
+                    {% if request.user|has_group:"Doctor" or  request.user|is_superman %}
+                        <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Patients</a>
+                                    </li>
+                                    <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add patient</a>
+                                    </li>
 
-                            </ul>
-                        </div>
-                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    {% endif %}
 
                     <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>User<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                         <div class="collapsible-body">
