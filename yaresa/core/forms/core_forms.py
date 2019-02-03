@@ -29,6 +29,7 @@ class NewUserForm(forms.Form):
     hospital_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     mdc_certificate = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     role = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    certificate = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     address = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     occupation = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     email = forms.EmailField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)

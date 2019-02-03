@@ -17,4 +17,5 @@ from core.models.renal_function_test import Renal_function_test
 from core.models.liver_function_test import Liver_function_test
 from core.models.prostate_specific_antigen import Prostate_specific_antigen
 from core.models.organizations import Organization
+from core.models.partners import Partners
 
