@@ -7,6 +7,7 @@ from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Adduse
     Addusermedication, Adduserbmi, Addbloodpressure, Addcontactus, Addusersurgery, Addfastbloodsugar, \
     Addfullbloodcount, Adduserlipidprofile, Adduserrenaltest, Adduserlivertest, Addprostatetest, Adduserurinetest, \
     Addorganization
+from core.fusioncharts import FusionCharts
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
     Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization, Partners
@@ -489,9 +490,48 @@ def blood_group_count(request):
         if i['blood_group'] == "O-":
             oneg = i['the_count']
 
+        pie3d = FusionCharts("pie3d", "ex2", "100%", "400", "chart-1", "json",
+                             # The data is passed as a string in the `dataSource` as parameter.
+                             {
+                                 "chart": {
+                                     "caption": "Blood Group Chart",
+                                     "subCaption" : "",
+                                     "showValues":"1",
+                                     "showPercentInTooltip" : "0",
+                                     "numberPrefix" : "$",
+                                     "enableMultiSlicing":"1",
+                                     "theme": "fusion"
+                                 },
+                                 "data": [{
+                                     "label": "A+",
+                                     "value": Aplus
+                                 }, {
+                                     "label": "A-",
+                                     "value": Aneg
+                                 }, {
+                                     "label": "B+",
+                                     "value": bplus
+                                 }, {
+                                     "label": "B-",
+                                     "value": bneg
+                                 }, {
+                                     "label": "AB+",
+                                     "value": abplus
+                                 }, {
+                                     "label": "AB-",
+                                     "value": abneg
+                                 }, {
+                                     "label": "O+",
+                                     "value": oplus
+                                 }, {
+                                     "label": "O-",
+                                     "value": oneg
+                                 }]
+                             })
+
     context = {"aplus":Aplus,"aneg":Aneg,"bplus":bplus,
                "bneg":bneg,"abplus":abplus,"abneg":abneg,
-               "oplus":oplus,"oneg":oneg}
+               "oplus":oplus,"oneg":oneg,'outputchart' : pie3d.render(), }
     return render(request, 'blood-group-count.html', context)
 
 def sickling_count(request):
@@ -523,19 +563,21 @@ def g6pd_count(request):
     fieldname = 'g6pd_status'
     g6pd_count = Med_graphic.objects.values(fieldname).order_by(fieldname).annotate(the_count=Count(fieldname))
 
+    print(g6pd_count)
+
     normal = 0
     partial_defect = 0
     full_defect = 0
 
     for i in g6pd_count:
-        print(i['g6pd'])
-        if i['g6pd'] == "NORMAL":
+        print(i['g6pd_status'])
+        if i['g6pd_status'].upper() == "NORMAL":
             normal = i['the_count']
-        if i['g6pd'] == "PARTIAL DEFECT":
+        if i['g6pd_status'].upper() == "PARTIAL DEFECT":
             partial_defect = i['the_count']
-        if i['g6pd'] == "FULL DEFECT":
+        if i['g6pd_status'].upper() == "FULL DEFECT":
             full_defect = i['the_count']
-
+    print(normal)
     context = {"normal":normal, "partial_defect":partial_defect, "full_defect":full_defect}
     return render(request, 'g6pd-count.html', context)
 
