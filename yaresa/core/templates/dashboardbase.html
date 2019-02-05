@@ -25,6 +25,8 @@
 
        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>
 
+     <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+   <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
     <!-- Your custom styles (optional) -->
     <style>
 
@@ -102,7 +104,7 @@
                     </li>
 					
 
-                       <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-heartbeat white-text"></i>Medi graph<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                       <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-heartbeat white-text"></i>Medi graph Stats<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="{% url 'core:blood-group-count' %}" class="waves-effect white-text">Blood Group</a>
@@ -246,6 +248,8 @@
          <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
         <!--Toast -->
         <script type="text/javascript" src="{% static 'js/iziToast.min.js' %}"></script>
+
+
 
 <script>
 $(document).ready(function() {
