@@ -10,24 +10,24 @@
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   z-index: 1050;
-  background-color:#ff3300!important;
+  background-color:#ffcc33!important;
   padding: 1.5rem;
   padding-top: 0; 
   }
   .sidebar-fixed .list-group-flush .list-group-item{
     z-index: 2;
-    color: #fff;
-    background-color: #ff3300;
-    border-color: #ff3300;
+    color: #333;
+    background-color: #ffcc33;
+    border-color: #ffcc33;
 	font-weight:400;
   }
   
 .sidebar-fixed .list-group-item.active {
     z-index: 2;
-    color: #333!important;
+    color: #fff!important;
 }
 .sidebar-fixed .list-group-item:hover{
-	  color:#333!important;
+	  color:#fff!important;
   }
   .sidebar-fixed .logo-wrapper {
     padding: 2.5rem; }
@@ -47,7 +47,7 @@
 	
 @media (max-width: 768px) {
             .navbar:not(.top-nav-collapse) {
-                background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
+                background-image: linear-gradient(to bottom right,#f1df2c,#ffcc33) !important;
             }
             .navbar {
               box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
@@ -61,7 +61,7 @@
 }
 @media (min-width:768px) and (max-width:992px){
 	 .navbar:not(.top-nav-collapse) {
-                background-image: linear-gradient(to bottom right,#ff3300,#ff6600) !important;
+                background-image: linear-gradient(to bottom right,#f1df2c,#ffcc33) !important;
             }
 	  .navbar {
               box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
@@ -84,7 +84,7 @@
 			}
 		}	
 .navbar{
-	     background-color:#ff3300!important;
+	     background-color:#ffcc33!important;
             }	
 .navbar .navbar-collapse .navbar-nav .nav-item a.nav-link{
 	    color:#fff;
@@ -105,20 +105,22 @@
 }	
 .nav .nav-item.dropdown .count-indicator .count, .navbar-nav .nav-item.dropdown .count-indicator .count {
     position: absolute;
-    left: 50%;
-    width: 1rem;
-    height: 1rem;
+    left: 40%;
+    width: 15px;
+    height: 15px;
     border-radius: 100%;
-    background: #fff;
-    color: #ff3300;
+    background: #333;
+    color: #fff;
     font-size: 11px;
-    top: -1px;
+    top:6px;
+	margin-left:-1px;
+	margin-bottom:-1px;
     font-weight: 600;
-    line-height: 1rem;
+    line-height: 15px;
     border: none;
     text-align: center;
 }
- .dropdown-item a:hover{
+ .dropdown-item:hover{
 	background-color:#e9ecef!important;
 }
 .preview-list .preview-item .preview-thumbnail .preview-icon, .preview-list .preview-item .preview-thumbnail img {
@@ -160,7 +162,7 @@ a:not([href]):not([tabindex]) {
     text-decoration: none;
 }
 .preview-list .preview-item a:hover{
-	background-color:#e9ecef;
+	background-color:#e9ecef!important;
 }
 .preview-list .preview-item {'
     display: -webkit-flex;
@@ -217,7 +219,7 @@ right: -85px;}}
 .preview-list .preview-item .preview-item-content {
     line-height: 1;
     padding-left: 15px;
-}
+	}
 .preview-list .preview-item{
 	font-size: 0.875rem;
 	flex-direction:row;
@@ -248,6 +250,7 @@ right: -85px;}}
 }
 .user-dropdown a:hover{
 	color:#333!important;
+	background-color:#e9ecef!important;
 	
 }
 .text-muted{
@@ -259,25 +262,36 @@ right: -85px;}}
 	border-radius:50%!important;
 }
 .modalbtn{
-	background-color:#ff6600!important;
+	background-color:#ffcc33!important;
 	color:#fff!important;
 }
 .sidenav-bg{
-	background-color:#ff3300!important;
+	background-color:#ffcc33!important;
 }
 .side-nav.collapsible li .collapsible-header.active {
     z-index: 2;
-    color: #333!important;
+    color: #fff!important;
 }
 .side-nav .collapsible-header:hover{
-	  color:#333!important;
+	  color:#fff!important;
   }
-  .side-nav .collapsible-header ul li a:hover{
-	  color:#333!important;
+.side-nav .collapsible-header ul li a:hover{
+	  color:#fff!important;
   }
-  .avatar-pic{
+.avatar-pic{
 	  height:150px;
 	  width:150px;
 	  border-radius:50%;
   }
+.rounded-circle {
+  border-radius: 50% !important; }
+.dropdown-toggle{
+	color:#fff;
+}  
+.gradient-bar{
+	background-image: linear-gradient(to left right,#fbe444,#f6d32d,#f5c400) !important;
+}
+.dropdown-item .preview-item a:hover{
+	background-color:#e9ecef!important;
+}
   

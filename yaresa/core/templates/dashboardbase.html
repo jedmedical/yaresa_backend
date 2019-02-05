@@ -37,12 +37,12 @@
     <header>
 
         <!-- Sidebar navigation -->
-        <div id="slide-out" class="side-nav sidenav-bg fixed" style="background-color:#ff3300;">
+        <div id="slide-out" class="side-nav sidenav-bg fixed">
             <ul class="custom-scrollbar">
             <!-- Logo -->
-            <li class="logo-sn waves-effect">
+            <li class="logo-sn waves-effect my-4">
                 <div class="text-center">
-                    <a href="#" class="pl-0"><img src="{% static 'images/yaresalogo.svg' %}" class=""style="height: 70px;width: auto"></a>
+                    <a href="#" class="pl-0"><img src="{% static 'images/yaresablack.png' %}" class=""style="height:70px;width: auto"></a>
                 </div>
             </li>
             <!--/. Logo -->
@@ -59,16 +59,16 @@
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
-                    <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r white-text active"><i class="fa fa-tachometer white-text"></i> Dashboards</a>
+                    <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i> Dashboards</a>
 
                     </li>
                     {% if request.user|has_group:"Doctor" or  request.user|is_superman %}
-                        <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                        <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="{% url 'core:user-list' %}" class="waves-effect white-text">View Patients</a>
+                                    <li><a href="{% url 'core:user-list' %}" class="waves-effect">View Patients</a>
                                     </li>
-                                    <li><a href="{% url 'core:new-user' %}" class="waves-effect white-text">Add patient</a>
+                                    <li><a href="{% url 'core:new-user' %}" class="waves-effect">Add patient</a>
                                     </li>
 
                                 </ul>
@@ -76,24 +76,24 @@
                         </li>
                     {% endif %}
 
-                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>User<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-user"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul>
-								<li><a href="{% url 'core:new-generalsupervisor' %}" class="waves-effect white-text">General Supervisor</a></li>
-                                <li><a href="{% url 'core:new-doctor' %}" class="waves-effect white-text">Doctor</a></li>
-                                <li><a href="{% url 'core:new-nurse' %}" class="waves-effect white-text">Nurse</a></li>
+								<li><a href="{% url 'core:new-generalsupervisor' %}" class="waves-effect">General Supervisor</a></li>
+                                <li><a href="{% url 'core:new-doctor' %}" class="waves-effect">Doctor</a></li>
+                                <li><a href="{% url 'core:new-nurse' %}" class="waves-effect">Nurse</a></li>
 
                             </ul>
                         </div>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user white-text"></i>Partners<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-user"></i>Partners<i class="fa fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul>
-								<li><a href="{% url 'core:new-organization' %}" class="waves-effect white-text">Add Organization</a>
+								<li><a href="{% url 'core:new-organization' %}" class="waves-effect">Add Organization</a>
                                 </li>
-								<li><a href="{% url 'core:new-partner' %}" class="waves-effect white-text">Add Partner</a>
+								<li><a href="{% url 'core:new-partner' %}" class="waves-effect">Add Partner</a>
                                 </li>
-                                <li><a href="{% url 'core:new-partner' %}" class="waves-effect white-text">View Partners</a>
+                                <li><a href="{% url 'core:new-partner' %}" class="waves-effect">View Partners</a>
                                 </li>
                                 
 
@@ -102,14 +102,14 @@
                     </li>
 					
 
-                       <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-heartbeat white-text"></i>Medi graph<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                       <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-heartbeat"></i>Medi graph<i class="fa fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="{% url 'core:blood-group-count' %}" class="waves-effect white-text">Blood Group</a>
+                                <li><a href="{% url 'core:blood-group-count' %}" class="waves-effect">Blood Group</a>
                                 </li>
-                                <li><a href="{% url 'core:sickling-count' %}" class="waves-effect white-text">Sickling Status</a>
+                                <li><a href="{% url 'core:sickling-count' %}" class="waves-effect">Sickling Status</a>
                                 </li>
-                                <li><a href="{% url 'core:g6pd-count' %}" class="waves-effect white-text">G6PD</a>
+                                <li><a href="{% url 'core:g6pd-count' %}" class="waves-effect">G6PD</a>
                                 </li>
 
 
@@ -130,60 +130,110 @@
         <!--/. Sidebar navigation -->
 
         <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav">
+        <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav mb-4">
             <!-- SideNav slide-out button -->
             <div class="float-left">
-                <a href="#" data-activates="slide-out" class="button-collapse white-text"><i class="fa fa-bars"></i></a>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
             </div>
             <!-- Breadcrumb-->
             <div class="breadcrumb-dn mr-auto">
-                <p class="white-text">Dashboard</p>
+                <p class="">Dashboard</p>
             </div>
 
             <!--Navbar links-->
             <ul class="nav navbar-nav nav-flex-icons ml-auto">
 
                 <!-- Dropdown -->
-{#                <li class="nav-item dropdown notifications-nav">#}
-{#                    <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true">#}
-{#                        aria-expanded="false">#}
-{#                        <span class="badge red">3</span> <i class="fa fa-bell"></i>#}
-{#                        <span class="d-none d-md-inline-block">Notifications</span>#}
-{#                    </a>#}
-{#                    <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">#}
-{#                        <a class="dropdown-item" href="#">#}
-{#                            <i class="fa fa-money mr-2" aria-hidden="true"></i>#}
-{#                            <span>New order received</span>#}
-{#                            <span class="float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>#}
-{#                        </a>#}
-{#                        <a class="dropdown-item" href="#">#}
-{#                            <i class="fa fa-money mr-2" aria-hidden="true"></i>#}
-{#                            <span>New order received</span>#}
-{#                            <span class="float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> 33 min</span>#}
-{#                        </a>#}
-{#                        <a class="dropdown-item" href="#">#}
-{#                            <i class="fa fa-line-chart mr-2" aria-hidden="true"></i>#}
-{#                            <span>Your campaign is about to end</span>#}
-{#                            <span class="float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> 53 min</span>#}
-{#                        </a>#}
-{#                    </div>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link waves-effect"><i class="fa fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link waves-effect"><i class="fa fa-comments-o"></i> <span class="clearfix d-none d-sm-inline-block">Support</span></a>#}
-{#                </li>#}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect white-text" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span>
-						</a>
-                   
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Log Out</a>
-                        <a class="dropdown-item" href="#">My account</a>
+              <li class="nav-item dropdown notifications-nav">
+                  <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="fa fa-bell mt-2"></i>
+              <span class="count font-small">6</span>
+				</a>
+                   <div class="dropdown-menu navbar-dropdown preview-list dropdown-info" aria-labelledby="notificationDropdown">
+				      <a class="dropdown-item">
+                <p class="mb-0 font-weight-bold float-left text-dark">You have 6 new notifications 
+                </p>
+                <span class="ml-5 badge badge-pill badge-info float-right"> View all</span>
+					</a>
+					<div class="dropdown-divider"></div>
+             <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail mr-3">
+                  <img src="{% static 'images/dani.jpg' %}" width="37px" height="37px" alt="image" class="rounded-circle">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-bold text-dark text-capitalize">miss. sarpong
+                    <span class="ml-4 grey-text font-weight-light font-small"><i class="fa fa-clock-o ml-3" aria-hidden="true"></i>1 Min</span>
+                  </h6>
+                  <p class="font-weight-light font-small dark-grey-text">
+                    Pains in my abdomen.
+                  </p>
+                </div>
+              </a>
+			  <div class="dropdown-divider"></div>
+			  <a class="dropdown-item preview-item mr-3">
+                <div class="preview-thumbnail">
+                  <img src="{% static 'images/andrews.jpg' %}" width="37px" height="37px" alt="image" class="rounded-circle">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-bold text-dark text-capitalize">mr. agyemang
+                    <span class="ml-4 grey-text font-weight-light font-small"><i class="fa fa-clock-o ml-3" aria-hidden="true"></i>10 Mins</span>
+                  </h6>
+                  <p class="font-weight-light font-small dark-grey-text">
+                    I want to make an appointment
+                  </p>
+                </div>
+              </a>
+			  <div class="dropdown-divider"></div>
+			  <a class="dropdown-item preview-item mr-3">
+                <div class="preview-thumbnail">
+                  <img src="{% static 'images/sam.jpg' %}" width="37px" height="37px" alt="image" class="rounded-circle">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-bold text-dark text-capitalize">mr. gyamfi
+                    <span class="ml-4 grey-text font-weight-light font-small"><i class="fa fa-clock-o ml-3" aria-hidden="true"></i>10 Mins</span>
+                  </h6>
+                  <p class="font-weight-light font-small dark-grey-text">
+                    I want to make an appointment
+                  </p>
+                </div>
+              </a>
                     </div>
                 </li>
+                
+        <li class="nav-item dropdown d-none d-xl-inline-block">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+				<img class="img-xs rounded-circle" src="{% static 'images/andrews.jpg' %}" width="37px" height="37px" alt="">
+              <span class="profile-text font-small font-weight-bold">Dr.Agyemang {{ user.title }}.{{ user.first_name }}</span>
+              
+            </a>
+            <div class="dropdown-menu dropdown-menu-right user-dropdown white-text" aria-labelledby="UserDropdown">
+              <div class="dropdown-item p-0">
+                <div class="d-flex border-bottom">
+                  <a href="#" class="py-3 px-4 d-flex align-items-center justify-content-center" data-toggle="tooltip" title="Patients">
+                    <i class="fa fa-wheelchair-alt mr-0 grey-text"></i>
+                  </a>
+                  <a href="#" class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right" data-toggle="tooltip" title="Profile">
+                    <i class="fa fa-user-md mr-0 grey-text"></i>
+                  </a>
+                  <a href="#" class="py-3 px-4 d-flex align-items-center justify-content-center" data-toggle="tooltip" title="My Cases">
+                    <i class="fa fa-book mr-0 grey-text"></i>
+                  </a>
+                </div>
+              </div>
+              <a class="dropdown-item mt-2 dark-grey-text">
+                Manage Accounts
+              </a>
+              <a class="dropdown-item dark-grey-text">
+                Change Password
+              </a>
+              <a class="dropdown-item dark-grey-text">
+                Check Inbox
+              </a>
+              <a class="dropdown-item dark-grey-text">
+                Sign Out
+              </a>
+            </div>
+        </li>
 
             </ul>
             <!--/Navbar links-->
