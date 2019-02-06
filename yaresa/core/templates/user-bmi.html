@@ -11,12 +11,14 @@
 
 
 	<div class="container">
+	 <div class="row">
+		<div class="col-md-12">
          <div class="card">
-            <div class="container" style="margin-top: 20px">
+            <div class="container" style="margin-top: 10px">
                    <form method="post">
                         {% csrf_token %}
 			<div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-6 offset-md-4">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
    </div>            
@@ -27,8 +29,11 @@
  </div>
                 </div>
 			</div>
-            <div class="row">
-                 <div class="col-md-3">
+			
+			<label class="h4 title text-uppercase flex-center mt-5 mb-2">body mass index</label>
+			<br>
+            <div class="form-row">
+                 <div class="col-md-3 offset-md-1">
 
                     <div class="md-form form-group">
 						   							<label for="id_height" class="control-label">Height (CM)</label>
@@ -42,13 +47,17 @@
 						   							{{ userbmiform.weight }}
                     </div>
                 </div>
-
-                <div class="col-md-3">
- <p>BMI : <span><input type="text" class="form-control" id="bmi" name="bmi" placeholder="00.00" disabled>
-</span></p>
+				
+				 <div class="col-md-4">
+					<p>BMI : <span><input type="text" class="form-control" id="bmi" name="bmi" placeholder="00.00" disabled>
+					</span></p>
                 </div>
+				
+			</div>	
 
-                <div class="col-md-2">
+ 
+
+                <div class="col-md-3 offset-md-5 mb-3">
 
                         <button class="btn btn-rounded modalbtn" type="submit">Add BMI</button>
                 </div>
@@ -58,8 +67,10 @@
                 </div>
                        </form>
             </div>
-                </div>
+                </div></div></div>
 
+				<div class="row">
+		<div class="col-md-12">
       <div class="card" style="margin-top: 20px">
 
              <div class="container" style="margin-top: 20px">
@@ -124,7 +135,7 @@
                 </div>
             </div>
              </div>
-        </div>
+        </div></div></div>
     </div>
     </div>
 {% endblock %}				

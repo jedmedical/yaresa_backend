@@ -11,10 +11,14 @@
 
 
 	<div class="container">
+	<div class="row">
+		<div class="col-md-12">
         <div class="card">
-            <div class="container" style="margin-top: 20px">
+            <div class="container" style="margin-top:10px">
+			 <form method="post">
+                        {% csrf_token %}
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-6 offset-md-4">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
    </div>            
@@ -25,29 +29,31 @@
  </div>
                 </div>
 			</div>
-			  <div class="row">	
+			
+			<label class="h4 title text-uppercase flex-center mt-5 mb-2">conditions</label>
+			<br>
+			
+			  <div class="form-row">	
                 <div class="col-md-4 offset-md-3">
-                    <form method="post">
-                        {% csrf_token %}
+                  <div class="md-form form-group">
+						<label for="id_condition" class="control-label">Condition</label>
+						 {{ userconditionform.condition }}
+	  			  </div> 
 						
-						<label class="h4 title text-uppercase flex-center mt-5 mb-2">conditions</label>
-			<br><br
-							<div class="md-form form-group">
-						   							<label for="id_condition" class="control-label">Condition</label>
-						   							{{ userconditionform.condition }}
-												</div>
-
-				</div>
+			</div>
 				
 				<div class="col-md-4">
                         <button class="btn btn-rounded modalbtn" type="submit">Add Condition</button>
 				</div>		
-                        </form>
+                        
                
               </div>
+			       </form>
                 </div>
-        </div>
-
+        </div></div></div>
+		
+			<div class="row">
+		<div class="col-md-12">
              <div class="card" style="margin-top: 20px">
 
              <div class="container" style="margin-top: 20px">
@@ -106,7 +112,7 @@
                 </div>
             </div>
              </div>
-        </div>
+        </div></div></div>
     </div>
     </div>
 {% endblock %}

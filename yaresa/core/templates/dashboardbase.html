@@ -215,7 +215,7 @@
             <div class="dropdown-menu dropdown-menu-right user-dropdown white-text" aria-labelledby="UserDropdown">
               <div class="dropdown-item p-0">
                 <div class="d-flex border-bottom">
-                  <a href="#" class="py-3 px-4 d-flex align-items-center justify-content-center" data-toggle="tooltip" title="Patients">
+                  <a href="{% url 'core:doctor-patients-list'%}" class="py-3 px-4 d-flex align-items-center justify-content-center" data-toggle="tooltip" title="Patients">
                     <i class="fa fa-wheelchair-alt mr-0 grey-text"></i>
                   </a>
                   <a href="#" class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right" data-toggle="tooltip" title="Profile">
@@ -272,7 +272,7 @@
     <!--Main layout-->
 
     <!--Footer-->
-    <footer class="page-footer pt-0 mt-5 mb-0 mdb-color lighten-4">
+    <footer class="page-footer pt-0 mt-5 mb-0 mdb-color lighten-4 fixed-bottom">
 
         <!--Copyright-->
         <div class="footer-copyright py-3 text-center">
