@@ -4,7 +4,7 @@ from core.views.core_view import dashboard, add_new_user, add_medical_info, user
     user_livertest, male_prostatetest, user_urinetest, add_doctor, add_nurse, add_general_supervisor, add_organization,\
     add_partners,doctorpatients_list
 
-from core.views.home_views import index, signin
+from core.views.home_views import index, signin, sign_out
 from django.conf.urls import url
 
 __author__ = 'andrews'
@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^$', index, name="home"),
 
     url(r'^accounts/signin', signin, name="signin"),
+    url(r'^accounts/signout', sign_out, name="signout"),
     url(r'^dashboard', dashboard, name="dashboard"),
     url(r'^user-list', user_list, name="user-list"),
     url(r'^doctor-patients-list', doctorpatients_list, name="doctor-patients-list"),

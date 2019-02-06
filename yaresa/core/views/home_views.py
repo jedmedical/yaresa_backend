@@ -1,6 +1,6 @@
 from core.forms.user_form import LoginForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
 __author__ = 'andrews'
@@ -36,6 +36,15 @@ def signin(request):
     login_form = LoginForm()
     context = {'login_form':login_form}
     return render(request,'signin.html',context)
+
+
+
+
+def sign_out(request):
+    logout(request)
+    return redirect('index')
+
+
 
 
 

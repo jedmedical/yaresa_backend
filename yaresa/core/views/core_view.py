@@ -496,7 +496,7 @@ def blood_group_count(request):
         if i['blood_group'] == "O-":
             oneg = i['the_count']
 
-        pie3d = FusionCharts("pie3d", "ex2", "100%", "400", "chart-1", "json",
+    pie3d = FusionCharts("pie3d", "ex2", "100%", "400", "chart-1", "json",
                              # The data is passed as a string in the `dataSource` as parameter.
                              {
                                  "chart": {
@@ -537,7 +537,8 @@ def blood_group_count(request):
 
     context = {"aplus":Aplus,"aneg":Aneg,"bplus":bplus,
                "bneg":bneg,"abplus":abplus,"abneg":abneg,
-               "oplus":oplus,"oneg":oneg,'outputchart' : pie3d.render(), }
+               "oplus":oplus,"oneg":oneg,
+               'outputchart' : pie3d.render(), }
     return render(request, 'blood-group-count.html', context)
 
 def sickling_count(request):
@@ -773,6 +774,7 @@ def add_doctor(request):
                 user = User.objects.create_user(username=email, password=pin,)
                 user.is_staff = True
                 user.groups.add(Group.objects.get_or_create(name="Doctor")[0])
+                user.save()
 
                 user_info = AuthUserDemographic(user=user,email=email,picture=picture,
                                                 title=title,first_name=first_name,other_name=other_name,
@@ -792,7 +794,7 @@ def add_doctor(request):
 
                 user_info.save()
 
-                sendsms(request,mobile,pin)
+                sendsms(request,email,pin)
 
 
 
@@ -802,14 +804,9 @@ def add_doctor(request):
                     messages.error(request, 'User already exist')
 
         else:
-            print("Andrews")
 
-
-
-
-
-        context = {'new_user_form':new_user_form}
-        return render(request,'add_doctor.html',context)
+            context = {'new_user_form':new_user_form}
+            return render(request,'add_doctor.html',context)
 
     new_user_form = NewUserForm()
     context = {'new_user_form':new_user_form}
@@ -854,6 +851,7 @@ def add_nurse(request):
                 user = User.objects.create_user(username=email, password=pin, )
                 user.is_staff = True
                 user.groups.add(Group.objects.get_or_create(name="Nurse")[0])
+                user.save()
 
                 user_info = AuthUserDemographic(user=user, email=email, picture=picture,
                                                 title=title, first_name=first_name, other_name=other_name,
@@ -872,7 +870,7 @@ def add_nurse(request):
 
                 user_info.save()
 
-                sendsms(request, mobile, pin)
+                sendsms(request, email, pin)
 
                 messages.success(request, "Nurse added")
             except IntegrityError as e:
@@ -880,10 +878,9 @@ def add_nurse(request):
                 messages.error(request, 'User already exist')
 
         else:
-            print("Andrews")
 
-        context = {'new_user_form': new_user_form}
-        return render(request, 'add_nurse.html', context)
+            context = {'new_user_form': new_user_form}
+            return render(request, 'add_nurse.html', context)
 
     new_user_form = NewUserForm()
     context = {'new_user_form': new_user_form}
@@ -923,7 +920,9 @@ def add_general_supervisor(request):
             try:
                 user = User.objects.create_user(username=email, password=pin, )
                 user.is_staff = True
+
                 user.groups.add(Group.objects.get_or_create(name="General Supervisor")[0])
+                user.save()
 
                 user_info = AuthUserDemographic(user=user, email=email, picture=picture,
                                                 title=title, first_name=first_name, other_name=other_name,
@@ -942,7 +941,7 @@ def add_general_supervisor(request):
 
                 user_info.save()
 
-                sendsms(request, mobile, pin)
+                sendsms(request, email, pin)
 
                 messages.success(request, "General Supervisor Added")
             except IntegrityError as e:
