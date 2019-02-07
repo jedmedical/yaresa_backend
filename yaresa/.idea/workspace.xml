@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01c68de1-8638-4269-8afa-b505b18bb38b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/dashboardbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/dashboardbase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/user_partner_transfer.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user_partner_transfer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templatetags/has_group.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/templatetags/has_group.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views/core_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/core_view.py" afterDir="false" />
-    </list>
+    <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="" />
     <ignored path="yaresa.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -283,8 +277,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/templates/dashboardbase.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="248" column="22" selection-start-line="248" selection-start-column="22" selection-end-line="248" selection-end-column="22" />
+            <state relative-caret-position="182">
+              <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
               <folding>
                 <element signature="n#li#5;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#8;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" />
@@ -594,7 +588,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1386" height="788" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24479167" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -607,7 +600,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.38793105" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.38793105" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -617,7 +610,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.24255952" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.24255952" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="right" id="Key Promoter X" order="5" />
     </layout>
@@ -925,8 +918,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/dashboardbase.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="248" column="22" selection-start-line="248" selection-start-column="22" selection-end-line="248" selection-end-column="22" />
+        <state relative-caret-position="182">
+          <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
           <folding>
             <element signature="n#li#5;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#8;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" />

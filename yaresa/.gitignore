@@ -8,6 +8,8 @@ __pycache__/
 
 media/
 .idea/
+yaresa/.idea/workspace.xml
+
 
 # Distribution / packaging
 .Python
