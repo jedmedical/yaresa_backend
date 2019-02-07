@@ -1087,7 +1087,7 @@ def add_partners(request):
             try:
                 user = User.objects.create_user(username=email, password=pin, )
                 user.is_staff = True
-                user.groups.add(Group.objects.get_or_create(name="Partners")[0])
+                user.groups.add(Group.objects.get_or_create(name="Partner")[0])
 
                 user_info = Partners(user=user, email=email, picture=picture,
                                                 title=title, first_name=first_name, other_name=other_name,
