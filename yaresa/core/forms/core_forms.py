@@ -328,14 +328,14 @@ class Addorganization(forms.Form):
 
 class PatientTransferForm(forms.Form):
     def __init__(self, data=None,  initial=None, instance=None):
-        super(PatientTransferForm, self).__init__(data=data, initial=initial, instance=instance)
+        super(PatientTransferForm, self).__init__(data=data, initial=initial, )
 
-        choices = map(lambda partner: (partner.id, '{}{}{}'.format(partner.first_name,
+        choices = map(lambda partner: (partner.id, '{} {} {}'.format(partner.first_name,
                                                                    partner.other_name,
                                                                    partner.surname)),Partners.objects.all())
         self.fields['partner'].choices = choices
 
-    partner = forms.ChoiceField( choices= Title, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
+    partner = forms.ChoiceField(  required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
 
     remark = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
 

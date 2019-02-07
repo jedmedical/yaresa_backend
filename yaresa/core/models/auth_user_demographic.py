@@ -32,6 +32,9 @@ class AuthUserDemographic(BaseModel):
     mdc_certificate = models.CharField(max_length=255,null=True)
     role = models.CharField(max_length=225,null=True)
 
+    def __str__(self):
+        return '{} {} {}'.format(self.first_name, self.other_name, self.surname)
+
 
     @property
     def get_absolute_image_url(self):
