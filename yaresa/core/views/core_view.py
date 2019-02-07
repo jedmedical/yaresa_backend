@@ -6,11 +6,12 @@ from core.core_util import add_zeros
 from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy, \
     Addusermedication, Adduserbmi, Addbloodpressure, Addcontactus, Addusersurgery, Addfastbloodsugar, \
     Addfullbloodcount, Adduserlipidprofile, Adduserrenaltest, Adduserlivertest, Addprostatetest, Adduserurinetest, \
-    Addorganization
+    Addorganization, PatientTransferForm
 from core.fusioncharts import FusionCharts
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
-    Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization, Partners
+    Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization, Partners, \
+    PatientPartnerTransfer
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
@@ -621,7 +622,7 @@ def g6pd_count(request):
                                  "subCaption": "",
                                  "showValues": "1",
                                  "showPercentInTooltip": "0",
-                                 "numberPrefix": "$",
+                                 "numberPrefix": "",
                                  "enableMultiSlicing": "1",
                                  "theme": "fusion"
                              },
@@ -1126,10 +1127,29 @@ def add_partners(request):
 
 
 def patient_transfer(request,pk):
+    user = AuthUserDemographic.objects.get(id=pk)
+    patient_transfers = PatientPartnerTransfer.objects.all()
 
-    new_user_form = NewUserForm()
-    context = {'new_user_form': new_user_form}
-    return render(request, 'add_partner.html', context)
+    if request.method == "POST":
+        patienttransferform = PatientTransferForm(request.POST)
+
+        if patienttransferform.is_valid():
+            partner = patienttransferform.cleaned_data['partner']
+            remark = patienttransferform.cleaned_data['remark']
+
+            partnerauth = Partners.objects.get(id=partner)
+            patrans = PatientPartnerTransfer(patient=user,partner=partnerauth,remark=remark)
+            patrans.save()
+            messages.success(request,"Patient Transfered to partner")
+        else:
+            context = {'patienttransferform': patienttransferform, 'user': user,
+                       'patient_transfers': patient_transfers}
+            return render(request, 'user_partner_transfer.html', context)
+
+    patienttransferform = PatientTransferForm()
+    context = {'patienttransferform': patienttransferform, 'user':user,
+               'patient_transfers': patient_transfers}
+    return render(request, 'user_partner_transfer.html', context)
 
 
 

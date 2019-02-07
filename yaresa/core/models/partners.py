@@ -27,6 +27,11 @@ class Partners(BaseModel):
     facility_name = models.CharField(max_length=255,null=True)
     certificate = models.CharField(max_length=255,null=True)
     role = models.CharField(max_length=225,null=True)
+    marital_status = models.CharField(max_length=255, choices=marital, default="Single")
+
+    def __str__(self):
+        return '{} {} {}'.format(self.first_name, self.other_name, self.surname)
+
 
 
     @property
