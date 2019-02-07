@@ -1,5 +1,8 @@
 from django import forms
 import datetime as base_datetime
+
+from core.models import Partners
+
 __author__ = 'andrews'
 
 Title = (("Mr", "Mr"), ("Mrs", "Mrs"),("Dr", "Dr"))
@@ -323,4 +326,16 @@ class Addorganization(forms.Form):
     telephone = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
 
 
+class PatientTransferForm(forms.Form):
+    def __init__(self, data=None,  initial=None, instance=None):
+        super(PatientTransferForm, self).__init__(data=data, initial=initial, instance=instance)
+
+        choices = map(lambda partner: (partner.id, '{}{}{}'.format(partner.first_name,
+                                                                   partner.other_name,
+                                                                   partner.surname)),Partners.objects.all())
+        self.fields['partner'].choices = choices
+
+    partner = forms.ChoiceField( choices= Title, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
+
+    remark = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
 

@@ -64,7 +64,7 @@ def add_new_user(request):
                 user = User.objects.create_user(username=mobile, password=pin,
                                                )
 
-                user.user.groups.add(Group.objects.get_or_create(name="Patient")[0])
+                user.groups.add(Group.objects.get_or_create(name="Patient")[0])
 
                 user_info = AuthUserDemographic(user=user,email=email,picture=picture,
                                                 title=title,first_name=first_name,other_name=other_name,
@@ -627,7 +627,7 @@ def user_fullbloodcount(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
     if request.method == "POST":
-        userfullbloodcount = Addfullbloodcount(request.POST)
+        userfullbloodcount = Addfullbloodcount(request.POST,request.FILES)
         if userfullbloodcount.is_valid():
             Full_blood_count(user=user, red_blood_cell=userfullbloodcount.cleaned_data['red_blood_cell'], hemoglobin=userfullbloodcount.cleaned_data['hemoglobin'],
                              hematocrit=userfullbloodcount.cleaned_data['hematocrit'],white_blood_cell=userfullbloodcount.cleaned_data['white_blood_cell'],
@@ -637,6 +637,10 @@ def user_fullbloodcount(request,pk):
                              docs_comments=userfullbloodcount.cleaned_data['docs_comments']).save()
 
             messages.success(request, "Full Blood Count Added")
+        else:
+            fullcounts = Full_blood_count.objects.filter(user=user)
+            context = {'fullcounts': fullcounts, 'user': user, 'userfullbloodcount': userfullbloodcount}
+            return render(request, 'user-full-blood-count.html', context)
 
     userfullbloodcount = Addfullbloodcount()
 
@@ -1064,6 +1068,14 @@ def add_partners(request):
     context = {'new_user_form': new_user_form}
     return render(request, 'add_partner.html', context)
 
+
+
+
+def patient_transfer(request,pk):
+
+    new_user_form = NewUserForm()
+    context = {'new_user_form': new_user_form}
+    return render(request, 'add_partner.html', context)
 
 
 

@@ -64,7 +64,7 @@
                     <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i> Dashboards</a>
 
                     </li>
-                    {% if request.user|has_group:"Doctor" or  request.user|is_superman %}
+                    {% if  request.user.is_superuser or request.user|has_group:"Doctor" %}
                         <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                             <div class="collapsible-body">
                                 <ul>
@@ -72,6 +72,17 @@
                                     </li>
                                     <li><a href="{% url 'core:new-user' %}" class="waves-effect">Add patient</a>
                                     </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    {% elif request.user|has_group:"Partner" %}
+                    <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="{% url 'core:user-list' %}" class="waves-effect">View Patients</a>
+                                    </li>
+
 
                                 </ul>
                             </div>
@@ -209,7 +220,7 @@
         <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 				<img class="img-xs rounded-circle" src="{% static 'images/andrews.jpg' %}" width="37px" height="37px" alt="">
-              <span class="profile-text font-small font-weight-bold">Dr.Agyemang {{ user.title }}.{{ user.first_name }}</span>
+              <span class="profile-text font-small font-weight-bold">{{ request.user.groups.all.0 }} {{ request.user.username }}</span>
               
             </a>
             <div class="dropdown-menu dropdown-menu-right user-dropdown white-text" aria-labelledby="UserDropdown">
@@ -264,10 +275,11 @@
     <!--Main Navigation-->
 
     <!--Main layout-->
-    <main>
+    <main style="padding-bottom: 20px">
        {% block content %}
 
        {% endblock %}
+
     </main>
     <!--Main layout-->
 

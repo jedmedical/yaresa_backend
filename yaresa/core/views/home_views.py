@@ -42,7 +42,7 @@ def signin(request):
 
 def sign_out(request):
     logout(request)
-    return redirect('index')
+    return redirect('core:home')
 
 
 
