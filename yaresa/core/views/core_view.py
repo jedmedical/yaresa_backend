@@ -323,12 +323,6 @@ def doctorpatients_list(request):
     context = {'user_list':user}
     return render(request, 'doctor_patients_list.html', context)
 
-def partner_list(request):
-    user = AuthUserDemographic.objects.all()
-
-    context = {'user_list':user}
-    return render(request, 'doctor_patients_list.html', context)
-
 
 def user_detail(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
@@ -1157,6 +1151,33 @@ def patient_transfer(request,pk):
     context = {'patienttransferform': patienttransferform, 'user':user,
                'patient_transfers': patient_transfers}
     return render(request, 'user_partner_transfer.html', context)
+
+def partners_list(request):
+    partner = Partners.objects.all()
+
+    context = {'partner':partner}
+    return render(request, 'partners_list.html', context)
+
+def doctors_list(request):
+    user = AuthUserDemographic.objects.all()
+
+    context = {'user_list':user}
+    return render(request, 'doctors_list.html', context)
+
+def nurses_list(request):
+    user = AuthUserDemographic.objects.all()
+
+    context = {'user_list':user}
+    return render(request, 'nurses_list.html', context)
+
+def partner_details(request,pk):
+    partner = Partners.objects.get(id=pk)
+
+    context = {'partner': partner}
+    return render(request, 'partner_details.html', context)
+
+
+
 
 
 
