@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/dashboardbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/dashboardbase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views/core_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/core_view.py" afterDir="false" />
-    </list>
+    <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="" />
     <ignored path="yaresa.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -198,8 +193,8 @@
         <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="340">
-                <caret line="1175" column="34" lean-forward="true" selection-start-line="1175" selection-start-column="34" selection-end-line="1175" selection-end-column="34" />
+              <first_editor relative-caret-position="450">
+                <caret line="1175" column="34" selection-start-line="1175" selection-start-column="34" selection-end-line="1175" selection-end-column="34" />
                 <folding>
                   <element signature="e#0#15#0" expanded="true" />
                 </folding>
@@ -406,7 +401,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="y" value="23" />
     <option name="width" value="1386" />
     <option name="height" value="788" />
@@ -967,8 +962,8 @@
     <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="340">
-            <caret line="1175" column="34" lean-forward="true" selection-start-line="1175" selection-start-column="34" selection-end-line="1175" selection-end-column="34" />
+          <first_editor relative-caret-position="450">
+            <caret line="1175" column="34" selection-start-line="1175" selection-start-column="34" selection-end-line="1175" selection-end-column="34" />
             <folding>
               <element signature="e#0#15#0" expanded="true" />
             </folding>
