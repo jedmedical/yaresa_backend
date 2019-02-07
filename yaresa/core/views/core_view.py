@@ -323,6 +323,13 @@ def doctorpatients_list(request):
     context = {'user_list':user}
     return render(request, 'doctor_patients_list.html', context)
 
+def partner_list(request):
+    user = AuthUserDemographic.objects.all()
+
+    context = {'user_list':user}
+    return render(request, 'doctor_patients_list.html', context)
+
+
 def user_detail(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
