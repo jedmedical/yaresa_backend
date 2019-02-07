@@ -109,7 +109,7 @@ def add_new_user(request):
 def add_medical_info(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
     if request.method == "POST":
-        new_medical = NewUserMedicalHistoryForm(request.POST)
+        new_medical = NewUserMedicalHistoryForm(request.POST, request.FILES)
 
         if new_medical.is_valid():
 
@@ -562,8 +562,36 @@ def sickling_count(request):
         if i['sickling_status'] == "SC":
             sc = i['the_count']
 
+    pie3d = FusionCharts("pie3d", "ex2", "100%", "400", "chart-1", "json",
+                         # The data is passed as a string in the `dataSource` as parameter.
+                         {
+                             "chart": {
+                                 "caption": "Blood Group Chart",
+                                 "subCaption": "",
+                                 "showValues": "1",
+                                 "showPercentInTooltip": "0",
+                                 "numberPrefix": "$",
+                                 "enableMultiSlicing": "1",
+                                 "theme": "fusion"
+                             },
+                             "data": [{
+                                 "label": "AA",
+                                 "value": aa
+                             }, {
+                                "label": "AS",
+                                "value": ass
+                             }, {
+                                 "label": "SS",
+                                 "value": ss
+                             }, {
+                                 "label": "SC",
+                                 "value": sc
+                             }]
+                         })
+
     context = {"aa":aa,"ass":ass,"ss":ss,
-               "sc":sc,}
+               "sc":sc,
+               'outputchart':pie3d.render(),}
     return render(request, 'sickling-status-count.html', context)
 
 def g6pd_count(request):
@@ -584,8 +612,34 @@ def g6pd_count(request):
             partial_defect = i['the_count']
         if i['g6pd_status'].upper() == "FULL DEFECT":
             full_defect = i['the_count']
+
+    pie3d = FusionCharts("pie3d", "ex2", "100%", "400", "chart-1", "json",
+                         # The data is passed as a string in the `dataSource` as parameter.
+                         {
+                             "chart": {
+                                 "caption": "Blood Group Chart",
+                                 "subCaption": "",
+                                 "showValues": "1",
+                                 "showPercentInTooltip": "0",
+                                 "numberPrefix": "$",
+                                 "enableMultiSlicing": "1",
+                                 "theme": "fusion"
+                             },
+                             "data": [{
+                                 "label": "NORMAL",
+                                 "value": normal
+                             }, {
+                                 "label": "PARTIAL DEFECT",
+                                 "value": partial_defect
+                             }, {
+                                 "label": "FULL DEFECT",
+                                 "value": full_defect
+                             }]
+                        })
+
     print(normal)
-    context = {"normal":normal, "partial_defect":partial_defect, "full_defect":full_defect}
+    context = {"normal":normal, "partial_defect":partial_defect, "full_defect":full_defect,
+               'outputchart': pie3d.render(),}
     return render(request, 'g6pd-count.html', context)
 
 def contact_us(request,id):
@@ -653,7 +707,7 @@ def user_lipidprofile(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
     if request.method == "POST":
-        userlipidprofile = Adduserlipidprofile(request.POST)
+        userlipidprofile = Adduserlipidprofile(request.POST, request.FILES)
         if userlipidprofile.is_valid():
             Lipid_profile(user=user, total_cholesterol=userlipidprofile.cleaned_data['total_cholesterol'],hdl_cholesterol=userlipidprofile.cleaned_data['hdl_cholesterol'],
                           ldl_cholesterol=userlipidprofile.cleaned_data['ldl_cholesterol'],triglycerides=userlipidprofile.cleaned_data['triglycerides'],
@@ -672,7 +726,7 @@ def user_renaltest(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
     if request.method == "POST":
-        userrenaltest = Adduserrenaltest(request.POST)
+        userrenaltest = Adduserrenaltest(request.POST, request.FILES)
         if userrenaltest.is_valid():
             Renal_function_test(user=user, creatinine=userrenaltest.cleaned_data['creatinine'], urea=userrenaltest.cleaned_data['urea'],
                                 gfr=userrenaltest.cleaned_data['gfr'], renal_test_date=userrenaltest.cleaned_data['renal_test_date'],
@@ -690,7 +744,7 @@ def user_livertest(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
     if request.method == "POST":
-        userlivertest = Adduserlivertest(request.POST)
+        userlivertest = Adduserlivertest(request.POST, request.FILES)
         if userlivertest.is_valid():
             Liver_function_test(user=user,alt=userlivertest.cleaned_data['alt'],ast=userlivertest.cleaned_data['ast'],alp=userlivertest.cleaned_data['alp'],
                                 total_protein=userlivertest.cleaned_data['total_protein'],bilirubin=userlivertest.cleaned_data['bilirubin'],bilirubin_direct=userlivertest.cleaned_data['bilirubin_direct'],
@@ -709,7 +763,7 @@ def user_urinetest(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
     if request.method == "POST":
-        userurinetest = Adduserurinetest(request.POST)
+        userurinetest = Adduserurinetest(request.POST, request.FILES)
         if userurinetest.is_valid():
             Urine_test(user=user,observation=userurinetest.cleaned_data['observation'],conclusion=userurinetest.cleaned_data['conclusion'],
                        urine_test_date=userurinetest.cleaned_data['urine_test_date'],next_urine_test=userurinetest.cleaned_data['next_urine_test']).save()
@@ -726,7 +780,7 @@ def male_prostatetest(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
     if request.method == "POST":
-        maleprostatetest = Addprostatetest(request.POST)
+        maleprostatetest = Addprostatetest(request.POST, request.FILES)
         if maleprostatetest.is_valid():
             Prostate_specific_antigen(user=user, psa_total=maleprostatetest.cleaned_data['psa_total'], psa_test_date=maleprostatetest.cleaned_data['psa_test_date'],
                                       next_psa_test=maleprostatetest.cleaned_data['next_psa_test'], docs_comments=maleprostatetest.cleaned_data['docs_comments'],
