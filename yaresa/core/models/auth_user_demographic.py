@@ -1,7 +1,7 @@
 from core.models.base_model import BaseModel
 from django.contrib.auth.models import User
 from django.db import models
-
+from datetime import date
 # Create your models here.
 from yaresa import settings
 
@@ -34,6 +34,13 @@ class AuthUserDemographic(BaseModel):
 
     def __str__(self):
         return '{} {} {}'.format(self.first_name, self.other_name, self.surname)
+
+
+
+    def get_age(self):
+        born = self.date_of_birth
+        today = date.today()
+        return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 
     @property

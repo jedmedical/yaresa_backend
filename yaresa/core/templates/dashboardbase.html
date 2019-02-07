@@ -231,6 +231,7 @@
                             </div>
                         </li>
 
+
                     {% elif request.user|has_group:"Partner" %}
                         <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i> Dashboards</a>
 
