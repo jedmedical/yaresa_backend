@@ -622,7 +622,7 @@ def g6pd_count(request):
                                  "subCaption": "",
                                  "showValues": "1",
                                  "showPercentInTooltip": "0",
-                                 "numberPrefix": "$",
+                                 "numberPrefix": "",
                                  "enableMultiSlicing": "1",
                                  "theme": "fusion"
                              },
