@@ -202,98 +202,98 @@ def add_medical_info(request,pk):
                     if surgery_name1 and surgery_date1:
                         Surgery(user=user, name=surgery_name1, date=surgery_date1,doctor=surgery_doctor1,hospital=surgery_hospital1).save()
 
-                    fbs_test_result = new_medical.cleaned_data['fbs_test_result']
-                    fbs_test_date = new_medical.cleaned_data['fbs_test_date']
-                    fbs_saved_result = new_medical.cleaned_data['fbs_saved_result']
-                    next_fbs_test = new_medical.cleaned_data['next_fbs_test']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if fbs_test_result and fbs_test_date:
-                        Fasting_blood_sugar(user=user, test_result=fbs_test_result, test_date=fbs_test_date, saved_result=fbs_saved_result,docs_comments=docs_comments,
-                                            next_fbs_test=next_fbs_test).save()
-
-                    red_blood_cell = new_medical.cleaned_data['fbc_red_blood_cell']
-                    fbc_red_blood_range = new_medical.cleaned_data.get('fbc_red_blood_range')
-                    hemoglobin = new_medical.cleaned_data['fbc_hemoglobin']
-                    fbc_hemoglobin_range = new_medical.cleaned_data['fbc_hemoglobin_range']
-                    hematocrit = new_medical.cleaned_data['fbc_hematocrit']
-                    fbc_hematocrit_range = new_medical.cleaned_data['fbc_hematocrit_range']
-                    white_blood_cell = new_medical.cleaned_data['fbc_white_blood_cell']
-                    fbc_white_blood_range = new_medical.cleaned_data['fbc_white_blood_range']
-                    platelet = new_medical.cleaned_data['fbc_platelet_count']
-                    fbc_platelet_count_range = new_medical.cleaned_data['fbc_platelet_count_range']
-                    full_blood_count_date = new_medical.cleaned_data['full_blood_count_date']
-                    next_full_blood_count_date = new_medical.cleaned_data['next_full_blood_count_date']
-                    fbc_image_scan = new_medical.cleaned_data['fbc_image_scan']
-                    neutrophil = new_medical.cleaned_data['fbc_neutrophil_count']
-                    lymphocyte = new_medical.cleaned_data['fbc_lymphocyte_count']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if fbc_red_blood_cell and fbc_hemoglobin:
-                        Full_blood_count(user=user, red_blood_cell=red_blood_cell, hemoglobin=hemoglobin,hematocrit=hematocrit,
-                                         white_blood_cell=white_blood_cell,platelet=platelet,full_blood_count_date=full_blood_count_date,
-                                         red_blood_range=fbc_red_blood_range,hemoglobin_range=fbc_hemoglobin_range,hematocrit_range=fbc_hematocrit_range,
-                                         white_blood_range=fbc_white_blood_range,platelet_range=fbc_platelet_count_range,next_full_blood_count_date=next_full_blood_count_date,
-                                         fbc_image_scan=fbc_image_scan,neutrophil=neutrophil,lymphocyte=lymphocyte,docs_comments=docs_comments).save()
-
-                    total_cholesterol = new_medical.cleaned_data['total_cholesterol']
-                    hdl_cholesterol = new_medical.cleaned_data['hdl_cholesterol']
-                    ldl_cholesterol = new_medical.cleaned_data['ldl_cholesterol']
-                    triglycerides = new_medical.cleaned_data['triglycerides']
-                    lipid_profile_date = new_medical.cleaned_data['lipid_profile_date']
-                    next_lipid_test = new_medical.cleaned_data['next_lipid_test']
-                    lipid_scan = new_medical.cleaned_data['lipid_scan']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if total_cholesterol and triglycerides:
-                        Lipid_profile(user=user, total_cholesterol=total_cholesterol, hdl_cholesterol=hdl_cholesterol, ldl_cholesterol=ldl_cholesterol,
-                                      triglycerides=triglycerides,lipid_profile_date=lipid_profile_date,next_lipid_test=next_lipid_test,lipid_scan=lipid_scan,docs_comments=docs_comments).save()
-
-                    creatinine = new_medical.cleaned_data['creatinine']
-                    urea = new_medical.cleaned_data['urea']
-                    gfr = new_medical.cleaned_data['gfr']
-                    renal_test_date = new_medical.cleaned_data['renal_test_date']
-                    next_renal_test = new_medical.cleaned_data['next_renal_test']
-                    renal_scan = new_medical.cleaned_date['renal_scan']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if creatinine and gfr:
-                        Renal_function_test(user=user, creatinine=creatinine, urea=urea, renal_test_date=renal_test_date,
-                                            next_renal_test=next_renal_test, renal_scan=renal_scan,docs_comments=docs_comments).save()
-
-                    alt = new_medical.cleaned_data['alt']
-                    ast = new_medical.cleaned_data['ast']
-                    alp = new_medical.cleaned_data['alp']
-                    total_protein = new_medical.cleaned_data['total_protein']
-                    bilirubin = new_medical.cleaned_data['bilirubin']
-                    bilirubin_direct = new_medical.cleaned_data['bilirubin_direct']
-                    ggt = new_medical.cleaned_data['ggt']
-                    liver_test_date = new_medical.cleaned_data['liver_test_date']
-                    next_liver_test = new_medical.cleaned_data['next_liver_test']
-                    liver_scan = new_medical.cleaned_data['liver_scan']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if alt and ast:
-                        Liver_function_test(user=user,alt=alt,ast=ast,alp=alp,total_protein=total_protein,bilirubin=bilirubin,bilirubin_direct=bilirubin_direct,
-                                            ggt=ggt,liver_test_date=liver_test_date,next_liver_test=next_liver_test,liver_scan=liver_scan,docs_comments=docs_comments).save()
-
-                    psa_total = new_medical.cleaned_data['psa_total']
-                    psa_test_date = new_medical.cleaned_data['psa_test_date']
-                    next_psa_test = new_medical.cleaned_data['next_psa_test']
-                    docs_comments = new_medical.cleaned_data['docs_comments']
-
-                    if psa_total and psa_test_date:
-                        Prostate_specific_antigen(user=user,psa_total=psa_total,psa_test_date=psa_test_date,next_psa_test=next_psa_test,docs_comments=docs_comments,psa_scan=psa_scan).save()
-
-                    observation = new_medical.cleaned_data['observation']
-                    conclusion = new_medical.cleaned_data['conclusion']
-                    urine_test_date = new_medical.cleaned_data['urine_test_date']
-                    next_urine_test = new_medical.cleaned_data['next_urine_test']
-
-                    if observation and conclusion:
-                        Urine_test(user=user,observation=observation,conclusion=conclusion,urine_test_date=urine_test_date,
-                                   next_urine_test=next_urine_test).save()
-
+                    # fbs_test_result = new_medical.cleaned_data['fbs_test_result']
+                    # fbs_test_date = new_medical.cleaned_data['fbs_test_date']
+                    # fbs_saved_result = new_medical.cleaned_data['fbs_saved_result']
+                    # next_fbs_test = new_medical.cleaned_data['next_fbs_test']
+                    # docs_comments = new_medical.cleaned_data['docs_comments']
+                    #
+                    # if fbs_test_result and fbs_test_date:
+                    #     Fasting_blood_sugar(user=user, test_result=fbs_test_result, test_date=fbs_test_date, saved_result=fbs_saved_result,docs_comments=docs_comments,
+                    #                         next_fbs_test=next_fbs_test).save()
+                    #
+                    # red_blood_cell = new_medical.cleaned_data['fbc_red_blood_cell']
+                    # fbc_red_blood_range = new_medical.cleaned_data.get('fbc_red_blood_range')
+                    # hemoglobin = new_medical.cleaned_data['fbc_hemoglobin']
+                    # fbc_hemoglobin_range = new_medical.cleaned_data['fbc_hemoglobin_range']
+                    # hematocrit = new_medical.cleaned_data['fbc_hematocrit']
+                    # fbc_hematocrit_range = new_medical.cleaned_data['fbc_hematocrit_range']
+                    # white_blood_cell = new_medical.cleaned_data['fbc_white_blood_cell']
+                    # fbc_white_blood_range = new_medical.cleaned_data['fbc_white_blood_range']
+                    # platelet = new_medical.cleaned_data['fbc_platelet_count']
+                    # fbc_platelet_count_range = new_medical.cleaned_data['fbc_platelet_count_range']
+                    # full_blood_count_date = new_medical.cleaned_data['full_blood_count_date']
+                    # next_full_blood_count_date = new_medical.cleaned_data['next_full_blood_count_date']
+                    # fbc_image_scan = new_medical.cleaned_data['fbc_image_scan']
+                    # neutrophil = new_medical.cleaned_data['fbc_neutrophil_count']
+                    # lymphocyte = new_medical.cleaned_data['fbc_lymphocyte_count']
+                    # docs_comments = new_medical.cleaned_data['docs_comments']
+                    #
+                    # if fbc_red_blood_cell and fbc_hemoglobin:
+                    #     Full_blood_count(user=user, red_blood_cell=red_blood_cell, hemoglobin=hemoglobin,hematocrit=hematocrit,
+                    #                      white_blood_cell=white_blood_cell,platelet=platelet,full_blood_count_date=full_blood_count_date,
+                    #                      red_blood_range=fbc_red_blood_range,hemoglobin_range=fbc_hemoglobin_range,hematocrit_range=fbc_hematocrit_range,
+                    #                      white_blood_range=fbc_white_blood_range,platelet_range=fbc_platelet_count_range,next_full_blood_count_date=next_full_blood_count_date,
+                    #                      fbc_image_scan=fbc_image_scan,neutrophil=neutrophil,lymphocyte=lymphocyte,docs_comments=docs_comments).save()
+                    #
+                    # total_cholesterol = new_medical.cleaned_data['total_cholesterol']
+                    # hdl_cholesterol = new_medical.cleaned_data['hdl_cholesterol']
+                    # ldl_cholesterol = new_medical.cleaned_data['ldl_cholesterol']
+                    # triglycerides = new_medical.cleaned_data['triglycerides']
+                    # lipid_profile_date = new_medical.cleaned_data['lipid_profile_date']
+                    # next_lipid_test = new_medical.cleaned_data['next_lipid_test']
+                    # lipid_scan = new_medical.cleaned_data['lipid_scan']
+                    # docs_comments = new_medical.cleaned_data['docs_comments']
+                    #
+                    # if total_cholesterol and triglycerides:
+                    #     Lipid_profile(user=user, total_cholesterol=total_cholesterol, hdl_cholesterol=hdl_cholesterol, ldl_cholesterol=ldl_cholesterol,
+                    #                   triglycerides=triglycerides,lipid_profile_date=lipid_profile_date,next_lipid_test=next_lipid_test,lipid_scan=lipid_scan,docs_comments=docs_comments).save()
+                    #
+                    # creatinine = new_medical.cleaned_data['creatinine']
+                    # urea = new_medical.cleaned_data['urea']
+                    # gfr = new_medical.cleaned_data['gfr']
+                    # renal_test_date = new_medical.cleaned_data['renal_test_date']
+                    # next_renal_test = new_medical.cleaned_data['next_renal_test']
+                    # renal_scan = new_medical.cleaned_date['renal_scan']
+                    # docs_comments = new_medical.cleaned_data['docs_comments']
+                    #
+                    # if creatinine and gfr:
+                    #     Renal_function_test(user=user, creatinine=creatinine, urea=urea, renal_test_date=renal_test_date,
+                    #                         next_renal_test=next_renal_test, renal_scan=renal_scan,docs_comments=docs_comments).save()
+                    #
+                    # alt = new_medical.cleaned_data['alt']
+                    # ast = new_medical.cleaned_data['ast']
+                    # alp = new_medical.cleaned_data['alp']
+                    # total_protein = new_medical.cleaned_data['total_protein']
+                    # bilirubin = new_medical.cleaned_data['bilirubin']
+                    # bilirubin_direct = new_medical.cleaned_data['bilirubin_direct']
+                    # ggt = new_medical.cleaned_data['ggt']
+                    # liver_test_date = new_medical.cleaned_data['liver_test_date']
+                    # next_liver_test = new_medical.cleaned_data['next_liver_test']
+                    # liver_scan = new_medical.cleaned_data['liver_scan']
+                    # docs_comments = new_medical.cleaned_data['docs_comments']
+                    #
+                    # if alt and ast:
+                    #     Liver_function_test(user=user,alt=alt,ast=ast,alp=alp,total_protein=total_protein,bilirubin=bilirubin,bilirubin_direct=bilirubin_direct,
+                    #                         ggt=ggt,liver_test_date=liver_test_date,next_liver_test=next_liver_test,liver_scan=liver_scan,docs_comments=docs_comments).save()
+                    #
+                    # psa_total = new_medical.cleaned_data['psa_total']
+                    # psa_test_date = new_medical.cleaned_data['psa_test_date']
+                    # next_psa_test = new_medical.cleaned_data['next_psa_test']
+                    # docs_comments = new_medical.cleaned_data['docs_comments']
+                    #
+                    # if psa_total and psa_test_date:
+                    #     Prostate_specific_antigen(user=user,psa_total=psa_total,psa_test_date=psa_test_date,next_psa_test=next_psa_test,docs_comments=docs_comments,psa_scan=psa_scan).save()
+                    #
+                    # observation = new_medical.cleaned_data['observation']
+                    # conclusion = new_medical.cleaned_data['conclusion']
+                    # urine_test_date = new_medical.cleaned_data['urine_test_date']
+                    # next_urine_test = new_medical.cleaned_data['next_urine_test']
+                    #
+                    # if observation and conclusion:
+                    #     Urine_test(user=user,observation=observation,conclusion=conclusion,urine_test_date=urine_test_date,
+                    #                next_urine_test=next_urine_test).save()
+                    #
 
 
                     messages.success(request, "Medical Info added")

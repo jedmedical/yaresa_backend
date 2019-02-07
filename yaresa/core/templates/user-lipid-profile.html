@@ -236,11 +236,17 @@
                                 <td>{{ lipid.ldl_cholesterol }} mmol/L</td>
 								<td>{{ lipid.triglycerides }} mmol/L</td>
 								<td>{{ lipid.lipid_profile_date }}</td>
-                                 <td>
+                                  <td>
                                 <div class="btn-group">
-                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
+                                    <a href=""><i class="fa fa-eye ml-2  text-info" data-toggle="tooltip" title="View Details"></i></a>
                                 </div>
-                                </td>
+								<div class="btn-group">
+                                    <a href=""><i class="fa fa-pencil ml-2 text-success" data-toggle="tooltip" title="Edit"></i></a>
+                                </div>
+								<div class="btn-group">
+                                    <a href=""><i class="fa fa-trash ml-2  text-danger" data-toggle="tooltip" title="Delete"></i></a>
+                                </div>
+								</td>
 
                         </tr>
                      {% endfor %}
@@ -261,67 +267,7 @@
         </div></div></div>
 		
 		
-		<div class="row">
-			<div class="col-md-12">
-      <div class="card" style="margin-top: 20px">
-
-             <div class="container" style="margin-top: 20px">
-
-            <div class="row">
-                <div class="col-md-12">
-
-
-				 <div class="table-wrapper">
-				 <!-- Trying to get the date for the next test to show on the top of the table.-->
-				 <p class="h5 flex-center orange-text">Next Test Date</p>
-					<!-- {% for lipid in lipidprofile %}
-					<p class="flex-center orange-text h6">{{ lipid.next_lipid_test }}</p>
-							{% endfor %} -->
-            <!--Table-->
-            <table id="anothertable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
-                    
-                <!--Table head-->
-                <thead>
-
-                            <tr>
-								<th class="th-sm">Doctor's Comments</th>
-								<th class="th-sm">Test Date</th>
-								<th class="th-sm"></th>
-                            </tr>
-
-                </thead>
-                <!--Table head-->
-
-                <!--Table body-->
-                <tbody>
-                     {% for lipid in lipidprofile %}
-
-                        <tr>
-								<td>{{ lipid.docs_comments }}</td>
-								<td>{{ lipid.lipid_profile_date }}</td>
-                                 <td>
-                                <div class="btn-group">
-                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
-                                </div>
-                                </td>
-
-                        </tr>
-                     {% endfor %}
-                </tbody>
-                <!--Table body-->
-            </table>
-            <!--Table-->
-        </div>
-
-
-
-
-
-                </div>
-            </div>
-
-             </div>
-        </div></div></div>
+		
 		
 		
     </div>

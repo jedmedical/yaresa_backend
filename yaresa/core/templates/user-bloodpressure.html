@@ -113,11 +113,17 @@
                                 <td>{{ bp.systolic }}</td>
                                  <td>{{ bp.diastolic }}</td>
                                 <td>{{ bp.systolic }}/{{ bp.diastolic }} mmHg</td>
-                                 <td>
+                                  <td>
                                 <div class="btn-group">
-                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
+                                    <a href=""><i class="fa fa-eye ml-2  text-info" data-toggle="tooltip" title="View Details"></i></a>
                                 </div>
-                                </td>
+								<div class="btn-group">
+                                    <a href=""><i class="fa fa-pencil ml-2 text-success" data-toggle="tooltip" title="Edit"></i></a>
+                                </div>
+								<div class="btn-group">
+                                    <a href=""><i class="fa fa-trash ml-2  text-danger" data-toggle="tooltip" title="Delete"></i></a>
+                                </div>
+								</td>
 
                         </tr>
                      {% endfor %}

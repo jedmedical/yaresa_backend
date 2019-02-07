@@ -288,6 +288,7 @@
 								<th class="th-sm">GGT</th>					
 								<th class="th-sm">Test Date</th>
 								<th class="th-sm"></th>
+								
                             </tr>
 
                 </thead>
@@ -303,11 +304,18 @@
                                 <td>{{ liver.alp }} U/L</td>
 								<td>{{ liver.ggt }} U/L</td>
 								<td>{{ liver.liver_test_date }}</td>
-                                 <td>
+								 <td>
                                 <div class="btn-group">
-                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
+                                    <a href=""><i class="fa fa-eye ml-2  text-info" data-toggle="tooltip" title="View Details"></i></a>
                                 </div>
-                                </td>
+								<div class="btn-group">
+                                    <a href=""><i class="fa fa-pencil ml-2 text-success" data-toggle="tooltip" title="Edit"></i></a>
+                                </div>
+								<div class="btn-group">
+                                    <a href=""><i class="fa fa-trash ml-2  text-danger" data-toggle="tooltip" title="Delete"></i></a>
+                                </div>
+								</td>
+                                 
 
                         </tr>
                      {% endfor %}
@@ -337,88 +345,6 @@
              </div>
         </div></div></div>
 		
-		
-		
-		<div class="row mt-5">
-			<div class="col-md-12">
-      <div class="card" style="margin-top: 20px">
-
-             <div class="container" style="margin-top: 20px">
-
-            <div class="row">
-                <div class="col-md-12">
-
-
-				 <div class="table-wrapper">
-				 <p class="h5 flex-center orange-text">Next Test Date</p>
-				<!--	 {% for liver in liverfunction %}
-					<p class="flex-center orange-text h6">{{ liver.next_liver_test }}</p>
-							{% endfor %} -->
-            <!--Table-->
-            <table id="anothertable" class="table table-hover table-responsive-sm table-sm btn-table m-0">
-
-
-
-                <!--Table head-->
-                <thead>
-
-                            <tr>
-								
-								<th class="th-sm">Total Protein</th>
-								<th class="th-sm">Bilirubin<br>(Total)</th>
-								<th class="th-sm">Bilirubin<br>(Direct)</th>
-								<th class="th-sm">Doctor's Comments</th>
-                               	<th class="th-sm">Test Date</th>
-								<th class="th-sm"></th>
-                            </tr>
-
-                </thead>
-                <!--Table head-->
-
-                <!--Table body-->
-                <tbody>
-                     {% for liver in liverfunction %}
-
-                        <tr>
-								
-								<td>{{ liver.total_protein }} g/L</td>
-								<td>{{ liver.bilirubin }} umol/L</td>
-								<td>{{ liver.bilirubin_direct }} umol/L</td>
-								<td>{{ liver.docs_comments }} </td>
-								<td>{{ liver.liver_test_date }}</td>
-                                 <td>
-                                <div class="btn-group">
-                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
-                                </div>
-                                </td>
-
-                        </tr>
-                     {% endfor %}
-                </tbody>
-                <!--Table body-->
-				<tfoot>
-					<tr>
-								
-								<th class="th-sm">Ref. Range<br>60.00 - 80.00</th>
-								<th class="th-sm">Ref. Range<br>3.00 - 22.00</th>
-                               	<th class="th-sm">Ref. Range<br>0.00 - 6.80</th>
-								<th class="th-sm"></th>
-								<th class="th-sm"></th>
-                            </tr>
-				</tfoot>
-            </table>
-            <!--Table-->
-        </div>
-
-
-
-
-
-                </div>
-            </div>
-               
-             </div>
-        </div></div></div>
 		
 		
     </div>

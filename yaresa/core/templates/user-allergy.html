@@ -63,7 +63,8 @@
                 </div></div></div>
 			
 			
-			
+			<div class="row">
+				<div class="col-md-12">
              <div class="card" style="margin-top: 20px">
 
              <div class="container" style="margin-top: 20px">
@@ -98,13 +99,18 @@
                         <tr>
 
                                 <td>{{ allergy.name}}</td>
-<td>{{ allergy.type}}</td>
-                                <td>
-                                    <div class="btn-group">
-                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">Remove<i class="fa fa-trash ml-2"></i></button></a>
-
-                   </div>
-                                </td>
+								<td>{{ allergy.type}}</td>
+                                 <td>
+                                <div class="btn-group">
+                                    <a href=""><i class="fa fa-eye ml-2  text-info" data-toggle="tooltip" title="View Details"></i></a>
+                                </div>
+								<div class="btn-group">
+                                    <a href=""><i class="fa fa-pencil ml-2 text-success" data-toggle="tooltip" title="Edit"></i></a>
+                                </div>
+								<div class="btn-group">
+                                    <a href=""><i class="fa fa-trash ml-2  text-danger" data-toggle="tooltip" title="Delete"></i></a>
+                                </div>
+								</td>
 
                         </tr>
                      {% endfor %}
@@ -119,7 +125,8 @@
                 </div>
             </div>
                
-             </div>
+             </div></div></div>
         </div>
       </div>
+	 </div> 
 {% endblock %}
