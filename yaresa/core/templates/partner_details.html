@@ -1,0 +1,148 @@
+{% extends 'dashboardbase.html' %}
+
+        {% block title %}New user{% endblock %}
+
+        {% block content %}
+            {% load static %}
+            {% load qr_code %}
+
+
+    <div class="container-fluid">
+
+    <div class="container">
+
+		<div class="row my-5">
+		 <div class="col-xs-12 col-sm-12 card mb-5" style="">
+
+
+		 <div class="row">
+          <div class=" col-sm-4 offset-sm-4 col-xs-8 offset-xs-2 my-5">
+
+			  <p class="h4 text-center grey-text text-uppercase pt-2">Profile Picture</p><br>
+			   <div class="row d-flex justify-content-center">
+			  <div class="file-field">
+        <div class="mb-4" align="center">
+       <img id="imgId" src="{{ part.picture.url }}" class="avatar-pic">
+        </div>
+          </div>
+         </div>
+
+           </div>
+
+             <div class=" mx-5">
+
+              {% qr_from_text "{{ part.unique_id }}" size="t" image_format="png" error_correction="L" %}
+             </div>
+        </div><br><br>
+
+		<p class="h3 text-center grey-text text-uppercase mb-4">Personal Information</p><br>
+
+	    <div class="row">
+	       <div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">Name</h5>
+		     <h6 class="h6-responsive dark-grey-text">{{ part.title }} {{part.first_name }} {{ part.other_name }} {{ part.surname }} </h6>
+			</div>
+
+		<div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">Date of birth</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ part.date_of_birth }}</h6>
+			</div>
+
+	       <div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">User Account Number</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ part.unique_id }}</h6>
+			</div>
+		</div>
+
+	<hr>
+
+		<div class="row">
+
+		<div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">sex</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ part.sex }}</h6>
+		</div>
+
+		<div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">marital status</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ part.marital_status }}</h6>
+		</div>
+
+	    <div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">nationality</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ part.nationality }}</h6>
+		</div>
+
+
+		</div>
+
+	<hr>
+
+		<div class="row">
+	       <div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">religion</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ part.religion }}</h6>
+			</div>
+
+	       <div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">digital address</h5>
+		     <h6 class="h6-responsive dark-grey-text text-uppercase">{{ part.address }}</h6>
+			</div>
+
+		<div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">Role</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{part.role }}</h6>
+		</div>
+
+		</div>
+
+	<hr>
+
+		<div class="row">
+
+		<div class="col-sm-4 mb-1">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">email</h5>
+		     <h6 class="h6-responsive dark-grey-text">{{ part.email }}</h6>
+		</div>
+
+		<div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">mobile</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{ part.mobile }}</h6>
+		</div>
+
+		<div class="col-sm-4">
+		   <h5 class="h5-responsive dark-grey-text text-uppercase">Age</h5>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{part.mobile }}</h6>
+			</div>
+
+		</div>
+
+	<hr>
+
+
+
+
+	<hr>
+             		 <div class="row">
+	       <div class="col-sm-4 mb-1">
+		 </div>
+
+	       <div class="col-sm-4 offset-md-4">
+               <a href="{% url 'core:patient-transfer' pk=user.id %}" class="btn btn-outline-warning btn-rounded">Transfer to Partner</a>
+		  </div>
+		</div>
+
+
+
+
+		</div>
+	</div>
+  </div>
+
+
+
+
+
+
+    </div>
+{% endblock %}
