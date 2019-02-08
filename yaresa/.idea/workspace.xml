@@ -8,12 +8,15 @@
 =======
     <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/core/static/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/templates/dashboardbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/dashboardbase.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/templates/user_partner_transfer.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user_partner_transfer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/views/core_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/core_view.py" afterDir="false" />
+=======
+>>>>>>> master
     </list>
 >>>>>>> c2133683627bd05aaba9308de3414f053b68c258
 =======
@@ -276,7 +279,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/templates/user-medication.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-2338" />
+=======
+            <state relative-caret-position="354">
+              <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#li#3;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+>>>>>>> master
           </provider>
         </entry>
       </file>
@@ -328,8 +341,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/templates/user-urine-test.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="58">
               <caret line="114" column="64" selection-start-line="114" selection-start-column="64" selection-end-line="114" selection-end-column="64" />
+=======
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -615,11 +633,16 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="0" y="23" width="1386" height="788" extended-state="0" />
 =======
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
 >>>>>>> c2133683627bd05aaba9308de3414f053b68c258
+=======
+    <frame x="0" y="23" width="1440" height="827" extended-state="0" />
+    <editor active="true" />
+>>>>>>> master
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24130106" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -1042,13 +1065,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/user-medication.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-2338" />
+=======
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+>>>>>>> master
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/user-renal-function.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="297">
           <caret line="184" column="75" selection-start-line="184" selection-start-column="75" selection-end-line="184" selection-end-column="75" />
+=======
+        <state relative-caret-position="354">
+          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#3;n#ul#0;n#li#2;n#ul#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
