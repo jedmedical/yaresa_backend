@@ -1500,7 +1500,7 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 		var psa_range = psa +" ng/ml";
 		var normal = "( NORMAL PSA LEVEL )";
 		var abnormal = "( ABNORMAL PSA LEVEL )";
-		var age = 39;
+		var age = {{ user.get_age }};
 		
 		if (age < 40){
 			if (psa < 1.4){

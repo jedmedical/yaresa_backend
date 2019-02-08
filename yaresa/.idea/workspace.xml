@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="" />
 =======
     <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="">
@@ -18,6 +19,18 @@
 =======
     <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="" />
 >>>>>>> ab8214681b58a0f502a7507bbce737598760f8dc
+=======
+    <list default="true" id="554d3ea5-dbe4-4b04-b4c9-914bfe42d70c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-full-blood-count.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-full-blood-count.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-lipid-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-lipid-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-liver-function.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-liver-function.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-renal-function.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-renal-function.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user-urine-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user-urine-test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user_fasting_blood_sugar.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user_fasting_blood_sugar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/user_partner_transfer.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/user_partner_transfer.html" afterDir="false" />
+    </list>
+>>>>>>> 26b53da578f3a97b674a9189c604935aa1074588
     <ignored path="yaresa.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -133,26 +146,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="121" />
-          <entry key="py" value="1245" />
+          <entry key="html" value="233" />
+          <entry key="py" value="1311" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="121" />
-          <entry key="Python" value="1245" />
+          <entry key="HTML" value="233" />
+          <entry key="Python" value="1311" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="10" />
-          <entry key="py" value="10" />
+          <entry key="html" value="17" />
+          <entry key="py" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="10" />
-          <entry key="Python" value="10" />
+          <entry key="HTML" value="17" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
     </session>
@@ -205,12 +218,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="450">
-                <caret line="1175" column="34" selection-start-line="1175" selection-start-column="34" selection-end-line="1175" selection-end-column="34" />
+              <first_editor relative-caret-position="-1998">
+                <caret line="1047" column="46" selection-start-line="1047" selection-start-column="46" selection-end-line="1047" selection-end-column="46" />
                 <folding>
                   <element signature="e#0#15#0" expanded="true" />
                 </folding>
@@ -221,53 +234,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/partner_details.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1007">
-              <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/doctors_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="72" column="86" selection-start-line="72" selection-start-column="86" selection-end-line="72" selection-end-column="86" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/partners_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="64" column="66" selection-start-line="64" selection-start-column="66" selection-end-line="64" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/user_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-729">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/urls.py">
+        <entry file="file://$PROJECT_DIR$/core/models/patient_partner_transfer.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
-              <first_editor relative-caret-position="187">
-                <caret line="29" column="80" selection-start-line="29" selection-start-column="80" selection-end-line="29" selection-end-column="80" />
-                <folding>
-                  <element signature="e#0#585#0" expanded="true" />
-                </folding>
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
+          <provider selected="true" editor-type-id="live-pycharm">
+            <state>
+              <first_editor relative-caret-position="418">
+                <caret line="341" selection-start-line="341" selection-end-line="341" />
               </first_editor>
               <second_editor relative-caret-position="-161" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/templates/user-full-blood-count.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="275" column="71" selection-start-line="275" selection-start-column="71" selection-end-line="275" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/templates/user-lipid-profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="212" column="20" lean-forward="true" selection-start-line="212" selection-start-column="20" selection-end-line="212" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/templates/user-medication.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2338" />
           </provider>
         </entry>
       </file>
@@ -288,6 +297,7 @@
               </folding>
 =======
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/core/models/auth_user_demographic.py">
           <provider selected="true" editor-type-id="live-pycharm">
             <state>
@@ -296,34 +306,39 @@
               </first_editor>
               <second_editor relative-caret-position="-161" />
 >>>>>>> c2133683627bd05aaba9308de3414f053b68c258
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/models/patient_partner_transfer.py">
-          <provider selected="true" editor-type-id="live-pycharm">
-            <state>
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/user_partner_transfer.html">
+=======
+        <entry file="file://$PROJECT_DIR$/core/templates/user-liver-function.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+            <state relative-caret-position="281">
+              <caret line="271" column="74" selection-start-line="271" selection-start-column="74" selection-end-line="271" selection-end-column="74" />
+>>>>>>> 26b53da578f3a97b674a9189c604935aa1074588
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/templates/user-renal-function.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="184" column="75" selection-start-line="184" selection-start-column="75" selection-end-line="184" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/nurses_list.html">
+        <entry file="file://$PROJECT_DIR$/core/templates/user-urine-test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
+            <state relative-caret-position="58">
+              <caret line="114" column="64" selection-start-line="114" selection-start-column="64" selection-end-line="114" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/templates/user_fasting_blood_sugar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -374,7 +389,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/models/auth_user_demographic.py" />
         <option value="$PROJECT_DIR$/yaresa/settings.py" />
         <option value="$PROJECT_DIR$/core/models/biostatistics.py" />
         <option value="$PROJECT_DIR$/core/templates/medical-info.html" />
@@ -385,12 +399,8 @@
         <option value="$PROJECT_DIR$/core/templates/user-condition.html" />
         <option value="$PROJECT_DIR$/core/templates/user-medication.html" />
         <option value="$PROJECT_DIR$/core/templates/user-surgery.html" />
-        <option value="$PROJECT_DIR$/core/templates/user_fasting_blood_sugar.html" />
         <option value="$PROJECT_DIR$/core/templates/user-allergy.html" />
-        <option value="$PROJECT_DIR$/core/templates/user-lipid-profile.html" />
         <option value="$PROJECT_DIR$/core/templates/user-bloodpressure.html" />
-        <option value="$PROJECT_DIR$/core/templates/user-renal-function.html" />
-        <option value="$PROJECT_DIR$/core/templates/user-liver-function.html" />
         <option value="$PROJECT_DIR$/core/models/prostate_specific _test.py" />
         <option value="$PROJECT_DIR$/core/models/prostate_specific _antigen.py" />
         <option value="$PROJECT_DIR$/core/templates/male-prostate-test.html" />
@@ -401,7 +411,6 @@
         <option value="$PROJECT_DIR$/core/models/full_blood_count.py" />
         <option value="$PROJECT_DIR$/core/models/fasting_blood_sugar.py" />
         <option value="$PROJECT_DIR$/core/models/urine_test.py" />
-        <option value="$PROJECT_DIR$/core/templates/user-urine-test.html" />
         <option value="$PROJECT_DIR$/core/models/__init__.py" />
         <option value="$PROJECT_DIR$/core/templates/add_organization.html" />
         <option value="$PROJECT_DIR$/core/models/organizations.py" />
@@ -415,8 +424,6 @@
         <option value="$PROJECT_DIR$/core/templates/dashboardbase.html" />
         <option value="$PROJECT_DIR$/core/templates/user_detail.html" />
         <option value="$PROJECT_DIR$/core/models/patient_partner_transfer.py" />
-        <option value="$PROJECT_DIR$/core/forms/core_forms.py" />
-        <option value="$PROJECT_DIR$/core/forms/core_forms.py" />
         <option value="$PROJECT_DIR$/core/templates/user_partner_transfer.html" />
         <option value="$PROJECT_DIR$/core/templates/doctors_list.py" />
         <option value="$PROJECT_DIR$/core/templates/doctors_list.html" />
@@ -425,6 +432,14 @@
         <option value="$PROJECT_DIR$/core/templates/partners_list.html" />
         <option value="$PROJECT_DIR$/core/templates/partner_details.html" />
         <option value="$PROJECT_DIR$/core/views/core_view.py" />
+        <option value="$PROJECT_DIR$/core/forms/core_forms.py" />
+        <option value="$PROJECT_DIR$/core/forms/core_forms.py" />
+        <option value="$PROJECT_DIR$/core/templates/user-full-blood-count.html" />
+        <option value="$PROJECT_DIR$/core/templates/user-lipid-profile.html" />
+        <option value="$PROJECT_DIR$/core/templates/user-liver-function.html" />
+        <option value="$PROJECT_DIR$/core/templates/user-renal-function.html" />
+        <option value="$PROJECT_DIR$/core/templates/user-urine-test.html" />
+        <option value="$PROJECT_DIR$/core/templates/user_fasting_blood_sugar.html" />
       </list>
     </option>
   </component>
@@ -434,7 +449,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1386" />
     <option name="height" value="788" />
@@ -606,7 +621,7 @@
     <editor active="true" />
 >>>>>>> c2133683627bd05aaba9308de3414f053b68c258
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24130106" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24130106" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -671,52 +686,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/templates/male-prostate-test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1013">
-          <caret line="168" selection-start-line="168" selection-end-line="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/med_graphic.py">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/medical_history.py">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/medication.py">
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/liver_function_test.py" />
     <entry file="file://$PROJECT_DIR$/core/models/prostate_specific_antigen.py" />
     <entry file="file://$PROJECT_DIR$/core/models/renal_function_test.py" />
     <entry file="file://$PROJECT_DIR$/core/models/urine_test.py" />
-    <entry file="file://$PROJECT_DIR$/core/templates/user-urine-test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/add_organization.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1449">
           <caret line="63" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/user_fasting_blood_sugar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1633">
-          <caret line="71" column="52" selection-end-line="185" />
         </state>
       </provider>
     </entry>
@@ -886,21 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state>
-          <first_editor relative-caret-position="415">
-            <caret line="339" column="101" selection-start-line="339" selection-start-column="101" selection-end-line="339" selection-end-column="101" />
-          </first_editor>
-          <second_editor relative-caret-position="-161" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="338" lean-forward="true" selection-start-line="338" selection-end-line="338" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/models/auth_user_demographic.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
@@ -913,19 +874,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="54" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/patient_partner_transfer.py">
-      <provider selected="true" editor-type-id="live-pycharm">
-        <state>
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -982,7 +930,7 @@
     <entry file="file://$PROJECT_DIR$/core/urls.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="187">
+          <first_editor relative-caret-position="-147">
             <caret line="29" column="80" selection-start-line="29" selection-start-column="80" selection-end-line="29" selection-end-column="80" />
             <folding>
               <element signature="e#0#585#0" expanded="true" />
@@ -1003,8 +951,8 @@
     <entry file="file://$PROJECT_DIR$/core/views/core_view.py">
       <provider selected="true" editor-type-id="live-pycharm">
         <state>
-          <first_editor relative-caret-position="450">
-            <caret line="1175" column="34" selection-start-line="1175" selection-start-column="34" selection-end-line="1175" selection-end-column="34" />
+          <first_editor relative-caret-position="-1998">
+            <caret line="1047" column="46" selection-start-line="1047" selection-start-column="46" selection-end-line="1047" selection-end-column="46" />
             <folding>
               <element signature="e#0#15#0" expanded="true" />
             </folding>
@@ -1026,6 +974,81 @@
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/patient_partner_transfer.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/forms/core_forms.py">
+      <provider selected="true" editor-type-id="live-pycharm">
+        <state>
+          <first_editor relative-caret-position="418">
+            <caret line="341" selection-start-line="341" selection-end-line="341" />
+          </first_editor>
+          <second_editor relative-caret-position="-161" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="338" lean-forward="true" selection-start-line="338" selection-end-line="338" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/user-liver-function.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="271" column="74" selection-start-line="271" selection-start-column="74" selection-end-line="271" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/user-urine-test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="114" column="64" selection-start-line="114" selection-start-column="64" selection-end-line="114" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/user_fasting_blood_sugar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/user-full-blood-count.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="275" column="71" selection-start-line="275" selection-start-column="71" selection-end-line="275" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/user-lipid-profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="212" column="20" lean-forward="true" selection-start-line="212" selection-start-column="20" selection-end-line="212" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/user-medication.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2338" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/user-renal-function.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="184" column="75" selection-start-line="184" selection-start-column="75" selection-end-line="184" selection-end-column="75" />
         </state>
       </provider>
     </entry>
