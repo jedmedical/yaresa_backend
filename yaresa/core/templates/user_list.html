@@ -53,47 +53,48 @@
                 <!--Table body-->
                 <tbody>
                      {% for user in user_list %}
+                            {% if user.is_patient %}
+                                <tr>
 
-                        <tr>
-
-                                <td>{{ user.unique_id }}</td>
-                                <td>{{ user.first_name }} {{ user.other_name }} {{ user.surname }}</td>
-                                <td>{{ user.email }}</td>
-                                <td>{{ user.mobile }}</td>
-                                <td>
-                                    <div class="btn-group">
-                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-rounded modalbtn">View</button></a>
+                                        <td>{{ user.unique_id }}</td>
+                                        <td>{{ user.first_name }} {{ user.other_name }} {{ user.surname }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.mobile }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                            <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-rounded modalbtn">View</button></a>
 
 
-                                    <button type="button" class="btn modalbtn dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-<div class="dropdown-menu force-scroll">
-	
-	<a class="dropdown-item" href="{% url 'core:user-allergy' pk=user.id %}">Allergy</a>
-	<a class="dropdown-item" href="{% url 'core:user-bloodpressure' pk=user.id %}">Blood Pressure</a>
-	<a class="dropdown-item" href="{% url 'core:user-bmi' pk=user.id %}">BMI</a>
-    <a class="dropdown-item" href="{% url 'core:user-condition' pk=user.id %}">Conditions</a>
-	<a class="dropdown-item" href="{% url 'core:user-fastbloodsugar' pk=user.id %}">Fasting Blood Sugar</a>
-	<a class="dropdown-item" href="{% url 'core:user-fullbloodcount' pk=user.id %}">Full Blood Count</a>
-	<a class="dropdown-item" href="{% url 'core:user-lipidprofile' pk=user.id %}">Lipid Profile</a>
-	<a class="dropdown-item" href="{% url 'core:user-liverfunction' pk=user.id %}">Liver Function</a>
-    <a class="dropdown-item" href="{% url 'core:user-medication' pk=user.id %}">Medication</a>
-	<a class="dropdown-item" href="{% url 'core:male-prostatetest' pk=user.id %}">Prostate Specific</a>
-	<a class="dropdown-item" href="{% url 'core:user-renalfunction' pk=user.id %}">Renal Function</a>
-	<a class="dropdown-item" href="{% url 'core:user-surgery' pk=user.id %}">Surgery</a>
-	<a class="dropdown-item" href="{% url 'core:user-urinetest' pk=user.id %}">Urine Test</a>
-     
-     
-	 
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="{% url 'core:user-account-medication' pk=user.id %}">Reset Account</a>
-    <a class="dropdown-item" href="#">Deactivate Account</a>
-  </div>
-                                </div>
-                                </td>
+                                            <button type="button" class="btn modalbtn dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+        <div class="dropdown-menu force-scroll">
 
-                        </tr>
+            <a class="dropdown-item" href="{% url 'core:user-allergy' pk=user.id %}">Allergy</a>
+            <a class="dropdown-item" href="{% url 'core:user-bloodpressure' pk=user.id %}">Blood Pressure</a>
+            <a class="dropdown-item" href="{% url 'core:user-bmi' pk=user.id %}">BMI</a>
+            <a class="dropdown-item" href="{% url 'core:user-condition' pk=user.id %}">Conditions</a>
+            <a class="dropdown-item" href="{% url 'core:user-fastbloodsugar' pk=user.id %}">Fasting Blood Sugar</a>
+            <a class="dropdown-item" href="{% url 'core:user-fullbloodcount' pk=user.id %}">Full Blood Count</a>
+            <a class="dropdown-item" href="{% url 'core:user-lipidprofile' pk=user.id %}">Lipid Profile</a>
+            <a class="dropdown-item" href="{% url 'core:user-liverfunction' pk=user.id %}">Liver Function</a>
+            <a class="dropdown-item" href="{% url 'core:user-medication' pk=user.id %}">Medication</a>
+            <a class="dropdown-item" href="{% url 'core:male-prostatetest' pk=user.id %}">Prostate Specific</a>
+            <a class="dropdown-item" href="{% url 'core:user-renalfunction' pk=user.id %}">Renal Function</a>
+            <a class="dropdown-item" href="{% url 'core:user-surgery' pk=user.id %}">Surgery</a>
+            <a class="dropdown-item" href="{% url 'core:user-urinetest' pk=user.id %}">Urine Test</a>
+
+
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'core:user-account-medication' pk=user.id %}">Reset Account</a>
+            <a class="dropdown-item" href="#">Deactivate Account</a>
+          </div>
+                                        </div>
+                                        </td>
+
+                                </tr>
+                            {% endif %}
                      {% endfor %}
                 </tbody>
                 <!--Table body-->

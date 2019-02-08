@@ -53,8 +53,8 @@
                 <!--Table body-->
                 <tbody>
                      {% for user in user_list %}
-
-                        <tr>
+                            {% if user.is_doctor %}
+                                <tr>
 
                                 <td>{{ user.unique_id }}</td>
                                 <td>{{ user.first_name }} {{ user.other_name }} {{ user.surname }}</td>
@@ -84,6 +84,8 @@
                                 </td>
 
                         </tr>
+                            {% endif %}
+
                      {% endfor %}
                 </tbody>
                 <!--Table body-->

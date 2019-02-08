@@ -1,5 +1,5 @@
 from core.models.base_model import BaseModel
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.db import models
 from datetime import date
 # Create your models here.
@@ -7,6 +7,7 @@ from yaresa import settings
 
 sex = (("Male", "MALE"), ("Female", "FEMALE"))
 marital = (("Married", "MARRIED"), ("Single", "SINGLE"))
+
 class AuthUserDemographic(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     picture = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
@@ -35,6 +36,17 @@ class AuthUserDemographic(BaseModel):
     def __str__(self):
         return '{} {} {}'.format(self.first_name, self.other_name, self.surname)
 
+    def is_patient(self, ):
+        users_in_group = Group.objects.get(name="Patient").user_set.all()
+        return True if self.user in users_in_group else False
+
+    def is_doctor(self, ):
+        users_in_group = Group.objects.get(name="Doctor").user_set.all()
+        return True if self.user in users_in_group else False
+
+    def is_nurse(self, ):
+        users_in_group = Group.objects.get(name="Nurse").user_set.all()
+        return True if self.user in users_in_group else False
 
 
     def get_age(self):

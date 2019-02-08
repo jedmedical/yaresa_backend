@@ -63,12 +63,12 @@
                 <ul class="collapsible collapsible-accordion">
 
                     {% if  request.user.is_superuser %}
-                        <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i> Dashboards</a>
+                        <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i>Dashboard</a>
 
-                    </li>
+                        </li>
 
 
-                        <li><a class="collapsible-header waves-effect arrow-r white-text"><i class="fa fa-user"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
+                        <li><a class="collapsible-header waves-effect arrow-r "><i class="fa fa-user"></i>Patients<i class="fa fa-angle-down rotate-icon white-text"></i></a>
                                 <div class="collapsible-body">
                                     <ul>
                                         <li><a href="{% url 'core:user-list' %}" class="waves-effect">View Patients</a>
@@ -118,16 +118,14 @@
                                     </li>
                                     <li><a href="{% url 'core:g6pd-count' %}" class="waves-effect">G6PD</a>
                                     </li>
-=======
-{#                    {% endif %}#}
->>>>>>> master
+
 
 
                                 </ul>
                             </div>
                         </li>
                     {% elif request.user|has_group:"Doctor" %}
-                        <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i> Dashboards</a>
+                        <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i> Dashboard</a>
 
                     </li>
 
