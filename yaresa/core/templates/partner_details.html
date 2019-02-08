@@ -112,7 +112,7 @@
 
 		<div class="col-sm-4">
 		   <h5 class="h5-responsive dark-grey-text text-uppercase">Age</h5>
-		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{part.mobile }}</h6>
+		     <h6 class="h6-responsive dark-grey-text text-capitalize">{{part.get_age }}</h6>
 			</div>
 
 		</div>
@@ -128,8 +128,7 @@
 		 </div>
 
 	       <div class="col-sm-4 offset-md-4">
-               <a href="{% url 'core:patient-transfer' pk=user.id %}" class="btn btn-outline-warning btn-rounded">Transfer to Partner</a>
-		  </div>
+                </div>
 		</div>
 
 

@@ -1,7 +1,7 @@
 from django import forms
 import datetime as base_datetime
 
-from core.models import Partners
+from core.models import Partners, Organization
 
 __author__ = 'andrews'
 
@@ -39,6 +39,43 @@ class NewUserForm(forms.Form):
     mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     emergency_contact_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     emergency_contact_mobile = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+
+
+class NewPartnerForm(forms.Form):
+    def __init__(self, data=None,  initial=None, instance=None):
+        super(NewPartnerForm, self).__init__(data=data, initial=initial, )
+
+        choices = map(lambda organ: (organ.id, '{} - {}'.format(organ.name,
+                                                                   organ.type,
+                                                                   )),Organization.objects.all())
+        self.fields['organization'].choices = choices
+
+    organization = forms.ChoiceField(  required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
+
+    picture = forms.ImageField()
+    title = forms.ChoiceField( choices= Title, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
+    first_name = forms.CharField(max_length=255 ,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    other_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}),)
+
+    surname = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    sex = forms.ChoiceField(choices=Sex, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
+
+    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
+                                  input_formats=["%Y-%m-%d"])
+    nationality = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    religion = forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    marital_status = forms.ChoiceField(choices=Marital_status, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
+    speciality = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    mdc_certificate = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    role = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    certificate = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    address = forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    occupation = forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    email = forms.EmailField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    emergency_contact_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    emergency_contact_mobile = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+
 
 class NewUserMedicalHistoryForm(forms.Form):
     blood_group = forms.ChoiceField( choices= Blood_Group, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)

@@ -1,3 +1,6 @@
+from datetime import date
+
+from core.models import Organization
 from core.models.base_model import BaseModel
 from django.contrib.auth.models import User
 from django.db import models
@@ -24,13 +27,19 @@ class Partners(BaseModel):
     mobile = models.CharField(max_length=255,null=True)
     first_login = models.BooleanField(default=True)
     speciality = models.CharField(max_length=255,null=True)
-    facility_name = models.CharField(max_length=255,null=True)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, null=True)
     certificate = models.CharField(max_length=255,null=True)
     role = models.CharField(max_length=225,null=True)
     marital_status = models.CharField(max_length=255, choices=marital, default="Single")
 
     def __str__(self):
         return '{} {} {}'.format(self.first_name, self.other_name, self.surname)
+
+    def get_age(self):
+        born = self.date_of_birth
+        today = date.today()
+        return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
 
 
 

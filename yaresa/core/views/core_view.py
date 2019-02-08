@@ -7,7 +7,7 @@ from core.core_util import add_zeros
 from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy, \
     Addusermedication, Adduserbmi, Addbloodpressure, Addcontactus, Addusersurgery, Addfastbloodsugar, \
     Addfullbloodcount, Adduserlipidprofile, Adduserrenaltest, Adduserlivertest, Addprostatetest, Adduserurinetest, \
-    Addorganization, PatientTransferForm
+    Addorganization, PatientTransferForm, NewPartnerForm
 from core.fusioncharts import FusionCharts
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
@@ -1073,7 +1073,7 @@ def add_organization(request):
 def add_partners(request):
 
     if request.method == "POST":
-        new_user_form = NewUserForm(request.POST, request.FILES)
+        new_user_form = NewPartnerForm(request.POST, request.FILES)
 
         if new_user_form.is_valid():
             picture = new_user_form.cleaned_data['picture']
@@ -1095,6 +1095,8 @@ def add_partners(request):
             mobile = new_user_form.cleaned_data['mobile']
             role = new_user_form.cleaned_data['role']
             certificate = new_user_form.cleaned_data['certificate']
+            organ = new_user_form.cleaned_data['organization']
+            organization = Organization.objects.get(id=organ)
 
 
 
@@ -1113,7 +1115,8 @@ def add_partners(request):
                                                 surname=surname, sex=sex, date_of_birth=date_of_birth,
                                                 nationality=nationality, religion=religion,
                                                 marital_status=marital_status, address=address,
-                                                mobile=mobile, role=role, certificate=certificate
+                                                mobile=mobile, role=role, certificate=certificate,
+                                                organization=organization
 
 
                                                 )
@@ -1135,10 +1138,10 @@ def add_partners(request):
         else:
             print("Andrews")
 
-        context = {'new_user_form': new_user_form}
-        return render(request, 'add_partner.html', context)
+            context = {'new_user_form': new_user_form}
+            return render(request, 'add_partner.html', context)
 
-    new_user_form = NewUserForm()
+    new_user_form = NewPartnerForm()
     context = {'new_user_form': new_user_form}
     return render(request, 'add_partner.html', context)
 
@@ -1195,7 +1198,7 @@ def nurses_list(request):
 def partner_details(request,pk):
     partner = Partners.objects.get(id=pk)
 
-    context = {'partner': partner}
+    context = {'part': partner}
     return render(request, 'partner_details.html', context)
 
 @login_required(login_url='accounts/signin')
