@@ -15,11 +15,11 @@
     <div class="view gradient-card-header heavy-rain-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
         <div>
-             <a href="{% url 'core:new-partner' %}"><button type="button"  data-toggle="tooltip" data-placement="top" title="Add new partner" class="btn btn-outline-white btn-rounded btn-sm px-2">
+             <a href="{% url 'core:new-user' %}"><button type="button"  data-toggle="tooltip" data-placement="top" title="Add new user" class="btn btn-outline-white btn-rounded btn-sm px-2">
                  <i class="fa fa-plus mt-0"></i></button></a>
         </div>
 
-        <h4 class="white-text mx-3">Partners</h4>
+        <h4 class="white-text mx-3">Users</h4>
 
         <div>
            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-info-circle mt-0"></i></button>
@@ -52,29 +52,40 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for part in partner %}
+                     {% for user in user_list %}
 
                         <tr>
 
-                                <td>{{ part.unique_id }}</td>
-                                <td>{{ part.first_name }} {{ part.other_name }} {{ part.surname }}</td>
-                                <td>{{ part.email }}</td>
-                                <td>{{ part.mobile }}</td>
+                                <td>{{ user.patient.unique_id }}</td>
+                                <td>{{ user.patient }}</td>
+                                <td>{{ user.patient.email }}</td>
+                                <td>{{ user.patient.mobile }}</td>
                                 <td>
                                     <div class="btn-group">
-                                    <a href="{% url 'core:partner-detail' pk=part.id %}"><button type="button" class="btn btn-rounded modalbtn">View</button></a>
+                                    <a href="{% url 'core:user-detail' pk=user.patient.id %}"><button type="button" class="btn btn-rounded modalbtn">View</button></a>
 
 
                                     <button type="button" class="btn modalbtn dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="sr-only">Toggle Dropdown</span>
                                 </button>
 <div class="dropdown-menu force-scroll">
-
-	<a class="dropdown-item" href="{% url 'core:doctor-patients-list' %}">Patients</a>
-
-
-
-
+	
+	<a class="dropdown-item" href="{% url 'core:user-allergy' pk=user.patient.id %}">Allergy</a>
+	<a class="dropdown-item" href="{% url 'core:user-bloodpressure' pk=user.patient.id %}">Blood Pressure</a>
+	<a class="dropdown-item" href="{% url 'core:user-bmi' pk=user.patient.id %}">BMI</a>
+    <a class="dropdown-item" href="{% url 'core:user-condition' pk=user.patient.id %}">Conditions</a>
+	<a class="dropdown-item" href="{% url 'core:user-fastbloodsugar' pk=user.patient.id %}">Fasting Blood Sugar</a>
+	<a class="dropdown-item" href="{% url 'core:user-fullbloodcount' pk=user.patient.id %}">Full Blood Count</a>
+	<a class="dropdown-item" href="{% url 'core:user-lipidprofile' pk=user.patient.id %}">Lipid Profile</a>
+	<a class="dropdown-item" href="{% url 'core:user-liverfunction' pk=user.patient.id %}">Liver Function</a>
+    <a class="dropdown-item" href="{% url 'core:user-medication' pk=user.patient.id %}">Medication</a>
+	<a class="dropdown-item" href="{% url 'core:male-prostatetest' pk=user.patient.id %}">Prostate Specific</a>
+	<a class="dropdown-item" href="{% url 'core:user-renalfunction' pk=user.patient.id %}">Renal Function</a>
+	<a class="dropdown-item" href="{% url 'core:user-surgery' pk=user.patient.id %}">Surgery</a>
+	<a class="dropdown-item" href="{% url 'core:user-urinetest' pk=user.patient.id %}">Urine Test</a>
+     
+     
+	 
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{% url 'core:user-account-medication' pk=user.id %}">Reset Account</a>
     <a class="dropdown-item" href="#">Deactivate Account</a>

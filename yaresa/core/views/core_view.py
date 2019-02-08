@@ -1,5 +1,6 @@
 import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 
 from core.core_util import add_zeros
@@ -22,11 +23,12 @@ import requests
 # Create your views here.
 import random
 
-
+@login_required(login_url='accounts/signin')
 def dashboard(request):
 
     return render(request,'dashboard.html')
 
+@login_required(login_url='accounts/signin')
 def add_new_user(request):
 
     if request.method == "POST":
@@ -106,7 +108,7 @@ def add_new_user(request):
     context = {'new_user_form':new_user_form}
     return render(request,'add_new_user.html',context)
 
-
+@login_required(login_url='accounts/signin')
 def add_medical_info(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
     if request.method == "POST":
@@ -311,26 +313,28 @@ def add_medical_info(request,pk):
     context = {'new_medical': new_medical,'user':user}
     return render(request,'medical-info.html',context)
 
+@login_required(login_url='accounts/signin')
 def user_list(request):
     user = AuthUserDemographic.objects.all()
 
     context = {'user_list':user}
     return render(request, 'user_list.html', context)
 
+@login_required(login_url='accounts/signin')
 def doctorpatients_list(request):
     user = AuthUserDemographic.objects.all()
 
     context = {'user_list':user}
     return render(request, 'doctor_patients_list.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def user_detail(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
     context = {'user': user}
     return render(request, 'user_detail.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def user_condition(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -347,7 +351,7 @@ def user_condition(request,pk):
     context = {'conditions': conditions,'user':user, 'userconditionform':userconditionform}
     return render(request, 'user-condition.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def user_allergy(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -365,6 +369,7 @@ def user_allergy(request,pk):
     context = {'allergies': allergies,'user':user, 'userallergyform':userallergyform}
     return render(request, 'user-allergy.html', context)
 
+@login_required(login_url='accounts/signin')
 def user_medication(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -382,6 +387,7 @@ def user_medication(request,pk):
     context = {'medications': medications,'user':user, 'usermedicationform':usermedicationform}
     return render(request, 'user-medication.html', context)
 
+@login_required(login_url='accounts/signin')
 def user_bmi(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -400,6 +406,7 @@ def user_bmi(request,pk):
     context = {'height': heights, 'weight': weights, 'user': user, 'userbmiform': userbmiform}
     return render(request, 'user-bmi.html', context)
 
+@login_required(login_url='accounts/signin')
 def user_bloodpressure(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -415,7 +422,7 @@ def user_bloodpressure(request,pk):
     context = {'bpressure': bpressure, 'user': user, 'userbpressureform': userbpressureform}
     return render(request, 'user-bloodpressure.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def user_surgery(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -432,7 +439,6 @@ def user_surgery(request,pk):
     return render(request, 'user-surgery.html', context)
 
 
-
 def user_account_reset(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
     user.first_login=True
@@ -441,7 +447,7 @@ def user_account_reset(request,pk):
     patient.set_password(pin)
     sendsms(request,patient.username,pin)
     user.save()
-    messages.success(request,"Medicine Added")
+    messages.success(request,"Password reset")
 
     return
 
@@ -464,7 +470,7 @@ def sendsms(request,contact,pin):
     print(response.reason)
     print(response.content)
 
-
+@login_required(login_url='accounts/signin')
 def blood_group_count(request):
     fieldname = 'blood_group'
     blood_group_count = Med_graphic.objects.values(fieldname).order_by(fieldname).annotate(the_count=Count(fieldname))
@@ -543,6 +549,7 @@ def blood_group_count(request):
                'outputchart' : pie3d.render(), }
     return render(request, 'blood-group-count.html', context)
 
+@login_required(login_url='accounts/signin')
 def sickling_count(request):
     fieldname = 'sickling_status'
     sickling_status_count = Med_graphic.objects.values(fieldname).order_by(fieldname).annotate(the_count=Count(fieldname))
@@ -596,6 +603,7 @@ def sickling_count(request):
                'outputchart':pie3d.render(),}
     return render(request, 'sickling-status-count.html', context)
 
+@login_required(login_url='accounts/signin')
 def g6pd_count(request):
     fieldname = 'g6pd_status'
     g6pd_count = Med_graphic.objects.values(fieldname).order_by(fieldname).annotate(the_count=Count(fieldname))
@@ -644,6 +652,7 @@ def g6pd_count(request):
                'outputchart': pie3d.render(),}
     return render(request, 'g6pd-count.html', context)
 
+
 def contact_us(request,id):
     if request.method == "POST":
         visitorcontactform = Addcontactus(request.POST)
@@ -661,6 +670,8 @@ def contact_us(request,id):
 
     return render(request, "index.html", context)
 
+
+@login_required(login_url='accounts/signin')
 def user_fastbloodsugar(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -678,7 +689,7 @@ def user_fastbloodsugar(request,pk):
     context = {'fastingbs':fastingbs, 'user':user, 'userfastbloodsugar':userfastbloodsugar}
     return render(request, 'user_fasting_blood_sugar.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def user_fullbloodcount(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -704,7 +715,7 @@ def user_fullbloodcount(request,pk):
     context = {'fullcounts':fullcounts, 'user':user, 'userfullbloodcount':userfullbloodcount}
     return render(request, 'user-full-blood-count.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def user_lipidprofile(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -724,6 +735,8 @@ def user_lipidprofile(request,pk):
     context = {'lipidprofile':lipidprofile, 'user':user, 'userlipidprofile':userlipidprofile}
     return render(request, 'user-lipid-profile.html', context)
 
+
+@login_required(login_url='accounts/signin')
 def user_renaltest(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -742,6 +755,8 @@ def user_renaltest(request,pk):
     context = {'renalfunction':renalfunction, 'user':user, 'userrenaltest':userrenaltest}
     return render(request, 'user-renal-function.html', context)
 
+
+@login_required(login_url='accounts/signin')
 def user_livertest(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -761,6 +776,8 @@ def user_livertest(request,pk):
     context = {'liverfunction':liverfunction, 'user':user, 'userlivertest':userlivertest}
     return render(request, "user-liver-function.html", context)
 
+
+@login_required(login_url='accounts/signin')
 def user_urinetest(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -777,7 +794,7 @@ def user_urinetest(request,pk):
     context = {'urinalysis':urinalysis, 'user':user, 'userurinetest':userurinetest}
     return render(request, "user-urine-test.html", context)
 
-
+@login_required(login_url='accounts/signin')
 def male_prostatetest(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
 
@@ -795,7 +812,7 @@ def male_prostatetest(request,pk):
     context = {'prostatetest':prostatetest, 'user':user, 'maleprostatetest':maleprostatetest}
     return render(request, "male-prostate-test.html", context)
 
-
+@login_required(login_url='accounts/signin')
 def add_doctor(request):
 
     if request.method == "POST":
@@ -872,7 +889,7 @@ def add_doctor(request):
     context = {'new_user_form':new_user_form}
     return render(request,'add_doctor.html',context)
 
-
+@login_required(login_url='accounts/signin')
 def add_nurse(request):
 
     if request.method == "POST":
@@ -946,7 +963,7 @@ def add_nurse(request):
     context = {'new_user_form': new_user_form}
     return render(request, 'add_nurse.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def add_general_supervisor(request):
 
     if request.method == "POST":
@@ -1018,7 +1035,7 @@ def add_general_supervisor(request):
     context = {'new_user_form': new_user_form}
     return render(request, 'add_supervisor.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def add_organization(request):
 
     if request.method == "POST":
@@ -1052,7 +1069,7 @@ def add_organization(request):
     context = {'new_organization_form':new_organization_form}
     return render(request, 'add_organization.html', context)
 
-
+@login_required(login_url='accounts/signin')
 def add_partners(request):
 
     if request.method == "POST":
@@ -1127,7 +1144,7 @@ def add_partners(request):
 
 
 
-
+@login_required(login_url='accounts/signin')
 def patient_transfer(request,pk):
     user = AuthUserDemographic.objects.get(id=pk)
     patient_transfers = PatientPartnerTransfer.objects.all()
@@ -1153,29 +1170,42 @@ def patient_transfer(request,pk):
                'patient_transfers': patient_transfers}
     return render(request, 'user_partner_transfer.html', context)
 
+@login_required(login_url='accounts/signin')
 def partners_list(request):
     partner = Partners.objects.all()
 
     context = {'partner':partner}
     return render(request, 'partners_list.html', context)
 
+@login_required(login_url='accounts/signin')
 def doctors_list(request):
     user = AuthUserDemographic.objects.all()
 
     context = {'user_list':user}
     return render(request, 'doctors_list.html', context)
 
+@login_required(login_url='accounts/signin')
 def nurses_list(request):
     user = AuthUserDemographic.objects.all()
 
     context = {'user_list':user}
     return render(request, 'nurses_list.html', context)
 
+@login_required(login_url='accounts/signin')
 def partner_details(request,pk):
     partner = Partners.objects.get(id=pk)
 
     context = {'partner': partner}
     return render(request, 'partner_details.html', context)
+
+@login_required(login_url='accounts/signin')
+def partner_view_patient(request,):
+    partner=Partners.objects.get(user=request.user)
+    user_list = PatientPartnerTransfer.objects.filter(partner=partner)
+
+    context = {'user_list': user_list}
+    return render(request, 'view_partner_patient.html', context)
+
 
 
 
