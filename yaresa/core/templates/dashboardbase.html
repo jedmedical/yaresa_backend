@@ -410,7 +410,7 @@
     <!--Main layout-->
 
     <!--Footer-->
-    <footer class="page-footer pt-0 mt-5 mb-0 mdb-color lighten-4 fixed-bottom" style="position:relative;bottom:0;width:100%;">
+    <footer class="page-footer pt-0 mt-5 mb-0 mdb-color lighten-4 fixed-bottom">
 
         <!--Copyright-->
         <div class="footer-copyright py-3 text-center">
@@ -785,19 +785,14 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 
 			 //document.getElementById("bp").value = lowbp;
 			
-		 }else if ((sysbp >= 90 && sysbp < 120) && (diabp >= 60 && diabp < 80)){
+		 }else if ((sysbp >= 90 && sysbp <= 140) && (diabp >= 60 && diabp <= 90)){
 		    document.getElementById("ybp").style.color = "#50c878";
 		    document.getElementById("ybp").style.color = "#50c878";
 		    document.getElementById("ybp").value = (bothbp + "   "+normalbp);
 		    //document.getElementById("id_diastolic").value = ;
 		 
-		 }else if (((sysbp >= 120 && sysbp < 140) && (diabp < 90)) || ((sysbp < 120) && (diabp >= 80 && diabp < 90 ))){
-		    document.getElementById("ybp").style.color = "#fcd12a";
-		    document.getElementById("ybp").style.color = "#fcd12a";
-		    document.getElementById("ybp").value = (bothbp + "   "+elevatedbp);
-		    //document.getElementById("id_diastolic").value = ;
-		
-		}else if (((sysbp >= 140 && sysbp < 160) && (diabp < 100)) || ((sysbp < 140) && (diabp >= 90 && diabp < 100 ))){
+		 
+		}else if (((sysbp > 140 && sysbp < 160) && (diabp < 100)) || ((sysbp <= 140) && (diabp >= 91 && diabp < 100 ))){
 		    document.getElementById("ybp").style.color = "#ff7417";
 		    document.getElementById("ybp").style.color = "#ff7417";
 		    document.getElementById("ybp").value = (bothbp + "   "+highbp1);
