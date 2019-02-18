@@ -51,7 +51,7 @@
         <div class="modal fade modal-ext" id="modal-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <!--Content-->
-                <div class="modal-content">
+                <div class="modal-content yellow lighten-4">
                     <!--Header-->
                     <div class="modal-header text-center">
                         <h4 class="modal-title font-weight-bolder w-100 py-3 text-uppercase" id="myModalLabel">JED Medical Services</h4>
@@ -144,7 +144,7 @@
                 <!--Section heading-->
                 <h1 class="text-center mb-5 pt-5 font-weight-bold wow fadeIn contentcolor" data-wow-delay="0.2s"><p>Access your personal health records <br> with just few taps</p> </h1>
                 <!--Section sescription-->
-                <p class="wow fadeInLeft dark-grey-text" data-wow-delay="0.3s">JED exists to take absolute responsibilities of the healthcare of individuals who
+                <p class="wow fadeIn dark-grey-text" data-wow-delay="0.3s">JED exists to take absolute responsibilities of the healthcare of individuals who
 										due to their busy schedules or occupation find it difficult to spend time at health facilities. Our clients don’t have
 										to worry at all since JED does a complete management of their health. Periodic medical screenings or check-ups will be
 										done for them at their convenience. For clients who are on chronic medications and scheduled for appointments at
@@ -153,7 +153,7 @@
 										as individuals have personal lawyers, mechanics, pastors, housekeepers etc. individuals need an organisation that also
 										manages every aspect of their health which will be available to them 24/7.</p>
 
-				<p class="wow fadeInRight dark-grey-text" data-wow-delay="0.3s">
+				<p class="wow fadeIn dark-grey-text" data-wow-delay="0.3s">
 				The Yaresa mobile application is here to help you book medical appointments with our first class
 				medical professionals and have access to your secured medical information and records anywhere in the world.Carry your medical history with you anywhere you
 				go. Having your medical history always available means in case of an emergency anywhere you are in the world,a large part of your problem
@@ -852,10 +852,13 @@
                                 <!-- Grid column -->
                                 <div class="col-md-12">
 
-                                    <div class="md-form">
-                                         {{ visitorcontactform.message }}
-                                        <label for="form76" class="lablestyle">Your Message</label>
-                                    </div>
+                                    <div class="md-form shadow-textarea form-group">
+							<i class="fa fa-pencil prefix pr-3"></i>
+                                <label for="id_docs_comments" class="control-label">Doctor's Comments</label>
+
+						        {{ visitorcontactform.message }}
+
+                           </div>
 
                                 </div>
                             </div>
@@ -873,17 +876,17 @@
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3">
                         <ul class="text-center list-unstyled float-md-right">
-                            <li><i class="fa fa-map-marker fa-2x orange-text"></i>
+                            <li><i class="fa fa-map-marker fa-2x yellow-text"></i>
                                 <p>Amakom, AK-000-0000, Kumasi</p>
                             </li>
-							 <li><i class="fa fa-map-marker fa-2x orange-text"></i>
+							 <li><i class="fa fa-map-marker fa-2x yellow-text"></i>
                                 <p>Dzorwulu, GA-000-0000, Accra</p>
                             </li>
-                            <li><i class="fa fa-phone fa-2x orange-text"></i>
+                            <li><i class="fa fa-phone fa-2x yellow-text"></i>
                                 <p>+233233140485</p>
                             </li>
 
-                            <li><i class="fa fa-envelope fa-2x orange-text"></i>
+                            <li><i class="fa fa-envelope fa-2x yellow-text"></i>
                                 <p>contact@yaresa.com</p>
                             </li>
                         </ul>

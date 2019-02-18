@@ -15,11 +15,11 @@
     <div class="view gradient-card-header heavy-rain-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
         <div>
-             <a href="{% url 'core:new-doctor' %}"><button type="button"  data-toggle="tooltip" data-placement="top" title="Add new doctor" class="btn btn-outline-white btn-rounded btn-sm px-2">
+             <a href="{% url 'core:new-generalsupervisor' %}"><button type="button"  data-toggle="tooltip" data-placement="top" title="Add new supervisor" class="btn btn-outline-white btn-rounded btn-sm px-2">
                  <i class="fa fa-plus mt-0"></i></button></a>
         </div>
 
-        <h4 class="white-text mx-3">Doctors</h4>
+        <h4 class="white-text mx-3">General Supervisors</h4>
 
         <div>
            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-info-circle mt-0"></i></button>
@@ -53,8 +53,9 @@
                 <!--Table body-->
                 <tbody>
                      {% for user in user_list %}
-                            {% if user.is_doctor %}
-                                <tr>
+                         {% if user.is_generalsupervisor %}
+
+                             <tr>
 
                                 <td>{{ user.unique_id }}</td>
                                 <td>{{ user.first_name }} {{ user.other_name }} {{ user.surname }}</td>
@@ -73,9 +74,6 @@
 	<a class="dropdown-item" href="{% url 'core:doctor-patients-list' %}">Patients</a>
 
 
-
-
-
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{% url 'core:user-account-medication' pk=user.id %}">Reset Account</a>
     <a class="dropdown-item" href="#">Deactivate Account</a>
@@ -84,8 +82,8 @@
                                 </td>
 
                         </tr>
-                            {% endif %}
 
+                         {% endif %}
                      {% endfor %}
                 </tbody>
                 <!--Table body-->

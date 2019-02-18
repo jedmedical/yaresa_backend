@@ -3,7 +3,7 @@ from core.views.core_view import dashboard, add_new_user, add_medical_info, user
     user_bmi, g6pd_count, user_surgery, user_fastbloodsugar, user_fullbloodcount, user_lipidprofile, user_renaltest, \
     user_livertest, male_prostatetest, user_urinetest, add_doctor, add_nurse, add_general_supervisor, add_organization, \
     add_partners, doctorpatients_list, patient_transfer, partners_list, doctors_list, nurses_list, partner_details, \
-    partner_view_patient
+    partner_view_patient, organizations_list, supervisors_list
 
 from core.views.home_views import index, signin, sign_out
 from django.conf.urls import url
@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^doctors-list', doctors_list , name="doctors-list"),
     url(r'^nurses-list', nurses_list, name="nurses-list"),
     url(r'^partner-list', partners_list, name="partners-list"),
+    url(r'^supervisors-list', supervisors_list, name="supervisors-list"),
     url(r'^doctor-patients-list', doctorpatients_list, name="doctor-patients-list"),
     url(r'^add-user', add_new_user, name="new-user"),
     url(r'^user-account-reset/(?P<pk>\d+)', user_account_reset, name="user-account-medication"),
@@ -57,6 +58,7 @@ urlpatterns = [
 
     url(r'^patient-transfer/(?P<pk>\d+)', patient_transfer, name="patient-transfer"),
     url(r'^partner-patient', partner_view_patient, name="partner-view-patient"),
+    url(r'^organizations-list', organizations_list , name="organizations-list"),
 
 
 

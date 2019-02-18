@@ -512,7 +512,7 @@ def blood_group_count(request):
                                      "subCaption" : "",
                                      "showValues":"1",
                                      "showPercentInTooltip" : "0",
-                                     "numberPrefix" : "$",
+                                     "numberPrefix" : "",
                                      "enableMultiSlicing":"1",
                                      "theme": "fusion"
                                  },
@@ -575,11 +575,11 @@ def sickling_count(request):
                          # The data is passed as a string in the `dataSource` as parameter.
                          {
                              "chart": {
-                                 "caption": "Blood Group Chart",
+                                 "caption": "Sickling Status Chart",
                                  "subCaption": "",
                                  "showValues": "1",
                                  "showPercentInTooltip": "0",
-                                 "numberPrefix": "$",
+                                 "numberPrefix": "",
                                  "enableMultiSlicing": "1",
                                  "theme": "fusion"
                              },
@@ -627,7 +627,7 @@ def g6pd_count(request):
                          # The data is passed as a string in the `dataSource` as parameter.
                          {
                              "chart": {
-                                 "caption": "Blood Group Chart",
+                                 "caption": "G6PD Status Chart",
                                  "subCaption": "",
                                  "showValues": "1",
                                  "showPercentInTooltip": "0",
@@ -653,7 +653,7 @@ def g6pd_count(request):
     return render(request, 'g6pd-count.html', context)
 
 
-def contact_us(request,id):
+def contact_us(request):
     if request.method == "POST":
         visitorcontactform = Addcontactus(request.POST)
         if visitorcontactform.is_valid():
@@ -665,7 +665,7 @@ def contact_us(request,id):
         messages.success(request, "Message Sent")
 
     visitorcontactform = Addcontactus()
-    contactusnow = Contactus.objects.filter(id=id)
+    contactusnow = Contactus.objects.filter(yourname=yourname)
     context = {'contactusnow':contactusnow, 'visitorcontactform':visitorcontactform}
 
     return render(request, "index.html", context)
@@ -1210,9 +1210,20 @@ def partner_view_patient(request,):
     return render(request, 'view_partner_patient.html', context)
 
 
+@login_required(login_url='accounts/signin')
+def organizations_list(request):
+    organization = Organization.objects.all()
+
+    context = {'organization':organization}
+    return render(request, 'organizations_list.html', context)
 
 
+@login_required(login_url='accounts/signin')
+def supervisors_list(request):
+    user = AuthUserDemographic.objects.all()
 
+    context = {'user_list': user}
+    return render(request, 'supervisors_list.html', context)
 
 
 

@@ -258,7 +258,7 @@ class Addcontactus(forms.Form):
     youremail = forms.EmailField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
     yournumber = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
     subject = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
-    message = forms.CharField(max_length=1500, widget=forms.Textarea(attrs={'class': "form-control md-textarea textarea-style", "row":'5'}), )
+    message = forms.CharField(max_length=1500, widget=forms.Textarea(attrs={'class': "form-control md-textarea", "rows": 5}), )
 
 class Addfastbloodsugar(forms.Form):
     fbs_test_result = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'oninput': "your_fbs()"}), )

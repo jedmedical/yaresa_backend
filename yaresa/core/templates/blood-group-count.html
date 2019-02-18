@@ -23,11 +23,11 @@
 			<!-- Grid Row -->
 				<div class="row mb-5">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
+              <div class="card card-statistics indigo lighten-4">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
-                      <i class="fa fa-heartbeat fa-4x text-danger icon-lg"></i>
+                      <i class="fa fa-heartbeat fa-4x indigo-text icon-lg"></i>
                     </div>
                     <div class="float-right">
                       <p class="mb-0 text-right text-uppercase">A+</p>
@@ -37,17 +37,40 @@
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
-                    <i class="fa fa-area-chart mr-1" aria-hidden="true"></i>
+                    <i class="fa fa-area-chart mr-1 indigo-text" aria-hidden="true"></i>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
+			
+			 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+              <div class="card card-statistics cyan lighten-4">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
-                      <i class="fa fa-heartbeat fa-4x text-warning icon-lg"></i>
+                      <i class="fa fa-heartbeat fa-4x text-default icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right text-uppercase">A-</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-bold text-right mb-0">{{ aneg }}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
+                    <i class="fa fa-info mr-1 text-default" aria-hidden="true"></i> </p>
+                </div>
+              </div>
+            </div>
+            
+                </div>
+          <div class="row mb-5">
+		    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+              <div class="card card-statistics red lighten-4">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fa fa-heartbeat fa-4x text-danger icon-lg"></i>
                     </div>
                     <div class="float-right">
                       <p class="mb-0 text-right text-uppercase">B+</p>
@@ -57,19 +80,43 @@
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
-                    <i class="fa fa-users mr-1" aria-hidden="true"></i>
+                    <i class="fa fa-users mr-1 text-danger" aria-hidden="true"></i>
                   </p>
                 </div>
               </div>
             </div>
-                </div>
-          <div class="row mb-5">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
+            
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+              <div class="card card-statistics amber lighten-4">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
-                      <i class="fa fa-heartbeat fa-4x text-info icon-lg"></i>
+                      <i class="fa fa-heartbeat fa-4x amber-text icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right text-uppercase">B-</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-bold text-right mb-0">{{ bneg }}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
+                    <i class="fa fa-info mr-1 amber-text" aria-hidden="true"></i>  </p>
+                </div>
+              </div>
+            </div>
+
+
+            
+
+                </div>
+          <div class="row mb-5">
+           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+              <div class="card card-statistics green lighten-4">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fa fa-heartbeat fa-4x text-success icon-lg"></i>
                     </div>
                     <div class="float-right">
                       <p class="mb-0 text-right text-uppercase">AB+</p>
@@ -79,14 +126,37 @@
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
-                    <i class="fa fa-info mr-1" aria-hidden="true"></i> </p>
+                    <i class="fa fa-info mr-1 text-success" aria-hidden="true"></i> </p>
                 </div>
               </div>
             </div>
 
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+              <div class="card card-statistics purple lighten-4">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <i class="fa fa-heartbeat fa-4x purple-text icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                      <p class="mb-0 text-right text-uppercase">AB-</p>
+                      <div class="fluid-container">
+                        <h3 class="font-weight-bold text-right mb-0">{{ abneg }}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
+                    <i class="fa fa-info mr-1 purple-text" aria-hidden="true"></i> </p>
+                </div>
+              </div>
+            </div>
+            
 
+                </div>
+
+                    <div class="row mb-5">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
+              <div class="card card-statistics blue lighten-4">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
@@ -100,84 +170,18 @@
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
-                    <i class="fa fa-info mr-1" aria-hidden="true"></i>  </p>
-                </div>
-              </div>
-            </div>
-
-                </div>
-          <div class="row mb-5">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
-                <div class="card-body">
-                  <div class="clearfix">
-                    <div class="float-left">
-                      <i class="fa fa-heartbeat fa-4x text-info icon-lg"></i>
-                    </div>
-                    <div class="float-right">
-                      <p class="mb-0 text-right text-uppercase">A-</p>
-                      <div class="fluid-container">
-                        <h3 class="font-weight-bold text-right mb-0">{{ aneg }}</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
-                    <i class="fa fa-info mr-1" aria-hidden="true"></i> </p>
+                    <i class="fa fa-info mr-1 text-info" aria-hidden="true"></i>  </p>
                 </div>
               </div>
             </div>
 
 
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
+              <div class="card card-statistics indigo lighten-4">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
-                      <i class="fa fa-heartbeat fa-4x text-info icon-lg"></i>
-                    </div>
-                    <div class="float-right">
-                      <p class="mb-0 text-right text-uppercase">B-</p>
-                      <div class="fluid-container">
-                        <h3 class="font-weight-bold text-right mb-0">{{ bneg }}</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
-                    <i class="fa fa-info mr-1" aria-hidden="true"></i>  </p>
-                </div>
-              </div>
-            </div>
-
-                </div>
-
-                    <div class="row mb-5">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
-                <div class="card-body">
-                  <div class="clearfix">
-                    <div class="float-left">
-                      <i class="fa fa-heartbeat fa-4x text-info icon-lg"></i>
-                    </div>
-                    <div class="float-right">
-                      <p class="mb-0 text-right text-uppercase">AB-</p>
-                      <div class="fluid-container">
-                        <h3 class="font-weight-bold text-right mb-0">{{ abneg }}</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
-                    <i class="fa fa-info mr-1" aria-hidden="true"></i> </p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
-                <div class="card-body">
-                  <div class="clearfix">
-                    <div class="float-left">
-                      <i class="fa fa-heartbeat fa-4x text-info icon-lg"></i>
+                      <i class="fa fa-heartbeat fa-4x indigo-text icon-lg"></i>
                     </div>
                     <div class="float-right">
                       <p class="mb-0 text-right text-uppercase">O-</p>
@@ -187,7 +191,7 @@
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0 font-small font-weight-bold text-capitalize">
-                    <i class="fa fa-info mr-1" aria-hidden="true"></i>  </p>
+                    <i class="fa fa-info mr-1 indigo-text" aria-hidden="true"></i>  </p>
                 </div>
               </div>
             </div>

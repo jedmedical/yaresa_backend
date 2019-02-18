@@ -9,17 +9,17 @@
     <div class="container-fluid">
 
 
-<div class="card card-cascade narrower">
+<div class="card card-cascade narrower" style="margin-bottom:100px;">
 
     <!--Card image-->
     <div class="view gradient-card-header heavy-rain-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
         <div>
-             <a href="{% url 'core:new-doctor' %}"><button type="button"  data-toggle="tooltip" data-placement="top" title="Add new doctor" class="btn btn-outline-white btn-rounded btn-sm px-2">
+             <a href="{% url 'core:new-organization' %}"><button type="button"  data-toggle="tooltip" data-placement="top" title="Add new organization" class="btn btn-outline-white btn-rounded btn-sm px-2">
                  <i class="fa fa-plus mt-0"></i></button></a>
         </div>
 
-        <h4 class="white-text mx-3">Doctors</h4>
+        <h4 class="white-text mx-3">Organizations</h4>
 
         <div>
            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fa fa-info-circle mt-0"></i></button>
@@ -39,10 +39,10 @@
 
                             <tr>
 
-                                <th class="th-lg">ID </th>
+                                <th class="th-lg">Type </th>
                                 <th class="th-lg"> Name</th>
-                                 <th class="th-lg">Email</th>
-                                <th class="th-lg">Mobile</th>
+                                 <th class="th-lg">Address</th>
+                                <th class="th-lg">Telephone</th>
 
                                 <th class="th-lg"></th>
                             </tr>
@@ -52,17 +52,17 @@
 
                 <!--Table body-->
                 <tbody>
-                     {% for user in user_list %}
-                            {% if user.is_doctor %}
-                                <tr>
+                     {% for organa in organization %}
 
-                                <td>{{ user.unique_id }}</td>
-                                <td>{{ user.first_name }} {{ user.other_name }} {{ user.surname }}</td>
-                                <td>{{ user.email }}</td>
-                                <td>{{ user.mobile }}</td>
+                        <tr>
+
+                                <td>{{ organa.type }}</td>
+                                <td>{{ organa.name }}</td>
+                                <td>{{ organa.address }}</td>
+                                <td>{{ organa.telephone }}</td>
                                 <td>
                                     <div class="btn-group">
-                                    <a href="{% url 'core:user-detail' pk=user.id %}"><button type="button" class="btn btn-rounded modalbtn">View</button></a>
+                                    <a href=""><button type="button" class="btn btn-rounded modalbtn">View</button></a>
 
 
                                     <button type="button" class="btn modalbtn dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,8 +70,7 @@
                                 </button>
 <div class="dropdown-menu force-scroll">
 
-	<a class="dropdown-item" href="{% url 'core:doctor-patients-list' %}">Patients</a>
-
+	<a class="dropdown-item" href="{% url 'core:partners-list' %}">Partners</a>
 
 
 
@@ -84,8 +83,6 @@
                                 </td>
 
                         </tr>
-                            {% endif %}
-
                      {% endfor %}
                 </tbody>
                 <!--Table body-->

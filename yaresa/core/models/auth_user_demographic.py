@@ -48,6 +48,10 @@ class AuthUserDemographic(BaseModel):
         users_in_group = Group.objects.get(name="Nurse").user_set.all()
         return True if self.user in users_in_group else False
 
+    def is_generalsupervisor(self, ):
+        users_in_group = Group.objects.get(name="General Supervisor").user_set.all()
+        return True if self.user in users_in_group else False
+
 
     def get_age(self):
         born = self.date_of_birth
