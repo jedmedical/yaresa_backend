@@ -1,5 +1,5 @@
 from core.models import AuthUserDemographic
-from core.models import Drugs
+from core.models.drugs import Drugs
 from core.models.base_model import BaseModel
 from django.contrib.auth.models import User
 from django.db import models
