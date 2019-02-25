@@ -1,7 +1,7 @@
 from django import forms
 import datetime as base_datetime
 
-from core.models import Partners, Organization
+from core.models import Partners, Organization, Drugs
 
 __author__ = 'andrews'
 
@@ -233,7 +233,14 @@ class Adduserallergy(forms.Form):
 
 
 class Addusermedication(forms.Form):
-    medicine = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    def __init__(self, data=None, initial=None, instance=None):
+        super(Addusermedication, self).__init__(data=data, initial=initial, )
+
+        choices = map(lambda drug: (drug.id, '{}'.format(drug.name,
+                                                                )), Drugs.objects.all())
+        self.fields['medicine'].choices = choices
+
+    medicine = forms.ChoiceField(widget=forms.Select(attrs={'class': "form-control mdb-select"}), )
     dosage = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
     refill_date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
@@ -376,3 +383,5 @@ class PatientTransferForm(forms.Form):
 
     remark = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
 
+class Adddrugform(forms.Form):
+    name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )

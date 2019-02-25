@@ -7,12 +7,12 @@ from core.core_util import add_zeros
 from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy, \
     Addusermedication, Adduserbmi, Addbloodpressure, Addcontactus, Addusersurgery, Addfastbloodsugar, \
     Addfullbloodcount, Adduserlipidprofile, Adduserrenaltest, Adduserlivertest, Addprostatetest, Adduserurinetest, \
-    Addorganization, PatientTransferForm, NewPartnerForm
+    Addorganization, PatientTransferForm, NewPartnerForm, Adddrugform
 from core.fusioncharts import FusionCharts
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
     Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization, Partners, \
-    PatientPartnerTransfer
+    PatientPartnerTransfer, Drugs
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
@@ -376,9 +376,14 @@ def user_medication(request,pk):
     if request.method == "POST":
         usermedicationform = Addusermedication(request.POST)
         if usermedicationform.is_valid():
-            Medication(user=user,medicine=usermedicationform.cleaned_data['medicine'],
-                    dosage=usermedicationform.cleaned_data['dosage'],refill_date=usermedicationform.cleaned_data['refill_date']).save()
-            messages.success(request,"Medicine Added")
+            dosage = usermedicationform.cleaned_data['dosage']
+            refill_date = usermedicationform.cleaned_data['refill_date']
+            drug = usermedicationform.cleaned_data['medicine']
+            medicine = Drugs.objects.get(id=drug)
+
+            if medicine and dosage:
+                Medication(user=user,dosage=dosage,refill_date=refill_date,medicine=medicine).save()
+                messages.success(request, "Medication Added")
 
 
     usermedicationform = Addusermedication()
@@ -1226,7 +1231,34 @@ def supervisors_list(request):
     return render(request, 'supervisors_list.html', context)
 
 
+@login_required(login_url='accounts/signin')
+def add_drugs(request):
 
+    if request.method == "POST":
+        new_drug_form = Adddrugform(request.POST)
+
+        if new_drug_form.is_valid():
+            name = new_drug_form.cleaned_data['name']
+
+            try:
+                drug_info = Drugs(name=name)
+                drug_info.save()
+
+                messages.success(request, "Drug Added")
+
+            except IntegrityError as e:
+                # if 'unique constraint' in e.args[0]:
+                messages.error(request, 'Drug already exist')
+
+        else:
+            print("Sam")
+
+            context = {'new_drug_form': new_drug_form}
+            return render(request, 'add_drugs.html', context)
+
+    new_drug_form = Adddrugform()
+    context = {'new_drug_form':new_drug_form}
+    return render(request, 'add_drugs.html', context)
 
 
 

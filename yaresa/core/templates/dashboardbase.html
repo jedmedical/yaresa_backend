@@ -78,7 +78,7 @@
 
                                     </ul>
                                 </div>
-                            </li>
+                        </li>
 
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-user"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>
 
@@ -126,6 +126,18 @@
 
                                 </ul>
                             </div>
+                        </li>
+						
+						<li><a class="collapsible-header waves-effect arrow-r "><i class="fa fa-medkit"></i>Add Drugs<i class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="{% url 'core:new-drug' %}" class="waves-effect">Add Drugs</a>
+                                        </li>
+                                        <li><a href="{% url 'core:new-drug' %}" class="waves-effect">Add Conditions</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
                         </li>
                     {% elif request.user|has_group:"Doctor" %}
                         <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i> Dashboard</a>
@@ -188,6 +200,18 @@
                                 </ul>
                             </div>
                         </li>
+						
+						<li><a class="collapsible-header waves-effect arrow-r "><i class="fa fa-medkit"></i>Add Drugs<i class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="{% url 'core:new-drug' %}" class="waves-effect">Add Drugs</a>
+                                        </li>
+                                        <li><a href="{% url 'core:new-drug' %}" class="waves-effect">Add Conditions</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                        </li>
                     {% elif request.user|has_group:"Nurse" %}
                         <li><a href="{% url 'core:dashboard' %}" class="collapsible-header waves-effect arrow-r active"><i class="fa fa-tachometer"></i> Dashboards</a>
 
@@ -248,6 +272,18 @@
 
                                 </ul>
                             </div>
+                        </li>
+						
+						<li><a class="collapsible-header waves-effect arrow-r "><i class="fa fa-medkit"></i>Add Drugs<i class="fa fa-angle-down rotate-icon"></i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="{% url 'core:new-drug' %}" class="waves-effect">Add Drugs</a>
+                                        </li>
+                                        <li><a href="{% url 'core:new-drug' %}" class="waves-effect">Add Conditions</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
                         </li>
 
 
