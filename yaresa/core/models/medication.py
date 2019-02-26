@@ -11,6 +11,7 @@ class Medication(BaseModel):
     user = models.ForeignKey(AuthUserDemographic, on_delete=models.CASCADE)
     medicine = models.ForeignKey(Drugs, on_delete=models.CASCADE ,null=True)
     dosage = models.CharField(max_length=255,null=True)
+    strength = models.CharField(max_length=30, null=True)
     refill_date = models.DateField()
 
     def __str__(self):

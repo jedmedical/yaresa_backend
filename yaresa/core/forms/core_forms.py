@@ -5,7 +5,8 @@ from core.models import Partners, Organization, Drugs
 
 __author__ = 'andrews'
 
-Title = (("Mr", "Mr"), ("Mrs", "Mrs"),("Dr", "Dr"))
+Title = (("Mr", "Mr"), ("Mrs", "Mrs"),("Dr", "Dr"),("Miss","Miss"),("Ms","Ms"),("Prof","Prof"),("Pr","Pr"),("Rev.","Rev."),
+        ("Nana","Nana"))
 Sex = (("Male", "Male"), ("Female", "Female"))
 Marital_status = (("Single","Single"),("Married","Married"))
 Blood_Group = (("A+","A+"),("B+","B+"),("AB+","AB+"),("O+","O+"),("A-","A-"),("B-","B-"),("AB-","AB-"),("O-","O-"))
@@ -13,6 +14,8 @@ Sickling_Status = (("AA","AA"),("AS","AS"),("SS","SS"),("SC","SC"))
 G6pd = (("Normal","Normal"),("Partial Defect","Partial Defect"),("Full Defect","Full Defect"))
 true_or_false = (("Yes","Yes"),("No","No"))
 allergytype = (("Drug Allergy","Drug Allergy"),("Food Allergy","Food Allergy"),("Others","Others"))
+Strength = (("mg","mg"),("cc","cc"),("ml","ml"),("gr","gr"),("tbsp","tbsp"),("tsp","tsp"),("drops","drops"),
+            ("squeezes","squeezes"),("pieces","pieces"),("patch","patch"),("unspecified","unspecified"))
 
 class NewUserForm(forms.Form):
     picture = forms.ImageField()
@@ -240,8 +243,9 @@ class Addusermedication(forms.Form):
                                                                 )), Drugs.objects.all())
         self.fields['medicine'].choices = choices
 
-    medicine = forms.ChoiceField(widget=forms.Select(attrs={'class': "form-control mdb-select"}), )
+    medicine = forms.ChoiceField(widget=forms.Select(attrs={'class': "mdb-select", 'searchable':"Search here.."}), )
     dosage = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    strength = forms.ChoiceField( choices= Strength, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     refill_date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
 

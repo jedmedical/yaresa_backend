@@ -377,12 +377,13 @@ def user_medication(request,pk):
         usermedicationform = Addusermedication(request.POST)
         if usermedicationform.is_valid():
             dosage = usermedicationform.cleaned_data['dosage']
+            strength = usermedicationform.cleaned_data['strength']
             refill_date = usermedicationform.cleaned_data['refill_date']
             drug = usermedicationform.cleaned_data['medicine']
             medicine = Drugs.objects.get(id=drug)
 
             if medicine and dosage:
-                Medication(user=user,dosage=dosage,refill_date=refill_date,medicine=medicine).save()
+                Medication(user=user,dosage=dosage,strength=strength,refill_date=refill_date,medicine=medicine).save()
                 messages.success(request, "Medication Added")
 
 

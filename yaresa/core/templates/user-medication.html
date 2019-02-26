@@ -18,7 +18,7 @@
                    <form method="post">
                         {% csrf_token %}
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-6 offset-md-4">
    <div class="chip modalbtn lighten-4"><b>#</b>
     {{ user.unique_id }}
    </div>       
@@ -34,23 +34,24 @@
 				<label class="h4 title text-uppercase flex-center mt-5 mb-2">medications</label>
 			<br>
 			
-              <div class="row">   
-                <div class="col-md-3">
+              <div class="form-row">   
+                <div class="col-md-4 py-3">
+							<label class="control-label">Select Medicine</label>
+                           <div class="md-form form-group">
 
-                    <div class="md-form form-group">
-						   							<label for="id_medicine" class="control-label">Medicine</label>
-						   							{{ usermedicationform.medicine }}
+						        {{ usermedicationform.medicine }}
+
+                           </div>
+                 </div>
+                    <div class="col-md-4 py-5">
+
+                    <div class="md-form input-group mt-2">
+						 
+						 {{ usermedicationform.dosage }}<br>{{ usermedicationform.strength }}
                     </div>
                 </div>
-                    <div class="col-md-3">
 
-                    <div class="md-form form-group">
-						   							<label for="id_dosage" class="control-label">Dosage</label>
-						   							{{ usermedicationform.dosage }}
-                    </div>
-                </div>
-
-                <div class="col-md-3">
+                <div class="col-md-4 py-5">
 
                 <div class="md-form form-group">
                 <label for="id_refill_date" class="control-label">Refill date</label>
@@ -58,13 +59,10 @@
                 </div>
                 </div>
 
-                <div class="col-md-3">
-
-                        <button class="btn btn-rounded modalbtn" type="submit">Add Medication</button>
-                </div>
-
-
-
+             </div>
+			 
+			 <div class="col-md-3 pb-4 offset-md-5">
+                   <button class="btn btn-rounded modalbtn" type="submit">Add Medication</button>
                 </div>
                        </form>
             </div>
@@ -107,7 +105,7 @@
                         <tr>
 
                                 <td>{{ medicine.medicine }}</td>
-								<td>{{ medicine.dosage}}</td>
+								<td>{{ medicine.dosage}} {{ medicine.strength }}</td>
                                 <td>{{ medicine.refill_date }}</td>
 								 <td>
                                 <div class="btn-group">
