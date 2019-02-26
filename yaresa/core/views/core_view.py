@@ -166,13 +166,16 @@ def add_medical_info(request,pk):
                     dosage = new_medical.cleaned_data['dosage']
                     refill_date = new_medical.cleaned_data['refill_date']
                     if medicine and refill_date:
-                        Medication(user=user,medicine=medicine,dosage=dosage,refill_date=refill_date).save()
+                        drug = Drugs.objects.get(id=medicine)
+                        Medication(user=user,medicine=drug,dosage=dosage,refill_date=refill_date).save()
 
 
                     medicine1 = new_medical.cleaned_data.get('medicine_1')
                     dosage1 = new_medical.cleaned_data.get('dosage_1')
                     refill_date1 = new_medical.cleaned_data.get('refill_date_1')
                     if medicine1 and refill_date1:
+                        drug = Drugs.objects.get(id=medicine1)
+
                         Medication(user=user,medicine=medicine1,dosage=dosage1,refill_date=refill_date1).save()
 
                     allergy_name = new_medical.cleaned_data['allergy_name']
@@ -383,7 +386,9 @@ def user_medication(request,pk):
             medicine = Drugs.objects.get(id=drug)
 
             if medicine and dosage:
-                Medication(user=user,dosage=dosage,strength=strength,refill_date=refill_date,medicine=medicine).save()
+                drug = Drugs.objects.get(id=medicine)
+                Medication(user=user, medicine=drug, strength=strength,dosage=dosage, refill_date=refill_date).save()
+
                 messages.success(request, "Medication Added")
 
 
