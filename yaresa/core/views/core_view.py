@@ -387,7 +387,7 @@ def user_medication(request,pk):
 
             if medicine and dosage:
 
-                Medication(user=user, medicine=drug, strength=strength,dosage=dosage, refill_date=refill_date).save()
+                Medication(user=user, medicine=medicine, strength=strength,dosage=dosage, refill_date=refill_date).save()
 
                 messages.success(request, "Medication Added")
 
