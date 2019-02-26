@@ -386,7 +386,7 @@ def user_medication(request,pk):
             medicine = Drugs.objects.get(id=drug)
 
             if medicine and dosage:
-                drug = Drugs.objects.get(id=medicine)
+
                 Medication(user=user, medicine=drug, strength=strength,dosage=dosage, refill_date=refill_date).save()
 
                 messages.success(request, "Medication Added")

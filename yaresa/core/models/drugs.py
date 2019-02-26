@@ -8,3 +8,8 @@ __author__ = 'sam'
 
 class Drugs(models.Model):
     name = models.CharField(max_length=255, null=True)
+
+
+
+    def __str__(self):
+        return '{}'.format(self.name,)
