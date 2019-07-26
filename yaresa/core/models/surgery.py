@@ -11,4 +11,5 @@ class Surgery(BaseModel):
     name = models.CharField(max_length=255,null=True)
     doctor = models.CharField(max_length=255, null=True)
     hospital = models.CharField(max_length=255, null=True)
+    docs_comments = models.CharField(max_length=3000, null=True)
     date = models.DateField()

@@ -6,7 +6,7 @@ from datetime import date
 from yaresa import settings
 
 sex = (("Male", "MALE"), ("Female", "FEMALE"))
-marital = (("Married", "MARRIED"), ("Single", "SINGLE"))
+marital = (("Married", "MARRIED"), ("Single", "SINGLE"), ("Divorced", "DIVORCED"), ("Widowed", "WIDOWED"))
 
 class AuthUserDemographic(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)

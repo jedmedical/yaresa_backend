@@ -27,7 +27,7 @@
  </div>
                 </div>
 			</div>
-            <div class="row">
+            <div class="form-row">
                  <div class="col-md-3">
 
                     <div class="md-form form-group">
@@ -61,13 +61,27 @@
 
 
 
-                <div class="col-md-2 offset-md-5">
+             </div>
+			 <div class="form-row">
+			  
+			  
+			  <div class="col-md-8 offset-md-2 py-2">
+                           <div class="md-form shadow-textarea form-group">
+							<i class="fa fa-pencil prefix pr-3"></i>
+                                <label for="id_docs_comments" class="control-label pl-3">Comments On Surgery</label>
+
+						        {{ usersurgeryform.docs_comments }}
+
+                           </div>
+                        </div>
+			  
+			  </div>
+			 
+			 
+			 
+			 <div class="col-md-2 offset-md-5">
 
                         <button class="btn btn-rounded modalbtn" type="submit">Add Surgery</button>
-                </div>
-
-
-
                 </div>
                        </form>
             </div>

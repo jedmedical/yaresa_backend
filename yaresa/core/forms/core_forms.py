@@ -5,17 +5,19 @@ from core.models import Partners, Organization, Drugs
 
 __author__ = 'andrews'
 
-Title = (("Mr", "Mr"), ("Mrs", "Mrs"),("Dr", "Dr"),("Miss","Miss"),("Ms","Ms"),("Prof","Prof"),("Pr","Pr"),("Rev.","Rev."),
-        ("Nana","Nana"))
+Title = (("Mr.", "Mr."), ("Mrs.", "Mrs."),("Dr.", "Dr."),("Miss","Miss"),("Ms","Ms"),("Prof","Prof"),("Pr","Pr"),("Rev.","Rev."),
+         ("Prof Dr.","Prof Dr."),("Nana","Nana"))
 Sex = (("Male", "Male"), ("Female", "Female"))
-Marital_status = (("Single","Single"),("Married","Married"))
+Marital_status = (("Single","Single"),("Married","Married"),("Divorced","Divorced"),("Widowed","Widowed"))
 Blood_Group = (("A+","A+"),("B+","B+"),("AB+","AB+"),("O+","O+"),("A-","A-"),("B-","B-"),("AB-","AB-"),("O-","O-"))
 Sickling_Status = (("AA","AA"),("AS","AS"),("SS","SS"),("SC","SC"))
 G6pd = (("Normal","Normal"),("Partial Defect","Partial Defect"),("Full Defect","Full Defect"))
 true_or_false = (("Yes","Yes"),("No","No"))
-allergytype = (("Drug Allergy","Drug Allergy"),("Food Allergy","Food Allergy"),("Others","Others"))
+allergytype = (("Drug Allergy","Drug Allergy"),("Others","Others"))
 Strength = (("mg","mg"),("cc","cc"),("ml","ml"),("gr","gr"),("tbsp","tbsp"),("tsp","tsp"),("drops","drops"),
             ("squeezes","squeezes"),("pieces","pieces"),("patch","patch"),("unspecified","unspecified"))
+Organa = (("Diagnostic/Imaging","Diagnostic/Imaging"),("Hospital","Hospital"),("Laboratory","Laboratory"),("Pharmacy","Pharmacy"),
+          ("Physio Centre","Physio Centre"))
 
 class NewUserForm(forms.Form):
     picture = forms.ImageField()
@@ -104,8 +106,17 @@ class NewUserMedicalHistoryForm(forms.Form):
                                       widget=forms.TextInput(attrs={'class': "form-control"}), )
     other_condition_3 = forms.CharField(max_length=255, required=False,
                                       widget=forms.TextInput(attrs={'class': "form-control"}), )
-    medicine = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+
+    def __init__(self, data=None, initial=None, instance=None):
+        super(NewUserMedicalHistoryForm, self).__init__(data=data, initial=initial, )
+
+        choices = map(lambda drug: (drug.id, '{}'.format(drug.name,
+                                                                )), Drugs.objects.all())
+        self.fields['medicine'].choices = choices
+
+    medicine = forms.ChoiceField(widget=forms.Select(attrs={'class': "mdb-select", 'searchable':"Search here.."}), )
     dosage = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': "form-control"}),)
+    strength = forms.ChoiceField(choices=Strength, required=True, widget=forms.Select(attrs={'class': " mdb-select"}), )
     refill_date = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
 
@@ -142,6 +153,7 @@ class NewUserMedicalHistoryForm(forms.Form):
     surgery_name = forms.CharField( required=False,max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
     surgery_doctor = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
     surgery_hospital = forms.CharField(required=False, max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
 
     surgery_date_1 = forms.DateField( required=False,widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
@@ -253,6 +265,7 @@ class Addusersurgery(forms.Form):
     name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
     doctor = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
     hospital = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+    docs_comments = forms.CharField(required=False, max_length=3000,widget=forms.Textarea(attrs={'class': "form-control md-textarea", 'rows': 3}), )
     date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
 
@@ -368,19 +381,20 @@ class Addprostatetest(forms.Form):
     psa_scan = forms.ImageField()
 
 class Addorganization(forms.Form):
-    type = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    type = forms.ChoiceField( choices= Organa, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     name = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     address = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    telephone = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    reps_contact = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    reps_email = forms.EmailField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
 
 
 class PatientTransferForm(forms.Form):
     def __init__(self, data=None,  initial=None, instance=None):
         super(PatientTransferForm, self).__init__(data=data, initial=initial, )
 
-        choices = map(lambda partner: (partner.id, '{} {} {}'.format(partner.first_name,
-                                                                   partner.other_name,
-                                                                   partner.surname)),Partners.objects.all())
+        choices = map(lambda partner: (partner.id, '{} {} {} {}'.format(partner.title, partner.first_name,
+                                                                        partner.other_name,
+                                                                        partner.surname)),Partners.objects.all())
         self.fields['partner'].choices = choices
 
     partner = forms.ChoiceField(  required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)

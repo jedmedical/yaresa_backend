@@ -229,24 +229,25 @@
                   		    <div class="col-md-10" id="extramed">
                                 <div class="row">
                                 <div class="col-md-4">
+								<label style="margin-bottom:-15px;">Medicine Name</label>
                            <div class="md-form form-group">
-                                <label for="id_medicine" class="control-label">Medicine Name</label>
+                                
 
 						        {{ new_medical.medicine }}
 
                            </div>
                                 </div>
 
-                                        <div class="col-md-4">
-                           <div class="md-form form-group">
-                                <label for="id_dosage" class="control-label">Dosage</label>
-
-						        {{ new_medical.dosage }}
-
-                           </div>
+                                <div class="col-md-4">
+								<label>Dosage</label>	
+                                <div class="md-form input-group">
+						 
+								{{ new_medical.dosage }}{{ new_medical.strength }}
+								</div>
+                           
                                 </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 pt-4">
                            <div class="md-form form-group">
                                 <label for="id_refill_date" class="control-label">Refill Date</label>
 
@@ -257,6 +258,8 @@
 
                                 </div>
                             </div>
+							
+							
     <div class="col-md-2">
 
         <button id="add-med" class="btn aqua-gradient btn-rounded">Add Medication</button>
@@ -314,6 +317,16 @@
                                 </div>
 
                                 </div>
+								<div class="col-md-10" id="extramed">
+								<div class="md-form shadow-textarea form-group">
+							<i class="fa fa-pencil prefix pr-3"></i>
+                                <label for="id_docs_comments" class="control-label pl-3">Comments On Surgery</label>
+
+						        {{ new_medical.docs_comments }}
+
+                           </div>
+							
+							</div>
                             </div>
     <div class="col-md-2">
 

@@ -162,21 +162,21 @@ def add_medical_info(request,pk):
                     if new_medical.cleaned_data.get('other_condition_3'):
                             Medical_history(user=user, condition=new_medical.cleaned_data.get('other_condition_3')).save()
 
-                    medicine = new_medical.cleaned_data['medicine']
+                    drug = new_medical.cleaned_data['medicine']
+                    medicine = Drugs.objects.get(id=drug)
                     dosage = new_medical.cleaned_data['dosage']
+                    strength = new_medical.cleaned_data['strength']
                     refill_date = new_medical.cleaned_data['refill_date']
                     if medicine and refill_date:
-                        drug = Drugs.objects.get(id=medicine)
-                        Medication(user=user,medicine=drug,dosage=dosage,refill_date=refill_date).save()
+                        Medication(user=user,medicine=medicine,dosage=dosage,strength=strength,refill_date=refill_date).save()
 
-
-                    medicine1 = new_medical.cleaned_data.get('medicine_1')
+                    drug = new_medical.cleaned_data.get('medicine_1')
+                    medicine1 = Drugs.objects.get(id=drug)
                     dosage1 = new_medical.cleaned_data.get('dosage_1')
+                    strength1 = new_medical.cleaned_data.get('strength_1')
                     refill_date1 = new_medical.cleaned_data.get('refill_date_1')
                     if medicine1 and refill_date1:
-                        drug = Drugs.objects.get(id=medicine1)
-
-                        Medication(user=user,medicine=medicine1,dosage=dosage1,refill_date=refill_date1).save()
+                        Medication(user=user,medicine=medicine1,dosage=dosage1,strength=strength1,refill_date=refill_date1).save()
 
                     allergy_name = new_medical.cleaned_data['allergy_name']
                     allergy_type = new_medical.cleaned_data['allergy_type']
@@ -197,8 +197,10 @@ def add_medical_info(request,pk):
                     surgery_name = new_medical.cleaned_data['surgery_name']
                     surgery_doctor = new_medical.cleaned_data['surgery_doctor']
                     surgery_hospital = new_medical.cleaned_data['surgery_hospital']
+                    docs_comments = new_medical.cleaned_data['docs_comments']
                     if surgery_name and surgery_date:
-                        Surgery(user=user,name=surgery_name,date=surgery_date,doctor=surgery_doctor,hospital=surgery_hospital).save()
+                        Surgery(user=user,name=surgery_name,date=surgery_date,doctor=surgery_doctor,hospital=surgery_hospital
+                                ,docs_comments=docs_comments).save()
 
                     surgery_date1 = new_medical.cleaned_data.get('surgery_date_1')
                     surgery_name1 = new_medical.cleaned_data.get('surgery_name_1')
@@ -387,7 +389,7 @@ def user_medication(request,pk):
 
             if medicine and dosage:
 
-                Medication(user=user, medicine=drug, strength=strength,dosage=dosage, refill_date=refill_date).save()
+                Medication(user=user, medicine=medicine, strength=strength,dosage=dosage, refill_date=refill_date).save()
 
                 messages.success(request, "Medication Added")
 
@@ -440,7 +442,9 @@ def user_surgery(request,pk):
     if request.method == "POST":
         usersurgeryform = Addusersurgery(request.POST)
         if usersurgeryform.is_valid():
-            Surgery(user=user, name=usersurgeryform.cleaned_data['name'], date=usersurgeryform.cleaned_data['date'], doctor=usersurgeryform.cleaned_data['doctor'], hospital=usersurgeryform.cleaned_data['hospital']).save()
+            Surgery(user=user, name=usersurgeryform.cleaned_data['name'], date=usersurgeryform.cleaned_data['date'],
+                    doctor=usersurgeryform.cleaned_data['doctor'], hospital=usersurgeryform.cleaned_data['hospital'],
+                    docs_comments=usersurgeryform.cleaned_data['docs_comments']).save()
             messages.success(request, "Surgery Added")
 
     usersurgeryform = Addusersurgery()
@@ -1056,10 +1060,12 @@ def add_organization(request):
             type = new_organization_form.cleaned_data['type']
             name = new_organization_form.cleaned_data['name']
             address = new_organization_form.cleaned_data['address']
-            telephone = new_organization_form.cleaned_data['telephone']
+            reps_contact = new_organization_form.cleaned_data['reps_contact']
+            reps_email = new_organization_form.cleaned_data['reps_email']
 
             try:
-                organization_info = Organization(type=type, name=name, address=address, telephone=telephone)
+                organization_info = Organization(type=type, name=name, address=address, reps_contact=reps_contact,
+                                                 reps_email=reps_email)
                 organization_info.save()
 
                 messages.success(request, "Organization Added")

@@ -33,7 +33,7 @@ class Partners(BaseModel):
     marital_status = models.CharField(max_length=255, choices=marital, default="Single")
 
     def __str__(self):
-        return '{} {} {}'.format(self.first_name, self.other_name, self.surname)
+        return '{} {} {} {}'.format(self.title,self.first_name, self.other_name, self.surname)
 
     def get_age(self):
         born = self.date_of_birth

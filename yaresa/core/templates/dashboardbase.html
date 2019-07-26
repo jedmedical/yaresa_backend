@@ -84,11 +84,11 @@
 
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="{% url 'core:new-generalsupervisor' %}" class="waves-effect">General Supervisor</a></li>
+                                    <li><a href="{% url 'core:new-generalsupervisor' %}" class="waves-effect">Add General Supervisor</a></li>
 									<li><a href="{% url 'core:supervisors-list' %}" class="waves-effect">View General Supervisors</a></li>
-                                    <li><a href="{% url 'core:new-doctor' %}" class="waves-effect">Doctor</a></li>
+                                    <li><a href="{% url 'core:new-doctor' %}" class="waves-effect">Add Doctor</a></li>
 									<li><a href="{% url 'core:doctors-list' %}" class="waves-effect">View Doctors</a></li>
-                                    <li><a href="{% url 'core:new-nurse' %}" class="waves-effect">Nurse</a></li>
+                                    <li><a href="{% url 'core:new-nurse' %}" class="waves-effect">Add Nurse</a></li>
 									<li><a href="{% url 'core:nurses-list' %}" class="waves-effect">View Nurses</a></li>
 
                                 </ul>
@@ -159,11 +159,11 @@
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-user"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="{% url 'core:new-generalsupervisor' %}" class="waves-effect">General Supervisor</a></li>
+                                    <li><a href="{% url 'core:new-generalsupervisor' %}" class="waves-effect">Add General Supervisor</a></li>
 									<li><a href="{% url 'core:supervisors-list' %}" class="waves-effect">View General Supervisors</a></li>
-                                    <li><a href="{% url 'core:new-doctor' %}" class="waves-effect">Doctor</a></li>
+                                    <li><a href="{% url 'core:new-doctor' %}" class="waves-effect">Add Doctor</a></li>
 									<li><a href="{% url 'core:doctors-list' %}" class="waves-effect">View Doctors</a></li>
-                                    <li><a href="{% url 'core:new-nurse' %}" class="waves-effect">Nurse</a></li>
+                                    <li><a href="{% url 'core:new-nurse' %}" class="waves-effect">Add Nurse</a></li>
 									<li><a href="{% url 'core:nurses-list' %}" class="waves-effect">View Nurses</a></li>
 
                                 </ul>
@@ -232,11 +232,11 @@
                         <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-user"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="{% url 'core:new-generalsupervisor' %}" class="waves-effect">General Supervisor</a></li>
+                                    <li><a href="{% url 'core:new-generalsupervisor' %}" class="waves-effect">Add General Supervisor</a></li>
 									<li><a href="{% url 'core:supervisors-list' %}" class="waves-effect">View General Supervisors</a></li>
-                                    <li><a href="{% url 'core:new-doctor' %}" class="waves-effect">Doctor</a></li>
+                                    <li><a href="{% url 'core:new-doctor' %}" class="waves-effect">Add Doctor</a></li>
 									<li><a href="{% url 'core:doctors-list' %}" class="waves-effect">View Doctors</a></li>
-                                    <li><a href="{% url 'core:new-nurse' %}" class="waves-effect">Nurse</a></li>
+                                    <li><a href="{% url 'core:new-nurse' %}" class="waves-effect">Add Nurse</a></li>
 									<li><a href="{% url 'core:nurses-list' %}" class="waves-effect">View Nurses</a></li>
 
                                 </ul>
@@ -493,7 +493,6 @@ $(document).ready(function() {
 
      $('#factorytable').DataTable()
 	  $('#anothertable').DataTable()
-
 var max_fields = 3; //maximum input boxes allowed
 var wrapper = $("#extracon"); //Fields wrapper
 var add_button = $("#add-condition"); //Add button ID
@@ -537,8 +536,9 @@ if(medx < medmax_fields){ //max input box allowed
 
         $(medwrapper).append('    <div class="row">\n' +
     '                                <div class="col-md-4">\n' +
+	' 								<label>Medicine Name</label>\n' +
     '                           <div class="md-form form-group">\n' +
-    '                                <label for="id_medicine_1" class="control-label">Medicine Name</label>\n' +
+    '\n' +                                
     '\n' +
     '\t\t\t\t\t\t        {{ new_medical.medicine_1 }}\n' +
     '\n' +
@@ -546,15 +546,16 @@ if(medx < medmax_fields){ //max input box allowed
     '                                </div>\n' +
     '                                    \n' +
     '                                        <div class="col-md-4">\n' +
-    '                           <div class="md-form form-group">\n' +
-    '                                <label for="id_dosage_1" class="control-label">Dosage</label>\n' +
+	'								<label>Dosage</label>\n' +
+    '                           <div class="md-form input-group mt-0">\n' +
     '\n' +
-    '\t\t\t\t\t\t        {{ new_medical.dosage_1 }}\n' +
+    '\n' +
+    '\t\t\t\t\t\t        {{ new_medical.dosage_1 }}{{ new_medical.strength_1 }}\n' +
     '\n' +
     '                           </div>\n' +
     '                                </div>\n' +
     '                                    \n' +
-    '                                        <div class="col-md-4">\n' +
+    '                                        <div class="col-md-4 mt-0 mb-0">\n' +
     '                           <div class="md-form form-group">\n' +
     '                                <label for="id_refill_date_1" class="control-label">Refill Date</label>\n' +
     '\n' +
@@ -644,6 +645,9 @@ $(surwrapper).append('<div class="row">\n' +
 // Escape any “rule” characters with an exclamation mark (!).
             format: 'yyyy-mm-dd',
             formatSubmit: 'yyyy-mm-dd'
+// `true` sets it to today. `false` removes any limits.
+			max: true
+			
         })
 surx++;
 //add input box
@@ -864,21 +868,21 @@ e.preventDefault(); $(this).parent('div').remove(); alex--;
 	 function your_fbs(){
 	 
 	 var fbs = document.getElementById('id_fbs_test_result').value;
-	 var saved_fbs = fbs + 'mmol/L';
+	 var saved_fbs = fbs + ' mmol/L';
 	 var low_fbs = "(LOW BLOOD SUGAR)";
 	 var normal_fbs = "(NORMAL)";
 	 var predia_fbs = "(PRE-DIABETES)";
 	 var high_fbs = "(DIABETES)";
 	 
-	 if (fbs < 3.89){
+	 if (fbs < 3.5){
 	 document.getElementById("fbs").style.color = "#0080fe";
 	 document.getElementById("fbs").value = (saved_fbs + " - "+low_fbs);
 	 
-	 }else if (fbs >= 3.89 && fbs < 5.60){
+	 }else if (fbs >= 3.5 && fbs < 6.6){
 	 document.getElementById("fbs").style.color = "#50c878";
 	 document.getElementById("fbs").value = (saved_fbs + " - "+normal_fbs);
 	 
-	 }else if (fbs >= 5.60 && fbs < 7){
+	 }else if (fbs >= 6.6 && fbs < 7){
 	 document.getElementById("fbs").style.color = "#fcd12a";
 	 document.getElementById("fbs").value = (saved_fbs + " - "+predia_fbs);
 	 

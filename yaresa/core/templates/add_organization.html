@@ -26,15 +26,16 @@
 
 				<div class="form-row">
 				     <div class="col-md-4 offset-md-2">
+							<label for="id_type" class="control-label">Type of Organization</label>
                            <div class="md-form form-group">
-                                <label for="id_type" class="control-label">Type of Organization</label>
+                                
 
 						        {{ new_organization_form.type }}
 
                            </div>
                                 </div>
 
-					 <div class="col-md-4">
+					 <div class="col-md-4 pt-4">
                            <div class="md-form form-group">
                                 <label for="id_name" class="control-label">Name of Organization</label>
 
@@ -48,7 +49,7 @@
 				
 				
 				<div class="form-row">
-				     <div class="col-md-4 offset-md-2">
+				     <div class="col-md-4">
                            <div class="md-form form-group">
                                 <label for="id_address" class="control-label">Ghana Post Address</label>
 
@@ -59,12 +60,21 @@
 
 					 <div class="col-md-4">
                            <div class="md-form form-group">
-                                <label for="id_telephone" class="control-label">Telephone Number</label>
+                                <label for="id_reps_contact" class="control-label">Contact Number</label>
 
-						        {{ new_organization_form.telephone }}
+						        {{ new_organization_form.reps_contact }}
 
                            </div>
                                 </div>	
+								
+					<div class="col-md-4">
+                           <div class="md-form form-group">
+                                <label for="id_reps_email" class="control-label">Contact Email</label>
+
+						        {{ new_organization_form.reps_email }}
+
+                           </div>
+                                </div>				
 					
 
 				</div>
