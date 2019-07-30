@@ -20,4 +20,5 @@ from core.models.organizations import Organization
 from core.models.partners import Partners
 from core.models.patient_partner_transfer import PatientPartnerTransfer
 from core.models.drugs import Drugs
+from core.models.conditions import Conditions
 

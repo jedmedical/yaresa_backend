@@ -1,7 +1,7 @@
 from django import forms
 import datetime as base_datetime
 
-from core.models import Partners, Organization, Drugs
+from core.models import Partners, Organization, Drugs, Conditions
 
 __author__ = 'andrews'
 
@@ -238,7 +238,14 @@ class NewUserMedicalHistoryForm(forms.Form):
 
 
 class Addusercondition(forms.Form):
-    condition = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    def __init__(self, data=None, initial=None, instance=None):
+        super(Addusercondition, self).__init__(data=data, initial=initial, )
+
+        choices = map(lambda condition: (condition.id, '{}'.format(condition.name,
+                                                                )), Conditions.objects.all())
+        self.fields['condition'].choices = choices
+
+    condition = forms.ChoiceField(widget=forms.Select(attrs={'class': "mdb-select", 'searchable': "Search here.."}), )
 
 
 class Adduserallergy(forms.Form):
@@ -402,4 +409,7 @@ class PatientTransferForm(forms.Form):
     remark = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
 
 class Adddrugform(forms.Form):
+    name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+
+class Addconditionform(forms.Form):
     name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )

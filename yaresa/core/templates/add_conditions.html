@@ -1,0 +1,59 @@
+{% extends 'dashboardbase.html' %}
+
+        {% block title %}New BP{% endblock %}
+
+        {% block content %}
+            {% load static %}
+
+
+    <div class="container-fluid">
+
+
+
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+         <div class="card">
+            <div class="container" style="margin-top: 20px">
+                   <form method="post">
+                        {% csrf_token %}
+
+
+			<label class="h4 title text-uppercase flex-center mt-5 mb-2">add conditions</label>
+			<br><br>
+
+
+
+				<div class="form-row">
+                <div class="col-md-4 offset-md-3">
+                  <div class="md-form form-group">
+						<label for="id_name" class="control-label">Name of Condition</label>
+						 {{ new_condition_form.name }}
+	  			  </div>
+
+			</div>
+
+				<div class="col-md-4">
+                        <button class="btn btn-rounded modalbtn" type="submit">Add Condition</button>
+				</div>
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+                       </form>
+            </div>
+                </div></div></div>
+
+
+    </div>
+    </div>
+{% endblock %}

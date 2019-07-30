@@ -7,12 +7,12 @@ from core.core_util import add_zeros
 from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy, \
     Addusermedication, Adduserbmi, Addbloodpressure, Addcontactus, Addusersurgery, Addfastbloodsugar, \
     Addfullbloodcount, Adduserlipidprofile, Adduserrenaltest, Adduserlivertest, Addprostatetest, Adduserurinetest, \
-    Addorganization, PatientTransferForm, NewPartnerForm, Adddrugform
+    Addorganization, PatientTransferForm, NewPartnerForm, Adddrugform, Addconditionform
 from core.fusioncharts import FusionCharts
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
     Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization, Partners, \
-    PatientPartnerTransfer, Drugs
+    PatientPartnerTransfer, Drugs, Conditions
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
@@ -346,8 +346,12 @@ def user_condition(request,pk):
     if request.method == "POST":
         userconditionform = Addusercondition(request.POST)
         if userconditionform.is_valid():
-            Medical_history(user=user,condition=userconditionform.cleaned_data['condition']).save()
-            messages.success(request,"Condition Added")
+            condition = userconditionform.cleaned_data['condition']
+            condition = Conditions.objects.get(id=condition)
+
+            if condition:
+                Medical_history(user=user,condition=condition).save()
+                messages.success(request,"Condition Added")
 
 
     userconditionform = Addusercondition()
@@ -1273,8 +1277,34 @@ def add_drugs(request):
     return render(request, 'add_drugs.html', context)
 
 
+@login_required(login_url='accounts/signin')
+def add_conditions(request):
 
+    if request.method == "POST":
+        new_condition_form = Addconditionform(request.POST)
 
+        if new_condition_form.is_valid():
+            name = new_condition_form.cleaned_data['name']
+
+            try:
+                conditions_info = Conditions(name=name)
+                conditions_info.save()
+
+                messages.success(request, "Condition Added")
+
+            except IntegrityError as e:
+                # if 'unique constraint' in e.args[0]:
+                messages.error(request, 'Condition already exist')
+
+        else:
+            print("Sam")
+
+            context = {'new_condition_form': new_condition_form}
+            return render(request, 'add_conditions.html', context)
+
+    new_condition_form = Addconditionform()
+    context = {'new_condition_form': new_condition_form}
+    return render(request, 'add_conditions.html', context)
 
 
 
