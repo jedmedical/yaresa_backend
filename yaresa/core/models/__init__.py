@@ -21,4 +21,5 @@ from core.models.partners import Partners
 from core.models.patient_partner_transfer import PatientPartnerTransfer
 from core.models.drugs import Drugs
 from core.models.conditions import Conditions
+from core.models.logging import Logging
 
