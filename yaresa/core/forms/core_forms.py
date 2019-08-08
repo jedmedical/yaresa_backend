@@ -1,7 +1,7 @@
 from django import forms
 import datetime as base_datetime
 
-from core.models import Partners, Organization, Drugs, Conditions
+from core.models import Partners, Organization, Drugs, Conditions, Speciality
 
 __author__ = 'andrews'
 
@@ -18,6 +18,13 @@ Strength = (("mg","mg"),("cc","cc"),("ml","ml"),("gr","gr"),("tbsp","tbsp"),("ts
             ("squeezes","squeezes"),("pieces","pieces"),("patch","patch"),("unspecified","unspecified"))
 Organa = (("Diagnostic/Imaging","Diagnostic/Imaging"),("Hospital","Hospital"),("Laboratory","Laboratory"),("Pharmacy","Pharmacy"),
           ("Physio Centre","Physio Centre"))
+Religion = (("Christianity","Christianity"),("Islam","Islam"),("Traditional","Traditional"),("Other","Other"),("None","None"))
+region_of_residence = (("Ahafo Region","Ahafo Region"),("Ashanti Region","Ashanti Region"),("Bono East Region","Bono East Region"),
+                       ("Bono Region","Bono Region"),("Central Region","Central Region"),("Eastern Region","Eastern Region"),
+                       ("Greater Accra Region","Greater Accra Region"),("Northern Region","Northern Region"),("North East Region","North East Region"),
+                       ("Oti Region","Oti Region"),("Savannah Region","Savannah Region"),("Upper East Region","Upper East Region"),
+                       ("Upper West Region","Upper West Region"),("Volta Region","Volta Region"),("Western Region","Western Region"),
+                       ("Western North Region","Western North Region"))
 
 class NewUserForm(forms.Form):
     picture = forms.ImageField()
@@ -31,9 +38,8 @@ class NewUserForm(forms.Form):
     date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
     nationality = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    religion = forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    religion = forms.ChoiceField( choices= Religion, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     marital_status = forms.ChoiceField(choices=Marital_status, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
-    speciality = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     hospital_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     mdc_certificate = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     role = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': "form-control"}), )
@@ -44,6 +50,22 @@ class NewUserForm(forms.Form):
     mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     emergency_contact_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     emergency_contact_mobile = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    emergency_contact_email = forms.EmailField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    emergency_contact_address = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    region_of_residence = forms.ChoiceField( choices= region_of_residence, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
+    denomination = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    city_and_town = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+
+    def __init__(self, data=None, initial=None, instance=None):
+        super(NewUserForm, self).__init__(data=data, initial=initial, )
+
+        choices = map(lambda specialist: (specialist.id, '{}'.format(specialist.name,
+                                                                )),Speciality.objects.all())
+        self.fields['speciality'].choices = choices
+
+    speciality = forms.ChoiceField(widget=forms.Select(attrs={'class': "mdb-select", 'searchable':"Search here.."}), )
+
+
 
 
 class NewPartnerForm(forms.Form):
@@ -68,9 +90,8 @@ class NewPartnerForm(forms.Form):
     date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker form-control'}),
                                   input_formats=["%Y-%m-%d"])
     nationality = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
-    religion = forms.CharField(max_length=255,required=False,widget=forms.TextInput(attrs={'class': "form-control"}),)
+    religion = forms.ChoiceField( choices=Religion, required=True,widget=forms.Select(attrs={'class': " mdb-select"}),)
     marital_status = forms.ChoiceField(choices=Marital_status, widget=forms.RadioSelect(attrs={'class': "form-check-input", }), required=False)
-    speciality = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     mdc_certificate = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     role = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class': "form-control"}), )
     certificate = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
@@ -80,6 +101,19 @@ class NewPartnerForm(forms.Form):
     mobile = forms.CharField(max_length=255,widget=forms.TextInput(attrs={'class': "form-control"}),)
     emergency_contact_name = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
     emergency_contact_mobile = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+    region_of_residence = forms.ChoiceField(choices=region_of_residence, required=True,widget=forms.Select(attrs={'class': " mdb-select"}), )
+    city_and_town = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
+
+    def __init__(self, data=None, initial=None, instance=None):
+        super(NewPartnerForm, self).__init__(data=data, initial=initial, )
+
+        choices = map(lambda specialist: (specialist.id, '{}'.format(specialist.name,
+                                                                )),Speciality.objects.all())
+        self.fields['speciality'].choices = choices
+
+    speciality = forms.ChoiceField(widget=forms.Select(attrs={'class': "mdb-select", 'searchable':"Search here.."}), )
+
+
 
 
 class NewUserMedicalHistoryForm(forms.Form):
@@ -412,4 +446,7 @@ class Adddrugform(forms.Form):
     name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
 
 class Addconditionform(forms.Form):
+    name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )
+
+class Addspecialityform(forms.Form):
     name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': "form-control"}), )

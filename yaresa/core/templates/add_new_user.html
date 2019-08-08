@@ -121,16 +121,41 @@
 				  </div>
 				 <div class="col-sm-4 py-2">
 				     <div class="md-form form-group">
-				     <label for="id_religion" class="control-label">Religion</label>
-				     {{ new_user_form.religion }}
+						 <label class="h5 text-uppercase"></label>
+						   	{{ new_user_form.region_of_residence }}
+						</div>
+				 </div>
+				 
+				 
+				 <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				     <label for="id_address" class="control-label"> City/Town of Residence</label>
+				     {{ new_user_form.city_and_town }}
 			         </div>
 				 </div>
-				 <div class="col-sm-4 py-2">
+			 </div>
+			 
+			 
+			 <div class="form-row">
+				<div class="col-sm-4 py-2">
 				     <div class="md-form form-group">
 				     <label for="id_address" class="control-label">Digital Address (GP Code)</label>
 				     {{ new_user_form.address }}
 			         </div>
 				 </div>
+			 
+				<div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+						 <label class="h5 text-uppercase"></label>
+						   	{{ new_user_form.religion }}
+						</div>
+				 </div>
+				 <div class="col-sm-4 py-2">
+				     <div class="md-form form-group">
+				    <label for="id_nationality" class="control-label">Denomination</label>
+				    {{ new_user_form.denomination }}
+			        </div>
+				  </div>
 			 </div>
 
 				  <div class="form-row">
@@ -156,16 +181,28 @@
 
 				  <label class="h5 grey-text text-uppercase">Emergency Contact:</label>
 				  <div class="form-row">
-				   <div class="col-sm-4">
+				   <div class="col-sm-3">
 				     <div class="md-form form-group">
 				     <label for="id_emergency_contact_name"class="control-label">Name</label>
 				     {{ new_user_form.emergency_contact_name }}
 			         </div>
 				 </div>
-				 <div class="col-sm-4">
+				 <div class="col-sm-3">
 				     <div class="md-form form-group">
 				     <label for = "id_emergency_contact_mobile" class="control-label">Mobile</label>
 				    {{ new_user_form.emergency_contact_mobile }}
+			         </div>
+				 </div>
+				 <div class="col-sm-3">
+				     <div class="md-form form-group">
+				     <label for = "id_emergency_contact_address" class="control-label">Address</label>
+				    {{ new_user_form.emergency_contact_address }}
+			         </div>
+				 </div>
+				 <div class="col-sm-3">
+				     <div class="md-form form-group">
+				     <label for = "id_emergency_contact_email" class="control-label">Email</label>
+				    {{ new_user_form.emergency_contact_email }}
 			         </div>
 				 </div>
 			 </div>
@@ -175,10 +212,10 @@
 				<hr>
              <div class="row">
 			   <div class="col-sm-3 offset-sm-3" style="margin-bottom: 20px;">
-			     <button type="submit" class="btn btn-rounded btn-yellow btn-lg waves-effect waves-light" id="button"><i class="fa fa-heart mr-2"></i>Register</button>
+			     <button type="submit" class="btn btn-rounded btn-yellow btn-lg waves-effect waves-light" id="button"><i class="fa fa-pencil mr-2"></i>Register</button>
 		       </div>
 				<div class="col-sm-3" style="margin-bottom: 20px;">
-					<button type="reset" class="btn btn-rounded btn-outline-yellow btn-lg waves-effect waves-light" id="button">Reset Form</button><br>
+					<button type="reset" class="btn btn-rounded btn-outline-yellow btn-lg waves-effect waves-light" id="button"><i class="fa fa-wpforms mr-2"></i>Reset Form</button><br>
 				</div>
 			 </div>
 

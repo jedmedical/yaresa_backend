@@ -7,12 +7,12 @@ from core.core_util import add_zeros
 from core.forms.core_forms import NewUserForm, NewUserMedicalHistoryForm, Addusercondition, Adduserallergy, \
     Addusermedication, Adduserbmi, Addbloodpressure, Addcontactus, Addusersurgery, Addfastbloodsugar, \
     Addfullbloodcount, Adduserlipidprofile, Adduserrenaltest, Adduserlivertest, Addprostatetest, Adduserurinetest, \
-    Addorganization, PatientTransferForm, NewPartnerForm, Adddrugform, Addconditionform
+    Addorganization, PatientTransferForm, NewPartnerForm, Adddrugform, Addconditionform, Addspecialityform
 from core.fusioncharts import FusionCharts
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
     Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization, Partners, \
-    PatientPartnerTransfer, Drugs, Conditions
+    PatientPartnerTransfer, Drugs, Conditions, Speciality
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
@@ -54,6 +54,11 @@ def add_new_user(request):
             mobile = new_user_form.cleaned_data['mobile']
             emergency_contact_name = new_user_form.cleaned_data['emergency_contact_name']
             emergency_contact_mobile = new_user_form.cleaned_data['emergency_contact_mobile']
+            emergency_contact_email = new_user_form.cleaned_data['emergency_contact_email']
+            emergency_contact_address = new_user_form.cleaned_data['emergency_contact_address']
+            region_of_residence = new_user_form.cleaned_data["region_of_residence"]
+            denomination = new_user_form.cleaned_data["denomination"]
+            city_and_town = new_user_form.cleaned_data["city_and_town"]
             # blood_group = new_user_form.cleaned_data['blood_group']
             # sickling_status = new_user_form.cleaned_data['sickling_status']
             # g6pd = new_user_form.cleaned_data['g6pd']
@@ -76,8 +81,9 @@ def add_new_user(request):
                                                 marital_status=marital_status,address=address,
                                                 occupation=occupation,emergency_contact_name=emergency_contact_name,
                                                 emergency_contact_mobile=emergency_contact_mobile,
-                                                mobile=mobile
-
+                                                mobile=mobile,emergency_contact_address=emergency_contact_address,
+                                                emergency_contact_email=emergency_contact_email,denomination=denomination,
+                                                region_of_residence=region_of_residence,city_and_town=city_and_town
                                                 )
 
 
@@ -855,9 +861,10 @@ def add_doctor(request):
 
             email = new_user_form.cleaned_data['email']
             mobile = new_user_form.cleaned_data['mobile']
-            speciality = new_user_form.cleaned_data['speciality']
             hospital_name = new_user_form.cleaned_data['hospital_name']
             mdc_certificate = new_user_form.cleaned_data['mdc_certificate']
+            specialist = new_user_form.cleaned_data['speciality']
+            speciality = Speciality.objects.get(id=specialist)
             # blood_group = new_user_form.cleaned_data['blood_group']
             # sickling_status = new_user_form.cleaned_data['sickling_status']
             # g6pd = new_user_form.cleaned_data['g6pd']
@@ -932,7 +939,8 @@ def add_nurse(request):
 
             email = new_user_form.cleaned_data['email']
             mobile = new_user_form.cleaned_data['mobile']
-            speciality = new_user_form.cleaned_data['speciality']
+            specialist = new_user_form.cleaned_data['speciality']
+            speciality = Speciality.objects.get(id=specialist)
             mdc_certificate = new_user_form.cleaned_data['mdc_certificate']
 
 
@@ -1116,6 +1124,10 @@ def add_partners(request):
             mobile = new_user_form.cleaned_data['mobile']
             role = new_user_form.cleaned_data['role']
             certificate = new_user_form.cleaned_data['certificate']
+            region_of_residence = new_user_form.cleaned_data['region_of_residence']
+            city_and_town = new_user_form.cleaned_data['city_and_town']
+            specialist = new_user_form.cleaned_data['speciality']
+            speciality = Speciality.objects.get(id=specialist)
             organ = new_user_form.cleaned_data['organization']
             organization = Organization.objects.get(id=organ)
 
@@ -1137,7 +1149,8 @@ def add_partners(request):
                                                 nationality=nationality, religion=religion,
                                                 marital_status=marital_status, address=address,
                                                 mobile=mobile, role=role, certificate=certificate,
-                                                organization=organization
+                                                organization=organization,region_of_residence=region_of_residence,
+                                     city_and_town=city_and_town,speciality=speciality
 
 
                                                 )
@@ -1305,6 +1318,36 @@ def add_conditions(request):
     new_condition_form = Addconditionform()
     context = {'new_condition_form': new_condition_form}
     return render(request, 'add_conditions.html', context)
+
+
+@login_required(login_url='accounts/signin')
+def add_speciality(request):
+
+    if request.method == "POST":
+        new_speciality_form = Addspecialityform(request.POST)
+
+        if new_speciality_form.is_valid():
+            name = new_speciality_form.cleaned_data['name']
+
+            try:
+                speciality_info = Speciality(name=name)
+                speciality_info.save()
+
+                messages.success(request, "Speciality Added")
+
+            except IntegrityError as e:
+                # if 'unique constraint' in e.args[0]:
+                messages.error(request, 'Speciality already exist')
+
+        else:
+            print("Sam")
+
+            context = {'new_speciality_form': new_speciality_form}
+            return render(request, 'add_speciality.html', context)
+
+    new_speciality_form = Addspecialityform()
+    context = {'new_speciality_form': new_speciality_form}
+    return render(request, 'add_speciality.html', context)
 
 
 

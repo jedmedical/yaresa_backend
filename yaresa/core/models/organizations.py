@@ -14,4 +14,6 @@ class Organization(models.Model):
     reps_contact = models.CharField(max_length=255, null=True)
     reps_email = models.CharField(max_length=255, null=True)
 
-         
+
+    def __str__(self):
+        return '{} {}'.format(self.type, self.name)

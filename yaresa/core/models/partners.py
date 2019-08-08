@@ -10,6 +10,15 @@ from yaresa import settings
 
 sex = (("Male", "MALE"), ("Female", "FEMALE"))
 marital = (("Married", "MARRIED"), ("Single", "SINGLE"))
+religion = (("Christianity","Christianity"),("Islam","Islam"),("Traditional","Traditional"),("Other","Other"),("None","None"))
+region_of_residence = (("Ahafo Region","Ahafo Region"),("Ashanti Region","Ashanti Region"),("Bono East Region","Bono East Region"),
+                       ("Bono Region","Bono Region"),("Central Region","Central Region"),("Eastern Region","Eastern Region"),
+                       ("Greater Accra Region","Greater Accra Region"),("Northern Region","Northern Region"),("North East Region","North East Region"),
+                       ("Oti Region","Oti Region"),("Savannah Region","Savannah Region"),("Upper East Region","Upper East Region"),
+                       ("Upper West Region","Upper West Region"),("Volta Region","Volta Region"),("Western Region","Western Region"),
+                       ("Western North Region","Western North Region"))
+
+
 class Partners(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     picture = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
@@ -21,8 +30,8 @@ class Partners(BaseModel):
     sex = models.CharField(max_length=255,choices=sex,verbose_name="Gender",default="Male")
     date_of_birth = models.DateField(verbose_name="Date of Birth")
     nationality = models.CharField(max_length=255,null=True)
-    religion = models.CharField(max_length=255,null=True)
-    address = models.CharField(max_length=255,null=True)
+    religion = models.CharField(max_length=255, choices=religion, null=True)
+    address = models.CharField(max_length=255,blank=True,null=True)
     email = models.EmailField(null=True)
     mobile = models.CharField(max_length=255,null=True)
     first_login = models.BooleanField(default=True)
@@ -31,6 +40,8 @@ class Partners(BaseModel):
     certificate = models.CharField(max_length=255,null=True)
     role = models.CharField(max_length=225,null=True)
     marital_status = models.CharField(max_length=255, choices=marital, default="Single")
+    region_of_residence = models.CharField(max_length=255, choices=region_of_residence, null=True)
+    city_and_town = models.CharField(max_length=225, null=True)
 
     def __str__(self):
         return '{} {} {} {}'.format(self.title,self.first_name, self.other_name, self.surname)
