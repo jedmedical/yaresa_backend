@@ -8,6 +8,8 @@ from core.views.core_view import dashboard, add_new_user, add_medical_info, user
 from core.views.home_views import index, signin, sign_out
 from django.conf.urls import url
 
+from core.views.logging.logging_views import my_activities
+
 __author__ = 'andrews'
 
 
@@ -63,5 +65,7 @@ urlpatterns = [
     url(r'^add-drugs', add_drugs, name="new-drug"),
     url(r'^add-conditions', add_conditions, name="new-condition"),
     url(r'^add-speciality', add_speciality, name="new-speciality"),
+
+    url(r'^logging/my-activity', my_activities, name="my_activities"),
 
 ]

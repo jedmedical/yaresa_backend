@@ -1,3 +1,4 @@
+from core.core_util import get_object_or_none
 from core.models.base_model import BaseModel
 from django.contrib.auth.models import User, Group
 from django.db import models
@@ -70,10 +71,17 @@ class AuthUserDemographic(BaseModel):
         today = date.today()
         return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
-
     @property
     def get_absolute_image_url(self):
         return "{0}{1}".format(settings.MEDIA_URL, self.picture.url)
+
+    @classmethod
+    def get_auth_user_by_id(cls,id):
+        user = get_object_or_none(User,id=id)
+        return get_object_or_none(cls,user=user)
+
+
+
 
 
 
