@@ -63,7 +63,7 @@ class NewUserForm(forms.Form):
                                                                 )),Speciality.objects.all())
         self.fields['speciality'].choices = choices
 
-    speciality = forms.ChoiceField(widget=forms.Select(attrs={'class': "mdb-select", 'searchable':"Search here.."}), )
+    speciality = forms.ChoiceField(required=False,widget=forms.Select(attrs={'class': "mdb-select", 'searchable':"Search here.."}), )
 
 
 
@@ -104,6 +104,9 @@ class NewPartnerForm(forms.Form):
     region_of_residence = forms.ChoiceField(choices=region_of_residence, required=True,widget=forms.Select(attrs={'class': " mdb-select"}), )
     city_and_town = forms.CharField(max_length=255, required=False,widget=forms.TextInput(attrs={'class': "form-control"}), )
 
+    speciality = forms.ChoiceField(required=False, widget=forms.Select(
+        attrs={"required": "False", 'class': "mdb-select", 'searchable': "Search here.."}), )
+
     def __init__(self, data=None, initial=None, instance=None):
         super(NewPartnerForm, self).__init__(data=data, initial=initial, )
 
@@ -111,7 +114,6 @@ class NewPartnerForm(forms.Form):
                                                                 )),Speciality.objects.all())
         self.fields['speciality'].choices = choices
 
-    speciality = forms.ChoiceField(widget=forms.Select(attrs={'class': "mdb-select", 'searchable':"Search here.."}), )
 
 
 

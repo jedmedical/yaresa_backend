@@ -105,7 +105,6 @@ def add_new_user(request):
                 # if 'unique constraint' in e.args[0]:
                     messages.error(request, 'User already exist')
 
-
         context = {'new_user_form':new_user_form}
         return render(request,'add_new_user.html',context)
 
