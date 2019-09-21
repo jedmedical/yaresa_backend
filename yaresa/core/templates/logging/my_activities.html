@@ -13,9 +13,53 @@
 	<div class="container">
 	  <div class="row">
 		<div class="col-md-12">
-         <div class="card">
-           
-                </div></div></div>
+
+
+            <div class="container" style="background: white">
+    <div class="page-header">
+        <h1 id="timeline">Activities</h1>
+    </div>
+    <ul class="timeline">
+
+        {% for my_activity in my_activities %}
+
+
+
+            {% if forloop.counter|divisibleby:2 %}
+                   <li class="timeline-inverted">
+                      <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title">{{ my_activity.created_at }}</h4>
+                        </div>
+                        <div class="timeline-body">
+                          <p>{{ my_activity.action }}</p>
+                           </div>
+                      </div>
+                    </li>
+
+            {% else %}
+
+                       <li>
+                          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                          <div class="timeline-panel">
+                            <div class="timeline-heading">
+                              <h4 class="timeline-title">{{ my_activity.created_at }}</h4>
+                              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+                            </div>
+                            <div class="timeline-body">
+                              <p>{{ my_activity.action }}</p>
+                            </div>
+                          </div>
+                       </li>
+            {% endif %}
+
+        {% endfor %}
+
+    </ul>
+</div>
+
+        </div></div>
 
 
     </div>

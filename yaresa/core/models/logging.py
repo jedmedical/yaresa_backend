@@ -9,12 +9,13 @@ class Logging(BaseModel):
     affected_user = models.ForeignKey(AuthUserDemographic, on_delete=models.CASCADE)
     action = models.CharField(max_length= 200,null=True)
     reference_db = models.CharField(max_length=255,null=True)
+    transaction_id = models.CharField(max_length=255, null=True)
 
     @classmethod
-    def create_logging(cls,actor_id,affected_user_id,action,reference_db):
+    def create_logging(cls,actor_id,affected_user_id,action,reference_db,transaction_id):
         log = cls(actor=AuthUserDemographic.get_auth_user_by_id(actor_id),
                   affected_user=AuthUserDemographic.get_auth_user_by_id(affected_user_id),
-                  action=action,reference_db=reference_db)
+                  action=action,reference_db=reference_db,transaction_id=transaction_id)
         return log.save()
 
     @classmethod

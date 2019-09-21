@@ -12,7 +12,7 @@ from core.fusioncharts import FusionCharts
 from core.models import AuthUserDemographic, Med_graphic, Height, Weight, Blood_Pressure, Medical_history, Medication, \
     Allergy, Social_history, Surgery, Contactus, Fasting_blood_sugar, Full_blood_count, Lipid_profile, \
     Renal_function_test, Liver_function_test, Prostate_specific_antigen, Urine_test, Organization, Partners, \
-    PatientPartnerTransfer, Drugs, Conditions, Speciality
+    PatientPartnerTransfer, Drugs, Conditions, Speciality, Logging
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.db import IntegrityError
@@ -96,15 +96,14 @@ def add_new_user(request):
 
                 sendsms(request,mobile,pin)
 
+                Logging.create_logging(request.user.id,user.id,"Added new patient",AuthUserDemographic.__name__,user_info.id)
+
 
 
                 return redirect("add-medi-info/{}".format(user_info.id))
             except IntegrityError as e:
                 # if 'unique constraint' in e.args[0]:
                     messages.error(request, 'User already exist')
-
-
-
 
 
         context = {'new_user_form':new_user_form}
@@ -131,14 +130,23 @@ def add_medical_info(request,pk):
                                              sickling_status=sickling_status,
                                              g6pd_status=g6pd)
                     medi_graph.save()
+                    Logging.create_logging(request.user.id, user.user.id, "Added Medi-graph of patient",
+                                           Med_graphic.__name__,medi_graph.id)
 
                     height = new_medical.cleaned_data['height']
                     weight = new_medical.cleaned_data['weight']
                     systolic = new_medical.cleaned_data['systolic']
                     diastolic = new_medical.cleaned_data['diastolic']
 
-                    Height(user=user,height=height).save()
-                    Weight(user=user,weight=weight).save()
+                    theight = Height(user=user,height=height).save()
+                    Logging.create_logging(request.user.id, user.id, "Added height of patient",
+                                           Height.__name__,theight.id)
+
+                    tweight = Weight(user=user,weight=weight).save()
+
+                    Logging.create_logging(request.user.id, user.id, "Added weight of patient",
+                                           Weight.__name__,tweight.id)
+
                     Blood_Pressure(user=user,systolic=systolic,diastolic=diastolic).save()
 
                     diabetes_mellitus = new_medical.cleaned_data['diabetes_mellitus']
@@ -308,7 +316,6 @@ def add_medical_info(request,pk):
                     #     Urine_test(user=user,observation=observation,conclusion=conclusion,urine_test_date=urine_test_date,
                     #                next_urine_test=next_urine_test).save()
                     #
-
 
                     messages.success(request, "Medical Info added")
             except:
